@@ -1,0 +1,136 @@
+openapi: 3.0.3
+info:
+  title: API
+  description: OpenApi spec
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+  - url: http://localhost:8081
+security:
+  - token: [ ]
+tags:
+  - name: Home
+    description: Homepage
+  - name: Contact
+    description: Contact page
+  - name: Experience
+    description: Experience page
+  - name: Notepad
+    description: Notepad page
+paths:
+  /:
+    get:
+      tags:
+        - Home
+      summary: Get Homepage
+      description: Retrieve the homepage content.
+      responses:
+        '200':
+          description: Successful response with homepage content.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HomepageResponse'
+  /contact:
+    get:
+      tags:
+        - Contact
+      summary: Get Contact Page
+      description: Retrieve the contact page content.
+      responses:
+        '200':
+          description: Successful response with contact page content.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ContactPageResponse'
+  /experience:
+    get:
+      tags:
+        - Experience
+      summary: Get Experience Page
+      description: Retrieve the experience page content.
+      responses:
+        '200':
+          description: Successful response with experience page content.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExperiencePageResponse'
+  /notepad:
+    get:
+      tags:
+        - Notepad
+      summary: Get Notepad Page
+      description: Retrieve the notepad page content.
+      responses:
+        '200':
+          description: Successful response with notepad page content.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NotepadPageResponse'
+    post:
+      tags:
+        - Notepad
+      summary: Add Note
+      description: Add a note to the notepad.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NoteRequest'
+      responses:
+        '200':
+          description: Successful response after adding the note.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/NoteResponse'
+
+components:
+  schemas:
+    HomepageResponse:
+      type: object
+      properties:
+        content:
+          type: string
+    ContactPageResponse:
+      type: object
+      properties:
+        content:
+          type: string
+    ExperiencePageResponse:
+      type: object
+      properties:
+        content:
+          type: string
+    Note:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        content:
+          type: string
+    NotepadPageResponse:
+      type: object
+      properties:
+        notes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Note'
+    NoteRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+    NoteResponse:
+      type: object
+      properties:
+        message:
+          type: string
