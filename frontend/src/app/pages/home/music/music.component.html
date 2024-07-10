@@ -1,0 +1,46 @@
+<section class="music">
+  <div class="card">
+    <div class="player-logo">
+      <img ngSrc="assets/img/retro-computer.png" height="100" width="100">
+    </div>
+    <div class="date">
+      {{ currentTime }}
+    </div>
+
+    <div class="controls">
+      <div class="control">
+        <div class="label">Vol</div>
+        <div class="progress">
+          <div class="progress-bar" [style.width]="volProgress + '%'"></div>
+        </div>
+      </div>
+      <div class="control">
+        <div class="label">Cpu</div>
+        <div class="progress">
+          <div class="progress-bar" [style.width]="cpuProgress + '%'"></div>
+        </div>
+      </div>
+      <div class="control">
+        <div class="label">Ram</div>
+        <div class="progress">
+          <div class="progress-bar" [style.width]="ramProgress + '%'"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="music-player">
+      <img [src]="'assets/img/' + currentSong.img + '.png'" height="100" width="100">
+      <audio #audio controls hidden [src]="currentSong.path"></audio>
+      <div class="info">
+        <p>{{ currentSong.title }}</p>
+        <div class="controls">
+          <button (click)="prev()"><i class="fa fa-step-backward" aria-hidden="true"></i></button>
+          <button (click)="playPause()">
+            <i [ngClass]="isPlaying ? 'fa fa-pause' : 'fa fa-play'" aria-hidden="true"></i>
+          </button>
+          <button (click)="next()"><i class="fa fa-step-forward" aria-hidden="true"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

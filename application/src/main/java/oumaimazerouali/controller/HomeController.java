@@ -1,15 +1,18 @@
 package oumaimazerouali.controller;
 
-import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import oumaimazerouali.model.HomepageResponse;
 
 @RestController
-public class HomeController implements HomeApi{
-    @Override
-    public ResponseEntity<HomepageResponse> rootGet() {
-        HomepageResponse response = new HomepageResponse();
-        response.setContent("Welcome to the homepage!");
-        return ResponseEntity.ok(response);
+public class HomeController {
+
+    @GetMapping("/home")
+    public String getHomePage() {
+        return "Welcome to my website!";
+    }
+
+    @GetMapping("/about")
+    public String getAboutPage() {
+        return "About Me: I am [your name], a passionate developer.";
     }
 }

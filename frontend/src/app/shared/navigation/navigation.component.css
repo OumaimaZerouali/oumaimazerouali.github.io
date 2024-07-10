@@ -1,0 +1,37 @@
+.navigation {
+  margin: 15px;
+  border: var(--color-black) solid;
+
+  background-color: var(--color-grey);
+
+  font-family: "system-ui";
+  font-size: var(--font-size-14);
+  font-weight: var(--weight-600);
+  color: var(--color-black);
+
+  .items {
+    margin: 5px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .pages {
+      display: flex;
+      align-items: center;
+
+      .links {
+        a {
+          color: var(--color-black);
+
+          margin-left: 5px;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+
+
+
