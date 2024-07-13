@@ -13,8 +13,8 @@ export class HomeService {
     return this.http.get<string>(`${this.baseUrl}/home`);
   }
 
-  getAboutPageContent(): Observable<string> {
-    return this.http.get<string>(`${this.baseUrl}/about`);
+  getContactPageContent(): Observable<string> {
+    return this.http.get<string>(`${this.baseUrl}/contact`);
   }
 }
 

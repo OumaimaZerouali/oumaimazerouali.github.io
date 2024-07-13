@@ -11,8 +11,8 @@ public class HomeController {
         return "Welcome to my website!";
     }
 
-    @GetMapping("/about")
-    public String getAboutPage() {
-        return "About Me: I am [your name], a passionate developer.";
+    @GetMapping("/contact")
+    public String getContactPage() {
+        return "Contact page";
     }
 }

@@ -19,6 +19,7 @@
 
     .player-logo {
       border: var(--color-black) solid;
+      background-color: var(--color-purple);
     }
 
     .date {

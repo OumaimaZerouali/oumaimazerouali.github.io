@@ -5,11 +5,11 @@ import {Song} from "./models/song.component";
 @Component({
   selector: 'music',
   standalone: true,
-  templateUrl: './music.component.html',
   imports: [
     NgOptimizedImage,
     NgClass
   ],
+  templateUrl: './music.component.html',
   styleUrl: './music.component.css'
 })
 export class MusicComponent implements OnInit {

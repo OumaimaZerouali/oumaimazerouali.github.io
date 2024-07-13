@@ -3,7 +3,7 @@ import {RouterOutlet} from '@angular/router';
 import {HomeComponent} from "./pages/home/home.component";
 import {HttpClientModule} from "@angular/common/http";
 import {HomeService} from "./pages/home.service";
-import {AboutComponent} from "./pages/about/about.component";
+import {ContactComponent} from "./pages/about/contact.component";
 import {NavigationComponent} from "./shared/navigation/navigation.component";
 
 @Component({
@@ -13,7 +13,7 @@ import {NavigationComponent} from "./shared/navigation/navigation.component";
     RouterOutlet,
     HttpClientModule,
     HomeComponent,
-    AboutComponent,
+    ContactComponent,
     NavigationComponent
   ],
   providers: [HomeService],
