@@ -1,0 +1,49 @@
+@import '../../styles';
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+
+  .logo {
+    margin-bottom: 40px;
+
+    p {
+      font: normal 600 24px "Mona Sans";
+    }
+  }
+
+  .nav-bar__items,
+  .nav-bar__footer {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      color: $text-color-dark;
+      text-decoration: none;
+      font: normal 600 14px "Mona Sans";
+
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+    }
+
+    i {
+      display: inline-block;
+      width: 20px;
+      text-align: center;
+      margin-right: 8px;
+    }
+  }
+
+  .nav-bar__footer {
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+  }
+}
+
+
+
+
+

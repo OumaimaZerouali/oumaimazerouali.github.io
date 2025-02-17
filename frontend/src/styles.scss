@@ -1,1 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+$primary-yellow: #ffda63;
+$ocean-blue: #29abe2;
+$sea-green: #90ee90;
+$coral-pink: #ff69b4;
+$sandy-brown: #f4a460;
+
+$background-color: #ffffff;
+$text-color-dark: #151414;
+
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('assets/fonts/Mona-Sans.woff') format('woff');
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow-y: hidden;
+  overflow-x: hidden;
+
+  background-color: $sea-green;
+  border: $text-color-dark 1px solid;
+
+  font-family: "Mona Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+}
