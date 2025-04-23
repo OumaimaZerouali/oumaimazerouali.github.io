@@ -1,12 +1,12 @@
-.app-wrapper {
+.page-container {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
 }
 
-.main-content {
+.content-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
 }
+
