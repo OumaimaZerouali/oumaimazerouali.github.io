@@ -1,17 +1,42 @@
-@import '../../styles';
-
-.browser {
-  margin: 25px;
-
+.main-container {
   display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 10px;
+  transform: var(translate(-50%, -60%));
+}
 
-  .page {
-    width: 100%;
-    min-height: 100%;
-    flex: 1;
+.app-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--text-color);
+  height: 40px;
+  color: var(--light-bg);
+  border-radius: 12px 12px 0 0;
+  padding: 0 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
 
-    margin-left: 50px;
+.address-bar {
+  background: #fff;
+  padding: 10px;
+  border-bottom: 2px solid #e0e0e0;
+}
 
-    border: $text-color-dark 3px solid;
-  }
+.address-input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #fafafa;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: white;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
 }

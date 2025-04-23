@@ -1,18 +1,16 @@
-<div class="nav-bar">
-  <div class="logo">
-    <p>OUMI</p>
+<nav class="navbar">
+  <div class="navbar-content">
+    <button class="theme-toggle" (click)="toggleTheme()">
+      @if (isDarkTheme) {
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon dark-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z" />
+        </svg>
+      } @else {
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon light-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path d="M12 3v1M12 20v1M4.22 4.22l.7.7M18.36 18.36l.7.7M1 12h1m20 0h1M4.22 19.78l.7-.7M18.36 5.64l.7-.7" />
+          <circle cx="12" cy="12" r="5" />
+        </svg>
+      }
+    </button>
   </div>
-
-  <div class="nav-bar__items">
-    <a routerLink="/home"><i class="fas fa-home"></i> Home</a>
-    <a routerLink="/profile"><i class="fas fa-user"></i> Profile</a>
-    <a routerLink="/bookmarks"><i class="fas fa-bookmark"></i> Bookmarks</a>
-    <a routerLink="/contact"><i class="fas fa-envelope"></i> Contact</a>
-  </div>
-
-  <div class="nav-bar__footer">
-    <a routerLink="/preferences"><i class="fas fa-cog"></i> Preferences</a>
-    <a routerLink="/logout"><i class="fas fa-sign-out-alt"></i> Log Out</a>
-  </div>
-</div>
-
+</nav>

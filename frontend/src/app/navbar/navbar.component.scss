@@ -1,49 +1,38 @@
-@import '../../styles';
+.navbar {
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: transparent;
 
-.nav-bar {
-  display: flex;
-  flex-direction: column;
-
-  .logo {
-    margin-bottom: 40px;
-
-    p {
-      font: normal 600 24px "Mona Sans";
-    }
-  }
-
-  .nav-bar__items,
-  .nav-bar__footer {
+  .navbar-content {
     display: flex;
-    flex-direction: column;
-
-    a {
-      color: $text-color-dark;
-      text-decoration: none;
-      font: normal 600 14px "Mona Sans";
-
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-    }
-
-    i {
-      display: inline-block;
-      width: 20px;
-      text-align: center;
-      margin-right: 8px;
-    }
+    justify-content: space-between;
+    align-items: center;
   }
 
-  .nav-bar__footer {
-    position: fixed;
-    bottom: 0;
+  .theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
 
-    width: 100%;
+    .icon {
+      width: 35px;
+      height: 35px;
+      stroke-width: 2;
+      color: inherit;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    .light-icon {
+      color: var(--icon-color);
+    }
+
+    .dark-icon {
+      color: var(--icon-color);
+    }
   }
 }
-
-
-
-
-

@@ -1,17 +1,12 @@
 import {Component} from '@angular/core';
-import {NavbarComponent} from '../navbar/navbar.component';
-import {RouterOutlet} from '@angular/router';
 
 @Component({
   selector: 'app-browser',
   standalone: true,
-  imports: [
-    NavbarComponent,
-    RouterOutlet
-  ],
+  imports: [],
   templateUrl: './browser.component.html',
   styleUrl: './browser.component.scss'
 })
 export class BrowserComponent {
-
 }
+
