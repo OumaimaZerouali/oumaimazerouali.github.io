@@ -51,28 +51,25 @@ export class NavbarComponent {
 
   private generateParticles(): void {
     const particleContainer = document.querySelector('.particles')!;
-    const particleCount = 200;  // Increase particles for better effect
+    const particleCount = 200;
 
-    // Clear out previous particles
     particleContainer.innerHTML = '';
 
     for (let i = 0; i < particleCount; i++) {
       const particle = document.createElement('div');
       particle.classList.add('particle');
 
-      // Randomize size, position, and animation speed
-      const size = Math.random() * 5 + 3;  // Particle size between 3px to 8px
-      const posX = Math.random() * 100;  // Random X position
-      const posY = Math.random() * 100;  // Random Y position
-      const animationDuration = Math.random() * 10 + 10;  // Animation duration between 10s to 20s
+      const size = Math.random() * 5 + 3;
+      const posX = Math.random() * 100;
+      const posY = Math.random() * 100;
+      const animationDuration = Math.random() * 10 + 10;
 
       particle.style.width = `${size}px`;
       particle.style.height = `${size}px`;
       particle.style.top = `${posY}%`;
       particle.style.left = `${posX}%`;
-      particle.style.animationDuration = `${animationDuration}s`;  // Set random speed
+      particle.style.animationDuration = `${animationDuration}s`;
 
-      // Append each particle to the container
       particleContainer.appendChild(particle);
     }
   }
