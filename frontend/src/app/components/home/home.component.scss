@@ -1,0 +1,140 @@
+/* src/app/home/home.component.scss */
+@import '../../../styles.scss';
+
+.hero-section {
+  background-color: lighten($color-background-soft, 2%);
+  padding: 20px; /* Minder padding hier, we gebruiken flexbox voor centreren */
+  text-align: center; /* Tekst blijft gecentreerd binnen hero-text-side */
+
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centreer de hele sectie verticaal in de viewport */
+  align-items: center;
+}
+
+.hero-layout { /* Deze container beheert de twee-koloms lay-out */
+  display: flex;
+  flex-direction: row; /* Standaard naast elkaar */
+  align-items: center; /* Centreer items verticaal in de rij */
+  justify-content: center; /* Centreer de kolommen horizontaal */
+  max-width: 1000px; /* Geef de lay-out een maximale breedte */
+  width: 100%;
+  gap: 50px; /* Ruimte tussen de avatar en de tekst */
+  padding: 20px; /* Interne padding voor de lay-out zelf */
+  flex-grow: 1; /* Laat de lay-out de beschikbare ruimte opvullen */
+}
+
+.hero-image-side {
+  flex-shrink: 0; /* Voorkom dat de afbeelding kleiner wordt dan nodig */
+  text-align: center; /* Centreer de avatar */
+}
+
+.hero-avatar {
+  width: 250px; /* Grotere avatar op de homepage */
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid $color-primary;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2); /* Meer prominente schaduw */
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px); /* Subtiele animatie bij hover */
+  }
+}
+
+.hero-text-side {
+  text-align: left; /* Tekst links uitlijnen voor betere leesbaarheid naast avatar */
+  flex-grow: 1; /* Laat de tekstzijde de resterende ruimte innemen */
+}
+
+
+.hero-section h1 {
+  font-size: 3.5em;
+  margin-bottom: 15px; /* Minder marge, compacter */
+  line-height: 1.2;
+  color: $color-text-dark; /* Houd de titel in donkere tekst */
+}
+
+.hero-section .intro-text {
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 30px; /* Minder marge, compacter */
+}
+
+.hero-buttons {
+  display: flex;
+  justify-content: flex-start; /* Knoppen links uitlijnen */
+  gap: 20px;
+}
+
+.button { /* Deze stijlen komen van styles.scss, maar voor de zekerheid hier herhaald */
+  display: inline-block;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+  }
+}
+
+.button-primary {
+  background-color: $color-primary;
+  color: white;
+  border: 2px solid $color-primary;
+}
+
+.button-secondary {
+  background-color: $color-secondary;
+  color: white;
+  border: 2px solid $color-secondary;
+}
+
+
+@media (max-width: 768px) {
+  .hero-layout {
+    flex-direction: column; /* Onder elkaar op mobiel */
+    gap: 30px; /* Minder ruimte tussen items op mobiel */
+  }
+
+  .hero-image-side {
+    order: 1; /* Avatar bovenaan op mobiel */
+  }
+
+  .hero-text-side {
+    order: 2; /* Tekst daaronder */
+    text-align: center; /* Centreer tekst op mobiel */
+  }
+
+  .hero-avatar {
+    width: 180px; /* Iets kleiner op mobiel */
+    height: 180px;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5em;
+    margin-top: 0; /* Geen marge na avatar */
+  }
+
+  .hero-section .intro-text {
+    font-size: 1.1em;
+  }
+
+  .hero-buttons {
+    flex-direction: column; /* Knoppen onder elkaar op mobiel */
+    width: 100%;
+    justify-content: center; /* Centreer knoppen op mobiel */
+    align-items: center; /* Centreer knoppen horizontaal */
+  }
+
+  .button {
+    width: 100%; /* Knoppen vullen de breedte op mobiel */
+    max-width: 300px; /* Maximale breedte voor knoppen op mobiel */
+  }
+}
