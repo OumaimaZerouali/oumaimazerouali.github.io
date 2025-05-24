@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:frontend": "node dist/frontend/server/server.mjs",
-    "deploy:github": "ng build --base-href=https://github.com/OumaimaZerouali/oumaimazerouali.github.io --configuration=production"
+    "deploy:github": "ng build --base-href=/https://github.com/OumaimaZerouali/oumaimazerouali.github.io/ --configuration=production && ngh --dir=dist/portfolio --branch=main --no-silent --message='Deploy Angular app to GitHub Pages docs folder'"
   },
   "private": true,
   "dependencies": {
