@@ -1,12 +1,15 @@
 import {Component, HostListener} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
-import {FooterComponent} from './components/virtual-desktop/footer/footer.component';
+import {FooterComponent} from './components/virtual-desktop/shared/footer/footer.component';
 import {WindowContentType} from './services/window-management.service';
+import {
+  PixelBackgroundComponent
+} from './components/virtual-desktop/shared/pixel-background/pixel-background.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, FooterComponent],
+  imports: [RouterOutlet, FooterComponent, PixelBackgroundComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
