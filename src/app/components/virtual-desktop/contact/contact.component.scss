@@ -1,0 +1,98 @@
+$ui-grey: #c0c0c0;
+$dark-grey: #808080;
+$black: #000000;
+$white: #ffffff;
+$button-dark-shadow: #000000;
+$button-light-shadow: #ffffff;
+
+.contact-container {
+  padding: 10px;
+  background-color: $ui-grey;
+  border: 2px inset $ui-grey;
+  height: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  color: $black;
+  font-family: 'Pixelify Sans', 'Press Start 2P', monospace;
+}
+
+.contact-header {
+  margin-bottom: 15px;
+  h2 {
+    color: $black;
+    font-size: 1.3em;
+    text-align: center;
+    margin-top: 0;
+  }
+}
+
+.contact-section {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 5px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+
+  label {
+    min-width: 120px;
+    font-weight: bold;
+    color: $black;
+    white-space: nowrap;
+  }
+
+  .text-input {
+    flex-grow: 1;
+    background-color: $white;
+    border: 2px inset $dark-grey;
+    padding: 3px 5px;
+    font-family: 'Pixelify Sans', monospace;
+    color: $black;
+    font-size: 0.9em;
+  }
+}
+
+.button-98 {
+  background-color: $ui-grey;
+  border: 2px outset $button-light-shadow;
+  border-right-color: $button-dark-shadow;
+  border-bottom-color: $button-dark-shadow;
+  padding: 4px 10px;
+  font-family: 'Pixelify Sans', monospace;
+  font-size: 0.9em;
+  color: $black;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 1px 1px 0 $black;
+
+  &:hover {
+    filter: brightness(1.1);
+  }
+
+  &:active {
+    border: 2px inset $button-dark-shadow;
+    border-top-color: $button-light-shadow;
+    border-left-color: $button-light-shadow;
+    background-color: darken($ui-grey, 5%);
+    box-shadow: none;
+    transform: translate(1px, 1px);
+  }
+}
+
+.contact-footer {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 10px;
+  border-top: 1px dotted $dark-grey;
+}

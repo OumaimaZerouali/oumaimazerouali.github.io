@@ -1,0 +1,55 @@
+<div class="computer-desktop" (mousemove)="onMouseMove($event)" (mouseup)="stopDrag()">
+  @for (icon of topLeftIcons; track icon; let i = $index) {
+    <div
+      class="desktop-icon"
+      [style.left.px]="20"
+      [style.top.px]="40 + i * 80"
+      (click)="openWindow(icon.key, icon.label)">
+      <div class="icon-image" [style.backgroundImage]="'url(' + icon.icon + ')'"></div>
+      <div class="icon-label">{{ icon.label }}</div>
+    </div>
+  }
+
+  <div class="desktop-icon" style="left: 20px; bottom: 50px;" (click)="openWindow('ie', 'Internet Explorer')">
+    <div class="icon-image" style="background-image: url('assets/icons/search-engine.png');"></div>
+    <div class="icon-label">Browser</div>
+  </div>
+
+  <div class="desktop-icon" style="right: 20px; bottom: 50px;" (click)="openExternalLink('https://jcast.dev')">
+    <div class="icon-image" style="
+    background-image: url('assets/icons/jcast.png');
+    background-color: #c0c0c0;
+    border: 2px outset #ffffff;
+    box-shadow: 2px 2px #000000;"></div>
+    <div class="icon-label">JCast</div>
+  </div>
+
+  <div class="desktop-area">
+    @for (window of openWindows; track window) {
+      <div
+        class="window"
+        [class.active]="window.active"
+        [style.left.px]="window.x"
+        [style.top.px]="window.y">
+        <div class="window-header" (mousedown)="startDrag($event, window); activateWindow(window)">
+          <span class="window-title">{{ window.title }}</span>
+          <button class="close-button" (click)="closeWindow(window)">X</button>
+        </div>
+        <div class="window-content">
+          @if (window.content === 'tictactoe') {
+            <tic-tac-toe></tic-tac-toe>
+          }
+          @if (window.content === 'about') {
+            <aboutme (closeRequested)="closeWindow(window)"></aboutme>
+          }
+          @if (window.content === 'contact') {
+           <contact></contact>
+          }
+          @if (window.content === 'ie') {
+            <browser></browser>
+          }
+        </div>
+      </div>
+    }
+  </div>
+</div>

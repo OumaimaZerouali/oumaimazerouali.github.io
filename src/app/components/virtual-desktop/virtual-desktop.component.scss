@@ -1,0 +1,114 @@
+.computer-desktop {
+  width: 100vw;
+  height: 100vh;
+  background-color: #008080;
+  font-family: 'Pixelify Sans', 'Press Start 2P', monospace;
+  color: #c0c0c0;
+  border: 4px outset #c0c0c0;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+}
+
+.desktop-icon {
+  position: absolute;
+  text-align: center;
+  cursor: pointer;
+  width: 60px;
+  z-index: 100;
+
+  .icon-image {
+    width: 48px;
+    height: 48px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+
+  .icon-label {
+    color: white;
+    font-size: 0.8em;
+    text-shadow: 1px 1px 0 #000000;
+  }
+
+  &:hover {
+    filter: brightness(1.2);
+  }
+
+  &:active .icon-image {
+    border: 2px inset #ffffff;
+  }
+}
+
+.desktop-area {
+  position: relative;
+  width: 100%;
+  height: calc(100% - 40px);
+  padding: 10px;
+}
+
+.window {
+  position: absolute;
+  min-width: 300px;
+  min-height: 200px;
+  background-color: #c0c0c0;
+  border: 2px outset #ffffff;
+  box-shadow: 4px 4px #000000;
+  resize: both;
+  z-index: 1;
+
+  &.active {
+    z-index: 2;
+  }
+
+  .window-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, #000080, #1084d0);
+    color: white;
+    padding: 3px 5px;
+    font-weight: bold;
+    cursor: grab;
+    border-bottom: 1px solid #000080;
+
+    .window-title {
+      margin-left: 5px;
+      text-shadow: 1px 1px 0 #000000;
+    }
+
+    .close-button {
+      background-color: #c0c0c0;
+      border: 2px outset #ffffff;
+      padding: 0 5px;
+      cursor: pointer;
+      font-weight: bold;
+      color: #000;
+      line-height: 1;
+      text-shadow: 1px 1px 0 #ffffff;
+
+      &:active {
+        border: 2px inset #ffffff;
+        background-color: #b0b0b0;
+      }
+    }
+  }
+
+  .window-content {
+    padding: 0;
+    background-color: #ffffff;
+    color: #000;
+    border: 2px inset #c0c0c0;
+    height: calc(100% - 30px);
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+
+    > * {
+      flex: 1 1 auto;
+      width: 100%;
+    }
+  }
+}

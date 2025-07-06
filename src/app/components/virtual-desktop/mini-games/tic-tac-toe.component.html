@@ -1,0 +1,29 @@
+<div class="tic-tac-toe-container">
+  <h2>Tic Tac Toe</h2>
+  @if (!winner) {
+    <div class="status">Player: {{ player }}</div>
+  }
+
+  @if (winner) {
+    <div class="status">
+      @if (winner !== 'Draw') {
+        <span>Winner: {{ winner }}!</span>
+      } @else {
+        <span>A Draw!</span>
+      }
+    </div>
+  }
+
+
+  <div class="board">
+    @for (cell of board; track cell; let i = $index) {
+      <button class="cell"
+              (click)="makeMove(i)"
+              [disabled]="cell !== null || winner !== null">
+        {{ cell }}
+      </button>
+    }
+  </div>
+
+  <button class="reset-button" (click)="resetGame()">New game</button>
+</div>

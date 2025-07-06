@@ -1,0 +1,14 @@
+<div class="ie-browser">
+  <div class="ie-tabs">
+    @for (tab of tabs; track tab){
+      <button
+        [class.active]="activeUrl === tab.url"
+        (click)="switchTab(tab.url)">
+        {{ tab.label }}
+      </button>
+    }
+  </div>
+  @if (activeUrl){
+    <iframe [src]="activeUrl" class="ie-frame"></iframe>
+  }
+</div>

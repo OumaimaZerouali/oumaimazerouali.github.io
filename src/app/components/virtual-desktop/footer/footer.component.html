@@ -1,0 +1,30 @@
+<div class="taskbar">
+  <button class="start-button" (click)="toggleStartMenu()">
+    <img src="assets/icons/windows-start.png" alt="Start" />
+    Start
+  </button>
+
+  <div class="taskbar-spacer"></div>
+
+  <div class="taskbar-clock">{{ time }}</div>
+
+  @if (isStartMenuOpen) {
+    <div class="start-menu">
+      <div class="start-menu-sidebar">
+      </div>
+      <ul class="start-menu-items">
+        @for (item of startMenuItems; track item.label) {
+          <li class="menu-item" (click)="performAction(item)">
+            <img [src]="item.icon" [alt]="item.label" class="menu-icon">
+            <span>{{ item.label }}</span>
+          </li>
+        }
+        <li class="menu-separator"></li>
+        <li class="menu-item shutdown-button">
+          <img src="assets/icons/shutdown.png" alt="Afsluiten" class="menu-icon">
+          <span>Shut down...</span>
+        </li>
+      </ul>
+    </div>
+  }
+</div>

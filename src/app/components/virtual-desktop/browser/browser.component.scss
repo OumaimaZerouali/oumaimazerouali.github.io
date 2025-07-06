@@ -1,0 +1,40 @@
+.ie-browser {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.ie-tabs {
+  display: flex;
+  background-color: #c0c0c0;
+  border-bottom: 2px solid #808080;
+
+  button {
+    padding: 5px 10px;
+    margin-right: 2px;
+    border: 2px outset #ffffff;
+    background-color: #dcdcdc;
+    cursor: pointer;
+    font-family: 'Pixelify Sans', 'Press Start 2P', monospace;
+    font-size: 0.8em;
+
+    &.active {
+      border: 2px inset #ffffff;
+      background-color: #b0b0b0;
+    }
+
+    &:hover {
+      filter: brightness(1.1);
+    }
+  }
+}
+
+.ie-frame {
+  flex-grow: 1;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
