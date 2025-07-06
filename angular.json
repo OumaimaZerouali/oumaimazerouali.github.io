@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "frontend": {
+    "oumaimazerouali.github.io": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -41,6 +41,7 @@
               "src/styles.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
+            "baseHref": "/oumaimazerouali.github.io/",
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
