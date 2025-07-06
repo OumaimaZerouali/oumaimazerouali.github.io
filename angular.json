@@ -22,8 +22,9 @@
                 "src"
               ]
             },
-            "outputPath": "dist/frontend",
+            "outputPath": "dist/oumaimazerouali.github.io",
             "index": "src/index.html",
+            "baseHref": "/",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -41,7 +42,6 @@
               "src/styles.scss",
               "node_modules/@fortawesome/fontawesome-free/css/all.min.css"
             ],
-            "baseHref": "/oumaimazerouali.github.io/",
             "scripts": [],
             "server": "src/main.server.ts",
             "prerender": true,
