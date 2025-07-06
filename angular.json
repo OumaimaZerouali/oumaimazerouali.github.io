@@ -22,7 +22,7 @@
                 "src"
               ]
             },
-            "outputPath": "dist/oumaimazerouali.github.io",
+            "outputPath": "dist",
             "index": "src/index.html",
             "baseHref": "/",
             "browser": "src/main.ts",
