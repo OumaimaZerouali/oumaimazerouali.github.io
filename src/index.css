@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 4%;
+        --foreground: 0 0% 98%;
+
+        --card: 0 0% 8%;
+        --card-foreground: 0 0% 98%;
+
+        --popover: 0 0% 6%;
+        --popover-foreground: 0 0% 98%;
+
+        --primary: 45 100% 51%;
+        --primary-foreground: 0 0% 4%;
+
+        --secondary: 0 0% 12%;
+        --secondary-foreground: 0 0% 98%;
+
+        --muted: 0 0% 15%;
+        --muted-foreground: 0 0% 60%;
+
+        --accent: 45 100% 51%;
+        --accent-foreground: 0 0% 4%;
+
+        --destructive: 0 84.2% 60.2%;
+        --destructive-foreground: 0 0% 98%;
+
+        --border: 0 0% 20%;
+        --input: 0 0% 20%;
+        --ring: 45 100% 51%;
+
+        --radius: 0.5rem;
+
+        --yellow-glow: 45 100% 51%;
+        --gradient-hero: linear-gradient(135deg, hsl(0 0% 4%), hsl(0 0% 8%));
+        --gradient-accent: linear-gradient(90deg, hsl(45 100% 51% / 0.1), hsl(45 100% 51% / 0));
+        --shadow-glow: 0 0 40px hsl(45 100% 51% / 0.3);
+        --shadow-intense: 0 0 60px hsl(45 100% 51% / 0.5);
+
+        --radius: 0.5rem;
+
+        --sidebar-background: 0 0% 98%;
+
+        --sidebar-foreground: 240 5.3% 26.1%;
+
+        --sidebar-primary: 240 5.9% 10%;
+
+        --sidebar-primary-foreground: 0 0% 98%;
+
+        --sidebar-accent: 240 4.8% 95.9%;
+
+        --sidebar-accent-foreground: 240 5.9% 10%;
+
+        --sidebar-border: 220 13% 91%;
+
+        --sidebar-ring: 217.2 91.2% 59.8%;
+    }
+
+    .dark {
+        --background: 0 0% 4%;
+        --foreground: 0 0% 98%;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Inter', sans-serif;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+@layer utilities {
+    .glow-text {
+        text-shadow: 0 0 20px hsl(var(--yellow-glow) / 0.5);
+    }
+
+    .glow-border {
+        box-shadow: 0 0 20px hsl(var(--yellow-glow) / 0.3);
+    }
+
+    .hover-glow {
+        transition: all 0.3s ease;
+    }
+
+    .hover-glow:hover {
+        box-shadow: var(--shadow-glow);
+        transform: translateY(-2px);
+    }
+}
