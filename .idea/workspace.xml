@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="fix: gh permissions">
+      <change afterPath="$PROJECT_DIR$/components.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/About.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Contact.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Hero.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Podcast.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Projects.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/TechStack.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/accordion.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/alert-dialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/alert.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/aspect-ratio.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/avatar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/badge.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/breadcrumb.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/calender.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/carrousel.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/chart.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/checkbox.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/collapsible.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/command.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/context-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/dialog.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/drawer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/dropdown-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/form.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/hover-card.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/input-otp.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/input.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/label.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/menubar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/navigation-menu.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/pagination.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/popover.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/progress.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/radio-group.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/resizable.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/scroll-area.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/select.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/separator.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/sheet.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/sidebar.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/skeleton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/slider.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/sonner.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/switch.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/table.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/tabs.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/textarea.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/toast.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/toaster.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/toggle-group.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/toggle.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/tooltip.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ui/use-toast.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-mobile.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/use-toast.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Index.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/NotFound.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tsconfig.node.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/tasks.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/3rdpartylicenses.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/about-me/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Black.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLight.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/icons/circle-arrow.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/icons/money-bag-hand-drawn-variant.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/icons/notebook-and-pencil-hand-drawn-writing-tools.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/icons/paper.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/logo-without-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/assets/oumaima-avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/contact/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/favicon-96x96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/site.webmanifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/web-app-manifest-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/web-app-manifest-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/index.csr.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/links/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/main-Q343BXD6.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-brands-400-Q3XCMWHQ.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-brands-400-R2XQZCET.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-regular-400-QSNYFYRT.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-regular-400-XUOPSR7E.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-solid-900-5ZUYHGA7.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-solid-900-PJNKLK6W.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-v4compatibility-LFEHZI6Y.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-v4compatibility-YY67RJWG.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/polyfills-FFHMD2TL.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/browser/styles-5OVAGX2P.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/prerendered-routes.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/server/chunk-5XUXGTUW.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/server/chunk-N5RARMWK.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/server/chunk-VCVCHJZV.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/server/chunk-XDDHPCIU.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/server/index.server.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/server/main.server.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/server/polyfills.server.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/server/render-utils.server.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/server/server.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon/apple-touch-icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon/favicon-96x96.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon/site.webmanifest" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon/web-app-manifest-192x192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon/web-app-manifest-512x512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.config.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/aboutme/aboutme.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/aboutme/aboutme.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/aboutme/aboutme.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/aboutme/aboutme.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/browser/browser.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/browser/browser.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/browser/browser.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/contact/contact.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/contact/contact.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/contact/contact.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/contact/contact.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/mini-games/tic-tac-toe.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/mini-games/tic-tac-toe.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/mini-games/tic-tac-toe.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/footer/footer.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/footer/footer.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/footer/footer.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/pixel-background/pixel-background.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/pixel-background/pixel-background.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/pixel-background/pixel-background.component.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/pixel-background/pixel-background.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/virtual-desktop.component.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/virtual-desktop.component.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/virtual-desktop.component.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/window-management.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Black.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Medium.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLight.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightNarrow.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightNarrowItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightWide.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightWideItalic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/fonts/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/about_me.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/contact.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/jcast.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/search-engine.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/shutdown.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/tictactoe.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/icons/windows-start.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo-without-bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/oumaima-avatar.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.spec.json" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;OumaimaZerouali&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/OumaimaZerouali/oumaimazerouali.github.io&quot;,
+    &quot;accountId&quot;: &quot;cd5a466d-6a4a-4e36-8d19-ab9c7d7144bc&quot;
+  }
+}</component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="true" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
+  <component name="ProjectId" id="2eExlf5z6MUb5WSklgma6ixHkBZ" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/src/assets/icons&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.Angular CLI Server (frontend).executor&quot;: &quot;Run&quot;,
+    &quot;npm.deploy:github.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.lint.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/oumaimazerouali/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="ReactDesignerToolWindowState">
+    <option name="myId2Visible">
+      <map>
+        <entry key="com.intellij.reactbuddy.reactComponents" value="false" />
+        <entry key="com.intellij.reactbuddy.reactInspector" value="false" />
+        <entry key="com.intellij.reactbuddy.storybook" value="false" />
+      </map>
+    </option>
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/assets/icons" />
+      <recent name="$PROJECT_DIR$/frontend/src/assets" />
+      <recent name="$PROJECT_DIR$/frontend/public" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/app/components/virtual-desktop/shared" />
+      <recent name="$PROJECT_DIR$/src/assets/icons" />
+      <recent name="$PROJECT_DIR$/src/assets" />
+      <recent name="$PROJECT_DIR$/frontend/src/app/structure" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="Angular Application (frontend)" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="application" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="oumaimazerouali.Application" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="oumaimazerouali.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Angular CLI Server (frontend)" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/frontend/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="deploy:github" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="deploy:github" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="lint" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="start" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.dev" />
+        <item itemvalue="npm.lint" />
+        <item itemvalue="npm.start" />
+        <item itemvalue="npm.deploy:github" />
+        <item itemvalue="Spring Boot.Application" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="" />
+      <created>1711483691662</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711483691662</updated>
+      <workItem from="1711483692760" duration="4858000" />
+      <workItem from="1711526252328" duration="5116000" />
+      <workItem from="1711892717008" duration="604000" />
+      <workItem from="1712698222849" duration="1284000" />
+      <workItem from="1713779733037" duration="644000" />
+      <workItem from="1713807096659" duration="603000" />
+      <workItem from="1720211882159" duration="6459000" />
+      <workItem from="1720464642045" duration="4490000" />
+      <workItem from="1720547522448" duration="8363000" />
+      <workItem from="1720629406609" duration="10540000" />
+      <workItem from="1720718140694" duration="8852000" />
+      <workItem from="1720811215754" duration="3657000" />
+      <workItem from="1725128712411" duration="3559000" />
+      <workItem from="1725258896194" duration="27000" />
+      <workItem from="1726139791382" duration="11000" />
+      <workItem from="1728842441211" duration="1968000" />
+      <workItem from="1729883005906" duration="1868000" />
+      <workItem from="1736273566362" duration="517000" />
+      <workItem from="1736276849152" duration="1429000" />
+      <workItem from="1737983945339" duration="1332000" />
+      <workItem from="1737988051924" duration="978000" />
+      <workItem from="1738089512338" duration="2000" />
+      <workItem from="1739646215280" duration="17166000" />
+      <workItem from="1740562713885" duration="6603000" />
+      <workItem from="1740735631680" duration="10440000" />
+      <workItem from="1742151867565" duration="5469000" />
+      <workItem from="1742221043313" duration="5955000" />
+      <workItem from="1744019710215" duration="940000" />
+      <workItem from="1745428925513" duration="26637000" />
+      <workItem from="1745750567098" duration="1857000" />
+      <workItem from="1745924432686" duration="7000" />
+      <workItem from="1748027286232" duration="10660000" />
+      <workItem from="1750933279140" duration="24967000" />
+      <workItem from="1751810126467" duration="9126000" />
+      <workItem from="1758117608562" duration="668000" />
+      <workItem from="1760378644140" duration="698000" />
+      <workItem from="1761242226908" duration="11000" />
+      <workItem from="1764445031875" duration="38000" />
+      <workItem from="1764445075906" duration="15000" />
+      <workItem from="1764445100190" duration="27000" />
+    </task>
+    <task id="LOCAL-00001" summary="First commit">
+      <option name="closed" value="true" />
+      <created>1711483778090</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1711483778090</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Module application and frontend + CI/CD setup">
+      <option name="closed" value="true" />
+      <created>1711484490885</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711484490885</updated>
+    </task>
+    <task id="LOCAL-00003" summary="CI/CD name master">
+      <option name="closed" value="true" />
+      <created>1711484565944</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711484565944</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Refactor workflows path">
+      <option name="closed" value="true" />
+      <created>1711484656704</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1711484656704</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Refactor">
+      <option name="closed" value="true" />
+      <created>1711484965546</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1711484965546</updated>
+    </task>
+    <task id="LOCAL-00006" summary="added tag to package.json">
+      <option name="closed" value="true" />
+      <created>1711485190885</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1711485190886</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changes to CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1711485458576</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1711485458576</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changes to CI/CD pipeline">
+      <option name="closed" value="true" />
+      <created>1711485613166</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1711485613166</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Java version changed">
+      <option name="closed" value="true" />
+      <created>1711485778888</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1711485778888</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Setup openapi">
+      <option name="closed" value="true" />
+      <created>1711534434461</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1711534434461</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Start of project: navigation + music component">
+      <option name="closed" value="true" />
+      <created>1720633751893</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1720633751893</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Did some things: can't remember">
+      <option name="closed" value="true" />
+      <created>1720896665280</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1720896665280</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Rollback everything">
+      <option name="closed" value="true" />
+      <created>1737984140919</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1737984140919</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Version 2">
+      <option name="closed" value="true" />
+      <created>1739776213646</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1739776213646</updated>
+    </task>
+    <task id="LOCAL-00015" summary="refactor: Refactor styling of the site">
+      <option name="closed" value="true" />
+      <created>1745437960567</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1745437960567</updated>
+    </task>
+    <task id="LOCAL-00016" summary="feat: Added a browser like component">
+      <option name="closed" value="true" />
+      <created>1745438514930</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1745438514930</updated>
+    </task>
+    <task id="LOCAL-00017" summary="feat: Added the light-themed browser tab">
+      <option name="closed" value="true" />
+      <created>1745485870086</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1745485870086</updated>
+    </task>
+    <task id="LOCAL-00018" summary="feat: v1">
+      <option name="closed" value="true" />
+      <created>1748032869966</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1748032869966</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix: clean up">
+      <option name="closed" value="true" />
+      <created>1748033266372</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1748033266372</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix: clean up">
+      <option name="closed" value="true" />
+      <created>1748073774309</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1748073774309</updated>
+    </task>
+    <task id="LOCAL-00021" summary="fix: clean up">
+      <option name="closed" value="true" />
+      <created>1748074108775</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1748074108775</updated>
+    </task>
+    <task id="LOCAL-00022" summary="fix: deployment">
+      <option name="closed" value="true" />
+      <created>1748074418230</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1748074418231</updated>
+    </task>
+    <task id="LOCAL-00023" summary="feat: Windows 98 themed portfolio">
+      <option name="closed" value="true" />
+      <created>1751826551850</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1751826551850</updated>
+    </task>
+    <task id="LOCAL-00024" summary="feat: Windows 98 themed portfolio">
+      <option name="closed" value="true" />
+      <created>1751827059380</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1751827059380</updated>
+    </task>
+    <task id="LOCAL-00025" summary="feat: Windows 98 themed portfolio">
+      <option name="closed" value="true" />
+      <created>1751827148294</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1751827148294</updated>
+    </task>
+    <task id="LOCAL-00026" summary="feat: Deploy">
+      <option name="closed" value="true" />
+      <created>1751827305299</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1751827305299</updated>
+    </task>
+    <task id="LOCAL-00027" summary="fix: gh permissions">
+      <option name="closed" value="true" />
+      <created>1751827434583</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1751827434583</updated>
+    </task>
+    <task id="LOCAL-00028" summary="fix: gh permissions">
+      <option name="closed" value="true" />
+      <created>1751827609259</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1751827609259</updated>
+    </task>
+    <task id="LOCAL-00029" summary="fix: gh permissions">
+      <option name="closed" value="true" />
+      <created>1751827772012</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1751827772012</updated>
+    </task>
+    <task id="LOCAL-00030" summary="fix: gh permissions">
+      <option name="closed" value="true" />
+      <created>1751828454167</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1751828454167</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="First commit" />
+    <MESSAGE value="Module application and frontend + CI/CD setup" />
+    <MESSAGE value="CI/CD name master" />
+    <MESSAGE value="Refactor workflows path" />
+    <MESSAGE value="Refactor" />
+    <MESSAGE value="added tag to package.json" />
+    <MESSAGE value="Changes to CI/CD pipeline" />
+    <MESSAGE value="Java version changed" />
+    <MESSAGE value="Setup openapi" />
+    <MESSAGE value="Start of project: navigation + music component" />
+    <MESSAGE value="Did some things: can't remember" />
+    <MESSAGE value="Rollback everything" />
+    <MESSAGE value="Version 2" />
+    <MESSAGE value="refactor: Refactor styling of the site" />
+    <MESSAGE value="feat: Added a browser like component" />
+    <MESSAGE value="feat: Added the light-themed browser tab" />
+    <MESSAGE value="feat: v1" />
+    <MESSAGE value="fix: clean up" />
+    <MESSAGE value="fix: deployment" />
+    <MESSAGE value="feat: Windows 98 themed portfolio" />
+    <MESSAGE value="feat: Deploy" />
+    <MESSAGE value="fix: gh permissions" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: gh permissions" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>false</integration-enabled>
+    <settings-migrated>true</settings-migrated>
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
+</project>
