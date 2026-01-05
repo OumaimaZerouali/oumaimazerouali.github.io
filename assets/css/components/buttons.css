@@ -1,13 +1,7 @@
 /* ==========================================================================
    EDITORIAL BUTTONS & ACTION LINKS
-   Reference: beat-expeditions.com/magazine
-
-   These are NOT UI components. They are editorial action links.
-   Calm, confident, minimal, brand-like.
    ========================================================================== */
 
-/* Editorial Outline Button (Primary)
-   Used for: Read more, Lees meer, Filter buttons, Primary actions */
 .editorial-button {
   display: inline-flex;
   align-items: center;
@@ -39,7 +33,6 @@
   border-color: var(--color-border-primary);
 }
 
-/* BEAT-style text swap animation wrapper */
 .button-text-wrapper {
   position: relative;
   overflow: hidden;
@@ -64,8 +57,6 @@
   transform: translateY(100%);
 }
 
-/* Text Link Button (Secondary)
-   Used for: Inline actions, less important navigation */
 .editorial-link-button {
   display: inline-block;
   padding: 0;
@@ -84,8 +75,6 @@
   color: var(--color-text-secondary);
 }
 
-/* Filter Buttons (like editorial tags)
-   Active state: slightly filled, same border */
 .filter-button {
   display: inline-flex;
   align-items: center;

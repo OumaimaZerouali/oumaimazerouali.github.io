@@ -27,3 +27,10 @@ footer:
 meta:
   posted_on: "Posted on"
 
+cookie:
+  title: "Cookie preferences"
+  description: "This website uses cookies and similar technologies (e.g. cookies, <code>localStorage</code>, <code>sessionStorage</code>) for analytics and to remember settings such as your language preference. Please choose how you'd like us to use them."
+  accept_all: "Accept all"
+  necessary_only: "Necessary only"
+  deny_all: "Deny all"
+

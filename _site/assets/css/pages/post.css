@@ -3,7 +3,6 @@
    Header + Hero image + two-column editorial structure
    ========================================================================== */
 
-/* Article Header - Above Hero Image */
 .post-header-top {
   max-width: var(--page-max-width);
   margin: 0 auto;
@@ -28,7 +27,6 @@
   font-weight: 500;
 }
 
-/* Hero Image - Full Width */
 .post-hero {
   width: 100%;
   height: 60vh;
@@ -47,7 +45,6 @@
   border-radius: var(--radius-sm);
 }
 
-/* Two-Column Editorial Wrapper */
 .post-editorial-wrapper {
   display: grid;
   grid-template-columns: 2fr 1fr;
@@ -57,12 +54,10 @@
   padding: 0 var(--page-padding);
 }
 
-/* Main Content Column (Left) */
 .post-main-column {
   min-width: 0;
 }
 
-/* Article Content Styles */
 .post-content {
   font-size: var(--text-base);
   line-height: 1.7;
@@ -159,7 +154,6 @@
   color: inherit;
 }
 
-/* Copy Button Styling */
 .post-content pre .copy-button {
   position: absolute;
   top: var(--space-sm);
@@ -200,7 +194,6 @@
   font-weight: 600;
 }
 
-/* Sidebar Column (Right) */
 .post-sidebar-column {
   min-width: 0;
   position: sticky;
@@ -225,7 +218,6 @@
   margin-bottom: var(--space-md);
 }
 
-/* Related Posts in Sidebar */
 .related-posts ul {
   list-style: none;
   padding: 0;
@@ -249,12 +241,7 @@
   text-decoration: underline;
 }
 
-/* Comments Section in Sidebar */
-.comments-section {
-  /* Sticky removed - entire sidebar is now sticky */
-}
 
-/* Tablet Layout (Two columns, reduced gap) */
 @media (max-width: 1024px) {
   .post-editorial-wrapper {
     gap: var(--space-2xl);
@@ -270,7 +257,6 @@
   }
 }
 
-/* Mobile Layout (Single column, sidebar moves below) */
 @media (max-width: 768px) {
   .post-header-top {
     padding: var(--space-2xl) var(--page-padding) var(--space-md);

@@ -2,7 +2,6 @@
    HOME PAGE - EDITORIAL MAGAZINE STYLE
    ========================================================================== */
 
-/* Editorial Introduction Section - Full width */
 .editorial-intro {
   width: 100%;
   padding: var(--space-2xl) 0 0 0;
@@ -26,8 +25,6 @@
   max-width: 600px;
   text-align: left;
 }
-
-/* Filter Bar */
 
 .filter-container span {
   display: flex;
@@ -73,7 +70,6 @@
   border-color: var(--color-text-primary);
 }
 
-/* View All Link */
 .view-all {
   width: 100%;
   padding: 0 0 var(--space-3xl) 0;
@@ -101,7 +97,6 @@
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
-/* Responsive Typography */
 @media (min-width: 768px) {
   .editorial-heading {
     font-size: 4rem;

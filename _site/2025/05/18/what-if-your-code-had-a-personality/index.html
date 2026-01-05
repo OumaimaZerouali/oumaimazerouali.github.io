@@ -26,11 +26,12 @@
     <meta property="og:description" content="Thoughtful reflections on software development, written by a developer for developers.
 ">
     <meta property="og:image" content="/assets/img/pp-as-mbp.png">
-    <meta property="og:url" content="https://oumaimazerouali.github.io/2025/05/18/what-if-your-code-had-a-personality/">
+    <meta property="og:url" content="http://localhost:4000/2025/05/18/what-if-your-code-had-a-personality/">
     <meta name="google-site-verification" content="1cy-OLoI1y37QpgVZyfdmaqcCgSB-LI3dOCdAWCfN8M" />
     <meta name="keywords" content="oumi's corner, oumaima blog, software development blog, developer journal, tech blog">
 
     <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/responsive.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script>
@@ -460,7 +461,7 @@ Most importantly, it encourages you to embrace the personal side of coding.</p>
         document.head.appendChild(gtagScript);
 
         window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
+        function gtag(){dataLayer.push(arguments);}        
         window.gtag = gtag;
 
         gtag('js', new Date());
@@ -468,52 +469,27 @@ Most importantly, it encourages you to embrace the personal side of coding.</p>
     })();
 </script>
 
-<div id="cookie-banner" aria-live="polite" role="dialog" aria-label="Cookie consent banner" style="display: none;">
-    <p>This website uses cookies for analytics. Do you accept cookies?</p>
-    <button id="accept-cookies">Accept</button>
-    <button id="deny-cookies">Deny</button>
+<script>
+    window.__translations = {"en":{"site":{"title":"Oumi's Corner","tagline":"Working Notes","description":"Reflections on systems, design decisions, and the realities of building things that last."},"nav":{"home":"Home","about":"About","archive":"Archive"},"post":{"read_more":"Read more","min_read":"min read","related_posts":"Related Posts","comments":"Comments","view_all_posts":"View All Posts"},"filter":{"everything":"Everything","tech":"Tech","life":"Life"},"footer":{"copyright":"Built with care"},"meta":{"posted_on":"Posted on"},"cookie":{"title":"Cookie preferences","description":"This website uses cookies and similar technologies (e.g. cookies, <code>localStorage</code>, <code>sessionStorage</code>) for analytics and to remember settings such as your language preference. Please choose how you'd like us to use them.","accept_all":"Accept all","necessary_only":"Necessary only","deny_all":"Deny all"}},"nl":{"site":{"title":"Oumi's Corner","tagline":"Aantekeningen","description":"Reflecties over systemen, ontwerpbeslissingen en de realiteit van het bouwen van duurzame dingen."},"nav":{"home":"Home","about":"Over","archive":"Archief"},"post":{"read_more":"Lees meer","min_read":"min lezen","related_posts":"Gerelateerde Artikelen","comments":"Reacties","view_all_posts":"Bekijk Alle Artikelen"},"filter":{"everything":"Alles","tech":"Tech","life":"Leven"},"footer":{"copyright":"Met zorg gebouwd"},"meta":{"posted_on":"Geplaatst op"},"cookie":{"title":"Cookie instellingen","description":"Deze website gebruikt cookies en vergelijkbare technologieën (bijv. cookies, <code>localStorage</code>, <code>sessionStorage</code>) voor analytics en om instellingen zoals je taal te onthouden. Kies hoe je wilt dat we deze gebruiken.","accept_all":"Accepteer alles","necessary_only":"Alleen noodzakelijke","deny_all":"Weiger alles"}}};
+</script>
+
+<div id="cookie-banner" class="cookie-modal" role="dialog" aria-modal="true" aria-label="Cookie preferences" hidden>
+    <div class="cookie-modal__panel">
+        
+        
+
+        <h2 class="cookie-modal__title">Cookie preferences</h2>
+        <p class="cookie-modal__desc">This website uses cookies and similar technologies (e.g. cookies, <code>localStorage</code>, <code>sessionStorage</code>) for analytics and to remember settings such as your language preference. Please choose how you'd like us to use them.</p>
+
+        <div class="cookie-modal__actions">
+            <button id="accept-all" class="btn btn--primary">Accept all</button>
+            <button id="accept-necessary" class="btn">Necessary only</button>
+            <button id="deny-all" class="btn btn--ghost">Deny all</button>
+        </div>
+    </div>
 </div>
 
-
-<script>
-    function enableAnalyticsScripts() {
-        const scripts = document.querySelectorAll('script[type="text/plain"][data-cookie-consent="analytics"]');
-        scripts.forEach(script => {
-            const newScript = document.createElement('script');
-            newScript.text = script.innerText;
-            document.body.appendChild(newScript);
-        });
-    }
-
-    document.addEventListener("DOMContentLoaded", function() {
-        const banner = document.getElementById('cookie-banner');
-        const acceptBtn = document.getElementById('accept-cookies');
-        const denyBtn = document.getElementById('deny-cookies');
-
-        const consent = localStorage.getItem('cookies-consent');
-
-        if (consent === 'accepted') {
-            banner.style.display = 'none';
-            enableAnalyticsScripts();
-        } else if (consent === 'denied') {
-            banner.style.display = 'none';
-        } else {
-            banner.style.display = 'flex';
-        }
-
-        acceptBtn.addEventListener('click', function() {
-            localStorage.setItem('cookies-consent', 'accepted');
-            banner.style.display = 'none';
-            enableAnalyticsScripts();
-        });
-
-        denyBtn.addEventListener('click', function() {
-            localStorage.setItem('cookies-consent', 'denied');
-            banner.style.display = 'none';
-        });
-    });
-
-</script>
+<script src="/assets/js/cookie-consent.js" defer></script>
 
 <script src="/assets/js/lang-switcher.js"></script>
 <script src="/assets/js/button-animation.js"></script>

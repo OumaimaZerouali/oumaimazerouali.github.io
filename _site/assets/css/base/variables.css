@@ -46,10 +46,10 @@
   --space-4xl: 12rem;       /* 96px */
   --space-5xl: 16rem;       /* 96px */
 
-  /* Layout - Wide Editorial Magazine (BEAT-style) */
-  --page-max-width: 1600px;        /* Wide container, not blog-narrow */
-  --content-max: 800px;            /* For long-form reading only */
-  --page-padding: clamp(1.5rem, 3vw, 3rem);  /* Responsive edge spacing */
+  /* Layout */
+  --page-max-width: 1600px;        
+  --content-max: 800px;            
+  --page-padding: clamp(1.5rem, 3vw, 3rem);  
 
   /* Visual effects */
   --radius-sm: 8px;

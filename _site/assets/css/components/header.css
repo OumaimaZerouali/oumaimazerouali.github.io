@@ -1,6 +1,5 @@
 /* ==========================================================================
    HEADER COMPONENT - EDITORIAL & MINIMAL
-   Light, almost invisible navigation
    ========================================================================== */
 
 .site-header {
@@ -79,7 +78,6 @@
   opacity: 1;
 }
 
-/* Language Switcher - Minimal Design */
 .lang-switcher {
   display: flex;
   align-items: center;

@@ -1,7 +1,7 @@
 # Nederlandse vertalingen
 site:
   title: "Oumi's Corner"
-  tagline: "Werkaantekeningen"
+  tagline: "Aantekeningen"
   description: "Reflecties over systemen, ontwerpbeslissingen en de realiteit van het bouwen van duurzame dingen."
 
 nav:
@@ -26,4 +26,11 @@ footer:
 
 meta:
   posted_on: "Geplaatst op"
+
+cookie:
+  title: "Cookie instellingen"
+  description: "Deze website gebruikt cookies en vergelijkbare technologieën (bijv. cookies, <code>localStorage</code>, <code>sessionStorage</code>) voor analytics en om instellingen zoals je taal te onthouden. Kies hoe je wilt dat we deze gebruiken."
+  accept_all: "Accepteer alles"
+  necessary_only: "Alleen noodzakelijke"
+  deny_all: "Weiger alles"
 

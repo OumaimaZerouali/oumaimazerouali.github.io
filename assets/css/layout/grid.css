@@ -3,7 +3,6 @@
    Grid spans full width of page container, uses gap for spacing
    ========================================================================== */
 
-/* Articles Grid - Full width editorial layout */
 .articles-editorial {
   width: 100%;
   display: grid;
@@ -12,7 +11,6 @@
   padding: 0 0 var(--space-sm) 0;
 }
 
-/* Tablet: 2 columns, full width */
 @media (min-width: 768px) {
   .articles-editorial {
     grid-template-columns: repeat(2, 1fr);
@@ -20,7 +18,6 @@
   }
 }
 
-/* Desktop: 3 columns, full width */
 @media (min-width: 1200px) {
   .articles-editorial {
     grid-template-columns: repeat(3, 1fr);

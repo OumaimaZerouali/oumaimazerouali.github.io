@@ -1,0 +1,116 @@
+/* ==========================================================================
+   RESPONSIVE HELPERS & MEDIA QUERIES
+   Mobile-first tweaks to improve tablet / mobile layout
+   ========================================================================== */
+
+/* Prevent font-size adjustments on mobile browsers */
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Ensure main containers remain comfortably padded on small screens */
+.page-content,
+.container,
+.content-wrapper,
+.post-editorial-wrapper {
+  padding-inline: clamp(1rem, 4vw, 2rem);
+}
+
+/* Make sure interactive elements remain large enough to tap */
+.lang-link,
+.copy-button,
+.btn {
+  min-height: 2.2rem;
+  line-height: 1.2;
+}
+
+/* Responsive media: tables/iframes/videos */
+.post-content iframe,
+.post-content embed,
+.post-content video,
+.post-content table {
+  max-width: 100%;
+  overflow: auto;
+}
+
+/* Ensure long code blocks stay scrollable on small screens */
+pre {
+  word-break: normal;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Slightly smaller title and tighter header on mobile */
+.site-title {
+  font-size: clamp(1rem, 3.5vw, 1.25rem);
+}
+
+/* Allow hyphenation for long words in editorial headings and taglines */
+.editorial-heading,
+.site-title {
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
+.site-header {
+  padding: clamp(0.75rem, 2.5vw, 1.5rem) var(--page-padding);
+}
+
+/* Reduce header spacing and stack components on narrow screens */
+@media (max-width: 680px) {
+  .site-header .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    flex-wrap: nowrap;
+  }
+
+  .site-title {
+    flex: 1 1 auto;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .social-icons {
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .social-icons .jcast-link {
+    font-size: var(--text-sm);
+  }
+
+  .post-hero {
+    height: 35vh;
+    min-height: 180px;
+  }
+}
+
+/* Tablet adjustments */
+@media (min-width: 681px) and (max-width: 1024px) {
+  .post-editorial-wrapper {
+    grid-template-columns: 1fr 300px;
+    gap: var(--space-2xl);
+  }
+}
+
+/* Utility: make images and svg scale nicely in cards */
+.editorial-image img,
+.post-content img,
+.article-card img,
+img[src$='.svg'] {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Small helpers for clickable areas */
+.lang-link {
+  padding: 0.25rem 0.45rem;
+  border-radius: 6px;
+}
