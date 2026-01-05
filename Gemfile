@@ -7,6 +7,8 @@ gem "logger"
 gem "csv"
 gem "ostruct"
 gem "base64"
+gem "nokogiri", ">= 1.18.9"
+gem "rexml", ">= 3.4.2"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"

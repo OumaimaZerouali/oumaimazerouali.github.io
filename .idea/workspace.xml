@@ -4,141 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: add initial project structure with components and configuration files">
-      <change afterPath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/base/fonts.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/base/reset.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/base/typography.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/base/variables.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/components/buttons.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/components/cards.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/components/code-blocks.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/components/cookie-banner.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/components/footer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/components/header.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/components/progress-bar.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/layout/containers.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/layout/grid.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/pages/home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/css/pages/post.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/components.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/index-DpSajh6k.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/assets/index-Os2ZZ9ax.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/About.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Contact.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Hero.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Podcast.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Projects.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/TechStack.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/accordion.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/alert-dialog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/alert.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/aspect-ratio.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/avatar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/badge.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/breadcrumb.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/calender.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/card.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/carrousel.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/chart.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/checkbox.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/collapsible.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/command.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/context-menu.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/dialog.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/drawer.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/dropdown-menu.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/form.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/hover-card.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/input-otp.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/input.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/label.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/menubar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/navigation-menu.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/pagination.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/popover.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/progress.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/radio-group.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/resizable.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/scroll-area.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/select.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/separator.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/sheet.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/sidebar.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/skeleton.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/slider.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/sonner.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/switch.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/table.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/tabs.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/textarea.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/toast.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/toaster.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/toggle-group.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/toggle.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/tooltip.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ui/use-toast.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/use-mobile.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/hooks/use-toast.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/Index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/NotFound.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.node.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" />
-    </list>
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: add initial layout and styling for the editorial magazine" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -385,7 +251,7 @@
       <workItem from="1764445075906" duration="15000" />
       <workItem from="1764445100190" duration="27000" />
       <workItem from="1764445132938" duration="721000" />
-      <workItem from="1767556020468" duration="5101000" />
+      <workItem from="1767556020468" duration="5688000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -643,7 +509,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764445216673</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="feat: add initial layout and styling for the editorial magazine">
+      <option name="closed" value="true" />
+      <created>1767605248645</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1767605248645</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -674,7 +548,8 @@
     <MESSAGE value="feat: Deploy" />
     <MESSAGE value="fix: gh permissions" />
     <MESSAGE value="feat: add initial project structure with components and configuration files" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add initial project structure with components and configuration files" />
+    <MESSAGE value="feat: add initial layout and styling for the editorial magazine" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add initial layout and styling for the editorial magazine" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
