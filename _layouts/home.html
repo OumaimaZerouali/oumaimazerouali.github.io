@@ -1,0 +1,39 @@
+---
+layout: default
+---
+
+{% include lang.html %}
+
+<div class="editorial-intro">
+    <h1 class="editorial-heading">{{ t.site.tagline }}</h1>
+    <p class="editorial-subheading">
+        {{ t.site.description }}
+    </p>
+</div>
+
+<div class="filter-container">
+    <span>Filter posts on:</span>
+    <div class="filter-bar">
+        <button class="filter-btn active" data-filter="everything">{{ t.filter.everything }}</button>
+        <button class="filter-btn" data-filter="tech">{{ t.filter.tech }}</button>
+        <button class="filter-btn" data-filter="life">{{ t.filter.life }}</button>
+    </div>
+</div>
+
+<div class="articles-editorial">
+    {% for post in site.posts limit: 9 %}
+    {% include article-card.html post=post %}
+    {% endfor %}
+</div>
+
+{% if site.posts.size > 9 %}
+<div class="view-all">
+    <a href="{{ site.baseurl }}/overview" class="view-all-link">
+        <div class="button-text-wrapper">
+          <span class="button-text-original">{{ t.post.view_all_posts }}</span>
+          <span class="button-text-duplicate">{{ t.post.view_all_posts }}</span>
+        </div>
+    </a>
+</div>
+{% endif %}
+

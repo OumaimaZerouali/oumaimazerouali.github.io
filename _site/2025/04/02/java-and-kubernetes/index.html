@@ -1,0 +1,410 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Kubernetes + Java = ❤️: What I Learned About Cloud-Native Java at KubeCon",
+        "description": "",
+        "author": {
+            "@type": "Person",
+            "name": ""
+        },
+        "datePublished": "2025-04-02T23:30:00+02:00",
+        "image": "/assets/img/java-and-quarkus.jpg"
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kubernetes + Java = ❤️: What I Learned About Cloud-Native Java at KubeCon | Oumi's Corner</title>
+
+    <meta name="description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:title" content="Kubernetes + Java = ❤️: What I Learned About Cloud-Native Java at KubeCon">
+    <meta property="og:description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:image" content="/assets/img/java-and-quarkus.jpg">
+    <meta property="og:url" content="http://localhost:4000/2025/04/02/java-and-kubernetes/">
+    <meta name="google-site-verification" content="1cy-OLoI1y37QpgVZyfdmaqcCgSB-LI3dOCdAWCfN8M" />
+    <meta name="keywords" content="oumi's corner, oumaima blog, software development blog, developer journal, tech blog">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">
+    Oumi&#39;s Corner
+    </a>
+
+    <div class="social-icons">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-link" data-lang="en" id="lang-en">EN</button>
+        <span class="lang-separator">/</span>
+        <button class="lang-link" data-lang="nl" id="lang-nl">NL</button>
+      </div>
+
+      <a
+              href="https://jcast.dev"
+              target="_blank"
+              aria-label="The JCast website"
+              class="jcast-link"
+      >
+        JCAST
+        <svg class="external-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+    <!-- Article Header Above Hero -->
+<header class="post-header-top">
+    <h1 class="post-title">Kubernetes + Java = ❤️: What I Learned About Cloud-Native Java at KubeCon</h1>
+    <p class="post-meta">
+        April 02, 2025 · 4 min read
+    </p>
+</header>
+
+<!-- Hero Image - Full Width -->
+
+<div class="post-hero">
+    <img src="/assets/img/java-and-quarkus.jpg" alt="Kubernetes + Java = ❤️: What I Learned About Cloud-Native Java at KubeCon" />
+</div>
+
+
+<!-- Two-Column Editorial Layout -->
+<div class="post-editorial-wrapper">
+    <article class="post-main-column">
+        <!-- Article Content -->
+        <div class="post-content">
+            <blockquote>
+  <p>“The Krusty Krab pizza is the pizza for you and me!” - Spongebob SquarePants</p>
+</blockquote>
+
+<p><em>What does a Java developer have to do with Kubernetes?</em> 
+A lot more than you’d think. At KubeCon 2025, I attended a talk titled <strong>“From 0 To Production-Grade With Kubernetes Native Development”</strong> by <a href="https://thomasvitale.com">Thomas Vitale</a> and <a href="https://kevindubois.com">Kevin Dubois</a> that completely clicked with me.</p>
+
+<p>This session wasn’t just about deploying an app—it was about making the Java dev experience in Kubernetes feel smooth, natural, and dare I say… enjoyable? 
+I want to share how the talk flowed and how each concept landed for me as a developer trying to make sense of this cloud-native world.</p>
+
+<h2 id="from-source-to-container-with-cloud-native-buildpacks">From Source to Container with Cloud Native Buildpacks</h2>
+<p>The session started with one of my favorite tools: <strong>Cloud Native Buildpacks</strong>. Instead of writing a Dockerfile, you let Buildpacks do the heavy lifting of turning source code into container images. 
+The idea of reproducible builds really resonated with me—no more “works on my machine” moments because of subtle differences in container setups.</p>
+
+<p>Just running something like:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mvn package
+pack build my-java-app <span class="nt">--builder</span> paketobuildpacks/builder:base
+</code></pre></div></div>
+<p>and you’ve got a container image that’s production-ready. That simplicity is gold.</p>
+
+<h2 id="building-locally-with-podman-desktop--kind">Building Locally with Podman Desktop + Kind</h2>
+<p>The next move was running everything locally using <strong>Podman Desktop</strong> and <strong>Kind (Kubernetes IN Docker)</strong>. 
+What blew me away was that they did it all from the UI. 
+It made Kubernetes feel a lot more accessible. 
+No YAMLs, no CLI acrobatics—just click and go.</p>
+
+<p>I’ve always stayed away from running Kubernetes clusters locally—it just felt like too much setup for too little gain.
+But seeing how Podman Desktop and Kind work together so seamlessly made me think twice. 
+It showed that with the right tools, a full Kubernetes dev environment on your laptop is actually doable.</p>
+
+<h2 id="making-apps-production-ready-with-probes">Making Apps Production-Ready with Probes</h2>
+<p>They hit a classic gotcha: your app can be running, but not ready to handle traffic. 
+A demo with Quarkus showed how the app technically started, but services like Kafka, DB, and cache weren’t up yet—causing 2.6 seconds of downtime.</p>
+
+<p>That’s where readiness, liveness, and startup probes come in. 
+Adding these tells Kubernetes exactly when your app is good to go:</p>
+
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">readinessProbe</span><span class="pi">:</span>
+  <span class="na">httpGet</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">/q/health/ready</span>
+    <span class="na">port</span><span class="pi">:</span> <span class="m">8080</span>
+  <span class="na">initialDelaySeconds</span><span class="pi">:</span> <span class="m">5</span>
+
+<span class="na">livenessProbe</span><span class="pi">:</span>
+  <span class="na">httpGet</span><span class="pi">:</span>
+    <span class="na">path</span><span class="pi">:</span> <span class="s">/q/health/live</span>
+    <span class="na">port</span><span class="pi">:</span> <span class="m">8080</span>
+  <span class="na">initialDelaySeconds</span><span class="pi">:</span> <span class="m">5</span>
+</code></pre></div></div>
+
+<p>This hit close to home. 
+I’ve definitely shipped apps that technically “worked” but broke under orchestration.</p>
+
+<h2 id="quarkus-kubernetes-native-by-default">Quarkus: Kubernetes-Native by Default</h2>
+<p>Quarkus stole the spotlight when it came to Kubernetes integration. 
+From generating <code class="language-plaintext highlighter-rouge">kubernetes.yaml</code> files to health endpoints, secrets, and config—everything just clicked. 
+I appreciated how much boilerplate was eliminated.</p>
+
+<p>Even the deployment step was as simple as:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./mvnw clean <span class="nb">install</span> <span class="nt">-Dquarkus</span>.kubernetes.deploy<span class="o">=</span><span class="nb">true</span>
+</code></pre></div></div>
+<p>It made me want to explore how far I can go without ever writing YAML manually.</p>
+
+<h2 id="java-in-a-serverless-world-with-knative">Java in a Serverless World with Knative</h2>
+<p>When Knative came up, I had a lightbulb moment. 
+Serverless isn’t limited to Node.js functions. 
+With Knative, your Quarkus or Spring Boot app can scale to zero and only spin up when needed. 
+That’s resource-saving magic.</p>
+
+<p>This is one of the areas I haven’t played with much, but seeing it live made me curious. 
+Could my side projects live like this?</p>
+
+<h2 id="realistic-local-testing-with-testcontainers">Realistic Local Testing with Testcontainers</h2>
+<p>As a Java dev who writes a lot of tests, I’ve been a big fan of Testcontainers for a while—especially when I need to spin up real dependencies for integration testing. 
+So it was awesome to see it being used here too, running things like Kafka and PostgreSQL even inside a Kind cluster.</p>
+
+<p>It’s always validating (and honestly cool) to see a tool you already love being used in production-grade setups. 
+This approach really closes the gap between “it runs on my machine” and “it runs in prod.”</p>
+
+<h2 id="observability-that-just-works-with-opentelemetry">Observability That Just Works with OpenTelemetry</h2>
+<p>You can’t fix what you can’t see. That’s where <strong>OpenTelemetry</strong> came in. 
+They instrumented the app to export traces and metrics, helping pinpoint issues in real-time.
+Whether it’s performance bottlenecks or unexpected behavior, this level of observability is game-changing.</p>
+
+<p>Definitely something I want to plug into Grafana or Jaeger soon.</p>
+
+<h2 id="service-binding-cleaner-wiring-between-apps">Service Binding: Cleaner Wiring Between Apps</h2>
+<p>They also walked through <strong>Service Bindings</strong>—a way to declaratively connect your app to services like Kafka or PostgreSQL without hardcoded configs. 
+This felt especially useful in enterprise setups where secret and config sprawl is real.</p>
+
+<p>Here’s what a binding might look like:</p>
+<div class="language-yaml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">binding.operators.coreos.com/v1alpha1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ServiceBinding</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">my-binding</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">application</span><span class="pi">:</span>
+    <span class="na">name</span><span class="pi">:</span> <span class="s">my-app</span>
+    <span class="na">group</span><span class="pi">:</span> <span class="s">apps</span>
+    <span class="na">version</span><span class="pi">:</span> <span class="s">v1</span>
+    <span class="na">resource</span><span class="pi">:</span> <span class="s">deployments</span>
+  <span class="na">services</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">group</span><span class="pi">:</span> <span class="s">mygroup</span>
+      <span class="na">version</span><span class="pi">:</span> <span class="s">v1</span>
+      <span class="na">kind</span><span class="pi">:</span> <span class="s">Kafka</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">my-kafka</span>
+</code></pre></div></div>
+
+<h2 id="conclusion-java-️-kubernetes">Conclusion: Java ❤️ Kubernetes</h2>
+<p>This session was packed but never overwhelming. 
+It painted a full picture—starting with local development and ending with production-readiness. 
+It made cloud-native Java feel a lot less daunting and a lot more exciting.</p>
+
+<p>What stood out wasn’t just the tools—it was the developer experience. 
+Everything felt smoother, more integrated, and honestly, more fun. I left inspired to try Buildpacks, finally use probes correctly, and rebuild one of my own apps with Knative and OpenTelemetry baked in from the start.</p>
+
+<p>Big shoutout to <strong>Thomas</strong> and <strong>Kevin</strong> for making Kubernetes feel like home for Java devs.</p>
+
+<p>Stay tuned for more experiments—and maybe a follow-up post once I break (and hopefully fix) everything myself.</p>
+
+        </div>
+    </article>
+
+    <!-- Secondary Column -->
+    <aside class="post-sidebar-column">
+        <!-- ...existing sidebar content... -->
+        <div class="sidebar-section related-posts">
+            <h3>Related Posts</h3>
+            <ul>
+                
+                
+                
+                <li>
+                    <a href="/nl/2025/10/05/testcontainers/">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/10/05/testcontainers/">Testcontainers in Spring Boot: From Quick Wins to Power Moves</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/08/05/exceptions-should-be-exceptional/">Exceptions: The Emergency Brake, Not the Steering Wheel</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/08/01/error-404-motiviation-not-found/">Error 404: Motivation Not Found. When Your Codebase Ghosts You</a>
+                </li>
+                
+                
+            </ul>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="sidebar-section comments-section">
+            <h3>Comments</h3>
+            <div id="giscus_thread"></div>
+            <script src="https://giscus.app/client.js"
+                    data-repo="OumaimaZerouali/devs-insights"
+                    data-repo-id="R_kgDONqWo4A"
+                    data-category="General"
+                    data-category-id="DIC_kwDONqWo4M4Coz7A"
+                    data-mapping="specific"
+                    data-term="devs-insights"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="light"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </aside>
+</div>
+
+
+
+
+
+
+</main><footer class="site-footer">
+    <div class="footer-content">
+        <a class="site-title" rel="author" href="/">
+        Oumi&#39;s Corner
+        </a>
+    </div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const codeBlocks = document.querySelectorAll('pre');
+
+        codeBlocks.forEach((block) => {
+            const language = block.classList[0];
+
+            if (language) {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.innerText = 'Copy';
+
+                const copiedIcon = document.createElement('span');
+                copiedIcon.className = 'copied-icon';
+                copiedIcon.innerHTML = '&#x2714;';
+                copiedIcon.style.display = 'none';
+                button.appendChild(copiedIcon);
+
+                const pre = block.parentNode;
+                pre.style.position = 'relative';
+                pre.appendChild(button);
+
+                button.addEventListener('click', function() {
+                    const range = document.createRange();
+                    range.selectNode(block);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+
+                    try {
+                        document.execCommand('copy');
+                        copiedIcon.style.display = 'inline-block';
+                        button.innerText = '';
+                        button.appendChild(copiedIcon);
+
+                        setTimeout(() => {
+                            copiedIcon.style.display = 'none';
+                            button.innerText = 'Copy';
+                        }, 1500);
+                    } catch (err) {
+                        console.error('Failed to copy code: ', err);
+                    }
+
+                    window.getSelection().removeAllRanges();
+                });
+            }
+        });
+    });
+</script>
+
+<!-- Google Analytics (disabled until consent) -->
+<script type="text/plain" data-cookie-consent="analytics">
+    (function() {
+        var gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-BPHJ4G11P0";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+
+        gtag('js', new Date());
+        gtag('config', 'G-BPHJ4G11P0');
+    })();
+</script>
+
+<div id="cookie-banner" aria-live="polite" role="dialog" aria-label="Cookie consent banner" style="display: none;">
+    <p>This website uses cookies for analytics. Do you accept cookies?</p>
+    <button id="accept-cookies">Accept</button>
+    <button id="deny-cookies">Deny</button>
+</div>
+
+
+<script>
+    function enableAnalyticsScripts() {
+        const scripts = document.querySelectorAll('script[type="text/plain"][data-cookie-consent="analytics"]');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            newScript.text = script.innerText;
+            document.body.appendChild(newScript);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const denyBtn = document.getElementById('deny-cookies');
+
+        const consent = localStorage.getItem('cookies-consent');
+
+        if (consent === 'accepted') {
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        } else if (consent === 'denied') {
+            banner.style.display = 'none';
+        } else {
+            banner.style.display = 'flex';
+        }
+
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'accepted');
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        });
+
+        denyBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'denied');
+            banner.style.display = 'none';
+        });
+    });
+
+</script>
+
+<script src="/assets/js/lang-switcher.js"></script>
+<script src="/assets/js/button-animation.js"></script>
+<script src="/assets/js/code-copy.js"></script>
+
+</body>
+</html>

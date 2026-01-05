@@ -1,0 +1,468 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)",
+        "description": "",
+        "author": {
+            "@type": "Person",
+            "name": ""
+        },
+        "datePublished": "2025-04-08T08:00:00+02:00",
+        "image": "/assets/img/angular-vs-manual.jpg"
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring) | Oumi's Corner</title>
+
+    <meta name="description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:title" content="OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)">
+    <meta property="og:description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:image" content="/assets/img/angular-vs-manual.jpg">
+    <meta property="og:url" content="http://localhost:4000/2025/04/08/openapi-angular/">
+    <meta name="google-site-verification" content="1cy-OLoI1y37QpgVZyfdmaqcCgSB-LI3dOCdAWCfN8M" />
+    <meta name="keywords" content="oumi's corner, oumaima blog, software development blog, developer journal, tech blog">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">
+    Oumi&#39;s Corner
+    </a>
+
+    <div class="social-icons">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-link" data-lang="en" id="lang-en">EN</button>
+        <span class="lang-separator">/</span>
+        <button class="lang-link" data-lang="nl" id="lang-nl">NL</button>
+      </div>
+
+      <a
+              href="https://jcast.dev"
+              target="_blank"
+              aria-label="The JCast website"
+              class="jcast-link"
+      >
+        JCAST
+        <svg class="external-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+    <!-- Article Header Above Hero -->
+<header class="post-header-top">
+    <h1 class="post-title">OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)</h1>
+    <p class="post-meta">
+        April 08, 2025 · 5 min read
+    </p>
+</header>
+
+<!-- Hero Image - Full Width -->
+
+<div class="post-hero">
+    <img src="/assets/img/angular-vs-manual.jpg" alt="OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)" />
+</div>
+
+
+<!-- Two-Column Editorial Layout -->
+<div class="post-editorial-wrapper">
+    <article class="post-main-column">
+        <!-- Article Content -->
+        <div class="post-content">
+            <blockquote>
+  <p>“Firmly grasp it in your hand!” - Patrick Star</p>
+</blockquote>
+
+<h2 id="the-motivation-from-repetitive-code-to-a-better-way">The Motivation: From Repetitive Code to a Better Way</h2>
+
+<p>We already had OpenAPI set up in the backend. 
+So naturally, I asked myself — why am I still writing Angular services by hand?</p>
+
+<p>Creating HTTP services manually was becoming tedious and error-prone. 
+Not to mention, every change in the backend required me to double-check if the frontend stayed in sync. 
+I wanted something cleaner. 
+Smarter. 
+More <em>streamlined</em>. 
+That’s when I decided to bring OpenAPI to the frontend too.</p>
+
+<h2 id="the-setup-generating-angular-code-with-openapi">The Setup: Generating Angular Code with OpenAPI</h2>
+
+<p>Enter <code class="language-plaintext highlighter-rouge">openapi-generator-cli</code>.</p>
+
+<p>Before anything else, you’ll need to have your OpenAPI spec (in my case, <code class="language-plaintext highlighter-rouge">my-openapi.yaml</code>) available in your frontend project — either committed directly or pulled in through your pipeline. 
+This file is the blueprint that tells the generator what to build.</p>
+
+<p>Once that’s in place, I ran:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx openapi-generator-cli generate <span class="nt">-i</span> my-openapi.yaml <span class="nt">-g</span> typescript-angular <span class="nt">-o</span> libs/api
+</code></pre></div></div>
+
+<p>This generated a fully-typed Angular client based on our backend’s OpenAPI definition. 
+Clean. 
+Structured. 
+No more manually writing request/response interfaces or services.</p>
+
+<p>To make it easily reusable, I added this to my <code class="language-plaintext highlighter-rouge">package.json</code> scripts:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"generate-api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npx openapi-generator-cli generate -i my-openapi.yaml -g typescript-angular -o libs/api"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>So anytime the backend changes, I can just regenerate the frontend with one command. 
+No fuss.</p>
+
+<h2 id="the-configuration-making-it-work-with-angular">The Configuration: Making It Work with Angular</h2>
+
+<p>Next, I had to configure Angular to use the generated code properly.</p>
+
+<p>You’ll need to provide a custom <code class="language-plaintext highlighter-rouge">Configuration</code> so the generated services know where your API lives:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">provide</span><span class="p">:</span> <span class="nx">Configuration</span><span class="p">,</span>
+  <span class="nx">useFactory</span><span class="p">:</span> <span class="p">():</span> <span class="nx">Configuration</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="na">params</span><span class="p">:</span> <span class="nx">ConfigurationParameters</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">basePath</span><span class="p">:</span> <span class="nx">environment</span><span class="p">.</span><span class="nx">baseUrl</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nc">Configuration</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Pro tip: Don’t generate inside <code class="language-plaintext highlighter-rouge">src/</code>. 
+I placed everything in a <code class="language-plaintext highlighter-rouge">libs/api</code> folder to keep things modular and outside the core app.</p>
+
+<h2 id="the-great-refactor-painful-but-worth-it">The Great Refactor: Painful but Worth It</h2>
+
+<p>This is where things got <em>real</em>.</p>
+
+<p>I started replacing all our old manually written services with the auto-generated ones. 
+It was painful at first — services had different naming, method signatures weren’t exactly the same, and mocking in tests needed updates too.</p>
+
+<p>Example: Before, I used a custom service to fetch attachments. 
+Now I just call:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">attachmentsService</span><span class="p">.</span><span class="nf">getAllAttachments</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Much cleaner. 
+Less boilerplate. 
+More consistency.</p>
+
+<h3 id="testing-adjustments">Testing Adjustments</h3>
+
+<p>Tests needed some love too. 
+I replaced a bunch of old <code class="language-plaintext highlighter-rouge">MockProvider</code> with simpler mocks using the generated interfaces.</p>
+
+<p>Example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">provide</span><span class="p">:</span> <span class="nx">AttachmentsService</span><span class="p">,</span>
+  <span class="nx">useValue</span><span class="p">:</span> <span class="p">{</span> <span class="nl">getAllAttachments</span><span class="p">:</span> <span class="nx">jest</span><span class="p">.</span><span class="nf">fn</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Simple. 
+Maintainable. 
+And way easier to understand when revisiting tests later.</p>
+
+<h2 id="syncing-openapi-across-teams">Syncing OpenAPI Across Teams</h2>
+
+<p>One thing I had to think about was <strong>how to keep the OpenAPI spec in sync</strong> between backend and frontend. 
+If you’re working in a monorepo — lucky you. 
+But if your backend and frontend are in separate repos (like ours), there are a few ways to handle it:</p>
+
+<ul>
+  <li>
+    <p><strong>Option 1: Commit the OpenAPI YAML directly into the frontend repo.</strong><br />
+Simple and works well if the spec doesn’t change too often.</p>
+  </li>
+  <li>
+    <p><strong>Option 2: Automate fetching the spec in your CI/CD pipeline.</strong><br />
+For example, have a script that pulls the latest <code class="language-plaintext highlighter-rouge">openapi.yaml</code> from the backend before generating the client.</p>
+  </li>
+  <li>
+    <p><strong>Option 3: Use a shared package or Git submodule.</strong><br />
+Slightly more complex but very reusable across multiple frontends.</p>
+  </li>
+</ul>
+
+<p>Whatever you pick, just make sure you’re not manually copying files around. 
+That defeats the purpose of automation.</p>
+
+<h2 id="gotchas--gains">Gotchas &amp; Gains</h2>
+<p>Let’s be real — bringing OpenAPI to Angular isn’t <em>just</em> plug-and-play. 
+There were a few bumps on the road:</p>
+
+<ul>
+  <li>
+    <p><strong>Casing and naming conventions</strong><br />
+The generated models didn’t always match our style. Thankfully, you can tweak this with options like <code class="language-plaintext highlighter-rouge">--additional-properties=modelPropertyNaming=camelCase</code>.</p>
+  </li>
+  <li>
+    <p><strong>Enum weirdness</strong><br />
+Enums behaved a bit unexpectedly — especially when the backend used patterns that didn’t translate neatly to TypeScript.</p>
+  </li>
+  <li>
+    <p><strong>Circular references</strong><br />
+These can mess with the generator in complex specs. Keeping the OpenAPI doc clean and well-structured helped.</p>
+  </li>
+  <li>
+    <p><strong>Massive PRs</strong><br />
+The initial PR introducing the generated client? Huge. But 90% of it was boilerplate. Reviewers just needed coffee and patience.</p>
+  </li>
+</ul>
+
+<p>Despite the hiccups, it was absolutely worth it. Here’s why:</p>
+
+<ul>
+  <li>✅ No more duplicating DTOs between frontend and backend</li>
+  <li>✅ Backend changes? Just regenerate — no guesswork</li>
+  <li>✅ Strongly typed services made refactors way safer</li>
+  <li>✅ Test mocks became leaner and easier to write</li>
+  <li>✅ This setup now lives in <em>every</em> project I touch</li>
+</ul>
+
+<p>Yes, the refactor took time. 
+But it simplified the future. 
+I’d do it all over again — and sooner.</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Bringing OpenAPI to Angular wasn’t just a technical upgrade — it was a mindset shift.</p>
+
+<p>We talk a lot about automation, DevOps, and building smarter systems.
+But this is that same philosophy applied at the code level. 
+Why keep writing the same HTTP service over and over when your tools can generate it for you — strongly typed, documented, and ready to go?</p>
+
+<p>By introducing OpenAPI to the frontend, I made Angular feel like a first-class citizen in our API ecosystem. 
+I stopped duplicating DTOs, stopped guessing request shapes, and started focusing on the things that actually need a human brain: logic, UX, and problem-solving.</p>
+
+<p>Yes, the refactor was painful. 
+Yes, it took time to get the mocks right and the tests stable again. 
+But now? 
+Future me is thankful.</p>
+
+<p>So if you’re staring at yet another service you have to hand-code — maybe that’s the sign. 
+Automate what can be automated. 
+Let the machines do the boilerplate. 
+And use your time for the parts that matter.</p>
+
+        </div>
+    </article>
+
+    <!-- Secondary Column -->
+    <aside class="post-sidebar-column">
+        <!-- ...existing sidebar content... -->
+        <div class="sidebar-section related-posts">
+            <h3>Related Posts</h3>
+            <ul>
+                
+                
+                
+                <li>
+                    <a href="/nl/2025/10/05/testcontainers/">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/10/05/testcontainers/">Testcontainers in Spring Boot: From Quick Wins to Power Moves</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/08/05/exceptions-should-be-exceptional/">Exceptions: The Emergency Brake, Not the Steering Wheel</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/08/01/error-404-motiviation-not-found/">Error 404: Motivation Not Found. When Your Codebase Ghosts You</a>
+                </li>
+                
+                
+            </ul>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="sidebar-section comments-section">
+            <h3>Comments</h3>
+            <div id="giscus_thread"></div>
+            <script src="https://giscus.app/client.js"
+                    data-repo="OumaimaZerouali/devs-insights"
+                    data-repo-id="R_kgDONqWo4A"
+                    data-category="General"
+                    data-category-id="DIC_kwDONqWo4M4Coz7A"
+                    data-mapping="specific"
+                    data-term="devs-insights"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="light"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </aside>
+</div>
+
+
+
+
+
+
+</main><footer class="site-footer">
+    <div class="footer-content">
+        <a class="site-title" rel="author" href="/">
+        Oumi&#39;s Corner
+        </a>
+    </div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const codeBlocks = document.querySelectorAll('pre');
+
+        codeBlocks.forEach((block) => {
+            const language = block.classList[0];
+
+            if (language) {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.innerText = 'Copy';
+
+                const copiedIcon = document.createElement('span');
+                copiedIcon.className = 'copied-icon';
+                copiedIcon.innerHTML = '&#x2714;';
+                copiedIcon.style.display = 'none';
+                button.appendChild(copiedIcon);
+
+                const pre = block.parentNode;
+                pre.style.position = 'relative';
+                pre.appendChild(button);
+
+                button.addEventListener('click', function() {
+                    const range = document.createRange();
+                    range.selectNode(block);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+
+                    try {
+                        document.execCommand('copy');
+                        copiedIcon.style.display = 'inline-block';
+                        button.innerText = '';
+                        button.appendChild(copiedIcon);
+
+                        setTimeout(() => {
+                            copiedIcon.style.display = 'none';
+                            button.innerText = 'Copy';
+                        }, 1500);
+                    } catch (err) {
+                        console.error('Failed to copy code: ', err);
+                    }
+
+                    window.getSelection().removeAllRanges();
+                });
+            }
+        });
+    });
+</script>
+
+<!-- Google Analytics (disabled until consent) -->
+<script type="text/plain" data-cookie-consent="analytics">
+    (function() {
+        var gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-BPHJ4G11P0";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+
+        gtag('js', new Date());
+        gtag('config', 'G-BPHJ4G11P0');
+    })();
+</script>
+
+<div id="cookie-banner" aria-live="polite" role="dialog" aria-label="Cookie consent banner" style="display: none;">
+    <p>This website uses cookies for analytics. Do you accept cookies?</p>
+    <button id="accept-cookies">Accept</button>
+    <button id="deny-cookies">Deny</button>
+</div>
+
+
+<script>
+    function enableAnalyticsScripts() {
+        const scripts = document.querySelectorAll('script[type="text/plain"][data-cookie-consent="analytics"]');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            newScript.text = script.innerText;
+            document.body.appendChild(newScript);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const denyBtn = document.getElementById('deny-cookies');
+
+        const consent = localStorage.getItem('cookies-consent');
+
+        if (consent === 'accepted') {
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        } else if (consent === 'denied') {
+            banner.style.display = 'none';
+        } else {
+            banner.style.display = 'flex';
+        }
+
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'accepted');
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        });
+
+        denyBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'denied');
+            banner.style.display = 'none';
+        });
+    });
+
+</script>
+
+<script src="/assets/js/lang-switcher.js"></script>
+<script src="/assets/js/button-animation.js"></script>
+<script src="/assets/js/code-copy.js"></script>
+
+</body>
+</html>

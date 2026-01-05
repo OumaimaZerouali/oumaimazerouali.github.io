@@ -1,0 +1,404 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "What If We Wrote Code Like We Write Poetry?",
+        "description": "",
+        "author": {
+            "@type": "Person",
+            "name": ""
+        },
+        "datePublished": "2025-03-10T19:00:00+01:00",
+        "image": "/assets/img/software-dev-and-poetry.jpg"
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>What If We Wrote Code Like We Write Poetry? | Oumi's Corner</title>
+
+    <meta name="description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:title" content="What If We Wrote Code Like We Write Poetry?">
+    <meta property="og:description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:image" content="/assets/img/software-dev-and-poetry.jpg">
+    <meta property="og:url" content="http://localhost:4000/2025/03/10/what-if-we-wrote-code-like-poetry/">
+    <meta name="google-site-verification" content="1cy-OLoI1y37QpgVZyfdmaqcCgSB-LI3dOCdAWCfN8M" />
+    <meta name="keywords" content="oumi's corner, oumaima blog, software development blog, developer journal, tech blog">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">
+    Oumi&#39;s Corner
+    </a>
+
+    <div class="social-icons">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-link" data-lang="en" id="lang-en">EN</button>
+        <span class="lang-separator">/</span>
+        <button class="lang-link" data-lang="nl" id="lang-nl">NL</button>
+      </div>
+
+      <a
+              href="https://jcast.dev"
+              target="_blank"
+              aria-label="The JCast website"
+              class="jcast-link"
+      >
+        JCAST
+        <svg class="external-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+    <!-- Article Header Above Hero -->
+<header class="post-header-top">
+    <h1 class="post-title">What If We Wrote Code Like We Write Poetry?</h1>
+    <p class="post-meta">
+        March 10, 2025 · 6 min read
+    </p>
+</header>
+
+<!-- Hero Image - Full Width -->
+
+<div class="post-hero">
+    <img src="/assets/img/software-dev-and-poetry.jpg" alt="What If We Wrote Code Like We Write Poetry?" />
+</div>
+
+
+<!-- Two-Column Editorial Layout -->
+<div class="post-editorial-wrapper">
+    <article class="post-main-column">
+        <!-- Article Content -->
+        <div class="post-content">
+            <blockquote>
+  <p>“Ravioli, ravioli, give me the formuoli!” - Spongebob SquarePants</p>
+</blockquote>
+
+<p>We often hear terms like “<em>clean code,</em>” “<em>elegant solutions,</em>” and “<em>beautiful architecture</em>” thrown around in software development. 
+But what if we took those concepts a step further? 
+What if we started approaching our craft, software engineering, with the same artistry, intention, and mindful attention to detail that poets bring to their verses? 
+I’m not suggesting we start writing code that <em>looks</em> like a sonnet, but rather, what if we embraced poetic principles in our coding <em>process</em>?</p>
+
+<p>As a Java and Angular developer, mostly backend stuff with Spring Boot and a sprinkle of Quarkus, this idea might seem a bit out there. 
+I mean, I spend most of my day wrestling with NullPointerExceptions and trying to get my components to render correctly – not exactly a scene that screams artistic inspiration. 
+But after diving into Uncle Bob’s Clean Code and Clean Coder, I began to see coding as something more than just a technical exercise. 
+There’s a real art to crafting well-structured, maintainable, and even…dare I say… <em>beautiful</em> code.</p>
+
+<p>So, in this post, I want to explore that idea. 
+Can we learn anything from poetry that can make us better developers? 
+<strong>It may seem a stretch, but let’s give it a try!</strong>
+I’ll dive into poetic concepts like rhythm, imagery, conciseness, and even a little bit of rhyme, and see if we can’t use them to improve our coding. 
+The goal is to explore whether or not such poetic elements can help us write code that is not only functional but more readable, maintainable, and even…dare I say it…<em>beautiful</em>.</p>
+
+<h2 id="rhythm-and-flow-code-structure-and-readability">Rhythm and Flow (Code Structure and Readability):</h2>
+<p>Think of one of your favorite poems.
+What makes it stick in your head? 
+For me, it’s how the words flow – you just get it without having to think too hard. 
+Code can and should have that, as well! 
+I’m talking about more than just making sure your IDE auto-formats the code – it’s about creating a structure that is easy to follow.</p>
+
+<p>As <em>Uncle Bob</em> emphasizes in “Clean Code,” code should read like well-written prose. 
+Consistent indentation, meaningful variable names, and clear function signatures are essential for creating code that has a natural rhythm and flow.
+I think of it as guiding the reader through the code, making it as easy as possible for them to follow along and understand what’s happening. 
+It’s more than just aesthetics; it directly improves readability and reduces cognitive load.
+Consider the example bellow.
+Which one would you like to maintain?</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//Before</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">a</span><span class="o">{</span><span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">a</span><span class="o">){</span><span class="kt">int</span> <span class="n">x</span><span class="o">=</span><span class="mi">5</span><span class="o">;</span><span class="kt">int</span> <span class="n">y</span><span class="o">=</span><span class="mi">10</span><span class="o">;</span><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum="</span><span class="o">+</span> <span class="o">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="o">));}}</span>
+
+<span class="c1">//After</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Addition</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="nc">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">number1</span> <span class="o">=</span> <span class="mi">5</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">number2</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
+        <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">number1</span> <span class="o">+</span> <span class="n">number2</span><span class="o">;</span>
+        <span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Sum = "</span> <span class="o">+</span> <span class="n">sum</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><em>See the difference?</em> 
+<strong>Even for this small bit of code!</strong></p>
+
+<h2 id="imagery-and-metaphor-abstraction-and-design-patterns">Imagery and Metaphor (Abstraction and Design Patterns):</h2>
+<p>Poetry often uses imagery and metaphors to explain complex ideas in a concise way that really sticks with you. 
+As software enginners this is usefull because, we can achieve something similar through abstraction and design patterns.</p>
+
+<p>A well-chosen abstraction is like a powerful metaphor – it hides the underlying complexity and allows us to reason about the system at a higher level.
+Take design patterns: Strategy, Observer or Factory - this are just examples. 
+They are not just recipes but more complex than that, this is why they represent ways to convey a more complex idea in our code to other devs. 
+In the end all of this helps improve and simplify the project and make it easier to work with,</p>
+
+<p>Alright, time for a Java example! 
+Let’s say you need to connect to different payment gateways (Stripe, PayPal…). 
+Using a strategy pattern, you make that process more seamless. 
+And when that works. 
+All the new hires do not need to search for the best solution anymore.</p>
+
+<h2 id="conciseness-and-elegance-code-optimization-and-refactoring">Conciseness and Elegance (Code Optimization and Refactoring):</h2>
+<p>I really don’t want that every single line of code is 10x smaller, that is just nuts. 
+But at least it can be smaller.
+Poets are masters of getting to the point, so you should be also.
+As a junior java and doing spring boot. 
+Performance really matters. By keeping it less heavy is really helpfull!</p>
+
+<p>Where framework like Quarkus comes in handy. 
+Since its fast and light on resources which really lets you create great code in the company.</p>
+
+<h2 id="constraints-and-creativity-coding-standards-and-best-practices">Constraints and Creativity (Coding Standards and Best Practices):</h2>
+<p>When I first started learning programming, honestly, the most annoying thing was all the standards and all the rules I had to follow. 
+It felt so restrictive! But then I read <em>Uncle Bob’s</em> “Clean Code” and things started to click. 
+I began to understand that these guidelines weren’t just random rules, they were actually a roadmap to writing better code.</p>
+
+<p>But it wasn’t just the books themselves. I also had some amazing colleagues who took the time to explain the why behind the rules. 
+They showed me how these seemingly restrictive constraints could actually spark creativity and lead to more elegant and maintainable solutions. 
+It’s like learning the rules of a poetic form – once you understand the structure, you can start to play with it and create something truly unique.</p>
+
+<p>Think of the SOLID principles, for example. At first glance, they might seem like a set of rigid guidelines that stifle creativity. 
+But in reality, they provide a framework for building clean, understandable code that can be easily extended and modified.
+And that, in turn, frees you up to focus on the more interesting and challenging aspects of your project. 
+It’s like having a solid foundation to build upon – you can be more creative with the design and features, knowing that the underlying code is rock-solid.</p>
+
+<h2 id="emotional-impact-user-experience-and-developer-satisfaction">Emotional Impact (User Experience and Developer Satisfaction):</h2>
+<p>Code can have an impact on the User and yourself. 
+And to be honest, if you create clean code and it does not work… Wel that just not fun anymore. 
+So as important is readability and performance as if does the thing you want.
+As junior devloper, I do have some part of code that i do think: Man this is <em>f</em>cking* awsome!
+Having that and learning new stuff is really important.</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>So, that’s it – our exploration of code and poetry comes to an end. 
+Have we unlocked some ancient secret to coding enlightenment? <em>Probably not</em>. 
+Am I suggesting you start writing code that rhymes? 
+<em>Definitely not (unless you’re feeling really ambitious!).</em></p>
+
+<p>But hopefully, this thought experiment has given you some new ways to think about writing code. 
+At its core, writing “poetic code” is about more than just aesthetics – it’s about empathy, about thinking about the other developers who will have to read and maintain your code, and about striving to create something that is not only functional but also elegant, understandable, and even…dare I say it… beautiful.</p>
+
+<p>In the end, it all comes down to communication. 
+Just like a poet uses language to connect with their audience on an emotional level, we, as developers, use code to communicate our intentions to both the machine and our fellow humans. 
+And by embracing the principles of rhythm, imagery, conciseness, and constraint, we can become better communicators, better developers, and maybe even a little bit more like those coding legends.</p>
+
+<p><strong>So, go forth and write code that sings!</strong> 
+Code that tells a story! Code that makes the world a better place! 
+Or, you know, just code that works… but does it with a little bit of style.</p>
+
+        </div>
+    </article>
+
+    <!-- Secondary Column -->
+    <aside class="post-sidebar-column">
+        <!-- ...existing sidebar content... -->
+        <div class="sidebar-section related-posts">
+            <h3>Related Posts</h3>
+            <ul>
+                
+                
+                
+                <li>
+                    <a href="/nl/2025/10/05/testcontainers/">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/10/05/testcontainers/">Testcontainers in Spring Boot: From Quick Wins to Power Moves</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/08/05/exceptions-should-be-exceptional/">Exceptions: The Emergency Brake, Not the Steering Wheel</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/08/01/error-404-motiviation-not-found/">Error 404: Motivation Not Found. When Your Codebase Ghosts You</a>
+                </li>
+                
+                
+            </ul>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="sidebar-section comments-section">
+            <h3>Comments</h3>
+            <div id="giscus_thread"></div>
+            <script src="https://giscus.app/client.js"
+                    data-repo="OumaimaZerouali/devs-insights"
+                    data-repo-id="R_kgDONqWo4A"
+                    data-category="General"
+                    data-category-id="DIC_kwDONqWo4M4Coz7A"
+                    data-mapping="specific"
+                    data-term="devs-insights"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="light"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </aside>
+</div>
+
+
+
+
+
+
+</main><footer class="site-footer">
+    <div class="footer-content">
+        <a class="site-title" rel="author" href="/">
+        Oumi&#39;s Corner
+        </a>
+    </div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const codeBlocks = document.querySelectorAll('pre');
+
+        codeBlocks.forEach((block) => {
+            const language = block.classList[0];
+
+            if (language) {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.innerText = 'Copy';
+
+                const copiedIcon = document.createElement('span');
+                copiedIcon.className = 'copied-icon';
+                copiedIcon.innerHTML = '&#x2714;';
+                copiedIcon.style.display = 'none';
+                button.appendChild(copiedIcon);
+
+                const pre = block.parentNode;
+                pre.style.position = 'relative';
+                pre.appendChild(button);
+
+                button.addEventListener('click', function() {
+                    const range = document.createRange();
+                    range.selectNode(block);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+
+                    try {
+                        document.execCommand('copy');
+                        copiedIcon.style.display = 'inline-block';
+                        button.innerText = '';
+                        button.appendChild(copiedIcon);
+
+                        setTimeout(() => {
+                            copiedIcon.style.display = 'none';
+                            button.innerText = 'Copy';
+                        }, 1500);
+                    } catch (err) {
+                        console.error('Failed to copy code: ', err);
+                    }
+
+                    window.getSelection().removeAllRanges();
+                });
+            }
+        });
+    });
+</script>
+
+<!-- Google Analytics (disabled until consent) -->
+<script type="text/plain" data-cookie-consent="analytics">
+    (function() {
+        var gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-BPHJ4G11P0";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+
+        gtag('js', new Date());
+        gtag('config', 'G-BPHJ4G11P0');
+    })();
+</script>
+
+<div id="cookie-banner" aria-live="polite" role="dialog" aria-label="Cookie consent banner" style="display: none;">
+    <p>This website uses cookies for analytics. Do you accept cookies?</p>
+    <button id="accept-cookies">Accept</button>
+    <button id="deny-cookies">Deny</button>
+</div>
+
+
+<script>
+    function enableAnalyticsScripts() {
+        const scripts = document.querySelectorAll('script[type="text/plain"][data-cookie-consent="analytics"]');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            newScript.text = script.innerText;
+            document.body.appendChild(newScript);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const denyBtn = document.getElementById('deny-cookies');
+
+        const consent = localStorage.getItem('cookies-consent');
+
+        if (consent === 'accepted') {
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        } else if (consent === 'denied') {
+            banner.style.display = 'none';
+        } else {
+            banner.style.display = 'flex';
+        }
+
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'accepted');
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        });
+
+        denyBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'denied');
+            banner.style.display = 'none';
+        });
+    });
+
+</script>
+
+<script src="/assets/js/lang-switcher.js"></script>
+<script src="/assets/js/button-animation.js"></script>
+<script src="/assets/js/code-copy.js"></script>
+
+</body>
+</html>

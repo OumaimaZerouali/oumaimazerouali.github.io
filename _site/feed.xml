@@ -1,0 +1,1469 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-04T21:20:36+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Corner</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
+</subtitle><entry xml:lang="nl"><title type="html">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</title><link href="http://localhost:4000/nl/2025/10/05/testcontainers/" rel="alternate" type="text/html" title="Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten" /><published>2025-10-05T09:00:00+02:00</published><updated>2025-10-05T09:00:00+02:00</updated><id>http://localhost:4000/nl/2025/10/05/testcontainers</id><content type="html" xml:base="http://localhost:4000/nl/2025/10/05/testcontainers/"><![CDATA[<blockquote>
+  <p>“Testcontainers is als SpongeBob aan het roer van je CI: vrolijk, betrouwbaar, en op de een of andere manier verandert chaos in perfectie.” - Ik</p>
+</blockquote>
+
+<p>Als junior developer ben ik constant nieuwe tools en werkwijzen aan het leren.
+Een les van mijn seniors die echt bij me bleef hangen was deze: <em>mocken brengt je maar tot een bepaald punt</em>.
+Op een gegeven moment moet je testen tegen het echte ding: een echte database, een echte message broker, een echte service.</p>
+
+<p>Toen ontdekte ik <strong>Testcontainers</strong>, en het veranderde compleet hoe ik integratietests schrijf in Java en Spring Boot.
+Na ermee te experimenteren en mijn bevindingen met collega’s te delen, realiseerde ik me dat ik alles wat ik geleerd had op één plek wilde vastleggen.</p>
+
+<p>Deze post is mijn poging om precies dat te doen: het waarom uitleggen, het hoe, en de real-world patronen die ik nu gebruik in mijn projecten.</p>
+
+<h2 id="waarom-testcontainers">Waarom Testcontainers?</h2>
+
+<p>Mocking is geweldig voor unit tests, maar voor integratie tests wil je de echte dependencies testen.
+Met Testcontainers draai je echte Docker containers tijdens je tests - databases, message brokers, wat je maar nodig hebt.</p>
+
+<p>Het is eenvoudig te gebruiken en maakt je tests veel betrouwbaarder.</p>
+
+<p><em>Dit is een voorbeeldpost om de meertalige structuur te demonstreren. De volledige Nederlandse vertaling kan later toegevoegd worden.</em></p>]]></content><author><name></name></author><category term="java" /><category term="spring-boot" /><category term="testing" /><category term="docker" /><summary type="html"><![CDATA[“Testcontainers is als SpongeBob aan het roer van je CI: vrolijk, betrouwbaar, en op de een of andere manier verandert chaos in perfectie.” - Ik]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" /><media:content medium="image" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Testcontainers in Spring Boot: From Quick Wins to Power Moves</title><link href="http://localhost:4000/2025/10/05/testcontainers/" rel="alternate" type="text/html" title="Testcontainers in Spring Boot: From Quick Wins to Power Moves" /><published>2025-10-05T09:00:00+02:00</published><updated>2025-10-05T09:00:00+02:00</updated><id>http://localhost:4000/2025/10/05/testcontainers</id><content type="html" xml:base="http://localhost:4000/2025/10/05/testcontainers/"><![CDATA[<blockquote>
+  <p>“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me</p>
+</blockquote>
+
+<p>As a junior developer, I’m constantly learning new tools and practices.
+One lesson from my seniors that really stuck with me was this: <em>mocking will only take you so far</em>.
+At some point, you need to test against the real thing: a real database, a real message broker, a real service.</p>
+
+<p>That’s when I discovered <strong>Testcontainers</strong>, and it completely changed how I write integration tests in Java and Spring Boot.
+After experimenting with it and sharing my findings with colleagues, I realized I wanted to capture everything I’d learned in one place.</p>
+
+<p>This post is my attempt to do just that: explaining the why, the how, and the real-world patterns I now use in my projects.</p>
+
+<h2 id="the-problem-i-used-to-have">The Problem I Used to Have</h2>
+<p>I have to admit.
+I used to avoid integration tests whenever I could.
+Mocks were my best friends: fast, predictable, and easy to set up.</p>
+
+<p>But as much as I loved them, some things just can’t be faked.
+A mail server, a real PostgreSQL database, no amount of mocking could truly replicate them.</p>
+
+<p>I quickly ran into the same frustrating scenarios we’ve all seen: tests that pass on my machine but fail in CI, or teammates spending hours just to get the environment ready to run tests.</p>
+
+<p>For a Spring Boot app that needs PostgreSQL and sends emails, here’s how the options stack up:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Approach</th>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Local Installation</strong><br />Install PostgreSQL &amp; SMTP locally</td>
+      <td>- Tests against real services<br /> - No mocking</td>
+      <td>- Different versions across machines<br /> - “Works on my laptop” syndrome<br /> - Painful CI setup<br /> - Leftover test data pollution</td>
+    </tr>
+    <tr>
+      <td><strong>Mock Everything</strong><br />Use mock databases &amp; services</td>
+      <td>- Fast test execution<br /> - No external dependencies</td>
+      <td>- Not testing real integration<br /> - Mocks drift from reality<br /> - False confidence</td>
+    </tr>
+    <tr>
+      <td><strong>Testcontainers</strong><br />Real services in Docker</td>
+      <td>- Real integration testing<br /> - Consistent across all machines<br /> - Zero installation hassle<br /> - Clean state every run</td>
+      <td>- Requires Docker<br /> - Slightly slower than mocks</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testcontainers</strong> was the game-changer I needed.</p>
+
+<h2 id="quick-setup">Quick Setup</h2>
+
+<p>Before I dive deep, let me get you set up:</p>
+
+<p><strong>Prerequisites:</strong></p>
+<ul>
+  <li>Java <strong>21+</strong></li>
+  <li>Maven</li>
+  <li>Docker Desktop running</li>
+</ul>
+
+<p><strong>Add the dependencies:</strong></p>
+
+<p>Maven:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.testcontainers<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>junit-jupiter<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.testcontainers<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<h2 id="the-standard-approach-good-but-limited">The Standard Approach (Good, But Limited)</h2>
+
+<p>Here’s what most tutorials show you, and honestly, it’s great for simple cases:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Testcontainers</span>
+<span class="nd">@DataJpaTest</span>
+<span class="kd">class</span> <span class="nc">UserRepositoryTest</span> <span class="o">{</span>
+
+    <span class="nd">@Container</span>
+    <span class="kd">static</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span> <span class="n">postgres</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16-alpine"</span><span class="o">);</span>
+    
+    <span class="nd">@DynamicPropertySource</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">configureProperties</span><span class="o">(</span><span class="nc">DynamicPropertyRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"spring.datasource.url"</span><span class="o">,</span> <span class="nl">postgres:</span><span class="o">:</span><span class="n">getJdbcUrl</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"spring.datasource.username"</span><span class="o">,</span> <span class="nl">postgres:</span><span class="o">:</span><span class="n">getUsername</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"spring.datasource.password"</span><span class="o">,</span> <span class="nl">postgres:</span><span class="o">:</span><span class="n">getPassword</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Autowired</span>
+    <span class="nc">UserRepository</span> <span class="n">userRepository</span><span class="o">;</span>
+    
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">givenNewUser_whenSaving_thenUserIsPersisted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"Spongebob"</span><span class="o">);</span>
+        <span class="n">userRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">userRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">().</span><span class="na">size</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This is <strong>beautiful</strong> for simple cases. JUnit starts a PostgreSQL container, Spring Boot wires it up via <code class="language-plaintext highlighter-rouge">@DynamicPropertySource</code>, your test runs against a real database, and the container gets cleaned up afterward.</p>
+
+<h3 id="what-actually-happens-behind-the-scenes">What Actually Happens Behind the Scenes?</h3>
+
+<p>When you hit “Run Test”, here’s the magic that unfolds (simplified):</p>
+
+<p align="center">
+    <img src="/assets/img/simplified.svg" alt="Behind the scenes (simplified)" style="height: 550px" />
+</p>
+
+<p>The waiting phase is crucial. 
+Testcontainers doesn’t just check if the port is open, it waits until the service is actually ready to accept connections. 
+This is why your tests “just work” without flaky failures.</p>
+
+<p>But in real projects, I quickly ran into situations where I needed to:</p>
+
+<ul>
+  <li>Start multiple containers that talk to each other</li>
+  <li>Preload my database with schema or seed data</li>
+  <li>Wait for a REST API to be ready, not just a port</li>
+  <li>Test email sending against a fake SMTP server</li>
+</ul>
+
+<p>That’s where things get interesting….</p>
+
+<h2 id="level-up-applicationcontextinitializer">Level Up: ApplicationContextInitializer</h2>
+
+<p>When I need more control, Spring Boot gives me a powerful hook:
+<strong><code class="language-plaintext highlighter-rouge">ApplicationContextInitializer&lt;ConfigurableApplicationContext&gt;</code></strong>.</p>
+
+<p>This runs <strong>before</strong> your application context starts, letting you:</p>
+
+<ul>
+  <li>Start containers manually with full control</li>
+  <li>Configure complex wait strategies</li>
+  <li>Inject custom properties into Spring’s environment</li>
+  <li>Reuse container configurations across multiple test classes</li>
+</ul>
+
+<p>I think of it as the “professional” way to wire up Testcontainers in Spring Boot.</p>
+
+<h3 id="how-the-professional-setup-works">How the Professional Setup Works</h3>
+
+<p>Here’s what happens when you use <code class="language-plaintext highlighter-rouge">ApplicationContextInitializer</code>:</p>
+
+<p align="center">
+    <img src="/assets/img/testcontainers.svg" alt="What happens when you use ApplicationContextInitializer" style="height: 550px" />
+</p>
+
+<p>This gives you complete control over the startup sequence and lets you configure containers exactly how you need them.</p>
+
+<h3 id="real-world-example-testing-email-with-smtp4dev-or-mailpit">Real-World Example: Testing Email with smtp4dev (or Mailpit)</h3>
+
+<p>My app sends emails, and I needed to test that realistically without spamming real inboxes.</p>
+
+<p><strong>smtp4dev</strong> is a fake SMTP server that catches emails and exposes them via REST API. 
+It’s been around for years, has a mature codebase, and includes features like relay testing and authentication simulation. 
+Perfect for comprehensive email testing scenarios.</p>
+
+<p><strong>Mailpit</strong> is a modern alternative written in Go, known for its lightweight footprint, faster startup times, and slick UI. 
+It also has excellent search capabilities and built-in spam score analysis. 
+If you’re starting fresh, Mailpit is often the go-to choice in 2025, but smtp4dev remains solid for existing projects.</p>
+
+<p>Both expose REST APIs for programmatic testing, support SMTP authentication, and provide web UIs for manual inspection. 
+The main differences:</p>
+
+<ul>
+  <li><strong>Performance</strong>: Mailpit starts faster and uses less memory (~10-20MB vs ~50-100MB)</li>
+  <li><strong>UI</strong>: Mailpit has a more modern, responsive interface</li>
+  <li><strong>Features</strong>: smtp4dev has more enterprise features (relay, conditional rules); Mailpit focuses on simplicity</li>
+  <li><strong>Docker size</strong>: Mailpit image is smaller (~15MB vs ~200MB)</li>
+</ul>
+
+<p>For most Spring Boot integration tests, either works great. 
+I’ll show you smtp4dev here, but switching to Mailpit is as simple as changing the image name.</p>
+
+<p>Here’s smtp4dev in action:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Smtp4devTestContainerInitializer</span> <span class="kd">implements</span> <span class="nc">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="nc">ConfigurableApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">GenericContainer</span><span class="o">&lt;?&gt;</span> <span class="n">smtp4devContainer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GenericContainer</span><span class="o">&lt;&gt;(</span><span class="nc">DockerImageName</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"rnwood/smtp4dev:3.10.3"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">withExposedPorts</span><span class="o">(</span><span class="mi">80</span><span class="o">,</span> <span class="mi">25</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">waitingFor</span><span class="o">(</span><span class="nc">Wait</span><span class="o">.</span><span class="na">forHttp</span><span class="o">(</span><span class="s">"/api/messages"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forPort</span><span class="o">(</span><span class="mi">80</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forStatusCode</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">ConfigurableApplicationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">smtp4devContainer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        
+        <span class="nc">TestPropertyValues</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+        <span class="s">"spring.mail.host="</span> <span class="o">+</span> <span class="n">smtp4devContainer</span><span class="o">.</span><span class="na">getHost</span><span class="o">(),</span>
+        <span class="s">"spring.mail.port="</span> <span class="o">+</span> <span class="n">smtp4devContainer</span><span class="o">.</span><span class="na">getMappedPort</span><span class="o">(</span><span class="mi">25</span><span class="o">)</span>
+        <span class="o">).</span><span class="na">applyTo</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now in a test:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span><span class="n">initializers</span> <span class="o">=</span> <span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">KrustyKrabEmailServiceTest</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="nc">EmailService</span> <span class="n">emailService</span><span class="o">;</span>
+    
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">givenBikiniBottomCitizen_whenSendingWelcome_thenMessageSends</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">emailService</span><span class="o">.</span><span class="na">sendWelcome</span><span class="o">(</span><span class="s">"patrick.star@bikinibottom.com"</span><span class="o">);</span>
+        
+        <span class="nc">RestTemplate</span> <span class="n">rest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RestTemplate</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="n">messagesApi</span> <span class="o">=</span> <span class="s">"http://"</span> <span class="o">+</span>
+        <span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">smtp4devContainer</span><span class="o">.</span><span class="na">getHost</span><span class="o">()</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span>
+        <span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">smtp4devContainer</span><span class="o">.</span><span class="na">getMappedPort</span><span class="o">(</span><span class="mi">80</span><span class="o">)</span> <span class="o">+</span>
+        <span class="s">"/api/messages"</span><span class="o">;</span>
+        
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="n">rest</span><span class="o">.</span><span class="na">getForObject</span><span class="o">(</span><span class="n">messagesApi</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        
+        <span class="n">assertEquals</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">messages</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">messages</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="s">"subject"</span><span class="o">).</span><span class="na">toString</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"Welcome"</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Key things:</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">withExposedPorts(80, 25)</code></strong> exposes the web UI + SMTP port</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">waitingFor(Wait.forHttp(...))</code></strong> waits until the API is really alive</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">TestPropertyValues</code></strong> wires the container config into Spring</li>
+</ul>
+
+<p>Want to use <strong>Mailpit</strong> instead? Here’s the equivalent initializer:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MailpitTestContainerInitializer</span> <span class="kd">implements</span> <span class="nc">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="nc">ConfigurableApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">GenericContainer</span><span class="o">&lt;?&gt;</span> <span class="n">mailpitContainer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GenericContainer</span><span class="o">&lt;&gt;(</span><span class="nc">DockerImageName</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"axllent/mailpit:v1.27.8"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">withExposedPorts</span><span class="o">(</span><span class="mi">8025</span><span class="o">,</span> <span class="mi">1025</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">waitingFor</span><span class="o">(</span><span class="nc">Wait</span><span class="o">.</span><span class="na">forHttp</span><span class="o">(</span><span class="s">"/api/v1/messages"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forPort</span><span class="o">(</span><span class="mi">8025</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forStatusCode</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">ConfigurableApplicationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mailpitContainer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        
+        <span class="nc">TestPropertyValues</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+        <span class="s">"spring.mail.host="</span> <span class="o">+</span> <span class="n">mailpitContainer</span><span class="o">.</span><span class="na">getHost</span><span class="o">(),</span>
+        <span class="s">"spring.mail.port="</span> <span class="o">+</span> <span class="n">mailpitContainer</span><span class="o">.</span><span class="na">getMappedPort</span><span class="o">(</span><span class="mi">1025</span><span class="o">)</span>
+        <span class="o">).</span><span class="na">applyTo</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The key differences:</p>
+<ul>
+  <li>Port 8025 for web UI (vs 80 in smtp4dev)</li>
+  <li>Port 1025 for SMTP (vs 25)</li>
+  <li>API path is <code class="language-plaintext highlighter-rouge">/api/v1/messages</code> instead of <code class="language-plaintext highlighter-rouge">/api/messages</code></li>
+</ul>
+
+<p>Both work identically in your tests. Choose smtp4dev if you need advanced relay features or are already using it. Choose Mailpit if you want faster container startup and a smaller Docker footprint.</p>
+
+<h3 id="postgresql-with-initialization-scripts">PostgreSQL with Initialization Scripts</h3>
+
+<p>Sometimes I don’t want an empty database. I want schema + seed data loaded.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDatabaseInitializer</span> <span class="kd">implements</span> <span class="nc">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="nc">ConfigurableApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span> <span class="n">postgres</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16-alpine"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withDatabaseName</span><span class="o">(</span><span class="s">"myapp"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withCopyFileToContainer</span><span class="o">(</span><span class="nc">MountableFile</span><span class="o">.</span><span class="na">forClasspathResource</span><span class="o">(</span><span class="s">"init_schema.sql"</span><span class="o">),</span> <span class="s">"/docker-entrypoint-initdb.d/"</span><span class="o">);</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">ConfigurableApplicationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">postgres</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        
+        <span class="nc">TestPropertyValues</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+        <span class="s">"spring.datasource.url="</span> <span class="o">+</span> <span class="n">postgres</span><span class="o">.</span><span class="na">getJdbcUrl</span><span class="o">(),</span>
+        <span class="s">"spring.datasource.username="</span> <span class="o">+</span> <span class="n">postgres</span><span class="o">.</span><span class="na">getUsername</span><span class="o">(),</span>
+        <span class="s">"spring.datasource.password="</span> <span class="o">+</span> <span class="n">postgres</span><span class="o">.</span><span class="na">getPassword</span><span class="o">()</span>
+        <span class="o">).</span><span class="na">applyTo</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The trick: <strong><code class="language-plaintext highlighter-rouge">withCopyFileToContainer</code></strong> → place schema in <code class="language-plaintext highlighter-rouge">/docker-entrypoint-initdb.d/</code>. Postgres runs it automatically on startup.</p>
+
+<h2 id="specialized-containers-vs-genericcontainer">Specialized Containers vs GenericContainer</h2>
+
+<p>You might have noticed I used both <code class="language-plaintext highlighter-rouge">PostgreSQLContainer</code> and <code class="language-plaintext highlighter-rouge">GenericContainer</code>.</p>
+
+<p>Here’s the rule of thumb:</p>
+
+<ul>
+  <li><strong>Use specialized containers</strong> when they exist (<code class="language-plaintext highlighter-rouge">PostgreSQLContainer</code>, <code class="language-plaintext highlighter-rouge">MongoDBContainer</code>, <code class="language-plaintext highlighter-rouge">KafkaContainer</code>, …).
+They give you nice defaults and shortcuts.</li>
+  <li><strong>Use <code class="language-plaintext highlighter-rouge">GenericContainer</code></strong> when no module exists (smtp4dev, Mailpit, custom APIs, your own Docker images).</li>
+</ul>
+
+<p>Think of <code class="language-plaintext highlighter-rouge">GenericContainer</code> as the <strong>Swiss Army knife</strong> of Testcontainers.
+Everything else is built on top of it.</p>
+
+<h2 id="pro-tips-from-my-experience">Pro Tips from My Experience</h2>
+<h4 id="reuse-containers-across-tests"><strong>Reuse containers across tests</strong></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Container</span>
+<span class="kd">static</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span> <span class="n">postgres</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16.3"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Make them <code class="language-plaintext highlighter-rouge">static</code> to avoid restarting for every method. Here’s why this matters:</p>
+
+<p align="center">
+    <img src="/assets/img/static_1.svg" alt="Without static" style="height: 550px; margin-bottom: -400px; margin-top: -200px" />
+    <img src="/assets/img/static_2.svg" alt="With static" style="height: 550px; margin-top: -100px; margin-bottom: -200px" />
+</p>
+
+<h4 id="pin-image-versions"><strong>Pin image versions</strong></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16-alpine"</span><span class="o">);</span> <span class="c1">// stable</span>
+<span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:latest"</span><span class="o">);</span> <span class="c1">// risky</span>
+</code></pre></div></div>
+
+<h4 id="share-initializers-across-test-classes"><strong>Share initializers</strong> across test classes</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span><span class="n">initializers</span> <span class="o">=</span> <span class="o">{</span>
+<span class="nc">TestDatabaseInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+<span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">class</span>
+<span class="o">})</span>
+<span class="kd">class</span> <span class="nc">MyIntegrationTest</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="dont-worry-too-much-about-test-speed"><strong>Don’t worry too much about test speed</strong></h4>
+<p>Yes, Docker containers take a few seconds to start. 
+But with static containers and proper reuse, I’ve found the startup cost is negligible compared to the confidence I gain. 
+My test suite with PostgreSQL and smtp4dev adds maybe 5-10 seconds total. Well worth it.</p>
+
+<h4 id="check-logs-when-debugging"><strong>Check logs when debugging</strong></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">postgres</span><span class="o">.</span><span class="na">getLogs</span><span class="o">());</span>
+</code></pre></div></div>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+<p>Testcontainers transformed how I think about integration testing.</p>
+
+<p>I started with <code class="language-plaintext highlighter-rouge">@Container</code> and <code class="language-plaintext highlighter-rouge">@DynamicPropertySource</code> for simple cases.
+When I needed more control, I reached for <code class="language-plaintext highlighter-rouge">ApplicationContextInitializer</code>.
+And when I had to test against any Docker image, <code class="language-plaintext highlighter-rouge">GenericContainer</code> had my back.</p>
+
+<p>The beauty is that I’m always testing against <strong>the real thing</strong>.
+Real databases, real SMTP servers, real APIs and this without any of the traditional headaches of managing those services locally.</p>
+
+<p>If you’re not using Testcontainers yet, I encourage you to give it a try on your next Spring Boot project.
+Your future self (and your teammates) will thank you.</p>
+
+<p>Now go forth and containerize those tests</p>
+
+<h2 id="resources">Resources</h2>
+<p><strong>Official Documentation:</strong></p>
+<ul>
+  <li><a href="https://www.testcontainers.org/">Testcontainers Official Documentation</a></li>
+  <li><a href="https://java.testcontainers.org/">Testcontainers for Java</a></li>
+  <li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing">Spring Boot Testing Documentation</a></li>
+</ul>
+
+<p><strong>Docker Images Used:</strong></p>
+<ul>
+  <li><a href="https://hub.docker.com/_/postgres">PostgreSQL on Docker Hub</a></li>
+  <li><a href="https://github.com/rnwood/smtp4dev">smtp4dev on GitHub</a></li>
+  <li><a href="https://github.com/axllent/mailpit">Mailpit on GitHub</a></li>
+</ul>
+
+<p><strong>Related Tools:</strong></p>
+<ul>
+  <li><a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a></li>
+  <li><a href="https://mvnrepository.com/artifact/org.testcontainers">Maven Central - Testcontainers</a></li>
+</ul>]]></content><author><name></name></author><category term="java" /><category term="spring-boot" /><category term="testing" /><category term="docker" /><summary type="html"><![CDATA[“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" /><media:content medium="image" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Exceptions: The Emergency Brake, Not the Steering Wheel</title><link href="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/" rel="alternate" type="text/html" title="Exceptions: The Emergency Brake, Not the Steering Wheel" /><published>2025-08-05T09:00:00+02:00</published><updated>2025-08-05T09:00:00+02:00</updated><id>http://localhost:4000/2025/08/05/exceptions-should-be-exceptional</id><content type="html" xml:base="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/"><![CDATA[<blockquote>
+  <p>“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants</p>
+</blockquote>
+
+<p>As developers, we’re told to handle errors.<br />
+But how we handle them really affects the way our code works.</p>
+
+<p>A common mistake, especially in Java, is using exceptions to manage normal, expected stuff.<br />
+It’s like using your car’s emergency brake every time you hit a red light.<br />
+It kinda works… until it doesn’t.</p>
+
+<p>Eventually, your code slows down, gets messy, and people avoid touching it like it’s cursed.</p>
+
+<p>And hey, I’ve done it too.<br />
+Throwing an exception is easy.<br />
+It feels like a clean escape hatch when logic gets too messy.<br />
+But here’s the thing: exceptions are meant for <strong>unexpected problems</strong>, not everyday flow.</p>
+
+<p>Martin Fowler put it best:</p>
+<blockquote>
+  <p><strong>Exceptions should be exceptional.</strong></p>
+</blockquote>
+
+<p>Let’s break that down.</p>
+
+<h2 id="what-actually-counts-as-exceptional">What <em>Actually</em> Counts as “Exceptional”?</h2>
+
+<p>Think of an exception like a fire alarm.<br />
+It should only go off when something’s seriously wrong. 
+Something the code couldn’t have planned for.</p>
+
+<p>Here’s a quick gut check:</p>
+<ul>
+  <li>Is this a <em>normal</em> part of business logic? → Don’t throw.</li>
+  <li>Is this a <em>weird</em> failure that makes the method impossible to finish? → Exception time.</li>
+</ul>
+
+<h3 id="examples">Examples:</h3>
+<p><strong>Actually Exceptional</strong></p>
+<ul>
+  <li>DB is down.</li>
+  <li>Config file is missing or unreadable.</li>
+  <li>API suddenly returns a 500.</li>
+</ul>
+
+<p><strong>Not Exceptional</strong></p>
+<ul>
+  <li>No user found for a search.</li>
+  <li>Email format is invalid.</li>
+  <li>List is empty.</li>
+</ul>
+
+<p>If it’s something you <em>expect might happen</em>, just handle it with normal logic.</p>
+
+<h2 id="when-throwing-is-the-right-call">When Throwing Is the Right Call</h2>
+
+<p>Here’s a good example of when an exception makes sense.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">squareRoot</span><span class="o">(</span><span class="kt">double</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"Cannot calculate the square root of a negative number."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This method’s job is to calculate square roots. If you give it a negative number, it literally can’t do that.
+So yeah, an exception is fair. That’s not just “bad input”, it breaks the rules of what the method can even do.</p>
+
+<h2 id="what-to-do-when-failures-arent-exceptional">What to Do When Failures <em>Aren’t</em> Exceptional</h2>
+
+<p>Let’s talk about validation.</p>
+
+<p>Imagine a user signs up with a bad email <em>and</em> a weak password.
+Do you want to throw an exception for each issue, stopping after the first one?
+Or do you want to show all the problems at once?</p>
+
+<h3 id="the-wrong-way">The Wrong Way</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(!</span><span class="n">email</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"Email is invalid."</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">password</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"Password too short."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This stops after the email fails, so the user keeps fixing one thing at a time. 
+Super annoying.</p>
+
+<h3 id="a-better-way-notification-pattern">A Better Way: Notification Pattern</h3>
+
+<p>Let’s collect all issues in one go:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Notification</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">errors</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addError</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span> <span class="n">errors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">message</span><span class="o">);</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasErrors</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">!</span><span class="n">errors</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">getErrors</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">errors</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="nc">Notification</span> <span class="nf">validate</span><span class="o">(</span><span class="nc">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Notification</span> <span class="n">notification</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Notification</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">(!</span><span class="n">user</span><span class="o">.</span><span class="na">getEmail</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">notification</span><span class="o">.</span><span class="na">addError</span><span class="o">(</span><span class="s">"Email is invalid."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getPassword</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">notification</span><span class="o">.</span><span class="na">addError</span><span class="o">(</span><span class="s">"Password must be at least 8 characters."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="n">notification</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now the user gets <em>all</em> feedback at once.
+The backend stays chill.
+No emergency brakes needed.</p>
+
+<h2 id="custom-exceptions-when-theyre-actually-helpful">Custom Exceptions: When They’re Actually Helpful</h2>
+
+<p>Custom exceptions are fine when they <em>mean</em> something specific, especially in business logic.</p>
+
+<p>Example: a banking app.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InsufficientFundsException</span> <span class="kd">extends</span> <span class="nc">RuntimeException</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">InsufficientFundsException</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This makes it super clear what went wrong and you can handle it differently than, say, a network error.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="n">accountService</span><span class="o">.</span><span class="na">withdraw</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InsufficientFundsException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">showError</span><span class="o">(</span><span class="s">"You don’t have enough funds."</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NetworkException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">showError</span><span class="o">(</span><span class="s">"Connection error. Please try again."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The goal: make errors <em>understandable</em> and <em>actionable</em>.</p>
+
+<h2 id="the-hidden-costs-of-misusing-exceptions">The Hidden Costs of Misusing Exceptions</h2>
+
+<p><strong>1. Performance</strong>
+Throwing an exception isn’t free.
+The JVM captures the whole stack trace, and that takes time.
+If you’re throwing exceptions in a tight loop or in a high-traffic app, you’re asking for trouble.</p>
+
+<p><strong>2. Readability</strong>
+<code class="language-plaintext highlighter-rouge">try-catch</code> blocks are loud.
+If you use them for stuff that’s not an error, your code becomes harder to read and understand.
+Future you, or someone else, has to stop and ask, “Wait, is this <em>really</em> an error?”</p>
+
+<p><strong>3. Bad APIs</strong>
+If your backend throws an exception for bad input, it might just send back a generic <code class="language-plaintext highlighter-rouge">500</code>.
+But that’s not a server error, it’s a user mistake.
+Instead, return a <code class="language-plaintext highlighter-rouge">400 Bad Request</code> with a clean JSON response explaining what’s wrong.</p>
+
+<h2 id="the-bigger-picture-dont-be-clever-be-clear">The Bigger Picture: Don’t Be “Clever”, Be Clear</h2>
+
+<p>Throwing exceptions for normal stuff feels clever at first.
+But clever code ages badly.</p>
+
+<p>Clean code is clear code.
+It doesn’t use exceptions like fancy <code class="language-plaintext highlighter-rouge">if</code> statements.
+It uses them when something genuinely breaks.</p>]]></content><author><name></name></author><category term="java" /><category term="best-practices" /><category term="architecture" /><summary type="html"><![CDATA[“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/exceptions.png" /><media:content medium="image" url="http://localhost:4000/assets/img/exceptions.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Error 404: Motivation Not Found. When Your Codebase Ghosts You</title><link href="http://localhost:4000/2025/08/01/error-404-motiviation-not-found/" rel="alternate" type="text/html" title="Error 404: Motivation Not Found. When Your Codebase Ghosts You" /><published>2025-08-01T13:00:00+02:00</published><updated>2025-08-01T13:00:00+02:00</updated><id>http://localhost:4000/2025/08/01/error-404-motiviation-not-found</id><content type="html" xml:base="http://localhost:4000/2025/08/01/error-404-motiviation-not-found/"><![CDATA[<blockquote>
+  <p>“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants</p>
+</blockquote>
+
+<p>We’ve all been there: those days when you’re full of energy, diving into a new project. 
+The code flows, the tests pass, and you feel like the master of the digital world. 
+But then, it happens: You open your editor and… nothing. 
+The inspiration is gone. 
+<strong>Error 404: Motivation Not Found.</strong></p>
+
+<p>This isn’t just procrastination. 
+The project that was once so promising now feels like a stubborn, unfamiliar landscape. 
+You know you have to do something with it, but you have no idea where to start.</p>
+
+<h3 id="the-stranger-in-your-own-code">The Stranger in Your Own Code</h3>
+<p>One of the most common reasons for this feeling is that your codebase feels like it belongs to someone else. 
+Even if you wrote it yourself, a project from just a few months ago can feel like a stranger.</p>
+
+<ul>
+  <li><strong>Unreadable code:</strong> No clear variable names, no documentation. What did that function do again? Why did I write it this way?</li>
+  <li><strong>Incomprehensible architecture:</strong> The structure of the project is so complex that you can no longer follow the logic.</li>
+  <li><strong>Broken tests:</strong> Or, even worse, no tests at all. The fear of changing something and crashing the whole thing prevents you from writing any.</li>
+</ul>
+
+<p>These are the moments when you realize you’ve invested in a liability: <strong>technical debt</strong>. 
+It’s like you’ve been putting off washing the dishes for years, and now you’re faced with a mountain of dirty plates so high that you lose the motivation to even begin.</p>
+
+<h3 id="the-endless-refactor-loop">The Endless Refactor Loop</h3>
+<p>Beyond technical debt, there’s another major motivation killer: the constant need to change. 
+One day you have a great idea for the design, a new color scheme, or a different approach to the architecture. 
+A few days later, you change your mind and decide to refactor everything. 
+This endless loop of “I’ll get it perfect this time” is a trap. 
+You never commit to a single idea long enough to see it through, so you end up with a fragmented, half-finished project and zero motivation.</p>
+
+<h3 id="how-to-reconnect">How to Reconnect</h3>
+<p>Repairing the relationship with your codebase requires a few strategic steps. 
+It’s not a quick fix but an investment in the future.</p>
+
+<ol>
+  <li><strong>Start small. Very small.</strong> Don’t try to rewrite the entire project. Find a small, isolated task. A bug fix in a single function, or refactoring a few lines of code to make them more readable. Make small commits with clear messages so you can easily refer back to them.</li>
+  <li><strong>Finish one idea before starting another.</strong> Instead of constantly refactoring, commit to a single idea for your design or architecture. Work on it, finish it, and <strong>deploy something</strong>. Once it’s live, you can make an informed decision about what needs to change.</li>
+  <li><strong>Write tests.</strong> Nothing provides more confidence than good tests. Add a simple unit test to the code you’re touching. This gives you a safety net and the courage to make further changes.</li>
+  <li><strong>Document your own code.</strong> Once you’ve understood a small part, write it down. Add comments, update the README. This helps not only your future self but also anyone who works with this code after you.</li>
+  <li><strong>Talk about it.</strong> Discuss the project with a colleague or in a community. Sometimes a fresh perspective is all you need. Explain where you’re stuck. The process of articulating your problem can often lead to the solution.</li>
+  <li><strong>Give yourself a break.</strong> Sometimes the best approach is to step away entirely. Go for a walk, read a book, or work on a different project. The solution often comes at the most unexpected moments, when your mind isn’t actively working on it.</li>
+</ol>]]></content><author><name></name></author><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">The Season of Goodbyes</title><link href="http://localhost:4000/2025/06/24/saying-goodbye/" rel="alternate" type="text/html" title="The Season of Goodbyes" /><published>2025-06-24T11:30:00+02:00</published><updated>2025-06-24T11:30:00+02:00</updated><id>http://localhost:4000/2025/06/24/saying-goodbye</id><content type="html" xml:base="http://localhost:4000/2025/06/24/saying-goodbye/"><![CDATA[<blockquote>
+  <p>“I can’t do this, Patrick!” - SpongeBob SquarePants</p>
+</blockquote>
+
+<blockquote>
+  <p>“That’s okay, SpongeBob. I can’t do it either.” - Patrick Star</p>
+</blockquote>
+
+<p>Lately, it feels like a season of goodbyes.</p>
+
+<p>Last Friday, my internship mentor left the company. 
+In the coming weeks, I’ll be saying goodbye to five more colleagues. 
+People who’ve shaped my journey here in ways both big and small. 
+People who’ve laughed with me, challenged me, supported me, and believed in me.</p>
+
+<p>And while they’re each moving on to new things, each goodbye leaves a quiet ache. 
+Not because I’m not happy for them, <strong>I am</strong>, but because every departure makes you realize just how much the people around you matter.</p>
+
+<p>This post isn’t just a goodbye. 
+It’s a thank you. 
+To my mentor, to my colleagues, and to anyone who’s ever made a place feel like more than just a job.</p>
+
+<h2 id="mentors-matter-more-than-you-think">Mentors Matter More Than You Think</h2>
+<p>I did my internship at what was then called Ordina. 
+We had picked a cloud-related internship project, despite knowing absolutely nothing about the cloud. 
+We fumbled our way through, tried everything we could think of, and struggled more than once. 
+Our mentor didn’t hold our hands through it. 
+Instead, he gave us just enough: enough guidance to set us in the right direction, but never so much that we wouldn’t discover it ourselves. 
+He left room for us to feel proud of what we were building.</p>
+
+<p><em>Then came the final presentation.</em></p>
+
+<p>This wasn’t just for show, it counted toward our grades, and it was in front of real employees. 
+It started well. 
+But somewhere along the way, stress took over.
+<em>I froze.</em>
+<em>Complete blank.</em>
+<em>A long, heavy silence.</em>
+And then, I gathered myself, took a breath, and pushed through. 
+Afterwards, I cried. 
+I was convinced I had failed. <em>He’s going to tell them I’m not ready,</em> I thought. 
+<em>This is it.</em></p>
+
+<p>But a few days later, I got a message from my teacher:</p>
+<blockquote>
+  <p>“Just spoke with your mentors; I don’t know what you did, but they’re your biggest fans.”</p>
+</blockquote>
+
+<p>I couldn’t believe it. And shortly after, I had a contract offer.</p>
+
+<p>On his last day, he reminded me of that moment. He said:</p>
+<blockquote>
+  <p>“It still amazes me; how you went from nearly collapsing during that first presentation… to presenting like it’s second nature now.”</p>
+</blockquote>
+
+<p>And that’s the kind of mentor he was. 
+He saw more in me than I saw in myself. 
+He believed in my potential when all I could see were my mistakes. 
+And because of him, I started this whole journey with confidence I hadn’t yet earned, but he gave it to me anyway.</p>
+
+<p>And for that, I’ll always be grateful.</p>
+
+<h2 id="impact-isnt-always-visible-but-its-there">Impact Isn’t Always Visible (But It’s There)</h2>
+<p>I don’t know what impact I’ve had on the people who are leaving.
+<em>I hope I made them laugh.</em>
+<em>I hope I made them feel seen, supported, and appreciated in the way they did for me.</em>
+I hope something I said or did helped, even if just a little.</p>
+
+<p>But I <em>do</em> know the impact they’ve had on me.</p>
+
+<p>The quiet encouragements.
+The quick “you’ve got this” before a talk.
+The check-ins that came at <em>exactly</em> the right time, even if they didn’t know it.</p>
+
+<p>The moments that felt small at the moment, but looking back? 
+They were gold. 
+It’s easy to underestimate how much of a difference someone can make just by showing up as themselves. 
+Just by being consistent.</p>
+
+<p>And when I think about legacy, not in the career sense, but the <em>human</em> sense
+those are the people who left the biggest marks. Not because of what they built. 
+But because of how they <em>made people feel</em> while they were building it.</p>
+
+<h2 id="let-it-hurt-but-let-it-mean-something">Let It Hurt, But Let It Mean Something</h2>
+<p>I won’t pretend that goodbyes don’t hurt, because they do.
+They hurt in quiet, unexpected ways. 
+In the pause before you send a message and realize they’re no longer there. 
+In the final wave. 
+In the space someone used to fill.</p>
+
+<p>They hurt because something mattered. 
+Because someone mattered. 
+Because the time you shared wasn’t just time, it was trust, growth, laughter, support. 
+It was real. 
+It’s tempting to brush it off, to say <em>I’m fine</em>, to smile through it, to stay busy and distracted. 
+But this time, I’m choosing not to.</p>
+
+<p>I’m letting it hurt, just a little.
+Letting it hurt is a way of recognizing the value of that connection. 
+It’s a way of saying: <em>this wasn’t just someone I worked with, this was someone who I respected so much.</em></p>
+
+<h2 id="the-people-make-the-place">The People Make the Place</h2>
+<p><em>Jobs are jobs.</em>
+<em>Projects come and go.</em>
+But the people, they make it what it is.</p>
+
+<p>It’s the ones who ask how you’re really doing. 
+The ones who challenge you with kindness. 
+Who cheer for your wins and sit with you in the losses. 
+Who make work feel human.</p>
+
+<p>To my mentor, and to every colleague I’ll be saying goodbye to in the next few weeks: <strong>Thank you</strong>. 
+For being part of this chapter. 
+For everything you gave, knowingly or not. 
+You may be leaving the building, but you’re not leaving my story.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[“I can’t do this, Patrick!” - SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/saying-goodbye.png" /><media:content medium="image" url="http://localhost:4000/assets/img/saying-goodbye.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Saying No to Say Yes to Yourself</title><link href="http://localhost:4000/2025/05/19/saying-no-to-say-yes-to-yourself/" rel="alternate" type="text/html" title="Saying No to Say Yes to Yourself" /><published>2025-05-19T16:30:00+02:00</published><updated>2025-05-19T16:30:00+02:00</updated><id>http://localhost:4000/2025/05/19/saying-no-to-say-yes-to-yourself</id><content type="html" xml:base="http://localhost:4000/2025/05/19/saying-no-to-say-yes-to-yourself/"><![CDATA[<blockquote>
+  <p>“I can’t do this… but I’m doing it anyway.” — SpongeBob SquarePants</p>
+</blockquote>
+
+<p>Today, I made a decision I didn’t expect to make:
+I stepped down from being co-lead of a community I <em>loved</em> at work.</p>
+
+<p><strong>It wasn’t easy.</strong>
+In fact, it was one of the harder choices I’ve made in a while. 
+<strong>Because I care.</strong> 
+I care deeply about building communities, creating spaces for learning and connection, and saying yes to things that energize me.</p>
+
+<p>But this time, saying yes had started to take something away.</p>
+
+<p>Here’s what I shared with the team:</p>
+<blockquote>
+  <p><em>“Hey everyone, I’ve decided to step down as a JCommunity lead. Recently I’ve noticed that it has become a burden, in organizing and facilitating the events and meetings on top of my other responsibilities. During our last meeting, I felt way too stressed, and it started affecting both my work and my personal life. At this moment, I just can’t give my 100% to this community — and that feels unfair to everyone involved. That said, I still deeply care about this community and would love to stay involved in a way that feels sustainable. For example, helping find and connect speakers — something I truly enjoy and feel is one of my strengths.”</em></p>
+</blockquote>
+
+<p>Saying those words was hard. 
+Because I <em>believe</em> in the value of that community. 
+I <em>want</em> to contribute. 
+But I’ve also learned the hard way that when your plate is already full, adding one more thing,<strong>even something you love</strong>, can tip the balance.</p>
+
+<h2 id="the-cost-of-yes">The Cost of “Yes”</h2>
+
+<p>Over the last couple of weeks, I’ve found myself stretched thin. 
+I was co-leading a community at work, organizing another one entirely, recording a podcast, juggling a busy personal life, and trying to still have time to study for certifications.</p>
+
+<p><strong>The truth is: I was doing too much.</strong></p>
+
+<p>But I kept saying yes.</p>
+
+<p>I said yes because I <em>believe</em> in that community.
+Because I care deeply about what it represents. 
+Because I wanted to be part of building something good, something people could lean on.</p>
+
+<p>And maybe, if I’m honest, because I felt like I had to, <em>like it was my responsibility to carry it forward</em>.</p>
+
+<p>But also, I said yes because I didn’t want to let people down.
+People who had signed up for the event.
+People who are willing to give up their free time, showing up with excitement and curiosity, believing in what we’re creating.
+It felt wrong to offer them anything less than my best.</p>
+
+<p>So I kept going.
+Yes to helping everyone.
+Yes to stepping in when others couldn’t.
+Yes to making sure things didn’t fall through.</p>
+
+<p>Somewhere along the way, I forgot to say yes to myself.</p>
+
+<p>With the community I stepped down from, it wasn’t just the meetings or the event planning, it was the invisible weight that came with it.
+The quiet expectations.</p>
+
+<p>The first event was meant to be exciting. 
+It ended up being stressful.
+Not just “a bit of pressure” kind of stress, but the kind that creeps into your evenings, your focus, your peace.</p>
+
+<p>And I realized:
+<strong>When something that’s supposed to give you energy starts draining you, it’s time to pause.</strong>
+Not because you don’t care. But because you <em>do</em>, and you can’t give what you don’t have.</p>
+
+<h2 id="stepping-back-isnt-stepping-away">Stepping Back Isn’t Stepping Away</h2>
+
+<p>I want to be clear:
+I still believe in the value of that community. 
+I believe it should exist.
+I believe in what we were trying to build and I want to see it thrive.</p>
+
+<p>But I also knew I couldn’t give it the energy and attention it deserved, not without compromising everything else.</p>
+
+<p>Today, I had a hard but honest conversation with my manager.
+The kind that feels heavy going in, but lighter coming out.
+I shared where I was at, and we agreed: <em>it was time to step back</em>.</p>
+
+<p>And I’ll be honest, it feels good and bad at the same time.
+Good, because I made a decision <em>for myself</em>.
+Bad, because it’s easy to feel like I’m letting others down.
+But also good again, because I’m finally <strong>listening to my own limits</strong>.</p>
+
+<p>I let the team know the truth: that I was overwhelmed, that it was impacting my personal life, and that I simply couldn’t give 100% and to give any less felt unfair to the community and to myself.</p>
+
+<p>But I didn’t walk away completely.
+In my message, I wrote:</p>
+
+<blockquote>
+  <p>“That said, I still deeply care about this community and would love to stay involved in a way where I can help find and connect speakers, which is something I truly enjoy and feel is one of my strengths.”</p>
+</blockquote>
+
+<p>Because that’s the thing about boundaries, they’re not walls.
+They’re choices.
+And this choice lets me stay connected in a way that’s healthy and true to what I can offer right now.</p>
+
+<h2 id="a-love-letter-to-boundaries">A Love Letter to Boundaries</h2>
+
+<p>I love saying yes. I love being involved. I love learning, collaborating, socializing, and building things that matter.
+But I’m learning, <strong>that you can’t say yes to everything without saying no to yourself.</strong>
+Saying no isn’t selfish.
+It’s <em>sustainable</em>. It’s self-respect.</p>
+
+<p>And honestly, I didn’t get to that realization alone.</p>
+
+<p>It took a hard conversation with someone who saw what I couldn’t.
+My manager didn’t just listen, he <em>really</em> listened.
+He asked the hard questions I had been avoiding.
+He helped me step back far enough to <em>see</em> how much I was carrying.
+He made it okay to admit that I was overwhelmed, and reminded me that stepping back didn’t make me any less committed, capable, or trusted.</p>
+
+<p>In a moment where I was afraid I’d be letting people down, he showed me what support actually looks like.
+And that meant the world.
+I couldn’t ask for a better manager, someone who offered honesty, encouragement, and belief in me, even when I was doubting myself.
+I’m so thankful. 
+And I know how lucky I am to have had that kind of support when I needed it most.</p>
+
+<p>Because sometimes, the most important boundary we can set is the one that reminds us: <strong>We don’t have to carry everything alone.</strong></p>
+
+<h2 id="what-im-taking-with-me">What I’m Taking With Me</h2>
+
+<p>I’m still organizing the other community.
+I’m still podcasting.
+I’m still learning, growing, and showing up.</p>
+
+<p>This experience reminded me that boundaries aren’t the end of something, they’re the beginning of doing things with intention.
+Of showing up fully <em>where it matters most</em>, instead of halfway everywhere.</p>
+
+<p>If you’re reading this and feeling stretched too thin, consider this your gentle reminder:</p>
+
+<p><strong>Saying no to something doesn’t mean you’re giving up.
+Sometimes, it’s how you make room for what matters most.
+Sometimes, it’s how you say yes to yourself.</strong></p>]]></content><author><name></name></author><summary type="html"><![CDATA[“I can’t do this… but I’m doing it anyway.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/say-no.png" /><media:content medium="image" url="http://localhost:4000/assets/img/say-no.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">What if Your Code Had a Personality? Matching Programming Paradigms to Myers-Briggs Types</title><link href="http://localhost:4000/2025/05/18/what-if-your-code-had-a-personality/" rel="alternate" type="text/html" title="What if Your Code Had a Personality? Matching Programming Paradigms to Myers-Briggs Types" /><published>2025-05-18T16:30:00+02:00</published><updated>2025-05-18T16:30:00+02:00</updated><id>http://localhost:4000/2025/05/18/what-if-your-code-had-a-personality</id><content type="html" xml:base="http://localhost:4000/2025/05/18/what-if-your-code-had-a-personality/"><![CDATA[<blockquote>
+  <p>“We’re all different. You, me, this garbage can.” - Spongebob SquarePants</p>
+</blockquote>
+
+<p><em>What if programming paradigms were people?</em></p>
+
+<p>Would Object-Oriented Programming be the charismatic team lead, always calling meetings between objects?
+Would Functional Programming be the quiet genius, scribbling equations on a whiteboard and mumbling about side effects?</p>
+
+<p>Before I started working as a full-stack developer, I actually studied political and social sciences. 
+I’ve always been curious about <em>how people think</em>, why we behave the way we do, how we make decisions, and how our personalities shape the way we interact with the world.</p>
+
+<p>Now, a couple of years later, I find myself asking similar questions… but about code.</p>
+
+<p>Because the more I write software, the more I realize:
+<strong>The way we structure code often mirrors the way we think.</strong>
+Some of us thrive in structure and rules. 
+Others gravitate toward abstraction and theory. 
+And while there’s no one “right” way to code, there <em>are</em> very different personalities behind each paradigm.</p>
+
+<p>That got me wondering: <strong>What if we matched programming paradigms to personality types — specifically, the Myers-Briggs Type Indicator (MBTI)?</strong></p>
+
+<p><strong>This isn’t a psychology paper, and it’s definitely not meant to be scientific.</strong> 
+It’s a fun metaphor. A playful lens to explore the <em>character</em> of different programming styles.</p>
+
+<h2 id="myers-briggs-101-whats-your-type">Myers-Briggs 101: What’s Your Type?</h2>
+<p>The <strong>Myers-Briggs Type Indicator (MBTI)</strong> is a personality framework inspired by the work of <em>Carl Jung</em> and developed by <em>Isabel Briggs Myers</em> and <em>Katharine Cook Briggs</em>. 
+It’s designed to explore how people perceive the world, process information, and make decisions. Ultimately sorting individuals into one of <strong>16 personality types</strong> based on four key preference pairs:</p>
+
+<ul>
+  <li><strong>Introversion (I) vs. Extroversion (E):</strong>
+Where do you get your energy? From solitude (I) or social interaction (E)?</li>
+  <li><strong>Sensing (S) vs. Intuition (N):</strong>
+Do you focus on specific facts and concrete details (S), or do you prefer big-picture thinking and patterns (N)?</li>
+  <li><strong>Thinking (T) vs. Feeling (F):</strong>
+Do you make decisions through logical analysis (T), or by considering people and values (F)?</li>
+  <li><strong>Judging (J) vs. Perceiving (P):</strong>
+Do you like structured plans and closure (J), or do you prefer flexibility and spontaneity (P)?</li>
+</ul>
+
+<p>The MBTI isn’t without its critics (many psychologists argue it oversimplifies personality), but as a reflective tool and especially as a metaphor, it can be surprisingly insightful.</p>
+
+<h3 id="want-to-learn-more">Want to learn more?</h3>
+<p>Here are a few good jumping-off points:</p>
+
+<ul>
+  <li><a href="https://www.16personalities.com/">16Personalities</a> – A popular and approachable site for taking the test and exploring each type.</li>
+  <li><a href="https://www.themyersbriggs.com/">Official MBTI Foundation</a> – For a more academic and historical view.</li>
+  <li><a href="https://www.psychologicalscience.org/news/releases/2021-utc-myers-briggs.html">Critique of MBTI</a> from <em>APS</em> – Skeptical ‘Deep Dive’ on the Myers-Briggs Test.</li>
+</ul>
+
+<p>So what happens when we take those same dimensions… and apply them to programming paradigms?</p>
+
+<h2 id="object-oriented-programming-oop--the-extroverted-organizer">Object-Oriented Programming (OOP) – The Extroverted Organizer</h2>
+
+<p><strong>MBTI Match:</strong> <strong>ESTJ</strong> – The Executive</p>
+
+<blockquote>
+  <p>Logical, structured, team-oriented — always has a plan.</p>
+</blockquote>
+
+<p>Object-Oriented Programming (OOP) is like that energetic team lead who’s always organizing standups, assigning roles, and making sure everyone knows their job.</p>
+
+<p>OOP thrives on <em>interaction</em>: objects collaborate, send messages, and delegate responsibilities. 
+Each object has a clear identity, encapsulated state, and well-defined responsibilities. Kind of like individual team members working toward a shared goal.</p>
+
+<p><strong>Why ESTJ?</strong></p>
+<ul>
+  <li><strong>E</strong> – OOP is inherently about interaction and coordination between components.</li>
+  <li><strong>S</strong> – Focused on concrete models and real-world analogies (think: Car has an Engine).</li>
+  <li><strong>T</strong> – Emphasizes structure and logic via class hierarchies and strict interfaces.</li>
+  <li><strong>J</strong> – Favors predictability, maintainability, and clear roles.</li>
+</ul>
+
+<p><strong>Design patterns?</strong>
+Those are OOP’s social conventions, the established etiquette for how classes interact.</p>
+
+<h2 id="functional-programming-fp--the-introverted-strategist">Functional Programming (FP) – The Introverted Strategist</h2>
+
+<p><strong>MBTI Match:</strong> <strong>INTP</strong> – The Architect</p>
+
+<blockquote>
+  <p>Quiet, analytical, and abstract. Always looking for a cleaner, purer way to solve the problem.</p>
+</blockquote>
+
+<p>If OOP is your team lead talking to everyone, Functional Programming is the person in the corner solving the same problem, but with mathematical elegance, recursion, and <em>zero side effects</em>.</p>
+
+<p>Functional code doesn’t care about state changes or object relationships. 
+It’s about <strong>transforming data</strong>, pure input, output, no surprises. 
+If something changes, you pass it along as a new value, not by mutating what already exists.</p>
+
+<p><strong>Why INTP?</strong></p>
+
+<ul>
+  <li><strong>I</strong> – FP minimizes external dependencies and avoids shared state — much like introverts who prefer internal clarity over external chatter.</li>
+  <li><strong>N</strong> – Abstracts away from real-world models in favor of mathematical purity and composability.</li>
+  <li><strong>T</strong> – Prioritizes logic, consistency, and predictable behavior.</li>
+  <li><strong>P</strong> – Embraces flexibility and openness.</li>
+</ul>
+
+<p><strong>Recursion over loops?</strong>
+<em>Of course.</em> 
+It’s like thinking in nested concepts rather than flat sequences, a perfect metaphor for the depth-loving INTP.</p>
+
+<h2 id="procedural-programming--the-structured-traditionalist">Procedural Programming – The Structured Traditionalist</h2>
+
+<p><strong>MBTI Match:</strong> <strong>ISTJ</strong> – The Logistician</p>
+
+<blockquote>
+  <p>Practical, methodical, and reliable. Follows the rules, trusts the process, and always gets the job done.</p>
+</blockquote>
+
+<p>Procedural programming is the classic approach: break a problem down into a sequence of instructions, group them into procedures, and execute them in a clear, step-by-step manner. 
+It’s the bedrock of early software and still powers tons of systems today.</p>
+
+<p>There’s no dancing around with abstractions or fancy indirection. 
+Just clear flowcharts, predictable behavior, and a deep respect for <strong>order</strong>.</p>
+
+<p><strong>Why ISTJ?</strong></p>
+
+<ul>
+  <li><strong>I</strong> – Prefers working independently and focuses on getting things right over social interaction.</li>
+  <li><strong>S</strong> – Grounded in concrete steps and practical implementation.</li>
+  <li><strong>T</strong> – Values logic and functionality over flair or experimentation.</li>
+  <li><strong>J</strong> – Thrives in structured environments, following a defined plan from start to finish.</li>
+</ul>
+
+<p><strong>Loops, conditions, and control flow?</strong>
+<em>Yes please.</em> 
+If it’s not in the execution path, it doesn’t matter.</p>
+
+<p>Procedural programming doesn’t try to reinvent the wheel, <strong>it’s the wheel</strong>. 
+It believes in clean inputs, expected outputs, and that <strong>well-ordered code is good code</strong>.</p>
+
+<h2 id="reactive-programming--the-perceptive-adapter">Reactive Programming – The Perceptive Adapter</h2>
+
+<p><strong>MBTI Match:</strong> <strong>ENFP</strong> / <strong>INTP</strong> – The Curious Improviser &amp; The Analytical Explorer</p>
+
+<blockquote>
+  <p>Agile, responsive, and dynamic — always ready to adapt on the fly.</p>
+</blockquote>
+
+<p>Reactive Programming is like the quick-witted improviser, constantly listening to the world and reacting to events as they happen. 
+It thrives in chaos and change, turning streams of asynchronous data into meaningful flows.</p>
+
+<p><strong>Why ENFP / INTP?</strong></p>
+
+<ul>
+  <li><strong>E / I</strong> – ENFPs bring the social curiosity, while INTPs contribute thoughtful analysis.</li>
+  <li><strong>N</strong> – Focused on possibilities and patterns within evolving data streams.</li>
+  <li><strong>F / T</strong> – ENFPs add intuitive empathy to reacting with flexibility, INTPs bring logical composability.</li>
+  <li><strong>P</strong> – Embraces spontaneity and open-ended workflows.</li>
+</ul>
+
+<p><strong>Streams and Observables?</strong>
+Imagine emotional currents flowing through your code, where every event triggers a new ripple of behavior. 
+Instead of commanding the flow, reactive code listens, waits, and responds.</p>
+
+<p><strong>Real-world tie-in:</strong>
+Frontend frameworks like React and RxJS, event-driven backend systems, and real-time data processing all showcase this adaptable, ever-alert personality.</p>
+
+<h2 id="aspect-oriented-programming-aop--the-visionary-architect">Aspect-Oriented Programming (AOP) – The Visionary Architect</h2>
+
+<p><strong>MBTI Match:</strong> <strong>INFJ</strong> / <strong>ENTP</strong> – The Insightful Organizer &amp; The Innovative Strategist</p>
+
+<blockquote>
+  <p>Sees the unseen patterns, weaving elegant layers beneath the surface.</p>
+</blockquote>
+
+<p>Aspect-Oriented Programming is the master planner working behind the scenes. 
+The visionary who extracts and weaves cross-cutting concerns like security, logging, and transactions, so the main code stays clean and focused.</p>
+
+<p><strong>Why INFJ / ENTP?</strong></p>
+
+<ul>
+  <li><strong>I / E</strong> – INFJs quietly perceive complex system-wide patterns, ENTPs actively innovate with those insights.</li>
+  <li><strong>N</strong> – Sees connections and relationships invisible to others.</li>
+  <li><strong>F / T</strong> – INFJs bring a deep understanding of system harmony, ENTPs experiment with creative modularity.</li>
+  <li><strong>J / P</strong> – Combines structure and flexibility to elegantly manage concerns that span across the codebase.</li>
+</ul>
+
+<p><strong>Weaving behaviors?</strong>
+Think of invisible threads running through your program, seamlessly adding features without cluttering core logic.</p>
+
+<p><strong>Real-world tie-in:</strong>
+Spring AOP, security frameworks, and monitoring tools use this layered approach to keep large, complex applications manageable and elegant.</p>
+
+<h2 id="hybrids-and-real-world-blends--the-adaptable-chameleons">Hybrids and Real-World Blends – The Adaptable Chameleons</h2>
+
+<p><strong>MBTI Match:</strong> <strong>ENFJ</strong> / <strong>INTJ</strong> – The Strategic Collaborator &amp; The Visionary Planner</p>
+
+<blockquote>
+  <p>Mixing styles, blending strengths — thriving in complexity.</p>
+</blockquote>
+
+<p>In the real world, code rarely fits neatly into just one paradigm. 
+Most projects combine multiple styles—object-oriented structures layered with functional programming concepts, or procedural code enriched with reactive event handling. 
+These hybrids are like versatile multitaskers, adapting to whatever the project demands.</p>
+
+<p><strong>Why ENFJ / INTJ?</strong></p>
+
+<ul>
+  <li><strong>E / I</strong> – ENFJs bring interpersonal savvy to connect different modules; INTJs offer strategic insight to architect scalable solutions.</li>
+  <li><strong>N</strong> – Both excel at spotting patterns and envisioning possibilities across systems.</li>
+  <li><strong>F / T</strong> – ENFJs prioritize harmony and usability, while INTJs focus on logical consistency and efficiency.</li>
+  <li><strong>J</strong> – Both balance structure with enough flexibility to innovate.</li>
+</ul>
+
+<p><strong>Mixing paradigms?</strong>
+Think of a developer fluent in multiple coding “languages” of style — essential for navigating complex, evolving projects.</p>
+
+<p><strong>Real-world tie-in:</strong>
+Full-stack apps, microservices, and frameworks like Angular or Spring Boot blend paradigms to build maintainable, robust systems.</p>
+
+<h2 id="why-this-perspective-matters--and-whats-your-codes-persona">Why This Perspective Matters — and What’s Your Code’s Persona?</h2>
+
+<p>Matching programming paradigms to personality types isn’t about putting developers in boxes or limiting creativity. 
+Instead, it’s a tool for <strong>self-awareness</strong> and <strong>empathy</strong>—two qualities that can transform how we write code and work together.</p>
+
+<p>Understanding your coding “persona” helps you make intentional choices: which tools to use, how to structure your projects, and what roles suit you best in a team. 
+It also opens the door to appreciating others’ unique approaches, improving collaboration and reducing friction. 
+When you see that every style has its own strengths—whether it’s the organized clarity of Object-Oriented Programming, the abstract elegance of Functional Programming, you begin to understand the <em>why</em> behind your habits and preferences. 
+That insight makes your work more meaningful and fulfilling.</p>
+
+<p>Programming paradigms are more than just technical frameworks, they are reflections of how we think, solve problems, and express ourselves as developers. 
+Each style carries a personality: some thrive on structure and clear roles, others on abstraction and theory, and some on flexibility and spontaneity. 
+By viewing these paradigms through the lens of personality types like the MBTI, we gain a playful yet meaningful way to explore our coding habits without judgment or rigidity.</p>
+
+<p>Recognizing your code’s persona helps you design systems that fit your workflow, choose tools that resonate with your thinking style, and collaborate with teammates whose approaches complement your own. 
+Most importantly, it encourages you to embrace the personal side of coding.</p>
+
+<p>Because when your code has personality, it becomes more than just software — it becomes a creative, personal expression of <em>you</em>.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[“We’re all different. You, me, this garbage can.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/pp-as-mbp.png" /><media:content medium="image" url="http://localhost:4000/assets/img/pp-as-mbp.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Introducing JCast: Java, Jokes, and Just Being Real</title><link href="http://localhost:4000/2025/05/08/jcast/" rel="alternate" type="text/html" title="Introducing JCast: Java, Jokes, and Just Being Real" /><published>2025-05-08T16:30:00+02:00</published><updated>2025-05-08T16:30:00+02:00</updated><id>http://localhost:4000/2025/05/08/jcast</id><content type="html" xml:base="http://localhost:4000/2025/05/08/jcast/"><![CDATA[<blockquote>
+  <p>“It started with three developers and a microphone.”</p>
+</blockquote>
+
+<p>If there’s one thing we love as devs—besides solving problems and shipping code—it’s talking about the journey. 
+The highs, the bugs, the coffee-fueled nights. 
+That’s exactly why we started <strong>JCast</strong>.</p>
+
+<p>JCast is a Dutch-language podcast hosted by me and two awesome colleagues, Viktor and Maarten. 
+We’re developers with different experiences, opinions, and code habits, but we share one thing: a passion for talking tech in a way that’s real. 
+No buzzword bingo. No sales talk. Just devs chatting about the stuff that matters (and sometimes doesn’t).</p>
+
+<h3 id="how-it-started">How It Started</h3>
+<p>For a long time, I had this vague dream of starting a podcast. 
+I didn’t know when, how, or with whom — just that I wanted to share honest conversations about being a developer today.</p>
+
+<p>Then one day I casually brought it up at work. 
+One colleague was immediately excited, another jumped in with the final push: “Let’s actually do this.” 
+One brainstorm later — language, format, name — and <strong>JCast</strong> was born.</p>
+
+<p>Our slogan is <em>Java als startpunt, alles daarrond als speelveld</em> (Java as a starting point, everything around it as a playground). 
+It’s our cozy “praatbarak” about software development, tech, and all the messy, interesting stuff around it.</p>
+
+<h3 id="episode-1-what-is-a-professional-developer-anyway">Episode 1: What <em>Is</em> a Professional Developer, Anyway?</h3>
+<p>This first episode was a special one. 
+Not just because it was our debut — but because we tackled a question that’s been quietly sitting in the minds of so many devs (ourselves included):</p>
+
+<p><strong>What does it really mean to be a “professional” developer?</strong>
+The inspiration came from Uncle Bob’s book <em>Clean Code</em>, which makes a strong case for professionalism as a mindset — not just a job title. 
+We discussed what parts of that message resonate with us today, and where we’ve started to question or reinterpret those ideas based on our own experience.</p>
+
+<p>Some things we explored:</p>
+<ul>
+  <li>💡 What do <em>we</em> mean when we say “professional”? Is it about writing tests? Is it about taking ownership? Communication?</li>
+  <li>🧠 How do you balance idealistic principles like TDD with the messy reality of deadlines and legacy code?</li>
+  <li>🔍 What habits have made us better devs — and which ones do we still struggle with?</li>
+  <li>💬 When do you push for quality, and when do you just ship it?</li>
+</ul>
+
+<p>We each brought different perspectives: some of us lean more toward principles, others toward pragmatism. 
+But that’s what made the conversation real — not polished takes, but honest reflections.</p>
+
+<p>And yes, we made room for the doubts too. 
+Imposter syndrome? 
+<em>Still there.</em> 
+Pressure to “know everything”? 
+<em>Big time.</em> 
+But naming those things out loud felt empowering.</p>
+
+<blockquote>
+  <p>🎧 You can listen to Episode 1 on <a href="https://open.spotify.com/show/3wfdG6IjCoJjfEx33MsM2W?si=icTB9tDwS1aNH8SwXURH7g">Spotify</a> — and we’d love to hear your take on it.</p>
+</blockquote>
+
+<h3 id="why-this-matters-to-us">Why This Matters (To Us)</h3>
+<p>We didn’t start <strong>JCast</strong> to chase followers or become tech influencers.
+We started it because we craved something real. 
+A space where developers — from juniors to seniors — could hear honest conversations about <em>what it’s like to grow in this craft</em>.</p>
+
+<p>Yes, we talk about tech:
+Clean Architecture, UI/UX, cloud, security, testing, tooling — the kind of topics we wrestle with every day. 
+But we approach them the way we do with each other at work: <em>With curiosity, nuance, and zero gatekeeping.</em></p>
+
+<p><strong>JCast</strong> isn’t about preaching best practices from an ivory tower. 
+It’s about sharing the messy middle. 
+The questions we’re still exploring. 
+The patterns we’re still figuring out. 
+And yeah, the things we’ve messed up and learned from.</p>
+
+<p>It’s about:</p>
+<ul>
+  <li>Real talk over buzzwords</li>
+  <li>Growth over gatekeeping</li>
+  <li>Questions over certainty</li>
+  <li>Laughter over lectures</li>
+</ul>
+
+<p>We want <strong>JCast</strong> to be a place where learning feels natural, not forced. 
+Where technical depth and personal growth go hand in hand. 
+And where listeners feel like they’re not just tuning in — they’re part of the conversation.</p>
+
+<p>If you’ve ever felt unsure, overwhelmed, or just excited about where tech is going — you’re in the right place.</p>
+
+<h3 id="and-yes-there-may-be-the-occasional-spongebob-reference">And yes… there may be the occasional SpongeBob reference.</h3>
+<p><em>“Firmly grasp it in your hand!”</em> – Patrick Star, probably trying to explain version control.</p>]]></content><author><name></name></author><category term="career" /><category term="community" /><category term="personal" /><summary type="html"><![CDATA[“It started with three developers and a microphone.”]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/JCast.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/JCast.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)</title><link href="http://localhost:4000/2025/04/08/openapi-angular/" rel="alternate" type="text/html" title="OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)" /><published>2025-04-08T08:00:00+02:00</published><updated>2025-04-08T08:00:00+02:00</updated><id>http://localhost:4000/2025/04/08/openapi-angular</id><content type="html" xml:base="http://localhost:4000/2025/04/08/openapi-angular/"><![CDATA[<blockquote>
+  <p>“Firmly grasp it in your hand!” - Patrick Star</p>
+</blockquote>
+
+<h2 id="the-motivation-from-repetitive-code-to-a-better-way">The Motivation: From Repetitive Code to a Better Way</h2>
+
+<p>We already had OpenAPI set up in the backend. 
+So naturally, I asked myself — why am I still writing Angular services by hand?</p>
+
+<p>Creating HTTP services manually was becoming tedious and error-prone. 
+Not to mention, every change in the backend required me to double-check if the frontend stayed in sync. 
+I wanted something cleaner. 
+Smarter. 
+More <em>streamlined</em>. 
+That’s when I decided to bring OpenAPI to the frontend too.</p>
+
+<h2 id="the-setup-generating-angular-code-with-openapi">The Setup: Generating Angular Code with OpenAPI</h2>
+
+<p>Enter <code class="language-plaintext highlighter-rouge">openapi-generator-cli</code>.</p>
+
+<p>Before anything else, you’ll need to have your OpenAPI spec (in my case, <code class="language-plaintext highlighter-rouge">my-openapi.yaml</code>) available in your frontend project — either committed directly or pulled in through your pipeline. 
+This file is the blueprint that tells the generator what to build.</p>
+
+<p>Once that’s in place, I ran:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx openapi-generator-cli generate <span class="nt">-i</span> my-openapi.yaml <span class="nt">-g</span> typescript-angular <span class="nt">-o</span> libs/api
+</code></pre></div></div>
+
+<p>This generated a fully-typed Angular client based on our backend’s OpenAPI definition. 
+Clean. 
+Structured. 
+No more manually writing request/response interfaces or services.</p>
+
+<p>To make it easily reusable, I added this to my <code class="language-plaintext highlighter-rouge">package.json</code> scripts:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="nl">"generate-api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npx openapi-generator-cli generate -i my-openapi.yaml -g typescript-angular -o libs/api"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>So anytime the backend changes, I can just regenerate the frontend with one command. 
+No fuss.</p>
+
+<h2 id="the-configuration-making-it-work-with-angular">The Configuration: Making It Work with Angular</h2>
+
+<p>Next, I had to configure Angular to use the generated code properly.</p>
+
+<p>You’ll need to provide a custom <code class="language-plaintext highlighter-rouge">Configuration</code> so the generated services know where your API lives:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">provide</span><span class="p">:</span> <span class="nx">Configuration</span><span class="p">,</span>
+  <span class="nx">useFactory</span><span class="p">:</span> <span class="p">():</span> <span class="nx">Configuration</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="kd">const</span> <span class="na">params</span><span class="p">:</span> <span class="nx">ConfigurationParameters</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="na">basePath</span><span class="p">:</span> <span class="nx">environment</span><span class="p">.</span><span class="nx">baseUrl</span>
+    <span class="p">};</span>
+    <span class="k">return</span> <span class="k">new</span> <span class="nc">Configuration</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Pro tip: Don’t generate inside <code class="language-plaintext highlighter-rouge">src/</code>. 
+I placed everything in a <code class="language-plaintext highlighter-rouge">libs/api</code> folder to keep things modular and outside the core app.</p>
+
+<h2 id="the-great-refactor-painful-but-worth-it">The Great Refactor: Painful but Worth It</h2>
+
+<p>This is where things got <em>real</em>.</p>
+
+<p>I started replacing all our old manually written services with the auto-generated ones. 
+It was painful at first — services had different naming, method signatures weren’t exactly the same, and mocking in tests needed updates too.</p>
+
+<p>Example: Before, I used a custom service to fetch attachments. 
+Now I just call:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">attachmentsService</span><span class="p">.</span><span class="nf">getAllAttachments</span><span class="p">()</span>
+</code></pre></div></div>
+
+<p>Much cleaner. 
+Less boilerplate. 
+More consistency.</p>
+
+<h3 id="testing-adjustments">Testing Adjustments</h3>
+
+<p>Tests needed some love too. 
+I replaced a bunch of old <code class="language-plaintext highlighter-rouge">MockProvider</code> with simpler mocks using the generated interfaces.</p>
+
+<p>Example:</p>
+
+<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
+  <span class="nl">provide</span><span class="p">:</span> <span class="nx">AttachmentsService</span><span class="p">,</span>
+  <span class="nx">useValue</span><span class="p">:</span> <span class="p">{</span> <span class="nl">getAllAttachments</span><span class="p">:</span> <span class="nx">jest</span><span class="p">.</span><span class="nf">fn</span><span class="p">()</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Simple. 
+Maintainable. 
+And way easier to understand when revisiting tests later.</p>
+
+<h2 id="syncing-openapi-across-teams">Syncing OpenAPI Across Teams</h2>
+
+<p>One thing I had to think about was <strong>how to keep the OpenAPI spec in sync</strong> between backend and frontend. 
+If you’re working in a monorepo — lucky you. 
+But if your backend and frontend are in separate repos (like ours), there are a few ways to handle it:</p>
+
+<ul>
+  <li>
+    <p><strong>Option 1: Commit the OpenAPI YAML directly into the frontend repo.</strong><br />
+Simple and works well if the spec doesn’t change too often.</p>
+  </li>
+  <li>
+    <p><strong>Option 2: Automate fetching the spec in your CI/CD pipeline.</strong><br />
+For example, have a script that pulls the latest <code class="language-plaintext highlighter-rouge">openapi.yaml</code> from the backend before generating the client.</p>
+  </li>
+  <li>
+    <p><strong>Option 3: Use a shared package or Git submodule.</strong><br />
+Slightly more complex but very reusable across multiple frontends.</p>
+  </li>
+</ul>
+
+<p>Whatever you pick, just make sure you’re not manually copying files around. 
+That defeats the purpose of automation.</p>
+
+<h2 id="gotchas--gains">Gotchas &amp; Gains</h2>
+<p>Let’s be real — bringing OpenAPI to Angular isn’t <em>just</em> plug-and-play. 
+There were a few bumps on the road:</p>
+
+<ul>
+  <li>
+    <p><strong>Casing and naming conventions</strong><br />
+The generated models didn’t always match our style. Thankfully, you can tweak this with options like <code class="language-plaintext highlighter-rouge">--additional-properties=modelPropertyNaming=camelCase</code>.</p>
+  </li>
+  <li>
+    <p><strong>Enum weirdness</strong><br />
+Enums behaved a bit unexpectedly — especially when the backend used patterns that didn’t translate neatly to TypeScript.</p>
+  </li>
+  <li>
+    <p><strong>Circular references</strong><br />
+These can mess with the generator in complex specs. Keeping the OpenAPI doc clean and well-structured helped.</p>
+  </li>
+  <li>
+    <p><strong>Massive PRs</strong><br />
+The initial PR introducing the generated client? Huge. But 90% of it was boilerplate. Reviewers just needed coffee and patience.</p>
+  </li>
+</ul>
+
+<p>Despite the hiccups, it was absolutely worth it. Here’s why:</p>
+
+<ul>
+  <li>✅ No more duplicating DTOs between frontend and backend</li>
+  <li>✅ Backend changes? Just regenerate — no guesswork</li>
+  <li>✅ Strongly typed services made refactors way safer</li>
+  <li>✅ Test mocks became leaner and easier to write</li>
+  <li>✅ This setup now lives in <em>every</em> project I touch</li>
+</ul>
+
+<p>Yes, the refactor took time. 
+But it simplified the future. 
+I’d do it all over again — and sooner.</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>Bringing OpenAPI to Angular wasn’t just a technical upgrade — it was a mindset shift.</p>
+
+<p>We talk a lot about automation, DevOps, and building smarter systems.
+But this is that same philosophy applied at the code level. 
+Why keep writing the same HTTP service over and over when your tools can generate it for you — strongly typed, documented, and ready to go?</p>
+
+<p>By introducing OpenAPI to the frontend, I made Angular feel like a first-class citizen in our API ecosystem. 
+I stopped duplicating DTOs, stopped guessing request shapes, and started focusing on the things that actually need a human brain: logic, UX, and problem-solving.</p>
+
+<p>Yes, the refactor was painful. 
+Yes, it took time to get the mocks right and the tests stable again. 
+But now? 
+Future me is thankful.</p>
+
+<p>So if you’re staring at yet another service you have to hand-code — maybe that’s the sign. 
+Automate what can be automated. 
+Let the machines do the boilerplate. 
+And use your time for the parts that matter.</p>]]></content><author><name></name></author><category term="angular" /><category term="openapi" /><category term="frontend" /><summary type="html"><![CDATA[“Firmly grasp it in your hand!” - Patrick Star]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/angular-vs-manual.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/angular-vs-manual.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">I Don’t Know Everything — And That’s My Superpower</title><link href="http://localhost:4000/2025/04/05/i-dont-know-everything/" rel="alternate" type="text/html" title="I Don’t Know Everything — And That’s My Superpower" /><published>2025-04-05T10:23:00+02:00</published><updated>2025-04-05T10:23:00+02:00</updated><id>http://localhost:4000/2025/04/05/i-dont-know-everything</id><content type="html" xml:base="http://localhost:4000/2025/04/05/i-dont-know-everything/"><![CDATA[<blockquote>
+  <p>“The inner machinations of my mind are an enigma.” - Patrick Star</p>
+</blockquote>
+
+<p><img src="/assets/img/brain.jpg" alt="Brain with a lot of parts" /></p>
+
+<p>Sometimes, I feel like I don’t know anything. 
+Like I’m trying to wrap my head around GraalVM native images in Quarkus, and I’m just nodding, hoping no one asks me to explain how to optimize build times.</p>
+
+<p>Look, let’s be real – the world of Java development is insane. 
+There are always new frameworks and technologies to learn, and now with things like serverless and native image compilation, it’s getting even more complicated.</p>
+
+<p>And honestly? 
+<em>That used to freak me out.</em> 
+I thought I was supposed to have all the answers. 
+But then I realized something: not knowing is actually the biggest opportunity we have as developers.</p>
+
+<h2 id="the-kubecon-revelation">The KubeCon Revelation</h2>
+<p>And then, I went to KubeCon.</p>
+
+<p>My first international conference — and a total game-changer.<br />
+I walked into that place, and it was like stepping into a different dimension.<br />
+Thousands of people buzzing with energy, talking about things I barely understood.<br />
+There were talks about SPIFFE, WASM, service meshes, and cloud tech that might as well have been alien languages.<br />
+<strong>The people knew it all!</strong></p>
+
+<p style="display: flex">
+Sitting there, surrounded by all these seemingly brilliant people, I felt… small. 
+Maybe a little intimidated. 
+But mostly, I felt *motivated*. 
+I realized that this industry is so incredibly vast, so constantly evolving, that *nobody* can know everything. 
+And that’s not a bug; it’s a feature!
+It made me realize that becoming a true coding master was actually achievable, and that fueled my desire to learn and grow.
+<img src="/assets/img/kubecon-revelation.jpg" alt="Guy surrounded with people looking at the light" style="height: 170px" />
+</p>
+
+<h2 id="the-superpower-of-lifelong-learning">The Superpower of Lifelong Learning</h2>
+<p>Here’s something we don’t talk about enough: <strong>we literally get paid to learn.</strong></p>
+
+<p>To explore new technologies.<br />
+To experiment with different approaches.<br />
+To break things, fix them, and get better in the process.<br />
+<strong>That’s insane!</strong></p>
+
+<p>Think about it – people rack up massive student debt just to get access to learning.<br />
+Meanwhile, we’re getting paid to constantly expand our skills and stay curious.<br />
+So what’s our excuse for not taking advantage of that?</p>
+
+<p>Every task, bug fix, code review — every confusing moment — is a chance to level up.<br />
+As a junior/mid-level dev, I’m constantly learning from senior colleagues, online tutorials, and just banging my head against the keyboard until something clicks.</p>
+
+<p>Once, I spent two hours debugging what I thought was a complicated issue…<br />
+Turned out, I was missing an equals in a SQL statement.<br />
+I was embarrassed at first — now it’s just a reminder that every mistake is a lesson waiting to happen.</p>
+
+<p>The myth of the all-knowing senior developer?<br />
+It’s just that — a myth.<br />
+The best devs I know are the ones who can say, <em>“I don’t know, but I’ll figure it out.”</em></p>
+
+<h2 id="navigating-the-labyrinth-of-software-architecture">Navigating the Labyrinth of Software Architecture</h2>
+<p style="display: flex">
+And speaking of learning, let's talk about software architecture. 
+Microservices vs monoliths? 
+Event-driven vs REST? 
+DevEx platforms, GitOps, cloud-native design? 
+It's a never-ending buffet of buzzwords and best practices, and it can be incredibly overwhelming.
+<img src="/assets/img/labyrinth.jpg" alt="A abstract labyrinth" style="height: 150px" />
+</p>
+
+<p>I’m just starting to scratch the surface of these concepts, and honestly, sometimes it still feels like I’m making educated guesses. 
+I read blog posts, I watch conference talks, I try to apply what I learn to my own projects, but it’s still a work in progress.</p>
+
+<p><strong>But that’s okay!</strong> 
+Because software architecture isn’t a final boss you defeat. 
+It’s a constant series of tradeoffs. 
+It’s like trying to navigate a maze while everyone around you is shouting different directions. 
+I’m still learning how to even <em>hear</em> all the voices, let alone choose the right path – and that’s perfectly okay.</p>
+
+<h2 id="curiosity-and-humility-the-essential-skills">Curiosity and Humility: The Essential Skills</h2>
+<p>So, if you’re not supposed to know everything, what <em>are</em> you supposed to bring to the table? 
+I think it all comes down to two key skills: curiosity and humility.</p>
+
+<p>Curiosity is the engine that drives our learning. 
+It’s the desire to understand how things work, to explore new possibilities, and to never stop asking “why?” 
+Humility is the awareness that you don’t have all the answers and that you can always learn something from others. 
+It’s the willingness to admit when you’re wrong and to ask for help when you need it.</p>
+
+<p>I’ve found that the best way to learn is to ask “stupid” questions. 
+Questions that seem obvious or basic, but that often reveal hidden assumptions and misunderstandings. 
+And I’ve been incredibly fortunate to work with colleagues who are always willing to answer my questions, no matter how silly they might seem. 
+There is always more to learn if the first step it to just aks!</p>
+
+<p>There also moments where it is ok to be like: I did it. 
+So there also great when it comes to team building and showing gratitude is so important!</p>
+
+<h2 id="own-your-i-dont-know">Own Your “I Don’t Know”</h2>
+<p>So no, I don’t know everything. 
+And honestly, I hope I never do. 
+Because the moment I stop learning, I stop growing. 
+The exciting part? 
+The best part is, I’m confident that everything I learn today will be valuable tomorrow. 
+It’s that constant anticipation of future knowledge that keeps me going, and if I can help someone else along the way, that’s even better.</p>
+
+<p>This isn’t just a job, it’s a constant education. 
+And as developers, learning is part of our DNA!
+The cool part, and I can never emphasize this enough is seeing people actually use something or being inspired by your journey! 
+Its like: wow, they are also joining <strong>I NEED TO BE BETTER!</strong></p>
+
+<p>So bring on the new frameworks, the complex architectures, the mind-bending cloud concepts – I’m ready to learn. 
+And I’m fc*king loving it, knowing full well that I’ll be back to square one, scratching my head and Googling frantically, in a few days. 
+It’s the circle of dev life, and I wouldn’t have it any other way.</p>]]></content><author><name></name></author><summary type="html"><![CDATA[“The inner machinations of my mind are an enigma.” - Patrick Star]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/the-way-up.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/the-way-up.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

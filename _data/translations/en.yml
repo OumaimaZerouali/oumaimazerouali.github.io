@@ -1,0 +1,29 @@
+# English translations
+site:
+  title: "Oumi's Corner"
+  tagline: "Working Notes"
+  description: "Reflections on systems, design decisions, and the realities of building things that last."
+
+nav:
+  home: "Home"
+  about: "About"
+  archive: "Archive"
+
+post:
+  read_more: "Read more"
+  min_read: "min read"
+  related_posts: "Related Posts"
+  comments: "Comments"
+  view_all_posts: "View All Posts"
+
+filter:
+  everything: "Everything"
+  tech: "Tech"
+  life: "Life"
+
+footer:
+  copyright: "Built with care"
+
+meta:
+  posted_on: "Posted on"
+

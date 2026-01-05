@@ -1,0 +1,677 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Testcontainers in Spring Boot: From Quick Wins to Power Moves",
+        "description": "",
+        "author": {
+            "@type": "Person",
+            "name": ""
+        },
+        "datePublished": "2025-10-05T09:00:00+02:00",
+        "image": "/assets/img/spongebob-testcontainers.png"
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Testcontainers in Spring Boot: From Quick Wins to Power Moves | Oumi's Corner</title>
+
+    <meta name="description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:title" content="Testcontainers in Spring Boot: From Quick Wins to Power Moves">
+    <meta property="og:description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:image" content="/assets/img/spongebob-testcontainers.png">
+    <meta property="og:url" content="http://localhost:4000/2025/10/05/testcontainers/">
+    <meta name="google-site-verification" content="1cy-OLoI1y37QpgVZyfdmaqcCgSB-LI3dOCdAWCfN8M" />
+    <meta name="keywords" content="oumi's corner, oumaima blog, software development blog, developer journal, tech blog">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">
+    Oumi&#39;s Corner
+    </a>
+
+    <div class="social-icons">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-link" data-lang="en" id="lang-en">EN</button>
+        <span class="lang-separator">/</span>
+        <button class="lang-link" data-lang="nl" id="lang-nl">NL</button>
+      </div>
+
+      <a
+              href="https://jcast.dev"
+              target="_blank"
+              aria-label="The JCast website"
+              class="jcast-link"
+      >
+        JCAST
+        <svg class="external-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+    <!-- Article Header Above Hero -->
+<header class="post-header-top">
+    <h1 class="post-title">Testcontainers in Spring Boot: From Quick Wins to Power Moves</h1>
+    <p class="post-meta">
+        October 05, 2025 · 11 min read
+    </p>
+</header>
+
+<!-- Hero Image - Full Width -->
+
+<div class="post-hero">
+    <img src="/assets/img/spongebob-testcontainers.png" alt="Testcontainers in Spring Boot: From Quick Wins to Power Moves" />
+</div>
+
+
+<!-- Two-Column Editorial Layout -->
+<div class="post-editorial-wrapper">
+    <article class="post-main-column">
+        <!-- Article Content -->
+        <div class="post-content">
+            <blockquote>
+  <p>“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me</p>
+</blockquote>
+
+<p>As a junior developer, I’m constantly learning new tools and practices.
+One lesson from my seniors that really stuck with me was this: <em>mocking will only take you so far</em>.
+At some point, you need to test against the real thing: a real database, a real message broker, a real service.</p>
+
+<p>That’s when I discovered <strong>Testcontainers</strong>, and it completely changed how I write integration tests in Java and Spring Boot.
+After experimenting with it and sharing my findings with colleagues, I realized I wanted to capture everything I’d learned in one place.</p>
+
+<p>This post is my attempt to do just that: explaining the why, the how, and the real-world patterns I now use in my projects.</p>
+
+<h2 id="the-problem-i-used-to-have">The Problem I Used to Have</h2>
+<p>I have to admit.
+I used to avoid integration tests whenever I could.
+Mocks were my best friends: fast, predictable, and easy to set up.</p>
+
+<p>But as much as I loved them, some things just can’t be faked.
+A mail server, a real PostgreSQL database, no amount of mocking could truly replicate them.</p>
+
+<p>I quickly ran into the same frustrating scenarios we’ve all seen: tests that pass on my machine but fail in CI, or teammates spending hours just to get the environment ready to run tests.</p>
+
+<p>For a Spring Boot app that needs PostgreSQL and sends emails, here’s how the options stack up:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Approach</th>
+      <th>Pros</th>
+      <th>Cons</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Local Installation</strong><br />Install PostgreSQL &amp; SMTP locally</td>
+      <td>- Tests against real services<br /> - No mocking</td>
+      <td>- Different versions across machines<br /> - “Works on my laptop” syndrome<br /> - Painful CI setup<br /> - Leftover test data pollution</td>
+    </tr>
+    <tr>
+      <td><strong>Mock Everything</strong><br />Use mock databases &amp; services</td>
+      <td>- Fast test execution<br /> - No external dependencies</td>
+      <td>- Not testing real integration<br /> - Mocks drift from reality<br /> - False confidence</td>
+    </tr>
+    <tr>
+      <td><strong>Testcontainers</strong><br />Real services in Docker</td>
+      <td>- Real integration testing<br /> - Consistent across all machines<br /> - Zero installation hassle<br /> - Clean state every run</td>
+      <td>- Requires Docker<br /> - Slightly slower than mocks</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testcontainers</strong> was the game-changer I needed.</p>
+
+<h2 id="quick-setup">Quick Setup</h2>
+
+<p>Before I dive deep, let me get you set up:</p>
+
+<p><strong>Prerequisites:</strong></p>
+<ul>
+  <li>Java <strong>21+</strong></li>
+  <li>Maven</li>
+  <li>Docker Desktop running</li>
+</ul>
+
+<p><strong>Add the dependencies:</strong></p>
+
+<p>Maven:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.testcontainers<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>junit-jupiter<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.testcontainers<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<h2 id="the-standard-approach-good-but-limited">The Standard Approach (Good, But Limited)</h2>
+
+<p>Here’s what most tutorials show you, and honestly, it’s great for simple cases:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Testcontainers</span>
+<span class="nd">@DataJpaTest</span>
+<span class="kd">class</span> <span class="nc">UserRepositoryTest</span> <span class="o">{</span>
+
+    <span class="nd">@Container</span>
+    <span class="kd">static</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span> <span class="n">postgres</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16-alpine"</span><span class="o">);</span>
+    
+    <span class="nd">@DynamicPropertySource</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">configureProperties</span><span class="o">(</span><span class="nc">DynamicPropertyRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"spring.datasource.url"</span><span class="o">,</span> <span class="nl">postgres:</span><span class="o">:</span><span class="n">getJdbcUrl</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"spring.datasource.username"</span><span class="o">,</span> <span class="nl">postgres:</span><span class="o">:</span><span class="n">getUsername</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"spring.datasource.password"</span><span class="o">,</span> <span class="nl">postgres:</span><span class="o">:</span><span class="n">getPassword</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Autowired</span>
+    <span class="nc">UserRepository</span> <span class="n">userRepository</span><span class="o">;</span>
+    
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">givenNewUser_whenSaving_thenUserIsPersisted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"Spongebob"</span><span class="o">);</span>
+        <span class="n">userRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">userRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">().</span><span class="na">size</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This is <strong>beautiful</strong> for simple cases. JUnit starts a PostgreSQL container, Spring Boot wires it up via <code class="language-plaintext highlighter-rouge">@DynamicPropertySource</code>, your test runs against a real database, and the container gets cleaned up afterward.</p>
+
+<h3 id="what-actually-happens-behind-the-scenes">What Actually Happens Behind the Scenes?</h3>
+
+<p>When you hit “Run Test”, here’s the magic that unfolds (simplified):</p>
+
+<p align="center">
+    <img src="/assets/img/simplified.svg" alt="Behind the scenes (simplified)" style="height: 550px" />
+</p>
+
+<p>The waiting phase is crucial. 
+Testcontainers doesn’t just check if the port is open, it waits until the service is actually ready to accept connections. 
+This is why your tests “just work” without flaky failures.</p>
+
+<p>But in real projects, I quickly ran into situations where I needed to:</p>
+
+<ul>
+  <li>Start multiple containers that talk to each other</li>
+  <li>Preload my database with schema or seed data</li>
+  <li>Wait for a REST API to be ready, not just a port</li>
+  <li>Test email sending against a fake SMTP server</li>
+</ul>
+
+<p>That’s where things get interesting….</p>
+
+<h2 id="level-up-applicationcontextinitializer">Level Up: ApplicationContextInitializer</h2>
+
+<p>When I need more control, Spring Boot gives me a powerful hook:
+<strong><code class="language-plaintext highlighter-rouge">ApplicationContextInitializer&lt;ConfigurableApplicationContext&gt;</code></strong>.</p>
+
+<p>This runs <strong>before</strong> your application context starts, letting you:</p>
+
+<ul>
+  <li>Start containers manually with full control</li>
+  <li>Configure complex wait strategies</li>
+  <li>Inject custom properties into Spring’s environment</li>
+  <li>Reuse container configurations across multiple test classes</li>
+</ul>
+
+<p>I think of it as the “professional” way to wire up Testcontainers in Spring Boot.</p>
+
+<h3 id="how-the-professional-setup-works">How the Professional Setup Works</h3>
+
+<p>Here’s what happens when you use <code class="language-plaintext highlighter-rouge">ApplicationContextInitializer</code>:</p>
+
+<p align="center">
+    <img src="/assets/img/testcontainers.svg" alt="What happens when you use ApplicationContextInitializer" style="height: 550px" />
+</p>
+
+<p>This gives you complete control over the startup sequence and lets you configure containers exactly how you need them.</p>
+
+<h3 id="real-world-example-testing-email-with-smtp4dev-or-mailpit">Real-World Example: Testing Email with smtp4dev (or Mailpit)</h3>
+
+<p>My app sends emails, and I needed to test that realistically without spamming real inboxes.</p>
+
+<p><strong>smtp4dev</strong> is a fake SMTP server that catches emails and exposes them via REST API. 
+It’s been around for years, has a mature codebase, and includes features like relay testing and authentication simulation. 
+Perfect for comprehensive email testing scenarios.</p>
+
+<p><strong>Mailpit</strong> is a modern alternative written in Go, known for its lightweight footprint, faster startup times, and slick UI. 
+It also has excellent search capabilities and built-in spam score analysis. 
+If you’re starting fresh, Mailpit is often the go-to choice in 2025, but smtp4dev remains solid for existing projects.</p>
+
+<p>Both expose REST APIs for programmatic testing, support SMTP authentication, and provide web UIs for manual inspection. 
+The main differences:</p>
+
+<ul>
+  <li><strong>Performance</strong>: Mailpit starts faster and uses less memory (~10-20MB vs ~50-100MB)</li>
+  <li><strong>UI</strong>: Mailpit has a more modern, responsive interface</li>
+  <li><strong>Features</strong>: smtp4dev has more enterprise features (relay, conditional rules); Mailpit focuses on simplicity</li>
+  <li><strong>Docker size</strong>: Mailpit image is smaller (~15MB vs ~200MB)</li>
+</ul>
+
+<p>For most Spring Boot integration tests, either works great. 
+I’ll show you smtp4dev here, but switching to Mailpit is as simple as changing the image name.</p>
+
+<p>Here’s smtp4dev in action:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Smtp4devTestContainerInitializer</span> <span class="kd">implements</span> <span class="nc">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="nc">ConfigurableApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">GenericContainer</span><span class="o">&lt;?&gt;</span> <span class="n">smtp4devContainer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GenericContainer</span><span class="o">&lt;&gt;(</span><span class="nc">DockerImageName</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"rnwood/smtp4dev:3.10.3"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">withExposedPorts</span><span class="o">(</span><span class="mi">80</span><span class="o">,</span> <span class="mi">25</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">waitingFor</span><span class="o">(</span><span class="nc">Wait</span><span class="o">.</span><span class="na">forHttp</span><span class="o">(</span><span class="s">"/api/messages"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forPort</span><span class="o">(</span><span class="mi">80</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forStatusCode</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">ConfigurableApplicationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">smtp4devContainer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        
+        <span class="nc">TestPropertyValues</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+        <span class="s">"spring.mail.host="</span> <span class="o">+</span> <span class="n">smtp4devContainer</span><span class="o">.</span><span class="na">getHost</span><span class="o">(),</span>
+        <span class="s">"spring.mail.port="</span> <span class="o">+</span> <span class="n">smtp4devContainer</span><span class="o">.</span><span class="na">getMappedPort</span><span class="o">(</span><span class="mi">25</span><span class="o">)</span>
+        <span class="o">).</span><span class="na">applyTo</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now in a test:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span><span class="n">initializers</span> <span class="o">=</span> <span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">KrustyKrabEmailServiceTest</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="nc">EmailService</span> <span class="n">emailService</span><span class="o">;</span>
+    
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">givenBikiniBottomCitizen_whenSendingWelcome_thenMessageSends</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">emailService</span><span class="o">.</span><span class="na">sendWelcome</span><span class="o">(</span><span class="s">"patrick.star@bikinibottom.com"</span><span class="o">);</span>
+        
+        <span class="nc">RestTemplate</span> <span class="n">rest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RestTemplate</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="n">messagesApi</span> <span class="o">=</span> <span class="s">"http://"</span> <span class="o">+</span>
+        <span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">smtp4devContainer</span><span class="o">.</span><span class="na">getHost</span><span class="o">()</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span>
+        <span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">smtp4devContainer</span><span class="o">.</span><span class="na">getMappedPort</span><span class="o">(</span><span class="mi">80</span><span class="o">)</span> <span class="o">+</span>
+        <span class="s">"/api/messages"</span><span class="o">;</span>
+        
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="n">rest</span><span class="o">.</span><span class="na">getForObject</span><span class="o">(</span><span class="n">messagesApi</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        
+        <span class="n">assertEquals</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">messages</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">messages</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="s">"subject"</span><span class="o">).</span><span class="na">toString</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"Welcome"</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Key things:</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">withExposedPorts(80, 25)</code></strong> exposes the web UI + SMTP port</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">waitingFor(Wait.forHttp(...))</code></strong> waits until the API is really alive</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">TestPropertyValues</code></strong> wires the container config into Spring</li>
+</ul>
+
+<p>Want to use <strong>Mailpit</strong> instead? Here’s the equivalent initializer:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MailpitTestContainerInitializer</span> <span class="kd">implements</span> <span class="nc">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="nc">ConfigurableApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">GenericContainer</span><span class="o">&lt;?&gt;</span> <span class="n">mailpitContainer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GenericContainer</span><span class="o">&lt;&gt;(</span><span class="nc">DockerImageName</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"axllent/mailpit:v1.27.8"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">withExposedPorts</span><span class="o">(</span><span class="mi">8025</span><span class="o">,</span> <span class="mi">1025</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">waitingFor</span><span class="o">(</span><span class="nc">Wait</span><span class="o">.</span><span class="na">forHttp</span><span class="o">(</span><span class="s">"/api/v1/messages"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forPort</span><span class="o">(</span><span class="mi">8025</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forStatusCode</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">ConfigurableApplicationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mailpitContainer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        
+        <span class="nc">TestPropertyValues</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+        <span class="s">"spring.mail.host="</span> <span class="o">+</span> <span class="n">mailpitContainer</span><span class="o">.</span><span class="na">getHost</span><span class="o">(),</span>
+        <span class="s">"spring.mail.port="</span> <span class="o">+</span> <span class="n">mailpitContainer</span><span class="o">.</span><span class="na">getMappedPort</span><span class="o">(</span><span class="mi">1025</span><span class="o">)</span>
+        <span class="o">).</span><span class="na">applyTo</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The key differences:</p>
+<ul>
+  <li>Port 8025 for web UI (vs 80 in smtp4dev)</li>
+  <li>Port 1025 for SMTP (vs 25)</li>
+  <li>API path is <code class="language-plaintext highlighter-rouge">/api/v1/messages</code> instead of <code class="language-plaintext highlighter-rouge">/api/messages</code></li>
+</ul>
+
+<p>Both work identically in your tests. Choose smtp4dev if you need advanced relay features or are already using it. Choose Mailpit if you want faster container startup and a smaller Docker footprint.</p>
+
+<h3 id="postgresql-with-initialization-scripts">PostgreSQL with Initialization Scripts</h3>
+
+<p>Sometimes I don’t want an empty database. I want schema + seed data loaded.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDatabaseInitializer</span> <span class="kd">implements</span> <span class="nc">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="nc">ConfigurableApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span> <span class="n">postgres</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16-alpine"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withDatabaseName</span><span class="o">(</span><span class="s">"myapp"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withCopyFileToContainer</span><span class="o">(</span><span class="nc">MountableFile</span><span class="o">.</span><span class="na">forClasspathResource</span><span class="o">(</span><span class="s">"init_schema.sql"</span><span class="o">),</span> <span class="s">"/docker-entrypoint-initdb.d/"</span><span class="o">);</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">ConfigurableApplicationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">postgres</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        
+        <span class="nc">TestPropertyValues</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+        <span class="s">"spring.datasource.url="</span> <span class="o">+</span> <span class="n">postgres</span><span class="o">.</span><span class="na">getJdbcUrl</span><span class="o">(),</span>
+        <span class="s">"spring.datasource.username="</span> <span class="o">+</span> <span class="n">postgres</span><span class="o">.</span><span class="na">getUsername</span><span class="o">(),</span>
+        <span class="s">"spring.datasource.password="</span> <span class="o">+</span> <span class="n">postgres</span><span class="o">.</span><span class="na">getPassword</span><span class="o">()</span>
+        <span class="o">).</span><span class="na">applyTo</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The trick: <strong><code class="language-plaintext highlighter-rouge">withCopyFileToContainer</code></strong> → place schema in <code class="language-plaintext highlighter-rouge">/docker-entrypoint-initdb.d/</code>. Postgres runs it automatically on startup.</p>
+
+<h2 id="specialized-containers-vs-genericcontainer">Specialized Containers vs GenericContainer</h2>
+
+<p>You might have noticed I used both <code class="language-plaintext highlighter-rouge">PostgreSQLContainer</code> and <code class="language-plaintext highlighter-rouge">GenericContainer</code>.</p>
+
+<p>Here’s the rule of thumb:</p>
+
+<ul>
+  <li><strong>Use specialized containers</strong> when they exist (<code class="language-plaintext highlighter-rouge">PostgreSQLContainer</code>, <code class="language-plaintext highlighter-rouge">MongoDBContainer</code>, <code class="language-plaintext highlighter-rouge">KafkaContainer</code>, …).
+They give you nice defaults and shortcuts.</li>
+  <li><strong>Use <code class="language-plaintext highlighter-rouge">GenericContainer</code></strong> when no module exists (smtp4dev, Mailpit, custom APIs, your own Docker images).</li>
+</ul>
+
+<p>Think of <code class="language-plaintext highlighter-rouge">GenericContainer</code> as the <strong>Swiss Army knife</strong> of Testcontainers.
+Everything else is built on top of it.</p>
+
+<h2 id="pro-tips-from-my-experience">Pro Tips from My Experience</h2>
+<h4 id="reuse-containers-across-tests"><strong>Reuse containers across tests</strong></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Container</span>
+<span class="kd">static</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span> <span class="n">postgres</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16.3"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Make them <code class="language-plaintext highlighter-rouge">static</code> to avoid restarting for every method. Here’s why this matters:</p>
+
+<p align="center">
+    <img src="/assets/img/static_1.svg" alt="Without static" style="height: 550px; margin-bottom: -400px; margin-top: -200px" />
+    <img src="/assets/img/static_2.svg" alt="With static" style="height: 550px; margin-top: -100px; margin-bottom: -200px" />
+</p>
+
+<h4 id="pin-image-versions"><strong>Pin image versions</strong></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16-alpine"</span><span class="o">);</span> <span class="c1">// stable</span>
+<span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:latest"</span><span class="o">);</span> <span class="c1">// risky</span>
+</code></pre></div></div>
+
+<h4 id="share-initializers-across-test-classes"><strong>Share initializers</strong> across test classes</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span><span class="n">initializers</span> <span class="o">=</span> <span class="o">{</span>
+<span class="nc">TestDatabaseInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+<span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">class</span>
+<span class="o">})</span>
+<span class="kd">class</span> <span class="nc">MyIntegrationTest</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="dont-worry-too-much-about-test-speed"><strong>Don’t worry too much about test speed</strong></h4>
+<p>Yes, Docker containers take a few seconds to start. 
+But with static containers and proper reuse, I’ve found the startup cost is negligible compared to the confidence I gain. 
+My test suite with PostgreSQL and smtp4dev adds maybe 5-10 seconds total. Well worth it.</p>
+
+<h4 id="check-logs-when-debugging"><strong>Check logs when debugging</strong></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">postgres</span><span class="o">.</span><span class="na">getLogs</span><span class="o">());</span>
+</code></pre></div></div>
+
+<h2 id="wrapping-up">Wrapping Up</h2>
+<p>Testcontainers transformed how I think about integration testing.</p>
+
+<p>I started with <code class="language-plaintext highlighter-rouge">@Container</code> and <code class="language-plaintext highlighter-rouge">@DynamicPropertySource</code> for simple cases.
+When I needed more control, I reached for <code class="language-plaintext highlighter-rouge">ApplicationContextInitializer</code>.
+And when I had to test against any Docker image, <code class="language-plaintext highlighter-rouge">GenericContainer</code> had my back.</p>
+
+<p>The beauty is that I’m always testing against <strong>the real thing</strong>.
+Real databases, real SMTP servers, real APIs and this without any of the traditional headaches of managing those services locally.</p>
+
+<p>If you’re not using Testcontainers yet, I encourage you to give it a try on your next Spring Boot project.
+Your future self (and your teammates) will thank you.</p>
+
+<p>Now go forth and containerize those tests</p>
+
+<h2 id="resources">Resources</h2>
+<p><strong>Official Documentation:</strong></p>
+<ul>
+  <li><a href="https://www.testcontainers.org/">Testcontainers Official Documentation</a></li>
+  <li><a href="https://java.testcontainers.org/">Testcontainers for Java</a></li>
+  <li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing">Spring Boot Testing Documentation</a></li>
+</ul>
+
+<p><strong>Docker Images Used:</strong></p>
+<ul>
+  <li><a href="https://hub.docker.com/_/postgres">PostgreSQL on Docker Hub</a></li>
+  <li><a href="https://github.com/rnwood/smtp4dev">smtp4dev on GitHub</a></li>
+  <li><a href="https://github.com/axllent/mailpit">Mailpit on GitHub</a></li>
+</ul>
+
+<p><strong>Related Tools:</strong></p>
+<ul>
+  <li><a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a></li>
+  <li><a href="https://mvnrepository.com/artifact/org.testcontainers">Maven Central - Testcontainers</a></li>
+</ul>
+
+        </div>
+    </article>
+
+    <!-- Secondary Column -->
+    <aside class="post-sidebar-column">
+        <!-- ...existing sidebar content... -->
+        <div class="sidebar-section related-posts">
+            <h3>Related Posts</h3>
+            <ul>
+                
+                
+                
+                <li>
+                    <a href="/nl/2025/10/05/testcontainers/">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</a>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                    <a href="/2025/08/05/exceptions-should-be-exceptional/">Exceptions: The Emergency Brake, Not the Steering Wheel</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/08/01/error-404-motiviation-not-found/">Error 404: Motivation Not Found. When Your Codebase Ghosts You</a>
+                </li>
+                
+                
+            </ul>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="sidebar-section comments-section">
+            <h3>Comments</h3>
+            <div id="giscus_thread"></div>
+            <script src="https://giscus.app/client.js"
+                    data-repo="OumaimaZerouali/devs-insights"
+                    data-repo-id="R_kgDONqWo4A"
+                    data-category="General"
+                    data-category-id="DIC_kwDONqWo4M4Coz7A"
+                    data-mapping="specific"
+                    data-term="devs-insights"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="light"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </aside>
+</div>
+
+
+
+
+
+
+</main><footer class="site-footer">
+    <div class="footer-content">
+        <a class="site-title" rel="author" href="/">
+        Oumi&#39;s Corner
+        </a>
+    </div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const codeBlocks = document.querySelectorAll('pre');
+
+        codeBlocks.forEach((block) => {
+            const language = block.classList[0];
+
+            if (language) {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.innerText = 'Copy';
+
+                const copiedIcon = document.createElement('span');
+                copiedIcon.className = 'copied-icon';
+                copiedIcon.innerHTML = '&#x2714;';
+                copiedIcon.style.display = 'none';
+                button.appendChild(copiedIcon);
+
+                const pre = block.parentNode;
+                pre.style.position = 'relative';
+                pre.appendChild(button);
+
+                button.addEventListener('click', function() {
+                    const range = document.createRange();
+                    range.selectNode(block);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+
+                    try {
+                        document.execCommand('copy');
+                        copiedIcon.style.display = 'inline-block';
+                        button.innerText = '';
+                        button.appendChild(copiedIcon);
+
+                        setTimeout(() => {
+                            copiedIcon.style.display = 'none';
+                            button.innerText = 'Copy';
+                        }, 1500);
+                    } catch (err) {
+                        console.error('Failed to copy code: ', err);
+                    }
+
+                    window.getSelection().removeAllRanges();
+                });
+            }
+        });
+    });
+</script>
+
+<!-- Google Analytics (disabled until consent) -->
+<script type="text/plain" data-cookie-consent="analytics">
+    (function() {
+        var gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-BPHJ4G11P0";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+
+        gtag('js', new Date());
+        gtag('config', 'G-BPHJ4G11P0');
+    })();
+</script>
+
+<div id="cookie-banner" aria-live="polite" role="dialog" aria-label="Cookie consent banner" style="display: none;">
+    <p>This website uses cookies for analytics. Do you accept cookies?</p>
+    <button id="accept-cookies">Accept</button>
+    <button id="deny-cookies">Deny</button>
+</div>
+
+
+<script>
+    function enableAnalyticsScripts() {
+        const scripts = document.querySelectorAll('script[type="text/plain"][data-cookie-consent="analytics"]');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            newScript.text = script.innerText;
+            document.body.appendChild(newScript);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const denyBtn = document.getElementById('deny-cookies');
+
+        const consent = localStorage.getItem('cookies-consent');
+
+        if (consent === 'accepted') {
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        } else if (consent === 'denied') {
+            banner.style.display = 'none';
+        } else {
+            banner.style.display = 'flex';
+        }
+
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'accepted');
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        });
+
+        denyBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'denied');
+            banner.style.display = 'none';
+        });
+    });
+
+</script>
+
+<script src="/assets/js/lang-switcher.js"></script>
+<script src="/assets/js/button-animation.js"></script>
+<script src="/assets/js/code-copy.js"></script>
+
+</body>
+</html>

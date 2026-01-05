@@ -1,0 +1,29 @@
+# Nederlandse vertalingen
+site:
+  title: "Oumi's Corner"
+  tagline: "Werkaantekeningen"
+  description: "Reflecties over systemen, ontwerpbeslissingen en de realiteit van het bouwen van duurzame dingen."
+
+nav:
+  home: "Home"
+  about: "Over"
+  archive: "Archief"
+
+post:
+  read_more: "Lees meer"
+  min_read: "min lezen"
+  related_posts: "Gerelateerde Artikelen"
+  comments: "Reacties"
+  view_all_posts: "Bekijk Alle Artikelen"
+
+filter:
+  everything: "Alles"
+  tech: "Tech"
+  life: "Leven"
+
+footer:
+  copyright: "Met zorg gebouwd"
+
+meta:
+  posted_on: "Geplaatst op"
+

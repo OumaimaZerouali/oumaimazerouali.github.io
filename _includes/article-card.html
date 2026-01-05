@@ -1,0 +1,42 @@
+{% include lang.html %}
+
+<article class="editorial-block" data-tags="{% if include.post.tags %}{{ include.post.tags | join: ',' }}{% endif %}" data-lang="{{ include.post.lang | default: 'en' }}">
+  <a href="{{ include.post.url | relative_url }}" class="editorial-link">
+    {% if include.post.cover_image %}
+    <div class="editorial-image">
+      <img
+        src="{{ site.baseurl }}{{ include.post.cover_image }}"
+        alt="{{ include.post.title }}"
+        loading="lazy"
+      />
+    </div>
+    {% elsif include.post.image %}
+    <div class="editorial-image">
+      <img
+        src="{{ site.baseurl }}{{ include.post.image }}"
+        alt="{{ include.post.title }}"
+        loading="lazy"
+      />
+    </div>
+    {% endif %}
+    <div class="editorial-content">
+      <p class="editorial-meta">
+        {{ include.post.date | date: "%B %d, %Y" }} · {{ include.post.content | number_of_words | divided_by: 200 }} min read
+      </p>
+      <h2 class="editorial-title">{{ include.post.title }}</h2>
+      {% if include.post.excerpt %}
+      <p class="editorial-excerpt">{{ include.post.excerpt | strip_html | truncatewords: 200 }}</p>
+      {% else %}
+      <p class="editorial-excerpt">{{ include.post.content | strip_html | truncatewords: 200 }}</p>
+      {% endif %}
+
+      <span class="editorial-cta">
+        <div class="button-text-wrapper">
+          <span class="button-text-original">Read more</span>
+          <span class="button-text-duplicate">Read more</span>
+        </div>
+      </span>
+    </div>
+  </a>
+</article>
+

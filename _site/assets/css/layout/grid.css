@@ -1,0 +1,30 @@
+/* ==========================================================================
+   EDITORIAL GRID LAYOUT - WIDE MAGAZINE STYLE
+   Grid spans full width of page container, uses gap for spacing
+   ========================================================================== */
+
+/* Articles Grid - Full width editorial layout */
+.articles-editorial {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+  padding: 0 0 var(--space-sm) 0;
+}
+
+/* Tablet: 2 columns, full width */
+@media (min-width: 768px) {
+  .articles-editorial {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm) var(--space-sm);
+  }
+}
+
+/* Desktop: 3 columns, full width */
+@media (min-width: 1200px) {
+  .articles-editorial {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-sm) var(--space-sm);
+  }
+}
+

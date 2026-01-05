@@ -1,0 +1,73 @@
+---
+layout: default
+---
+
+<!-- Article Header Above Hero -->
+<header class="post-header-top">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <p class="post-meta">
+        {{ page.date | date: "%B %d, %Y" }} · {{ page.content | number_of_words | divided_by: 200 }} min read
+    </p>
+</header>
+
+<!-- Hero Image - Full Width -->
+{% if page.image %}
+<div class="post-hero">
+    <img src="{{ site.baseurl }}{{ page.image }}" alt="{{ page.title }}" />
+</div>
+{% endif %}
+
+<!-- Two-Column Editorial Layout -->
+<div class="post-editorial-wrapper">
+    <article class="post-main-column">
+        <!-- Article Content -->
+        <div class="post-content">
+            {{ content }}
+        </div>
+    </article>
+
+    <!-- Secondary Column -->
+    <aside class="post-sidebar-column">
+        <!-- ...existing sidebar content... -->
+        <div class="sidebar-section related-posts">
+            <h3>Related Posts</h3>
+            <ul>
+                {% assign shuffled_posts = site.posts | shuffle %}
+                {% for post in shuffled_posts limit: 4 %}
+                {% if post.url != page.url %}
+                <li>
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="sidebar-section comments-section">
+            <h3>Comments</h3>
+            <div id="giscus_thread"></div>
+            <script src="https://giscus.app/client.js"
+                    data-repo="OumaimaZerouali/devs-insights"
+                    data-repo-id="R_kgDONqWo4A"
+                    data-category="General"
+                    data-category-id="DIC_kwDONqWo4M4Coz7A"
+                    data-mapping="specific"
+                    data-term="devs-insights"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="light"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </aside>
+</div>
+
+
+
+
+

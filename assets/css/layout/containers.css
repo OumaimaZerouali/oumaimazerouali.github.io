@@ -1,0 +1,27 @@
+/* ==========================================================================
+   LAYOUT CONTAINERS - EDITORIAL MAGAZINE (NOT BLOG)
+   Reference: https://www.beat-expeditions.com/magazine
+   ========================================================================== */
+
+/* Single global page container - all content lives here */
+.page-content {
+  min-height: calc(100vh - 200px);
+  width: 100%;
+  max-width: var(--page-max-width);
+  padding-inline: var(--page-padding);
+}
+
+/* Legacy container - NOW FULL WIDTH within page-content */
+.container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* Content wrapper - ONLY for long-form reading content */
+.content-wrapper {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding: 0;
+}
+

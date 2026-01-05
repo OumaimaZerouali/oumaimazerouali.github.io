@@ -4,302 +4,140 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="fix: gh permissions">
-      <change afterPath="$PROJECT_DIR$/components.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eslint.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/postcss.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo192.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/logo512.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/manifest.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/robots.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/About.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Contact.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Footer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Hero.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Navigation.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Podcast.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Projects.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/TechStack.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/accordion.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/alert-dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/alert.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/aspect-ratio.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/avatar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/badge.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/breadcrumb.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/calender.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/carrousel.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/chart.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/checkbox.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/collapsible.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/command.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/context-menu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/dialog.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/drawer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/dropdown-menu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/form.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/hover-card.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/input-otp.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/input.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/label.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/menubar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/navigation-menu.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/pagination.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/popover.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/progress.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/radio-group.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/resizable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/scroll-area.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/select.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/separator.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/sheet.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/sidebar.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/skeleton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/slider.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/sonner.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/switch.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/table.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/tabs.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/textarea.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/toast.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/toaster.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/toggle-group.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/toggle.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/tooltip.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ui/use-toast.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/use-mobile.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/use-toast.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/lib/utils.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/Index.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/NotFound.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/vite-env.d.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tailwind.config.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tsconfig.node.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vite.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/deploy.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: add initial project structure with components and configuration files">
+      <change afterPath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/base/fonts.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/base/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/base/typography.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/base/variables.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/components/buttons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/components/cards.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/components/code-blocks.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/components/cookie-banner.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/components/footer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/components/header.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/components/progress-bar.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/layout/containers.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/layout/grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/pages/home.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/css/pages/post.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copilot.data.migration.edit.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/extensions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/tasks.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/angular.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/3rdpartylicenses.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/about-me/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Black.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BlackWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-BoldWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-ExtraBoldWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-LightWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Medium.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-MediumWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-RegularWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-SemiBoldWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLight.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans-UltraLightWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/Mona-Sans.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/fonts/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/icons/circle-arrow.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/icons/money-bag-hand-drawn-variant.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/icons/notebook-and-pencil-hand-drawn-writing-tools.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/icons/paper.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/logo-without-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/assets/oumaima-avatar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/contact/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/favicon-96x96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/site.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/web-app-manifest-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/favicon/web-app-manifest-512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/index.csr.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/links/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/main-Q343BXD6.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-brands-400-Q3XCMWHQ.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-brands-400-R2XQZCET.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-regular-400-QSNYFYRT.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-regular-400-XUOPSR7E.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-solid-900-5ZUYHGA7.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-solid-900-PJNKLK6W.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-v4compatibility-LFEHZI6Y.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/media/fa-v4compatibility-YY67RJWG.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/polyfills-FFHMD2TL.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/browser/styles-5OVAGX2P.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/prerendered-routes.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/chunk-5XUXGTUW.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/chunk-N5RARMWK.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/chunk-VCVCHJZV.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/chunk-XDDHPCIU.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/index.server.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/main.server.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/polyfills.server.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/render-utils.server.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/server/server.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/frontend.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon/apple-touch-icon.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon/favicon-96x96.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon/site.webmanifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon/web-app-manifest-192x192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon/web-app-manifest-512x512.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.config.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/aboutme/aboutme.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/aboutme/aboutme.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/aboutme/aboutme.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/aboutme/aboutme.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/browser/browser.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/browser/browser.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/browser/browser.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/contact/contact.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/contact/contact.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/contact/contact.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/contact/contact.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/mini-games/tic-tac-toe.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/mini-games/tic-tac-toe.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/mini-games/tic-tac-toe.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/footer/footer.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/footer/footer.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/footer/footer.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/pixel-background/pixel-background.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/pixel-background/pixel-background.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/pixel-background/pixel-background.component.spec.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/shared/pixel-background/pixel-background.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/virtual-desktop.component.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/virtual-desktop.component.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/virtual-desktop/virtual-desktop.component.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/window-management.service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Black.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BlackWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Bold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-BoldWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-ExtraBoldWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Light.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-LightWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Medium.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-MediumWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-Regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-RegularWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBold.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-SemiBoldWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLight.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightNarrow.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightNarrowItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightWide.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans-UltraLightWideItalic.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/Mona-Sans.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/fonts/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/about_me.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/contact.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/jcast.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/search-engine.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/shutdown.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/tictactoe.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/icons/windows-start.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/logo-without-bg.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/logo.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assets/oumaima-avatar.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.server.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tsconfig.spec.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/components.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/index-DpSajh6k.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/assets/index-Os2ZZ9ax.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dist/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eslint.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/postcss.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/About.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Contact.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Footer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Hero.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navigation.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Podcast.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Projects.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/TechStack.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/accordion.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/alert-dialog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/alert.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/aspect-ratio.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/avatar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/badge.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/breadcrumb.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/button.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/calender.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/card.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/carrousel.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/chart.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/checkbox.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/collapsible.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/command.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/context-menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/dialog.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/drawer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/dropdown-menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/form.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/hover-card.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/input-otp.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/input.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/label.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/menubar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/navigation-menu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/pagination.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/popover.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/progress.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/radio-group.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/resizable.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/scroll-area.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/select.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/separator.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/sheet.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/sidebar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/skeleton.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/slider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/sonner.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/switch.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/table.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/tabs.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/textarea.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/toast.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/toaster.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/toggle-group.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/toggle.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/tooltip.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ui/use-toast.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/use-mobile.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hooks/use-toast.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/lib/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/Index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/NotFound.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vite-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tailwind.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.node.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.ts" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,16 +198,19 @@
     &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
     &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;dev.nx.console.last_ai_configure_notification_timestamp&quot;: &quot;1764445192312&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/src/assets/icons&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/assets/css&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -397,6 +238,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/css" />
       <recent name="$PROJECT_DIR$/src/assets/icons" />
       <recent name="$PROJECT_DIR$/frontend/src/assets" />
       <recent name="$PROJECT_DIR$/frontend/public" />
@@ -489,8 +331,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
-        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
+        <option value="bundled-jdk-30f59d01ecdd-cffe25b9f5b3-intellij.indexing.shared.core-IU-253.28294.334" />
+        <option value="bundled-js-predefined-d6986cc7102b-c7e53b3be11b-JavaScript-IU-253.28294.334" />
       </set>
     </attachedChunks>
   </component>
@@ -542,6 +384,8 @@
       <workItem from="1764445031875" duration="38000" />
       <workItem from="1764445075906" duration="15000" />
       <workItem from="1764445100190" duration="27000" />
+      <workItem from="1764445132938" duration="721000" />
+      <workItem from="1767556020468" duration="5101000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -783,7 +627,23 @@
       <option name="project" value="LOCAL" />
       <updated>1751828454167</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="feat: add initial project structure with components and configuration files">
+      <option name="closed" value="true" />
+      <created>1764445196464</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1764445196464</updated>
+    </task>
+    <task id="LOCAL-00032" summary="feat: add initial project structure with components and configuration files">
+      <option name="closed" value="true" />
+      <created>1764445216673</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1764445216673</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -813,12 +673,12 @@
     <MESSAGE value="feat: Windows 98 themed portfolio" />
     <MESSAGE value="feat: Deploy" />
     <MESSAGE value="fix: gh permissions" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: gh permissions" />
+    <MESSAGE value="feat: add initial project structure with components and configuration files" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: add initial project structure with components and configuration files" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
-    <settings-migrated>true</settings-migrated>
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>

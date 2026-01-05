@@ -1,0 +1,16 @@
+{% comment %}
+  Language helper - Detects current language from page/post or defaults to site default
+{% endcomment %}
+
+{% assign current_lang = page.lang | default: site.default_lang %}
+
+{% comment %}
+  Load translations for current language
+{% endcomment %}
+
+{% if current_lang == "nl" %}
+  {% assign t = site.data.translations.nl %}
+{% else %}
+  {% assign t = site.data.translations.en %}
+{% endif %}
+

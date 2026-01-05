@@ -1,0 +1,458 @@
+<script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Exceptions: The Emergency Brake, Not the Steering Wheel",
+        "description": "",
+        "author": {
+            "@type": "Person",
+            "name": ""
+        },
+        "datePublished": "2025-08-05T09:00:00+02:00",
+        "image": "/assets/img/exceptions.png"
+    }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Exceptions: The Emergency Brake, Not the Steering Wheel | Oumi's Corner</title>
+
+    <meta name="description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:title" content="Exceptions: The Emergency Brake, Not the Steering Wheel">
+    <meta property="og:description" content="Thoughtful reflections on software development, written by a developer for developers.
+">
+    <meta property="og:image" content="/assets/img/exceptions.png">
+    <meta property="og:url" content="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/">
+    <meta name="google-site-verification" content="1cy-OLoI1y37QpgVZyfdmaqcCgSB-LI3dOCdAWCfN8M" />
+    <meta name="keywords" content="oumi's corner, oumaima blog, software development blog, developer journal, tech blog">
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/lunr@2.3.8/lunr.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+
+
+
+
+
+<header class="site-header" role="banner">
+  <div class="wrapper">
+    <a class="site-title" rel="author" href="/">
+    Oumi&#39;s Corner
+    </a>
+
+    <div class="social-icons">
+      <!-- Language Switcher -->
+      <div class="lang-switcher">
+        <button class="lang-link" data-lang="en" id="lang-en">EN</button>
+        <span class="lang-separator">/</span>
+        <button class="lang-link" data-lang="nl" id="lang-nl">NL</button>
+      </div>
+
+      <a
+              href="https://jcast.dev"
+              target="_blank"
+              aria-label="The JCast website"
+              class="jcast-link"
+      >
+        JCAST
+        <svg class="external-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</header>
+<main class="page-content" aria-label="Content">
+    <!-- Article Header Above Hero -->
+<header class="post-header-top">
+    <h1 class="post-title">Exceptions: The Emergency Brake, Not the Steering Wheel</h1>
+    <p class="post-meta">
+        August 05, 2025 · 5 min read
+    </p>
+</header>
+
+<!-- Hero Image - Full Width -->
+
+<div class="post-hero">
+    <img src="/assets/img/exceptions.png" alt="Exceptions: The Emergency Brake, Not the Steering Wheel" />
+</div>
+
+
+<!-- Two-Column Editorial Layout -->
+<div class="post-editorial-wrapper">
+    <article class="post-main-column">
+        <!-- Article Content -->
+        <div class="post-content">
+            <blockquote>
+  <p>“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants</p>
+</blockquote>
+
+<p>As developers, we’re told to handle errors.<br />
+But how we handle them really affects the way our code works.</p>
+
+<p>A common mistake, especially in Java, is using exceptions to manage normal, expected stuff.<br />
+It’s like using your car’s emergency brake every time you hit a red light.<br />
+It kinda works… until it doesn’t.</p>
+
+<p>Eventually, your code slows down, gets messy, and people avoid touching it like it’s cursed.</p>
+
+<p>And hey, I’ve done it too.<br />
+Throwing an exception is easy.<br />
+It feels like a clean escape hatch when logic gets too messy.<br />
+But here’s the thing: exceptions are meant for <strong>unexpected problems</strong>, not everyday flow.</p>
+
+<p>Martin Fowler put it best:</p>
+<blockquote>
+  <p><strong>Exceptions should be exceptional.</strong></p>
+</blockquote>
+
+<p>Let’s break that down.</p>
+
+<h2 id="what-actually-counts-as-exceptional">What <em>Actually</em> Counts as “Exceptional”?</h2>
+
+<p>Think of an exception like a fire alarm.<br />
+It should only go off when something’s seriously wrong. 
+Something the code couldn’t have planned for.</p>
+
+<p>Here’s a quick gut check:</p>
+<ul>
+  <li>Is this a <em>normal</em> part of business logic? → Don’t throw.</li>
+  <li>Is this a <em>weird</em> failure that makes the method impossible to finish? → Exception time.</li>
+</ul>
+
+<h3 id="examples">Examples:</h3>
+<p><strong>Actually Exceptional</strong></p>
+<ul>
+  <li>DB is down.</li>
+  <li>Config file is missing or unreadable.</li>
+  <li>API suddenly returns a 500.</li>
+</ul>
+
+<p><strong>Not Exceptional</strong></p>
+<ul>
+  <li>No user found for a search.</li>
+  <li>Email format is invalid.</li>
+  <li>List is empty.</li>
+</ul>
+
+<p>If it’s something you <em>expect might happen</em>, just handle it with normal logic.</p>
+
+<h2 id="when-throwing-is-the-right-call">When Throwing Is the Right Call</h2>
+
+<p>Here’s a good example of when an exception makes sense.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">squareRoot</span><span class="o">(</span><span class="kt">double</span> <span class="n">number</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">number</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"Cannot calculate the square root of a negative number."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">number</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This method’s job is to calculate square roots. If you give it a negative number, it literally can’t do that.
+So yeah, an exception is fair. That’s not just “bad input”, it breaks the rules of what the method can even do.</p>
+
+<h2 id="what-to-do-when-failures-arent-exceptional">What to Do When Failures <em>Aren’t</em> Exceptional</h2>
+
+<p>Let’s talk about validation.</p>
+
+<p>Imagine a user signs up with a bad email <em>and</em> a weak password.
+Do you want to throw an exception for each issue, stopping after the first one?
+Or do you want to show all the problems at once?</p>
+
+<h3 id="the-wrong-way">The Wrong Way</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(!</span><span class="n">email</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"Email is invalid."</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">password</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"Password too short."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This stops after the email fails, so the user keeps fixing one thing at a time. 
+Super annoying.</p>
+
+<h3 id="a-better-way-notification-pattern">A Better Way: Notification Pattern</h3>
+
+<p>Let’s collect all issues in one go:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Notification</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">errors</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">addError</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span> <span class="n">errors</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">message</span><span class="o">);</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasErrors</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">!</span><span class="n">errors</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">getErrors</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">errors</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="nc">Notification</span> <span class="nf">validate</span><span class="o">(</span><span class="nc">User</span> <span class="n">user</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Notification</span> <span class="n">notification</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Notification</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">(!</span><span class="n">user</span><span class="o">.</span><span class="na">getEmail</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">notification</span><span class="o">.</span><span class="na">addError</span><span class="o">(</span><span class="s">"Email is invalid."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">user</span><span class="o">.</span><span class="na">getPassword</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">notification</span><span class="o">.</span><span class="na">addError</span><span class="o">(</span><span class="s">"Password must be at least 8 characters."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="n">notification</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Now the user gets <em>all</em> feedback at once.
+The backend stays chill.
+No emergency brakes needed.</p>
+
+<h2 id="custom-exceptions-when-theyre-actually-helpful">Custom Exceptions: When They’re Actually Helpful</h2>
+
+<p>Custom exceptions are fine when they <em>mean</em> something specific, especially in business logic.</p>
+
+<p>Example: a banking app.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">InsufficientFundsException</span> <span class="kd">extends</span> <span class="nc">RuntimeException</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">InsufficientFundsException</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This makes it super clear what went wrong and you can handle it differently than, say, a network error.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="n">accountService</span><span class="o">.</span><span class="na">withdraw</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">InsufficientFundsException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">showError</span><span class="o">(</span><span class="s">"You don’t have enough funds."</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NetworkException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">showError</span><span class="o">(</span><span class="s">"Connection error. Please try again."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The goal: make errors <em>understandable</em> and <em>actionable</em>.</p>
+
+<h2 id="the-hidden-costs-of-misusing-exceptions">The Hidden Costs of Misusing Exceptions</h2>
+
+<p><strong>1. Performance</strong>
+Throwing an exception isn’t free.
+The JVM captures the whole stack trace, and that takes time.
+If you’re throwing exceptions in a tight loop or in a high-traffic app, you’re asking for trouble.</p>
+
+<p><strong>2. Readability</strong>
+<code class="language-plaintext highlighter-rouge">try-catch</code> blocks are loud.
+If you use them for stuff that’s not an error, your code becomes harder to read and understand.
+Future you, or someone else, has to stop and ask, “Wait, is this <em>really</em> an error?”</p>
+
+<p><strong>3. Bad APIs</strong>
+If your backend throws an exception for bad input, it might just send back a generic <code class="language-plaintext highlighter-rouge">500</code>.
+But that’s not a server error, it’s a user mistake.
+Instead, return a <code class="language-plaintext highlighter-rouge">400 Bad Request</code> with a clean JSON response explaining what’s wrong.</p>
+
+<h2 id="the-bigger-picture-dont-be-clever-be-clear">The Bigger Picture: Don’t Be “Clever”, Be Clear</h2>
+
+<p>Throwing exceptions for normal stuff feels clever at first.
+But clever code ages badly.</p>
+
+<p>Clean code is clear code.
+It doesn’t use exceptions like fancy <code class="language-plaintext highlighter-rouge">if</code> statements.
+It uses them when something genuinely breaks.</p>
+
+        </div>
+    </article>
+
+    <!-- Secondary Column -->
+    <aside class="post-sidebar-column">
+        <!-- ...existing sidebar content... -->
+        <div class="sidebar-section related-posts">
+            <h3>Related Posts</h3>
+            <ul>
+                
+                
+                
+                <li>
+                    <a href="/nl/2025/10/05/testcontainers/">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</a>
+                </li>
+                
+                
+                
+                <li>
+                    <a href="/2025/10/05/testcontainers/">Testcontainers in Spring Boot: From Quick Wins to Power Moves</a>
+                </li>
+                
+                
+                
+                
+                
+                <li>
+                    <a href="/2025/08/01/error-404-motiviation-not-found/">Error 404: Motivation Not Found. When Your Codebase Ghosts You</a>
+                </li>
+                
+                
+            </ul>
+        </div>
+
+        <!-- Comments Section -->
+        <div class="sidebar-section comments-section">
+            <h3>Comments</h3>
+            <div id="giscus_thread"></div>
+            <script src="https://giscus.app/client.js"
+                    data-repo="OumaimaZerouali/devs-insights"
+                    data-repo-id="R_kgDONqWo4A"
+                    data-category="General"
+                    data-category-id="DIC_kwDONqWo4M4Coz7A"
+                    data-mapping="specific"
+                    data-term="devs-insights"
+                    data-strict="0"
+                    data-reactions-enabled="1"
+                    data-emit-metadata="0"
+                    data-input-position="bottom"
+                    data-theme="light"
+                    data-lang="en"
+                    crossorigin="anonymous"
+                    async>
+            </script>
+        </div>
+    </aside>
+</div>
+
+
+
+
+
+
+</main><footer class="site-footer">
+    <div class="footer-content">
+        <a class="site-title" rel="author" href="/">
+        Oumi&#39;s Corner
+        </a>
+    </div>
+</footer>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const codeBlocks = document.querySelectorAll('pre');
+
+        codeBlocks.forEach((block) => {
+            const language = block.classList[0];
+
+            if (language) {
+                const button = document.createElement('button');
+                button.className = 'copy-button';
+                button.innerText = 'Copy';
+
+                const copiedIcon = document.createElement('span');
+                copiedIcon.className = 'copied-icon';
+                copiedIcon.innerHTML = '&#x2714;';
+                copiedIcon.style.display = 'none';
+                button.appendChild(copiedIcon);
+
+                const pre = block.parentNode;
+                pre.style.position = 'relative';
+                pre.appendChild(button);
+
+                button.addEventListener('click', function() {
+                    const range = document.createRange();
+                    range.selectNode(block);
+                    window.getSelection().removeAllRanges();
+                    window.getSelection().addRange(range);
+
+                    try {
+                        document.execCommand('copy');
+                        copiedIcon.style.display = 'inline-block';
+                        button.innerText = '';
+                        button.appendChild(copiedIcon);
+
+                        setTimeout(() => {
+                            copiedIcon.style.display = 'none';
+                            button.innerText = 'Copy';
+                        }, 1500);
+                    } catch (err) {
+                        console.error('Failed to copy code: ', err);
+                    }
+
+                    window.getSelection().removeAllRanges();
+                });
+            }
+        });
+    });
+</script>
+
+<!-- Google Analytics (disabled until consent) -->
+<script type="text/plain" data-cookie-consent="analytics">
+    (function() {
+        var gtagScript = document.createElement('script');
+        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-BPHJ4G11P0";
+        gtagScript.async = true;
+        document.head.appendChild(gtagScript);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+
+        gtag('js', new Date());
+        gtag('config', 'G-BPHJ4G11P0');
+    })();
+</script>
+
+<div id="cookie-banner" aria-live="polite" role="dialog" aria-label="Cookie consent banner" style="display: none;">
+    <p>This website uses cookies for analytics. Do you accept cookies?</p>
+    <button id="accept-cookies">Accept</button>
+    <button id="deny-cookies">Deny</button>
+</div>
+
+
+<script>
+    function enableAnalyticsScripts() {
+        const scripts = document.querySelectorAll('script[type="text/plain"][data-cookie-consent="analytics"]');
+        scripts.forEach(script => {
+            const newScript = document.createElement('script');
+            newScript.text = script.innerText;
+            document.body.appendChild(newScript);
+        });
+    }
+
+    document.addEventListener("DOMContentLoaded", function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const denyBtn = document.getElementById('deny-cookies');
+
+        const consent = localStorage.getItem('cookies-consent');
+
+        if (consent === 'accepted') {
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        } else if (consent === 'denied') {
+            banner.style.display = 'none';
+        } else {
+            banner.style.display = 'flex';
+        }
+
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'accepted');
+            banner.style.display = 'none';
+            enableAnalyticsScripts();
+        });
+
+        denyBtn.addEventListener('click', function() {
+            localStorage.setItem('cookies-consent', 'denied');
+            banner.style.display = 'none';
+        });
+    });
+
+</script>
+
+<script src="/assets/js/lang-switcher.js"></script>
+<script src="/assets/js/button-animation.js"></script>
+<script src="/assets/js/code-copy.js"></script>
+
+</body>
+</html>

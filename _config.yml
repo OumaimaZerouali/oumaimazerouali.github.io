@@ -1,0 +1,54 @@
+title: Oumi's Corner
+email: oumaima.zerouali@gmail.com
+description: >
+  Thoughtful reflections on software development, written by a developer for developers.
+baseurl: ""
+url: "https://oumaimazerouali.github.io"
+metadata:
+  author: Oumaima Zerouali
+  keywords: Oumaima,Blog,Java,JavaScript,TypeScript,Angular,DevOps,Cloud,Software Development,Oumi's Corner
+
+languages: ["en", "nl"]
+default_lang: "en"
+exclude_from_localization: ["assets", "js", "css", "img"]
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+
+defaults:
+  - scope:
+      path: "_posts/en"
+      type: "posts"
+    values:
+      lang: en
+      permalink: /:year/:month/:day/:title/
+  - scope:
+      path: "_posts/nl"
+      type: "posts"
+    values:
+      lang: nl
+      permalink: /nl/:year/:month/:day/:title/
+
+linkedin_username: oumaima-zerouali-16b189223
+github_username: OumaimaZerouali
+instagram_username: zugzwang_o7
+
+seo:
+  title: "Oumi's Corner"
+  description: "Thoughtful reflections on software development, written by a developer for developers."
+  url: "https://oumaimazerouali.github.io/"
+
+exclude:
+   - .sass-cache/
+   - .jekyll-cache/
+   - gemfiles/
+   - Gemfile
+   - Gemfile.lock
+   - node_modules/
+   - vendor/bundle/
+   - vendor/cache/
+   - vendor/gems/
+   - vendor/ruby/

@@ -1,0 +1,117 @@
+/* ==========================================================================
+   HOME PAGE - EDITORIAL MAGAZINE STYLE
+   ========================================================================== */
+
+/* Editorial Introduction Section - Full width */
+.editorial-intro {
+  width: 100%;
+  padding: var(--space-2xl) 0 0 0;
+}
+
+.editorial-heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl);
+  font-weight: 100;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: var(--color-text-primary);
+  margin-bottom: -10px;
+  text-align: left;
+}
+
+.editorial-subheading {
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  max-width: 600px;
+  text-align: left;
+}
+
+/* Filter Bar */
+
+.filter-container span {
+  display: flex;
+  justify-content: flex-end;
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  font-size: var(--text-sm);
+}
+
+.filter-bar {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  padding: var(--space-sm) 0;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.6rem 1rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  text-transform: capitalize;
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-text-primary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.filter-btn:hover {
+  background-color: var(--color-hover);
+  border-color: var(--color-text-secondary);
+}
+
+.filter-btn.active {
+  background-color: var(--color-text-primary);
+  color: var(--color-surface);
+  border-color: var(--color-text-primary);
+}
+
+/* View All Link */
+.view-all {
+  width: 100%;
+  padding: 0 0 var(--space-3xl) 0;
+  text-align: center;
+}
+
+.view-all-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.63rem;
+
+  padding: 0.6rem 1rem;
+
+  border: 1px solid var(--color-text-primary);
+  border-radius: var(--radius-sm);
+
+  background-color: var(--color-bg-secondary);
+  color: var(--color-text-primary);
+
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: capitalize;
+
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* Responsive Typography */
+@media (min-width: 768px) {
+  .editorial-heading {
+    font-size: 4rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .editorial-intro {
+    padding-top: var(--space-5xl);
+    padding-bottom: var(--space-3xl);
+  }
+}
+
