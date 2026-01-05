@@ -47,5 +47,5 @@ Content is © Oumaima Zerouali. All rights reserved.
 
 - LinkedIn: [Oumaima Zerouali](https://www.linkedin.com/in/oumaima-zerouali-16b189223)
 - GitHub: [@OumaimaZerouali](https://github.com/OumaimaZerouali)
-- Instagram: [@zugzwang_o7](https://www.instagram.com/zugzwang_o7)
+- Instagram: [@_oumietje_](https://www.instagram.com/_oumietje_/)
 

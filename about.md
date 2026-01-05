@@ -1,8 +1,32 @@
 ---
 layout: default
-title: About
+title: "About — Oumaima Zerouali"
+description: "About Oumaima Zerouali — software developer, writer, and speaker."
 permalink: /about/
+image: "/assets/img/pp-as-mbp.png"
+lang: en
 ---
+
+<script type="application/ld+json">
+{
+	"@context": "https://schema.org",
+	"@type": "Person",
+	"name": "Oumaima Zerouali",
+	"url": "https://oumaimazerouali.github.io/about/",
+	"sameAs": [
+		"https://www.linkedin.com/in/oumaima-zerouali-16b189223",
+		"https://github.com/OumaimaZerouali",
+		"https://www.instagram.com/_oumietje_/"
+	],
+	"jobTitle": "Software Developer",
+	"worksFor": {
+		"@type": "Organization",
+		"name": "Independent"
+	}
+}
+</script>
+
+# Oumaima Zerouali
 
 ## About Oumi's Corner
 

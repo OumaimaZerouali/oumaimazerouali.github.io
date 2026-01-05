@@ -34,12 +34,15 @@ defaults:
 
 linkedin_username: oumaima-zerouali-16b189223
 github_username: OumaimaZerouali
-instagram_username: zugzwang_o7
+instagram_username: _oumietje_
 
 seo:
   title: "Oumi's Corner"
   description: "Thoughtful reflections on software development, written by a developer for developers."
   url: "https://oumaimazerouali.github.io/"
+
+author:
+  name: "Oumaima Zerouali"
 
 exclude:
    - .sass-cache/

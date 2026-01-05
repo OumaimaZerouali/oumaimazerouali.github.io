@@ -1,32 +1,27 @@
-<script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": "{{ page.title }}",
-        "description": "{{ page.description }}",
-        "author": {
-            "@type": "Person",
-            "name": "{{ metadata.author }}"
-        },
-        "datePublished": "{{ page.date | date_to_xmlschema }}",
-        "image": "{{ page.image | default: site.image }}"
-    }
-</script>
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+        {% seo %}
 
-    <meta name="description" content="{{ page.description | default: site.description }}">
-    <meta property="og:title" content="{{ page.title | default: site.title | escape }}">
-    <meta property="og:description" content="{{ page.description | default: site.description | escape }}">
-    <meta property="og:image" content="{{ page.image | default: site.image }}">
-    <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-    <meta name="google-site-verification" content="1cy-OLoI1y37QpgVZyfdmaqcCgSB-LI3dOCdAWCfN8M" />
-    <meta name="keywords" content="oumi's corner, oumaima blog, software development blog, developer journal, tech blog">
+        {%- comment -%} Canonical and hreflang links for multilingual site {%- endcomment -%}
+        <link rel="canonical" href="{{ page.url | absolute_url }}" />
+        {% for lang in site.languages %}
+            {% if lang == site.default_lang %}
+                <link rel="alternate" hreflang="{{ lang }}" href="{{ page.url | absolute_url }}" />
+            {% else %}
+                <link rel="alternate" hreflang="{{ lang }}" href="{{ site.url }}{{ '/' | append: lang }}{{ page.url }}" />
+            {% endif %}
+        {% endfor %}
+
+        <meta name="google-site-verification" content="1cy-OLoI1y37QpgVZyfdmaqcCgSB-LI3dOCdAWCfN8M" />
+
+        {%- comment -%} Default robots + Twitter card fallbacks {%- endcomment -%}
+        <meta name="robots" content="{{ page.robots | default: 'index, follow' }}" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:creator" content="@{{ site.twitter_username | default: site.github_username }}" />
 
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="stylesheet" href="{{ '/assets/css/responsive.css' | relative_url }}">
