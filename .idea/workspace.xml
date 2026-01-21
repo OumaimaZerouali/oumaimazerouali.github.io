@@ -5,14 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: add about page and implement language switcher functionality">
-      <change afterPath="$PROJECT_DIR$/_posts/nl/2025-06-24-saying-goodbye.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/nl/2025-08-01-error-404-motiviation-not-found.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/nl/2025-08-05-exceptions-should-be-exceptional.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/translations/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/translations/nl.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/nl.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/nl/2025-10-05-testcontainers.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/nl/2025-10-05-testcontainers.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/about/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
@@ -22,10 +36,7 @@
       <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/about.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/nl/about.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,46 +96,46 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.go.formatter.settings.were.checked": "true",
-    "RunOnceActivity.go.migrated.go.modules.settings": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "Spring Boot.Application.executor": "Run",
-    "dev.nx.console.last_ai_configure_notification_timestamp": "1764445192312",
-    "git-widget-placeholder": "master",
-    "go.import.settings.migrated": "true",
-    "jdk.selected.JAVA_MODULE": "openjdk-21",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/_posts/nl",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "node",
-    "nodejs_package_manager_path": "npm",
-    "npm.Angular CLI Server (frontend).executor": "Run",
-    "npm.deploy:github.executor": "Run",
-    "npm.dev.executor": "Run",
-    "npm.lint.executor": "Run",
-    "npm.start.executor": "Run",
-    "settings.editor.selected.configurable": "com.github.copilot.settings.customization.CustomizationConfigurable",
-    "ts.external.directory.path": "/Users/oumaimazerouali/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
+    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
+    &quot;dev.nx.console.last_ai_configure_notification_timestamp&quot;: &quot;1764445192312&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/_posts/nl&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.Angular CLI Server (frontend).executor&quot;: &quot;Run&quot;,
+    &quot;npm.deploy:github.executor&quot;: &quot;Run&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;npm.lint.executor&quot;: &quot;Run&quot;,
+    &quot;npm.start.executor&quot;: &quot;Run&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.customization.CustomizationConfigurable&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/oumaimazerouali/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>

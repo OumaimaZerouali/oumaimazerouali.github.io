@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring) – Oumi's Thoughts</title>
+    <title>Oumi's Thoughts - Thoughtful reflections on software development, written by a developer for developers.
+</title>
     <meta name="description" content="Thoughtful reflections on software development, written by a developer for developers.
 ">
 
@@ -62,21 +63,30 @@
     
 
     
-      <a class="site-title" href="/">Oumi's Thoughts</a>
+      <a class="site-title" href="/">
+        <img src="/assets/favicon/logo.svg" alt="Oumi's Thoughts" class="site-logo">
+        <span class="site-title-text">Oumi's Thoughts</span>
+      </a>
     
+
+    <button class="hamburger mobile-only" id="hamburger-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+      <span class="hamburger-line"></span>
+    </button>
 
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
       <a href="/">Home</a>
       <a href="/posts">Posts</a>
       <a href="/about">About</a>
 
-      <div class="lang-switcher" role="group" aria-label="Language switcher">
+      <div class="lang-switcher desktop-only" role="group" aria-label="Language switcher">
         <button class="lang-link" data-lang="en" id="lang-en" aria-label="Switch to English">EN</button>
         <span class="lang-separator" aria-hidden="true">/</span>
         <button class="lang-link" data-lang="nl" id="lang-nl" aria-label="Switch to Dutch">NL</button>
       </div>
 
-      <button id="theme-toggle" aria-label="Toggle theme">
+      <button id="theme-toggle" class="desktop-only" aria-label="Toggle theme">
         <svg id="icon-sun" class="hidden"
              xmlns="http://www.w3.org/2000/svg" width="20" height="20"
              viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -98,9 +108,70 @@
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
+
+      <div class="mobile-only mobile-controls">
+        <button class="mobile-action" id="mobile-switch-theme">Switch theme</button>
+        
+        <a class="mobile-action" href="/nl/">Switch to Dutch</a>
+        
+      </div>
     </nav>
   </div>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const hamburger = document.getElementById('hamburger-toggle');
+  const nav = document.querySelector('.site-nav');
+  const mobileSwitchTheme = document.getElementById('mobile-switch-theme');
+
+  function closeMenu() {
+    hamburger.setAttribute('aria-expanded', 'false');
+    hamburger.classList.remove('active');
+    nav.classList.remove('active');
+  }
+
+  function openMenu() {
+    hamburger.setAttribute('aria-expanded', 'true');
+    hamburger.classList.add('active');
+    nav.classList.add('active');
+  }
+
+  if (hamburger) {
+    hamburger.addEventListener('click', function(event) {
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      if (isExpanded) closeMenu(); else openMenu();
+      event.stopPropagation();
+    });
+  }
+
+  document.addEventListener('click', function(event) {
+    if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape' || event.key === 'Esc') {
+      if (nav.classList.contains('active')) {
+        closeMenu();
+        hamburger.focus();
+      }
+    }
+  });
+
+  if (mobileSwitchTheme) {
+    mobileSwitchTheme.addEventListener('click', function() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    });
+  }
+
+  const navLinks = nav.querySelectorAll('a');
+  navLinks.forEach(link => link.addEventListener('click', () => setTimeout(closeMenu, 50)));
+});
+</script>
 <main id="main-content">
     <div class="wrapper">
         <!-- Structured Data for SEO -->

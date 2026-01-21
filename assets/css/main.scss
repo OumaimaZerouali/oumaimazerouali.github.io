@@ -320,7 +320,6 @@ main {
   margin: 0 0 var(--spacing-md);
   color: var(--color-text);
   font-weight: 700;
-  line-height: 1.2;
 }
 
 .hero-tagline {
@@ -670,6 +669,201 @@ main {
 
   .post-card--medium .post-card-title {
     font-size: 1.25rem;
+  }
+
+  /* Ensure wrapper is one row and doesn't wrap */
+  .site-header .wrapper {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: var(--spacing-md);
+    flex-wrap: nowrap !important;
+    width: 100%;
+  }
+
+  /* Make title compact and prevent it from growing */
+  .site-title {
+    display: inline-flex !important;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 0 auto !important; /* never grow */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Ensure logo image doesn't become block and take full width */
+  .site-title .site-logo {
+    display: inline-block !important;
+    width: 36px !important;
+    height: 36px !important;
+    flex: 0 0 auto !important;
+  }
+
+  /* Position hamburger at the far right and keep it visible */
+  .hamburger.mobile-only {
+    display: inline-flex !important;
+    margin-left: 8px;
+    flex: 0 0 auto;
+  }
+
+  /* Pin hamburger to the right to avoid wrapping under the logo */
+  .hamburger.mobile-only {
+    position: absolute !important;
+    right: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 1300 !important;
+  }
+
+  /* Hide desktop icon controls on mobile (we use textual controls in the overlay) */
+  .lang-switcher,
+  #theme-toggle {
+    display: none !important;
+  }
+
+  /* Hamburger: make the button a predictable square hit area and ensure lines stack */
+  .hamburger {
+    width: 44px !important;
+    height: 44px !important;
+    padding: 8px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    gap: 5px !important;
+    background: transparent !important;
+    border: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .hamburger-line {
+    width: 20px !important;
+    height: 2px !important;
+    background: var(--color-text) !important;
+    border-radius: 2px !important;
+    display: block !important;
+    transform-origin: center !important;
+    transition: transform 220ms cubic-bezier(.2,.9,.3,1), opacity 180ms ease !important;
+  }
+
+  /* Active -> X: top & bottom rotate, middle fades & shrinks horizontally */
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg) !important;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0 !important;
+    transform: scaleX(0) !important;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg) !important;
+  }
+
+  /* Make sure hamburger does not wrap under the logo (pin to right) */
+  .hamburger.mobile-only {
+    position: absolute !important;
+    right: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    z-index: 1300 !important;
+  }
+
+  /* Force hamburger to a column layout so lines stack */
+  .hamburger {
+    display: inline-flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    margin-left: auto !important; /* push to the right */
+    order: 10 !important;
+  }
+
+  /* Ensure each line is short and stacked */
+  .hamburger-line {
+    width: 18px !important;
+    height: 2px !important;
+    display: block !important;
+    background: var(--color-text) !important;
+  }
+
+  /* Ensure nav (overlay) has order after hamburger */
+  .site-nav {
+    order: 99;
+  }
+}
+
+/* ======= Final mobile hamburger override (high-specificity) ======= */
+@media (max-width: 768px) {
+  /* hide desktop icon controls on mobile */
+  header .lang-switcher,
+  header #theme-toggle {
+    display: none !important;
+  }
+
+  /* ensure hamburger button visible and stacked */
+  header .hamburger.mobile-only {
+    display: inline-flex !important;
+    position: absolute !important;
+    right: 1rem !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    width: 36px !important;
+    height: 36px !important;
+    padding: 0 !important; /* no inner padding so lines align centrally */
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 1400 !important;
+    background: transparent !important;
+    border: none !important;
+  }
+
+  /* Use absolute positioned lines so the X intersects perfectly at center */
+  header .hamburger {
+    position: relative !important;
+    width: 36px !important;
+    height: 36px !important;
+    display: inline-block !important;
+    padding: 0 !important;
+  }
+
+  header .hamburger .hamburger-line {
+    /* center each line horizontally and position vertically with explicit top offsets */
+    position: absolute !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important; /* center by default */
+    width: 18px !important;
+    height: 2px !important;
+    margin: 0 !important; /* ensure spacing controlled by top */
+    background: var(--color-text) !important;
+    border-radius: 2px !important;
+    transition: transform 200ms cubic-bezier(.2,.9,.3,1) !important, opacity 160ms ease !important;
+    will-change: transform, opacity;
+    display: block !important;
+    opacity: 1 !important;
+    transform-origin: center center !important;
+  }
+
+  /* vertical placement: top, center, bottom with tighter spacing */
+  header .hamburger .hamburger-line:nth-child(1) { top: calc(50% - 5px) !important; }
+  header .hamburger .hamburger-line:nth-child(2) { top: 50% !important; }
+  header .hamburger .hamburger-line:nth-child(3) { top: calc(50% + 5px) !important; }
+
+  /* Active -> X: rotate top and bottom around center; hide middle cleanly */
+  header .hamburger.active .hamburger-line:nth-child(1) {
+    top: 50% !important;
+    transform: translate(-50%, -50%) rotate(45deg) !important;
+  }
+  header .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0 !important;
+    transform: translate(-50%, -50%) scaleX(0) !important;
+  }
+  header .hamburger.active .hamburger-line:nth-child(3) {
+    top: 50% !important;
+    transform: translate(-50%, -50%) rotate(-45deg) !important;
   }
 }
 
@@ -1350,5 +1544,220 @@ main {
   .footer-social-links {
     position: static;
     justify-content: center;
+  }
+}
+
+/* Header logo / title visibility and mobile-only helpers */
+.site-logo {
+  display: none; /* default: hidden on desktop (text title shown) */
+  width: 36px;
+  height: 36px;
+}
+
+.site-title-text {
+  display: inline-block; /* desktop: show text */
+  margin-left: 0.5rem;
+  font-weight: 600;
+}
+
+/* Mobile-only helper class (hidden by default) */
+.mobile-only {
+  display: none;
+}
+
+/* Helper: elements only visible on desktop/tablet (hidden on mobile) */
+.desktop-only {
+  display: inline-flex;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none !important;
+  }
+}
+
+/* Hamburger base */
+.hamburger {
+  background: none;
+  border: none;
+  padding: 6px;
+  cursor: pointer;
+  display: none; /* hidden by default on desktop/tablet; shown on mobile via media query */
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--color-text);
+  border-radius: 2px;
+  margin: 2px 0;
+  transition: transform 0.25s ease, opacity 0.15s ease;
+  transform-origin: center;
+}
+
+/* Default nav overlay hidden on mobile (desktop shows nav as usual) */
+/* Mobile-specific overrides */
+@media (max-width: 768px) {
+  /* Show favicon, hide textual title */
+  .site-logo {
+    display: inline-block;
+  }
+  .site-title-text {
+    display: none;
+  }
+
+  /* Show hamburger only on mobile */
+  .mobile-only {
+    display: inline-flex !important;
+  }
+
+  /* Hide the inline nav on mobile by default; it will become the overlay when .active */
+  .site-nav {
+    display: none !important;
+  }
+
+  /* The mobile nav overlay (when active) */
+  .site-nav.active {
+    display: flex !important;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 100%;
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    flex-direction: column;
+    gap: 0;
+    padding: 0.75rem 1rem;
+    z-index: 1200;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  }
+
+  .site-nav.active a {
+    display: block;
+    padding: 0.75rem 0;
+    color: var(--color-text);
+    font-size: 1rem;
+    border-bottom: 1px solid rgba(0,0,0,0.04);
+  }
+
+  /* Mobile-only controls inside overlay */
+  .mobile-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .mobile-controls .mobile-action {
+    background: none;
+    border: none;
+    color: var(--color-text);
+    text-align: left;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  /* Hamburger active -> X */
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  /* Ensure header can anchor absolute mobile nav */
+  .site-header {
+    position: relative;
+  }
+
+  /* Prevent header items from wrapping on small screens so logo+hamburger remain on one line */
+  .site-header .wrapper {
+    flex-wrap: nowrap;
+  }
+
+  /* Make the title inline so it doesn't take full width on mobile */
+  .site-title {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 0 0 auto;
+  }
+
+  .site-title a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* Ensure hamburger lines stack vertically on mobile */
+  .hamburger {
+    flex-direction: column !important;
+  }
+
+   /* Keep header items on one row on mobile so logo and hamburger align */
+   .site-header .wrapper {
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: space-between;
+     gap: var(--spacing-md);
+   }
+}
+
+/* Mobile overlay tweaks: remove underline, center items, match header background */
+@media (max-width: 768px) {
+  /* Make the overlay visually blend with the header by using the page background */
+  header .site-nav.active {
+    background: var(--color-bg) !important; /* match header/background */
+    border-top: 1px solid var(--color-border) !important;
+    align-items: center; /* center children horizontally */
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+  }
+
+  /* Links in the overlay: no underline or bottom borders, centered text */
+  header .site-nav.active a {
+    display: block !important;
+    width: 100% !important;
+    max-width: 720px;
+    padding: 0.75rem 0 !important;
+    color: var(--color-text) !important;
+    font-size: 1rem !important;
+    border-bottom: none !important; /* remove thin separators */
+    text-align: center !important; /* center the link label */
+    text-decoration: none !important; /* ensure no text underline */
+  }
+
+  /* Mobile control buttons also centered and full-width */
+  header .mobile-controls {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding-top: 0.5rem !important;
+  }
+
+  header .mobile-controls .mobile-action {
+    width: 100% !important;
+    max-width: 720px;
+    text-align: center !important;
+    padding: 0.75rem 0 !important;
+    background: transparent !important;
+    border: none !important;
+    color: var(--color-text) !important;
+  }
+
+  /* Remove any visual separators from overlay (if any left) */
+  header .site-nav.active a + a {
+    border-top: none !important;
   }
 }
