@@ -46,9 +46,15 @@ De podcast is voor mij niet alleen een creatieve uitlaatklep, maar ook een manie
 
 ## Mijn Filosofie
 
-Voor mij draait goede software niet alleen om frameworks en tools, maar vooral om **communicatie, duidelijkheid en empathie**: voor je gebruikers, je collega's en je toekomstige zelf.
+Softwareontwikkeling gaat voor mij verder dan code. Het gaat over **mensen, samenwerking en nieuwsgierigheid**. Ik geloof dat de beste systemen ontstaan wanneer je niet alleen denkt aan wat technisch perfect is, maar ook aan wie ermee werkt, wie het gebruikt en wie er later aan zal verderbouwen.
 
-Als je hier bent om bij te leren, te reflecteren of gewoon te genieten van verhalen over code: welkom.
+Ik streef naar software die robuust, onderhoudbaar en duidelijk is, maar minstens zo belangrijk vind ik de **menselijke kant van technologie**. Duidelijke communicatie, begrip voor anderen en empathie zijn voor mij even cruciaal als goede architectuur of nette code.
+
+Leren en kennis delen vormen de kern van hoe ik werk. Of het nu gaat om collega’s, kinderen bij **CoderDojo**, side-project teams tijdens **JTires**, of luisteraars van **JCast**: ik vind het essentieel om een omgeving te creëren waarin iedereen kan groeien, fouten durft te maken en plezier kan hebben in het proces.
+
+Voor mij is softwareontwikkeling een menselijk avontuur. Het gaat om **verbinding, nieuwsgierigheid en voortdurende groei**. Code is het gereedschap, maar **mensen maken het verschil**.
+
+Als je hier bent om te leren, te reflecteren of gewoon een verhaal over code en samenwerking te lezen: welkom.
 
 Aarzel niet om contact op te nemen. Ik praat graag over software, architectuur en ideeën.
 

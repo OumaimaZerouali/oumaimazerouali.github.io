@@ -10,7 +10,7 @@ nav:
 
 sections:
   featured_posts: "Thoughtful Reflections"
-  view_all_posts: "View all posts →"
+  view_all_posts: "View all posts"
 
 posts:
   title: "All Posts"
@@ -19,4 +19,3 @@ posts:
 
 footer:
   copyright: "Built with care"
-

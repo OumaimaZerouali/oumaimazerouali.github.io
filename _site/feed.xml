@@ -1,25 +1,398 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-21T20:36:02+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Thoughts</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-21T21:24:48+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Thoughts</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
 </subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</title><link href="http://localhost:4000/nl/2025/10/05/testcontainers/" rel="alternate" type="text/html" title="Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten" /><published>2025-10-05T09:00:00+02:00</published><updated>2025-10-05T09:00:00+02:00</updated><id>http://localhost:4000/nl/2025/10/05/testcontainers</id><content type="html" xml:base="http://localhost:4000/nl/2025/10/05/testcontainers/"><![CDATA[<blockquote>
-  <p>“Testcontainers is als SpongeBob aan het roer van je CI: vrolijk, betrouwbaar, en op de een of andere manier verandert chaos in perfectie.” - Ik</p>
+  <p>“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me</p>
 </blockquote>
 
-<p>Als junior developer ben ik constant nieuwe tools en werkwijzen aan het leren.
-Een les van mijn seniors die echt bij me bleef hangen was deze: <em>mocken brengt je maar tot een bepaald punt</em>.
-Op een gegeven moment moet je testen tegen het echte ding: een echte database, een echte message broker, een echte service.</p>
+<p>Als junior developer ben ik constant nieuwe tools en werkwijzen aan het leren.<br />
+Een les van mijn senioren die echt bij me bleef hangen was deze: <em>mocking brengt je maar tot een bepaald punt</em>.<br />
+Op een gegeven moment moet je testen tegen het echte werk: een echte database, een echte message broker, een echte service.</p>
 
-<p>Toen ontdekte ik <strong>Testcontainers</strong>, en het veranderde compleet hoe ik integratietests schrijf in Java en Spring Boot.
-Na ermee te experimenteren en mijn bevindingen met collega’s te delen, realiseerde ik me dat ik alles wat ik geleerd had op één plek wilde vastleggen.</p>
+<p>Toen ontdekte ik <strong>Testcontainers</strong>, en het veranderde volledig hoe ik integratietests schrijf in Java en Spring Boot.<br />
+Na ermee te hebben geëxperimenteerd en mijn bevindingen te hebben gedeeld met collega’s, besefte ik dat ik alles wat ik had geleerd op één plek wilde vastleggen.</p>
 
-<p>Deze post is mijn poging om precies dat te doen: het waarom uitleggen, het hoe, en de real-world patronen die ik nu gebruik in mijn projecten.</p>
+<p>Deze post is mijn poging dat te doen: het uitleggen van het <strong>waarom</strong>, het <strong>hoe</strong>, en de <strong>praktijkpatronen</strong> die ik nu in mijn projecten gebruik.</p>
 
-<h2 id="waarom-testcontainers">Waarom Testcontainers?</h2>
+<h2 id="het-probleem-dat-ik-eerder-had">Het Probleem dat Ik Eerder Had</h2>
+<p>Ik moet toegeven:<br />
+ik probeerde integratietests altijd te vermijden wanneer ik kon.<br />
+Mocks waren mijn beste vrienden: snel, voorspelbaar, en makkelijk op te zetten.</p>
 
-<p>Mocking is geweldig voor unit tests, maar voor integratie tests wil je de echte dependencies testen.
-Met Testcontainers draai je echte Docker containers tijdens je tests - databases, message brokers, wat je maar nodig hebt.</p>
+<p>Maar hoe graag ik ze ook gebruikte, sommige dingen kun je gewoon niet faken.<br />
+Een mailserver, een echte PostgreSQL-database — geen enkele mock kon dat echt repliceren.</p>
 
-<p>Het is eenvoudig te gebruiken en maakt je tests veel betrouwbaarder.</p>
+<p>Ik liep al snel tegen dezelfde frustrerende scenario’s aan die we allemaal kennen: tests die op mijn machine slagen maar falen in CI, of collega’s die uren besteden aan het klaarmaken van de omgeving om tests te kunnen draaien.</p>
 
-<p><em>Dit is een voorbeeldpost om de meertalige structuur te demonstreren. De volledige Nederlandse vertaling kan later toegevoegd worden.</em></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring-boot" /><category term="testing" /><category term="docker" /><summary type="html"><![CDATA[“Testcontainers is als SpongeBob aan het roer van je CI: vrolijk, betrouwbaar, en op de een of andere manier verandert chaos in perfectie.” - Ik]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" /><media:content medium="image" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Testcontainers in Spring Boot: From Quick Wins to Power Moves</title><link href="http://localhost:4000/2025/10/05/testcontainers/" rel="alternate" type="text/html" title="Testcontainers in Spring Boot: From Quick Wins to Power Moves" /><published>2025-10-05T09:00:00+02:00</published><updated>2025-10-05T09:00:00+02:00</updated><id>http://localhost:4000/2025/10/05/testcontainers</id><content type="html" xml:base="http://localhost:4000/2025/10/05/testcontainers/"><![CDATA[<blockquote>
+<p>Voor een Spring Boot-app die PostgreSQL nodig heeft en e-mails verstuurt, zien de opties er zo uit:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Benadering</th>
+      <th>Voordelen</th>
+      <th>Nadelen</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Lokale installatie</strong><br />Installeer PostgreSQL &amp; SMTP lokaal</td>
+      <td>- Testen tegen echte services<br /> - Geen mocking nodig</td>
+      <td>- Verschillende versies op verschillende machines<br /> - “Werkt op mijn laptop” syndroom<br /> - Pijnlijke CI-setup<br /> - Achtergebleven testdata</td>
+    </tr>
+    <tr>
+      <td><strong>Alles mocken</strong><br />Gebruik mock databases &amp; services</td>
+      <td>- Snelle testuitvoering<br /> - Geen externe afhankelijkheden</td>
+      <td>- Test geen echte integratie<br /> - Mocks wijken af van de werkelijkheid<br /> - Valse zekerheid</td>
+    </tr>
+    <tr>
+      <td><strong>Testcontainers</strong><br />Echte services in Docker</td>
+      <td>- Echte integratietests<br /> - Consistent op alle machines<br /> - Geen installatie gedoe<br /> - Schone staat bij elke run</td>
+      <td>- Vereist Docker<br /> - Iets langzamer dan mocks</td>
+    </tr>
+  </tbody>
+</table>
+
+<p><strong>Testcontainers</strong> was de game-changer die ik nodig had.</p>
+
+<h2 id="snel-aan-de-slag">Snel aan de Slag</h2>
+
+<p>Voordat ik dieper inga, eerst een setup:</p>
+
+<p><strong>Vereisten:</strong></p>
+<ul>
+  <li>Java <strong>21+</strong></li>
+  <li>Maven</li>
+  <li>Docker Desktop draaiend</li>
+</ul>
+
+<p><strong>Dependencies toevoegen:</strong></p>
+
+<p>Maven:</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.testcontainers<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>junit-jupiter<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>org.testcontainers<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<h2 id="de-standaardaanpak-goed-maar-beperkt">De Standaardaanpak (Goed, Maar Beperkt)</h2>
+
+<p>De meeste tutorials laten dit zien, en eerlijk, het werkt prima voor eenvoudige cases:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Testcontainers</span>
+<span class="nd">@DataJpaTest</span>
+<span class="kd">class</span> <span class="nc">UserRepositoryTest</span> <span class="o">{</span>
+
+    <span class="nd">@Container</span>
+    <span class="kd">static</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span> <span class="n">postgres</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16-alpine"</span><span class="o">);</span>
+    
+    <span class="nd">@DynamicPropertySource</span>
+    <span class="kd">static</span> <span class="kt">void</span> <span class="nf">configureProperties</span><span class="o">(</span><span class="nc">DynamicPropertyRegistry</span> <span class="n">registry</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"spring.datasource.url"</span><span class="o">,</span> <span class="nl">postgres:</span><span class="o">:</span><span class="n">getJdbcUrl</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"spring.datasource.username"</span><span class="o">,</span> <span class="nl">postgres:</span><span class="o">:</span><span class="n">getUsername</span><span class="o">);</span>
+        <span class="n">registry</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">"spring.datasource.password"</span><span class="o">,</span> <span class="nl">postgres:</span><span class="o">:</span><span class="n">getPassword</span><span class="o">);</span>
+    <span class="o">}</span>
+    
+    <span class="nd">@Autowired</span>
+    <span class="nc">UserRepository</span> <span class="n">userRepository</span><span class="o">;</span>
+    
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">givenNewUser_whenSaving_thenUserIsPersisted</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">User</span> <span class="n">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">User</span><span class="o">(</span><span class="s">"Spongebob"</span><span class="o">);</span>
+        <span class="n">userRepository</span><span class="o">.</span><span class="na">save</span><span class="o">(</span><span class="n">user</span><span class="o">);</span>
+        <span class="n">assertEquals</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">userRepository</span><span class="o">.</span><span class="na">findAll</span><span class="o">().</span><span class="na">size</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Perfect voor eenvoudige gevallen. JUnit start een PostgreSQL-container, Spring Boot configureert deze via <code class="language-plaintext highlighter-rouge">@DynamicPropertySource</code>, de test draait tegen een echte database, en de container wordt netjes opgeruimd na afloop.</p>
+
+<h3 id="wat-gebeurt-er-achter-de-schermen">Wat Gebeurt Er Achter de Schermen?</h3>
+
+<p>Wanneer je op “Run Test” klikt, gebeurt dit (vereenvoudigd):</p>
+
+<p align="center">
+    <img src="/assets/img/simplified.svg" alt="Achter de schermen (vereenvoudigd)" style="height: 550px" />
+</p>
+
+<p>Het wachten is cruciaal.
+Testcontainers kijkt niet alleen of de poort open is, maar wacht totdat de service daadwerkelijk klaar is om verbindingen te accepteren.
+Daarom werken je tests “gewoon” zonder flakey failures.</p>
+
+<p>Maar in echte projecten liep ik al snel tegen situaties aan waarbij ik moest:</p>
+
+<ul>
+  <li>Meerdere containers starten die met elkaar praten</li>
+  <li>Mijn database vooraf vullen met schema of seed data</li>
+  <li>Wachten tot een REST API klaar is, niet alleen een poort</li>
+  <li>E-mails testen tegen een fake SMTP-server</li>
+</ul>
+
+<p>Daar wordt het pas interessant…</p>
+
+<h2 id="volgende-stap-applicationcontextinitializer">Volgende Stap: ApplicationContextInitializer</h2>
+
+<p>Wanneer ik meer controle nodig heb, biedt Spring Boot een krachtige hook:
+<strong><code class="language-plaintext highlighter-rouge">ApplicationContextInitializer&lt;ConfigurableApplicationContext&gt;</code></strong>.</p>
+
+<p>Dit draait <strong>voordat</strong> je applicatiecontext start, en laat je toe om:</p>
+
+<ul>
+  <li>Containers handmatig te starten met volledige controle</li>
+  <li>Complexe wachtstrategieën te configureren</li>
+  <li>Custom properties in Spring’s environment te injecteren</li>
+  <li>Containerconfiguraties te hergebruiken over meerdere testklassen</li>
+</ul>
+
+<p>Ik zie dit als de “professionele” manier om Testcontainers in Spring Boot op te zetten.</p>
+
+<h3 id="hoe-de-professionele-setup-werkt">Hoe de Professionele Setup Werkt</h3>
+
+<p>Wanneer je <code class="language-plaintext highlighter-rouge">ApplicationContextInitializer</code> gebruikt, gebeurt dit:</p>
+
+<p align="center">
+    <img src="/assets/img/testcontainers.svg" alt="Wat gebeurt bij ApplicationContextInitializer" style="height: 550px" />
+</p>
+
+<p>Je krijgt volledige controle over de opstartvolgorde en kunt containers precies configureren zoals jij wilt.</p>
+
+<h3 id="praktijkvoorbeeld-e-mails-testen-met-smtp4dev-of-mailpit">Praktijkvoorbeeld: E-mails testen met smtp4dev (of Mailpit)</h3>
+
+<p>Mijn app verstuurt e-mails, en ik moest realistisch testen zonder echte inboxen te spammen.</p>
+
+<p><strong>smtp4dev</strong> is een fake SMTP-server die e-mails opvangt en via een REST API beschikbaar stelt.
+Het bestaat al jaren, is volwassen en biedt features zoals relay-testing en authenticatiesimulatie.
+Perfect voor uitgebreide e-mailtests.</p>
+
+<p><strong>Mailpit</strong> is een modern alternatief geschreven in Go: lichter, sneller opstartend, en met een strakke UI.
+Ook uitstekende zoekfunctionaliteit en ingebouwde spam-analyse.
+Voor nieuwe projecten in 2025 is Mailpit vaak de go-to, maar smtp4dev blijft solide voor bestaande projecten.</p>
+
+<p>Beide bieden REST APIs, ondersteunen SMTP-authenticatie en hebben een web UI voor handmatige inspectie.
+Belangrijkste verschillen:</p>
+
+<ul>
+  <li><strong>Performance</strong>: Mailpit start sneller en gebruikt minder geheugen (~10-20MB vs ~50-100MB)</li>
+  <li><strong>UI</strong>: Mailpit heeft een moderne, responsive interface</li>
+  <li><strong>Features</strong>: smtp4dev heeft meer enterprise-features; Mailpit focust op eenvoud</li>
+  <li><strong>Docker grootte</strong>: Mailpit image is kleiner (~15MB vs ~200MB)</li>
+</ul>
+
+<p>Voor de meeste Spring Boot integratietests werkt beide prima.
+Hier laat ik smtp4dev zien, maar switchen naar Mailpit is simpel door de image naam te veranderen.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Smtp4devTestContainerInitializer</span> <span class="kd">implements</span> <span class="nc">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="nc">ConfigurableApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">GenericContainer</span><span class="o">&lt;?&gt;</span> <span class="n">smtp4devContainer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GenericContainer</span><span class="o">&lt;&gt;(</span><span class="nc">DockerImageName</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"rnwood/smtp4dev:3.10.3"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">withExposedPorts</span><span class="o">(</span><span class="mi">80</span><span class="o">,</span> <span class="mi">25</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">waitingFor</span><span class="o">(</span><span class="nc">Wait</span><span class="o">.</span><span class="na">forHttp</span><span class="o">(</span><span class="s">"/api/messages"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forPort</span><span class="o">(</span><span class="mi">80</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forStatusCode</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">ConfigurableApplicationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">smtp4devContainer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        
+        <span class="nc">TestPropertyValues</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+        <span class="s">"spring.mail.host="</span> <span class="o">+</span> <span class="n">smtp4devContainer</span><span class="o">.</span><span class="na">getHost</span><span class="o">(),</span>
+        <span class="s">"spring.mail.port="</span> <span class="o">+</span> <span class="n">smtp4devContainer</span><span class="o">.</span><span class="na">getMappedPort</span><span class="o">(</span><span class="mi">25</span><span class="o">)</span>
+        <span class="o">).</span><span class="na">applyTo</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Nu in een test:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span><span class="n">initializers</span> <span class="o">=</span> <span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">)</span>
+<span class="kd">class</span> <span class="nc">KrustyKrabEmailServiceTest</span> <span class="o">{</span>
+
+    <span class="nd">@Autowired</span>
+    <span class="nc">EmailService</span> <span class="n">emailService</span><span class="o">;</span>
+    
+    <span class="nd">@Test</span>
+    <span class="kt">void</span> <span class="nf">givenBikiniBottomCitizen_whenSendingWelcome_thenMessageSends</span><span class="o">()</span> <span class="o">{</span>
+        <span class="n">emailService</span><span class="o">.</span><span class="na">sendWelcome</span><span class="o">(</span><span class="s">"patrick.star@bikinibottom.com"</span><span class="o">);</span>
+        
+        <span class="nc">RestTemplate</span> <span class="n">rest</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">RestTemplate</span><span class="o">();</span>
+        <span class="nc">String</span> <span class="n">messagesApi</span> <span class="o">=</span> <span class="s">"http://"</span> <span class="o">+</span>
+        <span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">smtp4devContainer</span><span class="o">.</span><span class="na">getHost</span><span class="o">()</span> <span class="o">+</span> <span class="s">":"</span> <span class="o">+</span>
+        <span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">smtp4devContainer</span><span class="o">.</span><span class="na">getMappedPort</span><span class="o">(</span><span class="mi">80</span><span class="o">)</span> <span class="o">+</span>
+        <span class="s">"/api/messages"</span><span class="o">;</span>
+        
+        <span class="nc">List</span><span class="o">&lt;</span><span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">Object</span><span class="o">&gt;&gt;</span> <span class="n">messages</span> <span class="o">=</span> <span class="n">rest</span><span class="o">.</span><span class="na">getForObject</span><span class="o">(</span><span class="n">messagesApi</span><span class="o">,</span> <span class="nc">List</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+        
+        <span class="n">assertEquals</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="n">messages</span><span class="o">.</span><span class="na">size</span><span class="o">());</span>
+        <span class="n">assertThat</span><span class="o">(</span><span class="n">messages</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="mi">0</span><span class="o">).</span><span class="na">get</span><span class="o">(</span><span class="s">"subject"</span><span class="o">).</span><span class="na">toString</span><span class="o">()).</span><span class="na">isEqualTo</span><span class="o">(</span><span class="s">"Welcome"</span><span class="o">));</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Belangrijke punten:</p>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">withExposedPorts(80, 25)</code></strong> → web UI + SMTP poort openstellen</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">waitingFor(Wait.forHttp(...))</code></strong> → wachten tot de API echt klaar is</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">TestPropertyValues</code></strong> → configureert container-instellingen in Spring</li>
+</ul>
+
+<p>Wil je <strong>Mailpit</strong> gebruiken? Zo ziet de initializer eruit:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MailpitTestContainerInitializer</span> <span class="kd">implements</span> <span class="nc">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="nc">ConfigurableApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">GenericContainer</span><span class="o">&lt;?&gt;</span> <span class="n">mailpitContainer</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">GenericContainer</span><span class="o">&lt;&gt;(</span><span class="nc">DockerImageName</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"axllent/mailpit:v1.27.8"</span><span class="o">))</span>
+        <span class="o">.</span><span class="na">withExposedPorts</span><span class="o">(</span><span class="mi">8025</span><span class="o">,</span> <span class="mi">1025</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">waitingFor</span><span class="o">(</span><span class="nc">Wait</span><span class="o">.</span><span class="na">forHttp</span><span class="o">(</span><span class="s">"/api/v1/messages"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forPort</span><span class="o">(</span><span class="mi">8025</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">forStatusCode</span><span class="o">(</span><span class="mi">200</span><span class="o">));</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">ConfigurableApplicationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mailpitContainer</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        
+        <span class="nc">TestPropertyValues</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+        <span class="s">"spring.mail.host="</span> <span class="o">+</span> <span class="n">mailpitContainer</span><span class="o">.</span><span class="na">getHost</span><span class="o">(),</span>
+        <span class="s">"spring.mail.port="</span> <span class="o">+</span> <span class="n">mailpitContainer</span><span class="o">.</span><span class="na">getMappedPort</span><span class="o">(</span><span class="mi">1025</span><span class="o">)</span>
+        <span class="o">).</span><span class="na">applyTo</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Verschillen:</p>
+
+<ul>
+  <li>Poort 8025 voor web UI (ipv 80 bij smtp4dev)</li>
+  <li>Poort 1025 voor SMTP (ipv 25)</li>
+  <li>API pad <code class="language-plaintext highlighter-rouge">/api/v1/messages</code> ipv <code class="language-plaintext highlighter-rouge">/api/messages</code></li>
+</ul>
+
+<p>Beide werken identiek in je tests. Kies smtp4dev voor geavanceerde relay-features of bestaande projecten, Mailpit voor snelle opstart en kleine Docker footprint.</p>
+
+<h3 id="postgresql-met-initialisatie-scripts">PostgreSQL met Initialisatie Scripts</h3>
+
+<p>Soms wil ik geen lege database, maar schema + seed data laden:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TestDatabaseInitializer</span> <span class="kd">implements</span> <span class="nc">ApplicationContextInitializer</span><span class="o">&lt;</span><span class="nc">ConfigurableApplicationContext</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span> <span class="n">postgres</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16-alpine"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withDatabaseName</span><span class="o">(</span><span class="s">"myapp"</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withCopyFileToContainer</span><span class="o">(</span><span class="nc">MountableFile</span><span class="o">.</span><span class="na">forClasspathResource</span><span class="o">(</span><span class="s">"init_schema.sql"</span><span class="o">),</span> <span class="s">"/docker-entrypoint-initdb.d/"</span><span class="o">);</span>
+    
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">initialize</span><span class="o">(</span><span class="nc">ConfigurableApplicationContext</span> <span class="n">context</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">postgres</span><span class="o">.</span><span class="na">start</span><span class="o">();</span>
+        
+        <span class="nc">TestPropertyValues</span><span class="o">.</span><span class="na">of</span><span class="o">(</span>
+        <span class="s">"spring.datasource.url="</span> <span class="o">+</span> <span class="n">postgres</span><span class="o">.</span><span class="na">getJdbcUrl</span><span class="o">(),</span>
+        <span class="s">"spring.datasource.username="</span> <span class="o">+</span> <span class="n">postgres</span><span class="o">.</span><span class="na">getUsername</span><span class="o">(),</span>
+        <span class="s">"spring.datasource.password="</span> <span class="o">+</span> <span class="n">postgres</span><span class="o">.</span><span class="na">getPassword</span><span class="o">()</span>
+        <span class="o">).</span><span class="na">applyTo</span><span class="o">(</span><span class="n">context</span><span class="o">.</span><span class="na">getEnvironment</span><span class="o">());</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>De truc: <strong><code class="language-plaintext highlighter-rouge">withCopyFileToContainer</code></strong> → schema in <code class="language-plaintext highlighter-rouge">/docker-entrypoint-initdb.d/</code> plaatsen. Postgres voert dit automatisch uit bij opstart.</p>
+
+<h2 id="gespecialiseerde-containers-vs-genericcontainer">Gespecialiseerde Containers vs GenericContainer</h2>
+
+<p>Je ziet dat ik zowel <code class="language-plaintext highlighter-rouge">PostgreSQLContainer</code> als <code class="language-plaintext highlighter-rouge">GenericContainer</code> heb gebruikt.</p>
+
+<p>Regel van thumb:</p>
+
+<ul>
+  <li><strong>Gebruik gespecialiseerde containers</strong> als ze bestaan (<code class="language-plaintext highlighter-rouge">PostgreSQLContainer</code>, <code class="language-plaintext highlighter-rouge">MongoDBContainer</code>, <code class="language-plaintext highlighter-rouge">KafkaContainer</code>, …) → handige defaults en shortcuts</li>
+  <li><strong>Gebruik <code class="language-plaintext highlighter-rouge">GenericContainer</code></strong> voor alles wat geen module heeft (smtp4dev, Mailpit, custom images)</li>
+</ul>
+
+<p>Denk aan <code class="language-plaintext highlighter-rouge">GenericContainer</code> als het <strong>Zwitsers zakmes</strong> van Testcontainers. Alles anders bouwt hierop voort.</p>
+
+<h2 id="tips-uit-de-praktijk">Tips uit de praktijk</h2>
+
+<h4 id="containers-hergebruiken-over-tests"><strong>Containers hergebruiken over tests</strong></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Container</span>
+<span class="kd">static</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span> <span class="n">postgres</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16.3"</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Maak ze <code class="language-plaintext highlighter-rouge">static</code> om herstarten per methode te vermijden. Waarom dit belangrijk is:</p>
+
+<p align="center">
+    <img src="/assets/img/static_1.svg" alt="Zonder static" style="height: 550px; margin-bottom: -400px; margin-top: -200px" />
+    <img src="/assets/img/static_2.svg" alt="Met static" style="height: 550px; margin-top: -100px; margin-bottom: -200px" />
+</p>
+
+<h4 id="pin-image-versies"><strong>Pin image versies</strong></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:16-alpine"</span><span class="o">);</span> <span class="c1">// stabiel</span>
+<span class="k">new</span> <span class="nc">PostgreSQLContainer</span><span class="o">&lt;&gt;(</span><span class="s">"postgres:latest"</span><span class="o">);</span> <span class="c1">// risicovol</span>
+</code></pre></div></div>
+
+<h4 id="initializers-delen-tussen-testklassen"><strong>Initializers delen</strong> tussen testklassen</h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@ContextConfiguration</span><span class="o">(</span><span class="n">initializers</span> <span class="o">=</span> <span class="o">{</span>
+<span class="nc">TestDatabaseInitializer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span>
+<span class="nc">Smtp4devTestContainerInitializer</span><span class="o">.</span><span class="na">class</span>
+<span class="o">})</span>
+<span class="kd">class</span> <span class="nc">MyIntegrationTest</span> <span class="o">{</span> <span class="o">...</span> <span class="o">}</span>
+</code></pre></div></div>
+
+<h4 id="maak-je-geen-zorgen-om-test-snelheid"><strong>Maak je geen zorgen om test snelheid</strong></h4>
+
+<p>Ja, Docker-containers nemen een paar seconden om te starten.
+Maar met static containers en hergebruik is de opstarttijd minimaal vergeleken met de zekerheid die je krijgt.
+Mijn test suite met PostgreSQL en smtp4dev voegt misschien 5–10 seconden toe — de moeite waard.</p>
+
+<h4 id="check-logs-bij-debuggen"><strong>Check logs bij debuggen</strong></h4>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">postgres</span><span class="o">.</span><span class="na">getLogs</span><span class="o">());</span>
+</code></pre></div></div>
+
+<h2 id="afronden">Afronden</h2>
+
+<p>Testcontainers heeft mijn manier van integratietesten volledig veranderd.</p>
+
+<p>Ik begon met <code class="language-plaintext highlighter-rouge">@Container</code> en <code class="language-plaintext highlighter-rouge">@DynamicPropertySource</code> voor eenvoudige gevallen.
+Wanneer ik meer controle nodig had, gebruikte ik <code class="language-plaintext highlighter-rouge">ApplicationContextInitializer</code>.
+En bij testen tegen elke Docker image bood <code class="language-plaintext highlighter-rouge">GenericContainer</code> uitkomst.</p>
+
+<p>Het mooie: ik test altijd <strong>tegen het echte werk</strong>.
+Echte databases, echte SMTP-servers, echte API’s, zonder de traditionele ellende van lokaal beheer.</p>
+
+<p>Als je Testcontainers nog niet gebruikt, probeer het dan zeker in je volgende Spring Boot-project.
+Je toekomstige zelf (en je team) zal je dankbaar zijn.</p>
+
+<p>Ga nu aan de slag en containerize je tests!</p>
+
+<h2 id="bronnen">Bronnen</h2>
+
+<p><strong>Officiële documentatie:</strong></p>
+
+<ul>
+  <li><a href="https://www.testcontainers.org/">Testcontainers Official Documentation</a></li>
+  <li><a href="https://java.testcontainers.org/">Testcontainers for Java</a></li>
+  <li><a href="https://docs.spring.io/spring-boot/docs/current/reference/html/features.html#features.testing">Spring Boot Testing Documentation</a></li>
+</ul>
+
+<p><strong>Docker images gebruikt:</strong></p>
+
+<ul>
+  <li><a href="https://hub.docker.com/_/postgres">PostgreSQL on Docker Hub</a></li>
+  <li><a href="https://github.com/rnwood/smtp4dev">smtp4dev on GitHub</a></li>
+  <li><a href="https://github.com/axllent/mailpit">Mailpit on GitHub</a></li>
+</ul>
+
+<p><strong>Gerelateerde tools:</strong></p>
+
+<ul>
+  <li><a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a></li>
+  <li><a href="https://mvnrepository.com/artifact/org.testcontainers">Maven Central - Testcontainers</a></li>
+</ul>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring-boot" /><category term="testing" /><category term="docker" /><summary type="html"><![CDATA[“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" /><media:content medium="image" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Testcontainers in Spring Boot: From Quick Wins to Power Moves</title><link href="http://localhost:4000/2025/10/05/testcontainers/" rel="alternate" type="text/html" title="Testcontainers in Spring Boot: From Quick Wins to Power Moves" /><published>2025-10-05T09:00:00+02:00</published><updated>2025-10-05T09:00:00+02:00</updated><id>http://localhost:4000/2025/10/05/testcontainers</id><content type="html" xml:base="http://localhost:4000/2025/10/05/testcontainers/"><![CDATA[<blockquote>
   <p>“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me</p>
 </blockquote>
 
@@ -408,7 +781,177 @@ Your future self (and your teammates) will thank you.</p>
 <ul>
   <li><a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a></li>
   <li><a href="https://mvnrepository.com/artifact/org.testcontainers">Maven Central - Testcontainers</a></li>
-</ul>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring-boot" /><category term="testing" /><category term="docker" /><summary type="html"><![CDATA[“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" /><media:content medium="image" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Exceptions: The Emergency Brake, Not the Steering Wheel</title><link href="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/" rel="alternate" type="text/html" title="Exceptions: The Emergency Brake, Not the Steering Wheel" /><published>2025-08-05T09:00:00+02:00</published><updated>2025-08-05T09:00:00+02:00</updated><id>http://localhost:4000/2025/08/05/exceptions-should-be-exceptional</id><content type="html" xml:base="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/"><![CDATA[<blockquote>
+</ul>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring-boot" /><category term="testing" /><category term="docker" /><summary type="html"><![CDATA[“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" /><media:content medium="image" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Exceptions: De Noodrem, niet de stuurwiel</title><link href="http://localhost:4000/nl/2025/08/05/exceptions-should-be-exceptional/" rel="alternate" type="text/html" title="Exceptions: De Noodrem, niet de stuurwiel" /><published>2025-08-05T09:00:00+02:00</published><updated>2025-08-05T09:00:00+02:00</updated><id>http://localhost:4000/nl/2025/08/05/exceptions-should-be-exceptional</id><content type="html" xml:base="http://localhost:4000/nl/2025/08/05/exceptions-should-be-exceptional/"><![CDATA[<blockquote>
+  <p>“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants</p>
+</blockquote>
+
+<p>Als developers wordt ons verteld dat we fouten moeten afhandelen.<br />
+Maar hoe we dat doen beïnvloedt echt hoe onze code werkt.</p>
+
+<p>Een veelgemaakte fout, vooral in Java, is het gebruik van exceptions om normale, verwachte dingen te beheren.<br />
+Het is alsof je elke keer de noodrem van je auto gebruikt bij een rood licht.<br />
+Het werkt een beetje… totdat het dat niet doet.</p>
+
+<p>Uiteindelijk vertraagt je code, wordt het een rommeltje, en ontwijken mensen het alsof het vervloekt is.</p>
+
+<p>En ja, ik heb het ook gedaan.<br />
+Een exception gooien is makkelijk.<br />
+Het voelt als een nette uitweg wanneer logica te ingewikkeld wordt.<br />
+Maar hier is het punt: exceptions zijn bedoeld voor <strong>onverwachte problemen</strong>, niet voor de dagelijkse flow.</p>
+
+<p>Martin Fowler zei het het beste:</p>
+<blockquote>
+  <p><strong>Exceptions moeten uitzonderlijk zijn.</strong></p>
+</blockquote>
+
+<p>Laten we dat even uit elkaar halen.</p>
+
+<h2 id="wat-telt-echt-als-uitzonderlijk">Wat Telt <em>Echt</em> als “Uitzonderlijk”?</h2>
+
+<p>Denk aan een exception als een brandalarm.<br />
+Het mag alleen afgaan wanneer er echt iets mis is.<br />
+Iets waar de code niet op had kunnen plannen.</p>
+
+<p>Een snelle check:</p>
+<ul>
+  <li>Is dit een <em>normaal</em> onderdeel van de businesslogica? → Niet gooien.</li>
+  <li>Is dit een <em>vreemde</em> fout waardoor de methode onmogelijk afgemaakt kan worden? → Tijd voor een exception.</li>
+</ul>
+
+<h3 id="voorbeelden">Voorbeelden</h3>
+<p><strong>Echt Uitzonderlijk</strong></p>
+<ul>
+  <li>De database ligt eruit.</li>
+  <li>Configuratiebestand ontbreekt of is niet leesbaar.</li>
+  <li>API geeft ineens een 500 terug.</li>
+</ul>
+
+<p><strong>Niet Uitzonderlijk</strong></p>
+<ul>
+  <li>Geen gebruiker gevonden bij een zoekopdracht.</li>
+  <li>Ongeldig e-mailadres.</li>
+  <li>Lijst is leeg.</li>
+</ul>
+
+<p>Als het iets is dat je <em>zou verwachten</em>, handel het gewoon af met normale logica.</p>
+
+<h2 id="wanneer-een-exception-wél-sinnig-is">Wanneer Een Exception Wél Sinnig Is</h2>
+
+<p>Hier is een goed voorbeeld van wanneer een exception logisch is.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">wortel</span><span class="o">(</span><span class="kt">double</span> <span class="n">getal</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">getal</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"Kan de wortel van een negatief getal niet berekenen."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">getal</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Deze methode moet wortels berekenen. Als je er een negatief getal in stopt, kan hij dat letterlijk niet doen.
+Dus ja, een exception is terecht. Dit is niet zomaar “foute input”, het breekt de regels van wat de methode überhaupt kan doen.</p>
+
+<h2 id="wat-te-doen-wanneer-fouten-niet-uitzonderlijk-zijn">Wat Te Doen Wanneer Fouten <em>Niet</em> Uitzonderlijk Zijn</h2>
+
+<p>Laten we het hebben over validatie.</p>
+
+<p>Stel, een gebruiker registreert zich met een slecht e-mailadres <em>en</em> een zwak wachtwoord.
+Wil je voor elk probleem een exception gooien en stoppen na het eerste?
+Of wil je alle problemen tegelijk tonen?</p>
+
+<h3 id="de-verkeerde-manier">De Verkeerde Manier</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(!</span><span class="n">email</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"E-mail is ongeldig."</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">password</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"Wachtwoord te kort."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Dit stopt na de eerste fout, dus de gebruiker moet één probleem tegelijk oplossen.
+Super irritant.</p>
+
+<h3 id="een-betere-manier-notification-pattern">Een Betere Manier: Notification Pattern</h3>
+
+<p>Verzamel alle problemen tegelijk:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Notificatie</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">fouten</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">voegFoutToe</span><span class="o">(</span><span class="nc">String</span> <span class="n">bericht</span><span class="o">)</span> <span class="o">{</span> <span class="n">fouten</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bericht</span><span class="o">);</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">heeftFouten</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">!</span><span class="n">fouten</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">getFouten</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">fouten</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="nc">Notificatie</span> <span class="nf">valideer</span><span class="o">(</span><span class="nc">Gebruiker</span> <span class="n">gebruiker</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Notificatie</span> <span class="n">notificatie</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Notificatie</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">(!</span><span class="n">gebruiker</span><span class="o">.</span><span class="na">getEmail</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">notificatie</span><span class="o">.</span><span class="na">voegFoutToe</span><span class="o">(</span><span class="s">"E-mail is ongeldig."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">gebruiker</span><span class="o">.</span><span class="na">getPassword</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">notificatie</span><span class="o">.</span><span class="na">voegFoutToe</span><span class="o">(</span><span class="s">"Wachtwoord moet minstens 8 tekens bevatten."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="n">notificatie</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Nu krijgt de gebruiker <em>alle</em> feedback tegelijk.
+De backend blijft rustig.
+Geen noodrem nodig.</p>
+
+<h2 id="custom-exceptions-wanneer-ze-wél-handig-zijn">Custom Exceptions: Wanneer Ze Wél Handig Zijn</h2>
+
+<p>Custom exceptions zijn prima wanneer ze iets <em>specifieks</em> betekenen, vooral in businesslogica.</p>
+
+<p>Voorbeeld: een bankapplicatie.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OnvoldoendeSaldoException</span> <span class="kd">extends</span> <span class="nc">RuntimeException</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">OnvoldoendeSaldoException</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Dit maakt meteen duidelijk wat er misging, en je kunt dit anders afhandelen dan bijvoorbeeld een netwerkfout.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="n">rekeningService</span><span class="o">.</span><span class="na">opnemen</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">OnvoldoendeSaldoException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">toonFout</span><span class="o">(</span><span class="s">"Je hebt niet genoeg saldo."</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NetworkException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">toonFout</span><span class="o">(</span><span class="s">"Verbindingsfout. Probeer opnieuw."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Doel: fouten <em>begrijpelijk</em> en <em>handelbaar</em> maken.</p>
+
+<h2 id="de-verborgen-kosten-van-misbruik-van-exceptions">De Verborgen Kosten van Misbruik van Exceptions</h2>
+
+<p><strong>1. Performance</strong>
+Exceptions gooien is niet gratis.
+De JVM legt de volledige stacktrace vast, en dat kost tijd.
+Als je dit in een strakke loop of in een drukke app doet, vraag je om problemen.</p>
+
+<p><strong>2. Leesbaarheid</strong>
+<code class="language-plaintext highlighter-rouge">try-catch</code> blokken zijn luid.
+Gebruik je ze voor dingen die geen fout zijn, dan wordt je code moeilijker te lezen.
+Toekomstig jij, of een collega, moet stoppen en denken: “Is dit <em>echt</em> een fout?”</p>
+
+<p><strong>3. Slechte API’s</strong>
+Gooi je een exception voor foute input in de backend, dan stuurt hij misschien gewoon een generieke <code class="language-plaintext highlighter-rouge">500</code>.
+Maar dat is geen serverfout, het is een gebruikersfout.
+Stuur liever een <code class="language-plaintext highlighter-rouge">400 Bad Request</code> met een nette JSON die uitlegt wat er mis is.</p>
+
+<h2 id="het-grote-geheel-wees-duidelijk-niet-slim">Het Grote Geheel: Wees Duidelijk, Niet “Slim”</h2>
+
+<p>Exceptions gooien voor normale dingen voelt eerst slim.
+Maar slimme code veroudert slecht.</p>
+
+<p>Schone code is duidelijke code.
+Het gebruikt exceptions niet als fancy <code class="language-plaintext highlighter-rouge">if</code> statements.
+Het gebruikt ze alleen wanneer iets echt stuk gaat.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="best-practices" /><category term="architecture" /><summary type="html"><![CDATA[“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/exceptions.png" /><media:content medium="image" url="http://localhost:4000/assets/img/exceptions.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Exceptions: The Emergency Brake, Not the Steering Wheel</title><link href="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/" rel="alternate" type="text/html" title="Exceptions: The Emergency Brake, Not the Steering Wheel" /><published>2025-08-05T09:00:00+02:00</published><updated>2025-08-05T09:00:00+02:00</updated><id>http://localhost:4000/2025/08/05/exceptions-should-be-exceptional</id><content type="html" xml:base="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/"><![CDATA[<blockquote>
   <p>“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -623,7 +1166,166 @@ It’s not a quick fix but an investment in the future.</p>
   <li><strong>Document your own code.</strong> Once you’ve understood a small part, write it down. Add comments, update the README. This helps not only your future self but also anyone who works with this code after you.</li>
   <li><strong>Talk about it.</strong> Discuss the project with a colleague or in a community. Sometimes a fresh perspective is all you need. Explain where you’re stuck. The process of articulating your problem can often lead to the solution.</li>
   <li><strong>Give yourself a break.</strong> Sometimes the best approach is to step away entirely. Go for a walk, read a book, or work on a different project. The solution often comes at the most unexpected moments, when your mind isn’t actively working on it.</li>
-</ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">The Season of Goodbyes</title><link href="http://localhost:4000/2025/06/24/saying-goodbye/" rel="alternate" type="text/html" title="The Season of Goodbyes" /><published>2025-06-24T11:30:00+02:00</published><updated>2025-06-24T11:30:00+02:00</updated><id>http://localhost:4000/2025/06/24/saying-goodbye</id><content type="html" xml:base="http://localhost:4000/2025/06/24/saying-goodbye/"><![CDATA[<blockquote>
+</ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Error 404: Motivatie Niet Gevonden. Wanneer Je Codebase Je Laat Laten Staan</title><link href="http://localhost:4000/nl/2025/08/01/error-404-motiviation-not-found/" rel="alternate" type="text/html" title="Error 404: Motivatie Niet Gevonden. Wanneer Je Codebase Je Laat Laten Staan" /><published>2025-08-01T13:00:00+02:00</published><updated>2025-08-01T13:00:00+02:00</updated><id>http://localhost:4000/nl/2025/08/01/error-404-motiviation-not-found</id><content type="html" xml:base="http://localhost:4000/nl/2025/08/01/error-404-motiviation-not-found/"><![CDATA[<blockquote>
+  <p>“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants</p>
+</blockquote>
+
+<p>We hebben het allemaal wel eens meegemaakt: van die dagen dat je vol energie zit en een nieuw project induikt.<br />
+De code stroomt, de tests slagen, en je voelt je de meester van de digitale wereld.<br />
+Maar dan gebeurt het: je opent je editor en… niets.<br />
+De inspiratie is weg.<br />
+<strong>Error 404: Motivatie Niet Gevonden.</strong></p>
+
+<p>Dit is niet zomaar uitstelgedrag.<br />
+Het project dat ooit zo veelbelovend leek, voelt nu als een ondoorgrondelijk, onbekend terrein.<br />
+Je weet dat je iets moet doen, maar je hebt geen idee waar te beginnen.</p>
+
+<h3 id="de-vreemdeling-in-je-eigen-code">De Vreemdeling in Je Eigen Code</h3>
+<p>Een van de meest voorkomende redenen voor dit gevoel is dat je codebase voelt alsof hij van iemand anders is.<br />
+Zelfs als je het zelf hebt geschreven, kan een project van een paar maanden geleden ineens een vreemde aanvoelen.</p>
+
+<ul>
+  <li><strong>Onleesbare code:</strong> Geen duidelijke variabelen, geen documentatie. Wat deed die functie ook alweer? Waarom schreef ik het zo?</li>
+  <li><strong>Onbegrijpelijke architectuur:</strong> De structuur van het project is zo complex dat je de logica niet meer kunt volgen.</li>
+  <li><strong>Gebroken tests:</strong> Of nog erger, helemaal geen tests. De angst iets te wijzigen en het hele project te breken verhindert je om überhaupt iets te doen.</li>
+</ul>
+
+<p>Dit zijn de momenten dat je beseft dat je hebt geïnvesteerd in een lastpost: <strong>technische schuld</strong>.<br />
+Het is alsof je jaren hebt uitgesteld om af te wassen, en nu sta je voor een berg vuile borden zo hoog dat je de motivatie verliest om te beginnen.</p>
+
+<h3 id="de-eindeloze-refactor-lus">De Eindeloze Refactor-lus</h3>
+<p>Naast technische schuld is er nog een grote motivatie-killer: de constante behoefte om te veranderen.<br />
+De ene dag heb je een geweldig idee voor het design, een nieuw kleurenschema, of een andere aanpak van de architectuur.<br />
+Een paar dagen later verander je van gedachten en besluit je alles te refactoren.<br />
+Deze eindeloze lus van “nu maak ik het perfect” is een valstrik.<br />
+Je houdt nooit lang genoeg vast aan één idee om het af te maken, en je eindigt met een gefragmenteerd, half-af project en nul motivatie.</p>
+
+<h3 id="hoe-herverbinden">Hoe Herverbinden</h3>
+<p>Het herstellen van de relatie met je codebase vereist een paar strategische stappen.<br />
+Het is geen snelle oplossing, maar een investering in de toekomst.</p>
+
+<ol>
+  <li><strong>Begin klein. Heel klein.</strong> Probeer niet het hele project te herschrijven. Zoek een kleine, geïsoleerde taak. Een bug fix in één functie, of een paar regels code refactoren om ze beter leesbaar te maken. Maak kleine commits met duidelijke berichten zodat je er makkelijk naar terug kunt verwijzen.</li>
+  <li><strong>Maak één idee af voordat je aan een ander begint.</strong> In plaats van constant te refactoren, commit je aan één idee voor je design of architectuur. Werk eraan, maak het af, en <strong>deploy iets</strong>. Zodra het live staat, kun je beter beslissen wat er veranderd moet worden.</li>
+  <li><strong>Schrijf tests.</strong> Niets geeft meer vertrouwen dan goede tests. Voeg een eenvoudige unit test toe aan de code die je aanraakt. Dit geeft je een vangnet en het vertrouwen om verdere wijzigingen door te voeren.</li>
+  <li><strong>Documenteer je eigen code.</strong> Zodra je een klein onderdeel hebt begrepen, schrijf het op. Voeg commentaar toe, update de README. Dit helpt niet alleen jezelf in de toekomst, maar ook iedereen die later met deze code werkt.</li>
+  <li><strong>Praat erover.</strong> Bespreek het project met een collega of in een community. Soms is een frisse blik alles wat je nodig hebt. Leg uit waar je vastloopt. Het proces van je probleem verwoorden kan vaak tot de oplossing leiden.</li>
+  <li><strong>Gun jezelf een pauze.</strong> Soms is de beste aanpak om er helemaal afstand van te nemen. Ga wandelen, lees een boek, of werk aan een ander project. De oplossing komt vaak op de meest onverwachte momenten, wanneer je geest niet actief aan het worstelen is.</li>
+</ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Het Seizoen van Afscheid</title><link href="http://localhost:4000/nl/2025/06/24/saying-goodbye/" rel="alternate" type="text/html" title="Het Seizoen van Afscheid" /><published>2025-06-24T11:30:00+02:00</published><updated>2025-06-24T11:30:00+02:00</updated><id>http://localhost:4000/nl/2025/06/24/saying-goodbye</id><content type="html" xml:base="http://localhost:4000/nl/2025/06/24/saying-goodbye/"><![CDATA[<blockquote>
+  <p>“I can’t do this, Patrick!” - SpongeBob SquarePants</p>
+</blockquote>
+
+<blockquote>
+  <p>“That’s okay, SpongeBob. I can’t do it either.” - Patrick Star</p>
+</blockquote>
+
+<p>De laatste tijd voelt het als een seizoen van afscheid.</p>
+
+<p>Afgelopen vrijdag verliet mijn stagebegeleider het bedrijf.<br />
+In de komende weken zal ik afscheid nemen van nog vijf collega’s.<br />
+Mensen die mijn reis hier hebben gevormd, op manieren groot en klein.<br />
+Mensen die met me hebben gelachen, me uitgedaagd, gesteund en in mij geloofd.</p>
+
+<p>En hoewel ze allemaal doorgaan naar iets nieuws, laat elk afscheid een stille pijn achter.<br />
+Niet omdat ik niet blij voor ze ben — <strong>dat ben ik</strong> — maar omdat elk vertrek je laat beseffen hoeveel de mensen om je heen eigenlijk betekenen.</p>
+
+<p>Deze post is niet alleen een afscheid.<br />
+Het is een <strong>dankjewel</strong>.<br />
+Aan mijn mentor, aan mijn collega’s, en aan iedereen die ooit een plek meer dan “gewoon werk” heeft laten voelen.</p>
+
+<h2 id="mentoren-zijn-belangrijker-dan-je-denkt">Mentoren Zijn Belangrijker Dan Je Denkt</h2>
+<p>Ik liep stage bij het toenmalige Ordina.<br />
+We hadden een cloud-gerelateerd stageproject gekozen, ondanks dat we absoluut niets van cloud wisten.<br />
+We struikelden ons een weg door de opdracht, probeerden alles wat we konden bedenken, en worstelden meer dan eens.<br />
+Onze mentor hield onze hand er niet doorheen.<br />
+In plaats daarvan gaf hij precies genoeg: genoeg richting om op het juiste pad te komen, maar nooit zoveel dat we het niet zelf zouden ontdekken.<br />
+Hij liet ruimte om trots te zijn op wat we bouwden.</p>
+
+<p><em>En toen kwam de eindpresentatie.</em></p>
+
+<p>Dit was niet zomaar een show; het telde mee voor onze cijfers en het was voor echte medewerkers.<br />
+Het begon goed.<br />
+Maar ergens onderweg nam de stress het over.<br />
+<em>Ik verstijfde.</em><br />
+<em>Volledig blanco.</em><br />
+<em>Een lange, zware stilte.</em><br />
+En toen, ik haalde diep adem, herpakte mezelf, en zette door.<br />
+Daarna huilde ik.<br />
+Ik was ervan overtuigd dat ik gefaald had. <em>Hij gaat ze vertellen dat ik er nog niet klaar voor ben,</em> dacht ik.<br />
+<em>Dit is het.</em></p>
+
+<p>Maar een paar dagen later kreeg ik een bericht van mijn docent:</p>
+<blockquote>
+  <p>“Ik heb net met je mentors gesproken; ik weet niet wat je deed, maar zij zijn je grootste fans.”</p>
+</blockquote>
+
+<p>Ik kon het niet geloven. En kort daarna kreeg ik een contractaanbieding.</p>
+
+<p>Op zijn laatste dag herinnerde hij me aan dat moment. Hij zei:</p>
+<blockquote>
+  <p>“Het blijft me verbazen; hoe je tijdens die eerste presentatie bijna instortte… en nu presenteert alsof het vanzelfsprekend is.”</p>
+</blockquote>
+
+<p>En dat was het soort mentor dat hij was.<br />
+Hij zag meer in mij dan ik zelf zag.<br />
+Hij geloofde in mijn potentieel toen ik alleen maar mijn fouten zag.<br />
+En dankzij hem begon ik deze hele reis met vertrouwen dat ik nog niet had verdiend, maar hij gaf het me toch.</p>
+
+<p>Daar ben ik altijd dankbaar voor.</p>
+
+<h2 id="impact-is-niet-altijd-zichtbaar-maar-het-is-er">Impact Is Niet Altijd Zichtbaar (Maar Het Is Er)</h2>
+<p>Ik weet niet precies wat voor impact ik heb gehad op de mensen die vertrekken.<br />
+<em>Ik hoop dat ik ze aan het lachen heb gemaakt.</em><br />
+<em>Ik hoop dat ik ze het gevoel gaf gezien, gesteund en gewaardeerd te worden, zoals zij voor mij deden.</em><br />
+Ik hoop dat iets wat ik zei of deed hielp, zelfs maar een beetje.</p>
+
+<p>Maar ik weet wél welke impact zij op mij hebben gehad.</p>
+
+<p>De stille aanmoedigingen.<br />
+Het korte “je kunt dit” vlak voor een presentatie.<br />
+De check-ins die precies op het juiste moment kwamen, ook al wisten ze dat niet zelf.</p>
+
+<p>De momenten die op dat moment klein leken, maar achteraf?<br />
+Het waren goudmomenten.<br />
+Het is makkelijk te onderschatten hoeveel verschil iemand kan maken door gewoon zichzelf te zijn.<br />
+Door gewoon consistent te zijn.</p>
+
+<p>En als ik nadenk over nalatenschap, niet in carrière-termen, maar in <em>menselijke</em> zin:<br />
+dat zijn de mensen die de grootste indruk achterlaten. Niet door wat ze bouwden.<br />
+Maar door hoe ze <em>mensen lieten voelen</em> terwijl ze dat deden.</p>
+
+<h2 id="laat-het-pijn-doen-maar-laat-het-betekenis-hebben">Laat Het Pijn Doen, Maar Laat Het Betekenis Hebben</h2>
+<p>Ik ga niet doen alsof afscheid nemen geen pijn doet, want dat doet het.<br />
+Het doet pijn op stille, onverwachte manieren.<br />
+In de pauze voordat je een bericht stuurt en beseft dat ze er niet meer zijn.<br />
+Bij de laatste zwaai.<br />
+In de lege plek die iemand achterlaat.</p>
+
+<p>Het doet pijn omdat iets ertoe deed.<br />
+Omdat iemand ertoe deed.<br />
+Omdat de tijd die je deelde niet zomaar tijd was, maar vertrouwen, groei, lachen, steun.<br />
+Het was echt.<br />
+Het is verleidelijk om het weg te poetsen, te zeggen <em>het gaat wel</em>, te glimlachen, bezig en afgeleid te blijven.<br />
+Maar deze keer kies ik ervoor dat niet te doen.</p>
+
+<p>Ik laat het een beetje pijn doen.<br />
+Het laten pijn doen is een manier om de waarde van die connectie te erkennen.<br />
+Het is een manier om te zeggen: <em>dit was niet zomaar iemand met wie ik werkte, dit was iemand die ik zo respecteerde.</em></p>
+
+<h2 id="de-mensen-maken-de-plek">De Mensen Maken de Plek</h2>
+<p><em>Banen zijn banen.</em><br />
+<em>Projecten komen en gaan.</em><br />
+Maar de mensen… die maken het tot wat het is.</p>
+
+<p>Het zijn de mensen die echt vragen hoe het met je gaat.<br />
+Die je uitdagen met vriendelijkheid.<br />
+Die juichen bij je successen en naast je zitten bij de verliezen.<br />
+Die werk menselijk maken.</p>
+
+<p>Aan mijn mentor, en aan elke collega van wie ik de komende weken afscheid neem: <strong>Dankjewel</strong>.<br />
+Voor het onderdeel zijn van dit hoofdstuk.<br />
+Voor alles wat je gaf, bewust of onbewust.<br />
+Je verlaat misschien het gebouw, maar je verlaat mijn verhaal niet.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="team-culture" /><summary type="html"><![CDATA[“I can’t do this, Patrick!” - SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/saying-goodbye.png" /><media:content medium="image" url="http://localhost:4000/assets/img/saying-goodbye.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">The Season of Goodbyes</title><link href="http://localhost:4000/2025/06/24/saying-goodbye/" rel="alternate" type="text/html" title="The Season of Goodbyes" /><published>2025-06-24T11:30:00+02:00</published><updated>2025-06-24T11:30:00+02:00</updated><id>http://localhost:4000/2025/06/24/saying-goodbye</id><content type="html" xml:base="http://localhost:4000/2025/06/24/saying-goodbye/"><![CDATA[<blockquote>
   <p>“I can’t do this, Patrick!” - SpongeBob SquarePants</p>
 </blockquote>
 
@@ -1097,373 +1799,4 @@ By viewing these paradigms through the lens of personality types like the MBTI, 
 <p>Recognizing your code’s persona helps you design systems that fit your workflow, choose tools that resonate with your thinking style, and collaborate with teammates whose approaches complement your own. 
 Most importantly, it encourages you to embrace the personal side of coding.</p>
 
-<p>Because when your code has personality, it becomes more than just software — it becomes a creative, personal expression of <em>you</em>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="philosophy" /><category term="programming-paradigms" /><category term="learning" /><summary type="html"><![CDATA[“We’re all different. You, me, this garbage can.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/pp-as-mbp.png" /><media:content medium="image" url="http://localhost:4000/assets/img/pp-as-mbp.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Introducing JCast: Java, Jokes, and Just Being Real</title><link href="http://localhost:4000/2025/05/08/jcast/" rel="alternate" type="text/html" title="Introducing JCast: Java, Jokes, and Just Being Real" /><published>2025-05-08T16:30:00+02:00</published><updated>2025-05-08T16:30:00+02:00</updated><id>http://localhost:4000/2025/05/08/jcast</id><content type="html" xml:base="http://localhost:4000/2025/05/08/jcast/"><![CDATA[<blockquote>
-  <p>“It started with three developers and a microphone.”</p>
-</blockquote>
-
-<p>If there’s one thing we love as devs—besides solving problems and shipping code—it’s talking about the journey. 
-The highs, the bugs, the coffee-fueled nights. 
-That’s exactly why we started <strong>JCast</strong>.</p>
-
-<p>JCast is a Dutch-language podcast hosted by me and two awesome colleagues, Viktor and Maarten. 
-We’re developers with different experiences, opinions, and code habits, but we share one thing: a passion for talking tech in a way that’s real. 
-No buzzword bingo. No sales talk. Just devs chatting about the stuff that matters (and sometimes doesn’t).</p>
-
-<h3 id="how-it-started">How It Started</h3>
-<p>For a long time, I had this vague dream of starting a podcast. 
-I didn’t know when, how, or with whom — just that I wanted to share honest conversations about being a developer today.</p>
-
-<p>Then one day I casually brought it up at work. 
-One colleague was immediately excited, another jumped in with the final push: “Let’s actually do this.” 
-One brainstorm later — language, format, name — and <strong>JCast</strong> was born.</p>
-
-<p>Our slogan is <em>Java als startpunt, alles daarrond als speelveld</em> (Java as a starting point, everything around it as a playground). 
-It’s our cozy “praatbarak” about software development, tech, and all the messy, interesting stuff around it.</p>
-
-<h3 id="episode-1-what-is-a-professional-developer-anyway">Episode 1: What <em>Is</em> a Professional Developer, Anyway?</h3>
-<p>This first episode was a special one. 
-Not just because it was our debut — but because we tackled a question that’s been quietly sitting in the minds of so many devs (ourselves included):</p>
-
-<p><strong>What does it really mean to be a “professional” developer?</strong>
-The inspiration came from Uncle Bob’s book <em>Clean Code</em>, which makes a strong case for professionalism as a mindset — not just a job title. 
-We discussed what parts of that message resonate with us today, and where we’ve started to question or reinterpret those ideas based on our own experience.</p>
-
-<p>Some things we explored:</p>
-<ul>
-  <li>💡 What do <em>we</em> mean when we say “professional”? Is it about writing tests? Is it about taking ownership? Communication?</li>
-  <li>🧠 How do you balance idealistic principles like TDD with the messy reality of deadlines and legacy code?</li>
-  <li>🔍 What habits have made us better devs — and which ones do we still struggle with?</li>
-  <li>💬 When do you push for quality, and when do you just ship it?</li>
-</ul>
-
-<p>We each brought different perspectives: some of us lean more toward principles, others toward pragmatism. 
-But that’s what made the conversation real — not polished takes, but honest reflections.</p>
-
-<p>And yes, we made room for the doubts too. 
-Imposter syndrome? 
-<em>Still there.</em> 
-Pressure to “know everything”? 
-<em>Big time.</em> 
-But naming those things out loud felt empowering.</p>
-
-<blockquote>
-  <p>🎧 You can listen to Episode 1 on <a href="https://open.spotify.com/show/3wfdG6IjCoJjfEx33MsM2W?si=icTB9tDwS1aNH8SwXURH7g">Spotify</a> — and we’d love to hear your take on it.</p>
-</blockquote>
-
-<h3 id="why-this-matters-to-us">Why This Matters (To Us)</h3>
-<p>We didn’t start <strong>JCast</strong> to chase followers or become tech influencers.
-We started it because we craved something real. 
-A space where developers — from juniors to seniors — could hear honest conversations about <em>what it’s like to grow in this craft</em>.</p>
-
-<p>Yes, we talk about tech:
-Clean Architecture, UI/UX, cloud, security, testing, tooling — the kind of topics we wrestle with every day. 
-But we approach them the way we do with each other at work: <em>With curiosity, nuance, and zero gatekeeping.</em></p>
-
-<p><strong>JCast</strong> isn’t about preaching best practices from an ivory tower. 
-It’s about sharing the messy middle. 
-The questions we’re still exploring. 
-The patterns we’re still figuring out. 
-And yeah, the things we’ve messed up and learned from.</p>
-
-<p>It’s about:</p>
-<ul>
-  <li>Real talk over buzzwords</li>
-  <li>Growth over gatekeeping</li>
-  <li>Questions over certainty</li>
-  <li>Laughter over lectures</li>
-</ul>
-
-<p>We want <strong>JCast</strong> to be a place where learning feels natural, not forced. 
-Where technical depth and personal growth go hand in hand. 
-And where listeners feel like they’re not just tuning in — they’re part of the conversation.</p>
-
-<p>If you’ve ever felt unsure, overwhelmed, or just excited about where tech is going — you’re in the right place.</p>
-
-<h3 id="and-yes-there-may-be-the-occasional-spongebob-reference">And yes… there may be the occasional SpongeBob reference.</h3>
-<p><em>“Firmly grasp it in your hand!”</em> – Patrick Star, probably trying to explain version control.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="career" /><category term="community" /><category term="personal" /><summary type="html"><![CDATA[“It started with three developers and a microphone.”]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/JCast.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/JCast.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)</title><link href="http://localhost:4000/2025/04/08/openapi-angular/" rel="alternate" type="text/html" title="OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)" /><published>2025-04-08T08:00:00+02:00</published><updated>2025-04-08T08:00:00+02:00</updated><id>http://localhost:4000/2025/04/08/openapi-angular</id><content type="html" xml:base="http://localhost:4000/2025/04/08/openapi-angular/"><![CDATA[<blockquote>
-  <p>“Firmly grasp it in your hand!” - Patrick Star</p>
-</blockquote>
-
-<h2 id="the-motivation-from-repetitive-code-to-a-better-way">The Motivation: From Repetitive Code to a Better Way</h2>
-
-<p>We already had OpenAPI set up in the backend. 
-So naturally, I asked myself — why am I still writing Angular services by hand?</p>
-
-<p>Creating HTTP services manually was becoming tedious and error-prone. 
-Not to mention, every change in the backend required me to double-check if the frontend stayed in sync. 
-I wanted something cleaner. 
-Smarter. 
-More <em>streamlined</em>. 
-That’s when I decided to bring OpenAPI to the frontend too.</p>
-
-<h2 id="the-setup-generating-angular-code-with-openapi">The Setup: Generating Angular Code with OpenAPI</h2>
-
-<p>Enter <code class="language-plaintext highlighter-rouge">openapi-generator-cli</code>.</p>
-
-<p>Before anything else, you’ll need to have your OpenAPI spec (in my case, <code class="language-plaintext highlighter-rouge">my-openapi.yaml</code>) available in your frontend project — either committed directly or pulled in through your pipeline. 
-This file is the blueprint that tells the generator what to build.</p>
-
-<p>Once that’s in place, I ran:</p>
-
-<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npx openapi-generator-cli generate <span class="nt">-i</span> my-openapi.yaml <span class="nt">-g</span> typescript-angular <span class="nt">-o</span> libs/api
-</code></pre></div></div>
-
-<p>This generated a fully-typed Angular client based on our backend’s OpenAPI definition. 
-Clean. 
-Structured. 
-No more manually writing request/response interfaces or services.</p>
-
-<p>To make it easily reusable, I added this to my <code class="language-plaintext highlighter-rouge">package.json</code> scripts:</p>
-
-<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"scripts"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="nl">"generate-api"</span><span class="p">:</span><span class="w"> </span><span class="s2">"npx openapi-generator-cli generate -i my-openapi.yaml -g typescript-angular -o libs/api"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre></div></div>
-
-<p>So anytime the backend changes, I can just regenerate the frontend with one command. 
-No fuss.</p>
-
-<h2 id="the-configuration-making-it-work-with-angular">The Configuration: Making It Work with Angular</h2>
-
-<p>Next, I had to configure Angular to use the generated code properly.</p>
-
-<p>You’ll need to provide a custom <code class="language-plaintext highlighter-rouge">Configuration</code> so the generated services know where your API lives:</p>
-
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
-  <span class="nl">provide</span><span class="p">:</span> <span class="nx">Configuration</span><span class="p">,</span>
-  <span class="nx">useFactory</span><span class="p">:</span> <span class="p">():</span> <span class="nx">Configuration</span> <span class="o">=&gt;</span> <span class="p">{</span>
-    <span class="kd">const</span> <span class="na">params</span><span class="p">:</span> <span class="nx">ConfigurationParameters</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="na">basePath</span><span class="p">:</span> <span class="nx">environment</span><span class="p">.</span><span class="nx">baseUrl</span>
-    <span class="p">};</span>
-    <span class="k">return</span> <span class="k">new</span> <span class="nc">Configuration</span><span class="p">(</span><span class="nx">params</span><span class="p">);</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Pro tip: Don’t generate inside <code class="language-plaintext highlighter-rouge">src/</code>. 
-I placed everything in a <code class="language-plaintext highlighter-rouge">libs/api</code> folder to keep things modular and outside the core app.</p>
-
-<h2 id="the-great-refactor-painful-but-worth-it">The Great Refactor: Painful but Worth It</h2>
-
-<p>This is where things got <em>real</em>.</p>
-
-<p>I started replacing all our old manually written services with the auto-generated ones. 
-It was painful at first — services had different naming, method signatures weren’t exactly the same, and mocking in tests needed updates too.</p>
-
-<p>Example: Before, I used a custom service to fetch attachments. 
-Now I just call:</p>
-
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">this</span><span class="p">.</span><span class="nx">attachmentsService</span><span class="p">.</span><span class="nf">getAllAttachments</span><span class="p">()</span>
-</code></pre></div></div>
-
-<p>Much cleaner. 
-Less boilerplate. 
-More consistency.</p>
-
-<h3 id="testing-adjustments">Testing Adjustments</h3>
-
-<p>Tests needed some love too. 
-I replaced a bunch of old <code class="language-plaintext highlighter-rouge">MockProvider</code> with simpler mocks using the generated interfaces.</p>
-
-<p>Example:</p>
-
-<div class="language-ts highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span>
-  <span class="nl">provide</span><span class="p">:</span> <span class="nx">AttachmentsService</span><span class="p">,</span>
-  <span class="nx">useValue</span><span class="p">:</span> <span class="p">{</span> <span class="nl">getAllAttachments</span><span class="p">:</span> <span class="nx">jest</span><span class="p">.</span><span class="nf">fn</span><span class="p">()</span> <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Simple. 
-Maintainable. 
-And way easier to understand when revisiting tests later.</p>
-
-<h2 id="syncing-openapi-across-teams">Syncing OpenAPI Across Teams</h2>
-
-<p>One thing I had to think about was <strong>how to keep the OpenAPI spec in sync</strong> between backend and frontend. 
-If you’re working in a monorepo — lucky you. 
-But if your backend and frontend are in separate repos (like ours), there are a few ways to handle it:</p>
-
-<ul>
-  <li>
-    <p><strong>Option 1: Commit the OpenAPI YAML directly into the frontend repo.</strong><br />
-Simple and works well if the spec doesn’t change too often.</p>
-  </li>
-  <li>
-    <p><strong>Option 2: Automate fetching the spec in your CI/CD pipeline.</strong><br />
-For example, have a script that pulls the latest <code class="language-plaintext highlighter-rouge">openapi.yaml</code> from the backend before generating the client.</p>
-  </li>
-  <li>
-    <p><strong>Option 3: Use a shared package or Git submodule.</strong><br />
-Slightly more complex but very reusable across multiple frontends.</p>
-  </li>
-</ul>
-
-<p>Whatever you pick, just make sure you’re not manually copying files around. 
-That defeats the purpose of automation.</p>
-
-<h2 id="gotchas--gains">Gotchas &amp; Gains</h2>
-<p>Let’s be real — bringing OpenAPI to Angular isn’t <em>just</em> plug-and-play. 
-There were a few bumps on the road:</p>
-
-<ul>
-  <li>
-    <p><strong>Casing and naming conventions</strong><br />
-The generated models didn’t always match our style. Thankfully, you can tweak this with options like <code class="language-plaintext highlighter-rouge">--additional-properties=modelPropertyNaming=camelCase</code>.</p>
-  </li>
-  <li>
-    <p><strong>Enum weirdness</strong><br />
-Enums behaved a bit unexpectedly — especially when the backend used patterns that didn’t translate neatly to TypeScript.</p>
-  </li>
-  <li>
-    <p><strong>Circular references</strong><br />
-These can mess with the generator in complex specs. Keeping the OpenAPI doc clean and well-structured helped.</p>
-  </li>
-  <li>
-    <p><strong>Massive PRs</strong><br />
-The initial PR introducing the generated client? Huge. But 90% of it was boilerplate. Reviewers just needed coffee and patience.</p>
-  </li>
-</ul>
-
-<p>Despite the hiccups, it was absolutely worth it. Here’s why:</p>
-
-<ul>
-  <li>✅ No more duplicating DTOs between frontend and backend</li>
-  <li>✅ Backend changes? Just regenerate — no guesswork</li>
-  <li>✅ Strongly typed services made refactors way safer</li>
-  <li>✅ Test mocks became leaner and easier to write</li>
-  <li>✅ This setup now lives in <em>every</em> project I touch</li>
-</ul>
-
-<p>Yes, the refactor took time. 
-But it simplified the future. 
-I’d do it all over again — and sooner.</p>
-
-<h2 id="final-thoughts">Final Thoughts</h2>
-<p>Bringing OpenAPI to Angular wasn’t just a technical upgrade — it was a mindset shift.</p>
-
-<p>We talk a lot about automation, DevOps, and building smarter systems.
-But this is that same philosophy applied at the code level. 
-Why keep writing the same HTTP service over and over when your tools can generate it for you — strongly typed, documented, and ready to go?</p>
-
-<p>By introducing OpenAPI to the frontend, I made Angular feel like a first-class citizen in our API ecosystem. 
-I stopped duplicating DTOs, stopped guessing request shapes, and started focusing on the things that actually need a human brain: logic, UX, and problem-solving.</p>
-
-<p>Yes, the refactor was painful. 
-Yes, it took time to get the mocks right and the tests stable again. 
-But now? 
-Future me is thankful.</p>
-
-<p>So if you’re staring at yet another service you have to hand-code — maybe that’s the sign. 
-Automate what can be automated. 
-Let the machines do the boilerplate. 
-And use your time for the parts that matter.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="angular" /><category term="openapi" /><category term="frontend" /><summary type="html"><![CDATA[“Firmly grasp it in your hand!” - Patrick Star]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/angular-vs-manual.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/angular-vs-manual.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">I Don’t Know Everything — And That’s My Superpower</title><link href="http://localhost:4000/2025/04/05/i-dont-know-everything/" rel="alternate" type="text/html" title="I Don’t Know Everything — And That’s My Superpower" /><published>2025-04-05T10:23:00+02:00</published><updated>2025-04-05T10:23:00+02:00</updated><id>http://localhost:4000/2025/04/05/i-dont-know-everything</id><content type="html" xml:base="http://localhost:4000/2025/04/05/i-dont-know-everything/"><![CDATA[<blockquote>
-  <p>“The inner machinations of my mind are an enigma.” - Patrick Star</p>
-</blockquote>
-
-<p><img src="/assets/img/brain.jpg" alt="Brain with a lot of parts" /></p>
-
-<p>Sometimes, I feel like I don’t know anything. 
-Like I’m trying to wrap my head around GraalVM native images in Quarkus, and I’m just nodding, hoping no one asks me to explain how to optimize build times.</p>
-
-<p>Look, let’s be real – the world of Java development is insane. 
-There are always new frameworks and technologies to learn, and now with things like serverless and native image compilation, it’s getting even more complicated.</p>
-
-<p>And honestly? 
-<em>That used to freak me out.</em> 
-I thought I was supposed to have all the answers. 
-But then I realized something: not knowing is actually the biggest opportunity we have as developers.</p>
-
-<h2 id="the-kubecon-revelation">The KubeCon Revelation</h2>
-<p>And then, I went to KubeCon.</p>
-
-<p>My first international conference — and a total game-changer.<br />
-I walked into that place, and it was like stepping into a different dimension.<br />
-Thousands of people buzzing with energy, talking about things I barely understood.<br />
-There were talks about SPIFFE, WASM, service meshes, and cloud tech that might as well have been alien languages.<br />
-<strong>The people knew it all!</strong></p>
-
-<p style="display: flex">
-Sitting there, surrounded by all these seemingly brilliant people, I felt… small. 
-Maybe a little intimidated. 
-But mostly, I felt *motivated*. 
-I realized that this industry is so incredibly vast, so constantly evolving, that *nobody* can know everything. 
-And that’s not a bug; it’s a feature!
-It made me realize that becoming a true coding master was actually achievable, and that fueled my desire to learn and grow.
-<img src="/assets/img/kubecon-revelation.jpg" alt="Guy surrounded with people looking at the light" style="height: 170px" />
-</p>
-
-<h2 id="the-superpower-of-lifelong-learning">The Superpower of Lifelong Learning</h2>
-<p>Here’s something we don’t talk about enough: <strong>we literally get paid to learn.</strong></p>
-
-<p>To explore new technologies.<br />
-To experiment with different approaches.<br />
-To break things, fix them, and get better in the process.<br />
-<strong>That’s insane!</strong></p>
-
-<p>Think about it – people rack up massive student debt just to get access to learning.<br />
-Meanwhile, we’re getting paid to constantly expand our skills and stay curious.<br />
-So what’s our excuse for not taking advantage of that?</p>
-
-<p>Every task, bug fix, code review — every confusing moment — is a chance to level up.<br />
-As a junior/mid-level dev, I’m constantly learning from senior colleagues, online tutorials, and just banging my head against the keyboard until something clicks.</p>
-
-<p>Once, I spent two hours debugging what I thought was a complicated issue…<br />
-Turned out, I was missing an equals in a SQL statement.<br />
-I was embarrassed at first — now it’s just a reminder that every mistake is a lesson waiting to happen.</p>
-
-<p>The myth of the all-knowing senior developer?<br />
-It’s just that — a myth.<br />
-The best devs I know are the ones who can say, <em>“I don’t know, but I’ll figure it out.”</em></p>
-
-<h2 id="navigating-the-labyrinth-of-software-architecture">Navigating the Labyrinth of Software Architecture</h2>
-<p style="display: flex">
-And speaking of learning, let's talk about software architecture. 
-Microservices vs monoliths? 
-Event-driven vs REST? 
-DevEx platforms, GitOps, cloud-native design? 
-It's a never-ending buffet of buzzwords and best practices, and it can be incredibly overwhelming.
-<img src="/assets/img/labyrinth.jpg" alt="A abstract labyrinth" style="height: 150px" />
-</p>
-
-<p>I’m just starting to scratch the surface of these concepts, and honestly, sometimes it still feels like I’m making educated guesses. 
-I read blog posts, I watch conference talks, I try to apply what I learn to my own projects, but it’s still a work in progress.</p>
-
-<p><strong>But that’s okay!</strong> 
-Because software architecture isn’t a final boss you defeat. 
-It’s a constant series of tradeoffs. 
-It’s like trying to navigate a maze while everyone around you is shouting different directions. 
-I’m still learning how to even <em>hear</em> all the voices, let alone choose the right path – and that’s perfectly okay.</p>
-
-<h2 id="curiosity-and-humility-the-essential-skills">Curiosity and Humility: The Essential Skills</h2>
-<p>So, if you’re not supposed to know everything, what <em>are</em> you supposed to bring to the table? 
-I think it all comes down to two key skills: curiosity and humility.</p>
-
-<p>Curiosity is the engine that drives our learning. 
-It’s the desire to understand how things work, to explore new possibilities, and to never stop asking “why?” 
-Humility is the awareness that you don’t have all the answers and that you can always learn something from others. 
-It’s the willingness to admit when you’re wrong and to ask for help when you need it.</p>
-
-<p>I’ve found that the best way to learn is to ask “stupid” questions. 
-Questions that seem obvious or basic, but that often reveal hidden assumptions and misunderstandings. 
-And I’ve been incredibly fortunate to work with colleagues who are always willing to answer my questions, no matter how silly they might seem. 
-There is always more to learn if the first step it to just aks!</p>
-
-<p>There also moments where it is ok to be like: I did it. 
-So there also great when it comes to team building and showing gratitude is so important!</p>
-
-<h2 id="own-your-i-dont-know">Own Your “I Don’t Know”</h2>
-<p>So no, I don’t know everything. 
-And honestly, I hope I never do. 
-Because the moment I stop learning, I stop growing. 
-The exciting part? 
-The best part is, I’m confident that everything I learn today will be valuable tomorrow. 
-It’s that constant anticipation of future knowledge that keeps me going, and if I can help someone else along the way, that’s even better.</p>
-
-<p>This isn’t just a job, it’s a constant education. 
-And as developers, learning is part of our DNA!
-The cool part, and I can never emphasize this enough is seeing people actually use something or being inspired by your journey! 
-Its like: wow, they are also joining <strong>I NEED TO BE BETTER!</strong></p>
-
-<p>So bring on the new frameworks, the complex architectures, the mind-bending cloud concepts – I’m ready to learn. 
-And I’m fc*king loving it, knowing full well that I’ll be back to square one, scratching my head and Googling frantically, in a few days. 
-It’s the circle of dev life, and I wouldn’t have it any other way.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="career" /><category term="personal" /><category term="learning" /><summary type="html"><![CDATA[“The inner machinations of my mind are an enigma.” - Patrick Star]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/the-way-up.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/the-way-up.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Because when your code has personality, it becomes more than just software — it becomes a creative, personal expression of <em>you</em>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="philosophy" /><category term="programming-paradigms" /><category term="learning" /><summary type="html"><![CDATA[“We’re all different. You, me, this garbage can.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/pp-as-mbp.png" /><media:content medium="image" url="http://localhost:4000/assets/img/pp-as-mbp.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

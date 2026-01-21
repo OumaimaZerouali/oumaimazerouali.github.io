@@ -10,7 +10,7 @@ nav:
 
 sections:
   featured_posts: "Doordachte Reflecties"
-  view_all_posts: "Bekijk alle artikelen →"
+  view_all_posts: "Bekijk alle artikelen"
 
 posts:
   title: "Alle Artikelen"
@@ -19,5 +19,3 @@ posts:
 
 footer:
   copyright: "Met zorg gebouwd"
-
-
