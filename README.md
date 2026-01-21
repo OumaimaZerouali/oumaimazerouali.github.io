@@ -1,10 +1,10 @@
-# Oumi's Corner
+# Oumaima Zerouali's Blog
 
-Thoughtful reflections on software development, written by a developer for developers.
+Clean and minimal blog about software development.
 
 ## About
 
-Oumi's Corner is a personal blog by Oumaima Zerouali, sharing insights and experiences from the world of software development. The blog covers topics including:
+This is a personal blog by Oumaima Zerouali, sharing insights and experiences from the world of software development. The blog covers topics including:
 
 - Java, JavaScript, TypeScript, and Angular
 - DevOps and Cloud technologies
@@ -14,9 +14,18 @@ Oumi's Corner is a personal blog by Oumaima Zerouali, sharing insights and exper
 ## Technology Stack
 
 - **Static Site Generator**: Jekyll (GitHub Pages compatible)
-- **Styling**: Pure CSS with custom design
-- **Comments**: Giscus (GitHub Discussions)
+- **Styling**: Pure CSS with minimal, clean design
+- **Languages**: English (EN) and Dutch (NL)
 - **Deployment**: GitHub Pages
+
+## Design Philosophy
+
+This blog follows a minimal, clean design with:
+- Simple, readable typography
+- No unnecessary decorations or emojis
+- Focus on content
+- Easy navigation between English and Dutch versions
+- Responsive design that works on all devices
 
 ## Local Development
 
@@ -30,14 +39,17 @@ Oumi's Corner is a personal blog by Oumaima Zerouali, sharing insights and exper
    bundle exec jekyll serve
    ```
 
-3. Visit `http://localhost:4000/oumis-corner/` in your browser
+3. Visit `http://localhost:4000/` in your browser
 
 ## Site Structure
 
-- `_posts/` - Blog posts in Markdown format
-- `_layouts/` - Page templates
+- `_posts/en/` - English blog posts in Markdown format
+- `_posts/nl/` - Dutch blog posts in Markdown format
+- `_layouts/` - Page templates (default, home, post)
 - `_includes/` - Reusable components (header, footer)
-- `assets/` - CSS, images, and other static assets
+- `assets/css/` - Minimal CSS styling
+- `about.md` - English about page
+- `nl/about.md` - Dutch about page
 
 ## License
 

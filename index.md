@@ -1,13 +1,9 @@
 ---
 layout: home
-title: "Oumi's Corner"
+title: "Hi, I'm Oumaima"
+tagline: "A software developer sharing thoughtful reflections on software development, life as a developer, and everything in between. Written for developers, by a developer."
 description: "Thoughtful reflections on software development by Oumaima Zerouali."
-image: "/assets/img/pp-as-mbp.png"
 lang: en
 permalink: /
 ---
-
-# Oumaima Zerouali
-
-Thoughtful reflections on software development, written by a developer for developers.
 

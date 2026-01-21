@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts – Oumi's Thoughts</title>
+    <meta name="description" content="All posts from Oumi's Corner – insights on software development, Java, Spring Boot, and developer experiences.">
+
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Posts | Oumi’s Thoughts</title>
+<meta name="generator" content="Jekyll v4.3.4" />
+<meta property="og:title" content="Posts" />
+<meta name="author" content="Oumaima Zerouali" />
+<meta property="og:locale" content="en" />
+<meta name="description" content="All posts from Oumi’s Corner – insights on software development, Java, Spring Boot, and developer experiences." />
+<meta property="og:description" content="All posts from Oumi’s Corner – insights on software development, Java, Spring Boot, and developer experiences." />
+<link rel="canonical" href="http://localhost:4000/posts/" />
+<meta property="og:url" content="http://localhost:4000/posts/" />
+<meta property="og:site_name" content="Oumi’s Thoughts" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Posts" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","author":{"@type":"Person","name":"Oumaima Zerouali"},"description":"All posts from Oumi’s Corner – insights on software development, Java, Spring Boot, and developer experiences.","headline":"Posts","url":"http://localhost:4000/posts/"}</script>
+<!-- End Jekyll SEO tag -->
+
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="http://localhost:4000/posts/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Posts" />
+    <meta property="og:description" content="All posts from Oumi's Corner – insights on software development, Java, Spring Boot, and developer experiences." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://localhost:4000/posts/" />
+    
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Posts" />
+    <meta name="twitter:description" content="All posts from Oumi's Corner – insights on software development, Java, Spring Boot, and developer experiences." />
+    
+
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+</head>
+<body>
+
+<a href="#main-content" class="skip-link">Skip to main content</a><header class="site-header">
+  <div class="wrapper">
+    
+    
+
+    
+      <a class="site-title" href="/">Oumi's Thoughts</a>
+    
+
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/posts">Posts</a>
+      <a href="/about">About</a>
+
+      <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button class="lang-link" data-lang="en" id="lang-en" aria-label="Switch to English">EN</button>
+        <span class="lang-separator" aria-hidden="true">/</span>
+        <button class="lang-link" data-lang="nl" id="lang-nl" aria-label="Switch to Dutch">NL</button>
+      </div>
+
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg id="icon-sun" class="hidden"
+             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+
+        <svg id="icon-moon" class="hidden"
+             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+             viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </nav>
+  </div>
+</header>
+<main id="main-content">
+    <div class="wrapper">
+        
+
+<section class="posts-page">
+    <header class="posts-header">
+        <h1>All Posts</h1>
+        <p class="posts-subtitle">Thoughtful reflections on software development, learning, and growth.</p>
+    </header>
+
+    <!-- Tag Filter - Dropdown -->
+    <div class="tag-filter-wrapper">
+        <select id="tag-select" class="tag-filter-select" aria-label="Filter posts by tag">
+            <option value="all">All</option>
+            
+
+            
+
+            
+            
+            <option value="angular">angular</option>
+            
+            <option value="architecture">architecture</option>
+            
+            <option value="best-practices">best-practices</option>
+            
+            <option value="career">career</option>
+            
+            <option value="clean-code">clean-code</option>
+            
+            <option value="cloud-native">cloud-native</option>
+            
+            <option value="community">community</option>
+            
+            <option value="docker">docker</option>
+            
+            <option value="frontend">frontend</option>
+            
+            <option value="java">java</option>
+            
+            <option value="kubernetes">kubernetes</option>
+            
+            <option value="learning">learning</option>
+            
+            <option value="openapi">openapi</option>
+            
+            <option value="personal">personal</option>
+            
+            <option value="philosophy">philosophy</option>
+            
+            <option value="productivity">productivity</option>
+            
+            <option value="programming-paradigms">programming-paradigms</option>
+            
+            <option value="quarkus">quarkus</option>
+            
+            <option value="spring-boot">spring-boot</option>
+            
+            <option value="team-culture">team-culture</option>
+            
+            <option value="testing">testing</option>
+            
+            <option value="work-life-balance">work-life-balance</option>
+            
+        </select>
+    </div>
+
+    <section class="posts-grid">
+        
+            
+        
+            
+            <article class="post-card" data-tags="java,spring-boot,testing,docker">
+                <h2 class="post-card-title">
+                    <a href="/2025/10/05/testcontainers/">Testcontainers in Spring Boot: From Quick Wins to Power Moves</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-10-05T09:00:00+02:00">October 05, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">java</span>
+                        
+                        <span class="tag">spring-boot</span>
+                        
+                        <span class="tag">testing</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="java,best-practices,architecture">
+                <h2 class="post-card-title">
+                    <a href="/2025/08/05/exceptions-should-be-exceptional/">Exceptions: The Emergency Brake, Not the Steering Wheel</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “You don’t need a license to drive a sandwich.” — SpongeBob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-08-05T09:00:00+02:00">August 05, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">java</span>
+                        
+                        <span class="tag">best-practices</span>
+                        
+                        <span class="tag">architecture</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="personal,career,productivity">
+                <h2 class="post-card-title">
+                    <a href="/2025/08/01/error-404-motiviation-not-found/">Error 404: Motivation Not Found. When Your Codebase Ghosts You</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-08-01T13:00:00+02:00">August 01, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">personal</span>
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">productivity</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="personal,career,team-culture">
+                <h2 class="post-card-title">
+                    <a href="/2025/06/24/saying-goodbye/">The Season of Goodbyes</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “I can’t do this, Patrick!” - SpongeBob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-06-24T11:30:00+02:00">June 24, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">personal</span>
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">team-culture</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="personal,career,work-life-balance">
+                <h2 class="post-card-title">
+                    <a href="/2025/05/19/saying-no-to-say-yes-to-yourself/">Saying No to Say Yes to Yourself</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “I can’t do this… but I’m doing it anyway.” — SpongeBob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-05-19T16:30:00+02:00">May 19, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">personal</span>
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">work-life-balance</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="philosophy,programming-paradigms,learning">
+                <h2 class="post-card-title">
+                    <a href="/2025/05/18/what-if-your-code-had-a-personality/">What if Your Code Had a Personality? Matching Programming Paradigms to Myers-Briggs Types</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “We’re all different. You, me, this garbage can.” - Spongebob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-05-18T16:30:00+02:00">May 18, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">philosophy</span>
+                        
+                        <span class="tag">programming-paradigms</span>
+                        
+                        <span class="tag">learning</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="career,community,personal">
+                <h2 class="post-card-title">
+                    <a href="/2025/05/08/jcast/">Introducing JCast: Java, Jokes, and Just Being Real</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “It started with three developers and a microphone.”
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-05-08T16:30:00+02:00">May 08, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">community</span>
+                        
+                        <span class="tag">personal</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="angular,openapi,frontend">
+                <h2 class="post-card-title">
+                    <a href="/2025/04/08/openapi-angular/">OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “Firmly grasp it in your hand!” - Patrick Star
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-04-08T08:00:00+02:00">April 08, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">angular</span>
+                        
+                        <span class="tag">openapi</span>
+                        
+                        <span class="tag">frontend</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="career,personal,learning">
+                <h2 class="post-card-title">
+                    <a href="/2025/04/05/i-dont-know-everything/">I Don't Know Everything — And That's My Superpower</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “The inner machinations of my mind are an enigma.” - Patrick Star
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-04-05T10:23:00+02:00">April 05, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">personal</span>
+                        
+                        <span class="tag">learning</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="career,community,personal">
+                <h2 class="post-card-title">
+                    <a href="/2025/04/04/my-first-kubecon/">My First KubeCon: A Java Dev’s Journey into the World of Kubernetes and Beyond</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “You don’t need a license to drive a sandwich.” - SpongeBob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-04-04T22:23:00+02:00">April 04, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">community</span>
+                        
+                        <span class="tag">personal</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="java,kubernetes,cloud-native">
+                <h2 class="post-card-title">
+                    <a href="/2025/04/02/java-and-kubernetes/">Kubernetes + Java = ❤️: What I Learned About Cloud-Native Java at KubeCon</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “The Krusty Krab pizza is the pizza for you and me!” - Spongebob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-04-02T23:30:00+02:00">April 02, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">java</span>
+                        
+                        <span class="tag">kubernetes</span>
+                        
+                        <span class="tag">cloud-native</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="best-practices,clean-code,philosophy">
+                <h2 class="post-card-title">
+                    <a href="/2025/03/10/what-if-we-wrote-code-like-poetry/">What If We Wrote Code Like We Write Poetry?</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “Ravioli, ravioli, give me the formuoli!” - Spongebob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-03-10T19:00:00+01:00">March 10, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">best-practices</span>
+                        
+                        <span class="tag">clean-code</span>
+                        
+                        <span class="tag">philosophy</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="personal,career,team-culture">
+                <h2 class="post-card-title">
+                    <a href="/2025/03/01/ramadan-and-work/">Ramadan and Work: Finding Balance and Connection in a Team</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  Together, we can do anything! - Spongebob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-03-01T06:07:00+01:00">March 01, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">personal</span>
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">team-culture</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="career,best-practices,personal">
+                <h2 class="post-card-title">
+                    <a href="/2025/02/12/spongebob-and-software/">Could Spongebob Teach You About Software Development?</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  I’m ready! I’m ready! I’m ready! - Spongebob SquarePants (and me, every Monday morning… after lots of coffee)
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-02-12T13:37:00+01:00">February 12, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">best-practices</span>
+                        
+                        <span class="tag">personal</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="java,spring-boot,quarkus">
+                <h2 class="post-card-title">
+                    <a href="/2025/02/09/springboot-vs-quarkus/">Spring Boot vs. Quarkus: Which One Should You Use?</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “It took us three days to make that potato salad… three days!” - Spongebob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-02-09T20:25:00+01:00">February 09, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">java</span>
+                        
+                        <span class="tag">spring-boot</span>
+                        
+                        <span class="tag">quarkus</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="career,personal,learning">
+                <h2 class="post-card-title">
+                    <a href="/2025/02/06/i-love-my-job/">Why I Love Being a Programmer</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “This is not your average, everyday excitement. This is… advanced excitement.” – SpongeBob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-02-06T09:00:00+01:00">February 06, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">personal</span>
+                        
+                        <span class="tag">learning</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+            
+            <article class="post-card" data-tags="career,community,personal">
+                <h2 class="post-card-title">
+                    <a href="/2025/01/14/journey-as-a-junior/">The Journey of a Junior Developer: Bridging the Gap Between Theory and Practice</a>
+                </h2>
+                
+                <p class="post-card-excerpt">
+  “I’m ready! I’m ready! I’m ready!” – SpongeBob SquarePants
+
+</p>
+                
+                <div class="post-card-meta">
+                    <time datetime="2025-01-14T20:54:30+01:00">January 14, 2025</time>
+                    
+                    <div class="post-card-tags">
+                        
+                        <span class="tag">career</span>
+                        
+                        <span class="tag">community</span>
+                        
+                        <span class="tag">personal</span>
+                        
+                    </div>
+                    
+                </div>
+            </article>
+            
+        
+    </section>
+</section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const tagSelect = document.getElementById('tag-select');
+    const postCards = document.querySelectorAll('.post-card');
+
+    tagSelect.addEventListener('change', function() {
+        const selectedTag = this.value;
+
+        // Filter posts
+        postCards.forEach(card => {
+            const cardTags = card.getAttribute('data-tags');
+
+            if (selectedTag === 'all') {
+                card.style.display = 'flex';
+                setTimeout(() => card.style.opacity = '1', 10);
+            } else if (cardTags && cardTags.split(',').includes(selectedTag)) {
+                card.style.display = 'flex';
+                setTimeout(() => card.style.opacity = '1', 10);
+            } else {
+                card.style.opacity = '0';
+                setTimeout(() => card.style.display = 'none', 200);
+            }
+        });
+    });
+});
+</script>
+
+
+    </div>
+</main><footer class="site-footer" role="contentinfo">
+    <div class="wrapper">
+        <div class="footer-content">
+            <p>&copy; 2026 Oumaima Zerouali · <a href="https://jcast.dev" target="_blank" rel="noopener noreferrer" class="jcast-link">JCast<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="External link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></p>
+            <div class="footer-social-links">
+                <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="https://github.com/OumaimaZerouali" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/_oumietje_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="/assets/js/lang-switcher.js"></script>
+<script src="/assets/js/theme-toggle.js"></script>
+
+</body>
+</html>

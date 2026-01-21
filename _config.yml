@@ -1,12 +1,12 @@
-title: Oumi's Corner
-email: oumaima.zerouali@gmail.com
+title: Oumi's Thoughts
 description: >
   Thoughtful reflections on software development, written by a developer for developers.
 baseurl: ""
 url: "https://oumaimazerouali.github.io"
-metadata:
-  author: Oumaima Zerouali
-  keywords: Oumaima,Blog,Java,JavaScript,TypeScript,Angular,DevOps,Cloud,Software Development,Oumi's Corner
+
+author:
+  name: "Oumaima Zerouali"
+  email: oumaima.zerouali@gmail.com
 
 languages: ["en", "nl"]
 default_lang: "en"
@@ -16,7 +16,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-
 
 defaults:
   - scope:
@@ -36,14 +35,6 @@ linkedin_username: oumaima-zerouali-16b189223
 github_username: OumaimaZerouali
 instagram_username: _oumietje_
 
-seo:
-  title: "Oumi's Corner"
-  description: "Thoughtful reflections on software development, written by a developer for developers."
-  url: "https://oumaimazerouali.github.io/"
-
-author:
-  name: "Oumaima Zerouali"
-
 exclude:
    - .sass-cache/
    - .jekyll-cache/
@@ -55,3 +46,4 @@ exclude:
    - vendor/cache/
    - vendor/gems/
    - vendor/ruby/
+   - README.md

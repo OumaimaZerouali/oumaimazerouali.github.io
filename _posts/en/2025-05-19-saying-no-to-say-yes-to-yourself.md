@@ -3,6 +3,7 @@ layout: post
 title:  "Saying No to Say Yes to Yourself"
 date:   2025-05-19 15:30:00 +0100
 image:  "/assets/img/say-no.png"
+tags: [personal, career, work-life-balance]
 lang: en
 ---
 > "I can’t do this... but I’m doing it anyway." — SpongeBob SquarePants

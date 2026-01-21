@@ -3,6 +3,7 @@ layout: post
 title:  "Could Spongebob Teach You About Software Development?"
 date:   2025-02-12 13:37:00 +0100
 image:  "/assets/img/spongebob-squarepants.png"
+tags: [career, best-practices, personal]
 lang: en
 ---
 > I'm ready! I'm ready! I'm ready! - Spongebob SquarePants (and me, every Monday morning... after lots of coffee)

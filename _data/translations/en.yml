@@ -1,36 +1,22 @@
-# English translations
 site:
-  title: "Oumi's Corner"
-  tagline: "Working Notes"
+  title: "Oumi's Thoughts"
   description: "Reflections on systems, design decisions, and the realities of building things that last."
 
 nav:
   home: "Home"
   about: "About"
-  archive: "Archive"
+  posts: "Posts"
+  rss: "RSS"
 
-post:
-  read_more: "Read more"
-  min_read: "min read"
-  related_posts: "Related Posts"
-  comments: "Comments"
-  view_all_posts: "View All Posts"
+sections:
+  featured_posts: "Thoughtful Reflections"
+  view_all_posts: "View all posts →"
 
-filter:
-  everything: "Everything"
-  tech: "Tech"
-  life: "Life"
+posts:
+  title: "All Posts"
+  subtitle: "Thoughtful reflections on software development, learning, and growth."
+  filter_all: "All"
 
 footer:
   copyright: "Built with care"
-
-meta:
-  posted_on: "Posted on"
-
-cookie:
-  title: "Cookie preferences"
-  description: "This website uses cookies and similar technologies (e.g. cookies, <code>localStorage</code>, <code>sessionStorage</code>) for analytics and to remember settings such as your language preference. Please choose how you'd like us to use them."
-  accept_all: "Accept all"
-  necessary_only: "Necessary only"
-  deny_all: "Deny all"
 

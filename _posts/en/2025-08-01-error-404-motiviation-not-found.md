@@ -3,6 +3,7 @@ layout: post
 title:  "Error 404: Motivation Not Found. When Your Codebase Ghosts You"
 date:   2025-08-01 12:00:00 +0100
 image:  "/assets/img/error-motivation-not-found.png"
+tags: [personal, career, productivity]
 lang: en
 ---
 >"I'll have you know that I stubbed my toe last week and only cried for 20 minutes." - Spongebob SquarePants

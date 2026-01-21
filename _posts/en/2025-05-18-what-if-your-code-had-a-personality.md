@@ -3,6 +3,7 @@ layout: post
 title:  "What if Your Code Had a Personality? Matching Programming Paradigms to Myers-Briggs Types"
 date:   2025-05-18 15:30:00 +0100
 image:  "/assets/img/pp-as-mbp.png"
+tags: [philosophy, programming-paradigms, learning]
 lang: en
 ---
 > "We're all different. You, me, this garbage can." - Spongebob SquarePants

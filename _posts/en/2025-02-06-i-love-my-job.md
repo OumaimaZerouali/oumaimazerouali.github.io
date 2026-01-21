@@ -3,6 +3,7 @@ layout: post
 title:  "Why I Love Being a Programmer"
 date:   2025-02-06 09:00:00 +0100
 image:  "/assets/img/love-coding.jpg"
+tags: [career, personal, learning]
 lang: en
 ---
 >"This is not your average, everyday excitement. This is… advanced excitement." – SpongeBob SquarePants

@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "I Don’t Know Everything — And That’s My Superpower"
+title:  "I Don't Know Everything — And That's My Superpower"
 date:   2025-04-05 09:23:00 +0100
 image:  "/assets/img/the-way-up.jpg"
+tags: [career, personal, learning]
 lang: en
 ---
 > "The inner machinations of my mind are an enigma." - Patrick Star

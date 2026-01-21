@@ -1,30 +1,57 @@
-{% include lang.html %}
-
-<header class="site-header" role="banner">
+<header class="site-header">
   <div class="wrapper">
-    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">
-    {{ site.title | escape }}
-    </a>
+    {% assign current_lang = page.lang | default: site.default_lang %}
+    {% if current_lang == 'nl' %}
+      {% assign home_url = "/nl/" %}
+      {% assign posts_url = "/nl/posts" %}
+      {% assign about_url = "/nl/about" %}
+    {% else %}
+      {% assign home_url = "/" %}
+      {% assign posts_url = "/posts" %}
+      {% assign about_url = "/about" %}
+    {% endif %}
 
-    <div class="social-icons">
-      <!-- Language Switcher -->
-      <div class="lang-switcher">
-        <button class="lang-link" data-lang="en" id="lang-en">EN</button>
-        <span class="lang-separator">/</span>
-        <button class="lang-link" data-lang="nl" id="lang-nl">NL</button>
+    {% if page.url == "/" or page.url == "/index.html" or page.url == "/nl/" or page.url == "/nl/index.html" %}
+      <h1 class="site-title">
+        <a href="{{ home_url | relative_url }}">{{ site.title }}</a>
+      </h1>
+    {% else %}
+      <a class="site-title" href="{{ home_url | relative_url }}">{{ site.title }}</a>
+    {% endif %}
+
+    <nav class="site-nav" role="navigation" aria-label="Main navigation">
+      <a href="{{ home_url | relative_url }}">Home</a>
+      <a href="{{ posts_url | relative_url }}">Posts</a>
+      <a href="{{ about_url | relative_url }}">About</a>
+
+      <div class="lang-switcher" role="group" aria-label="Language switcher">
+        <button class="lang-link" data-lang="en" id="lang-en" aria-label="Switch to English">EN</button>
+        <span class="lang-separator" aria-hidden="true">/</span>
+        <button class="lang-link" data-lang="nl" id="lang-nl" aria-label="Switch to Dutch">NL</button>
       </div>
 
-      <a
-              href="https://jcast.dev"
-              target="_blank"
-              aria-label="The JCast website"
-              class="jcast-link"
-      >
-        JCAST
-        <svg class="external-arrow" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M7 17L17 7M17 7H7M17 7v10"/>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg id="icon-sun" class="hidden"
+             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+             viewBox="0 0 24 24" fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
         </svg>
-      </a>
-    </div>
+
+        <svg id="icon-moon" class="hidden"
+             xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+             viewBox="0 0 24 24" fill="currentColor">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </nav>
   </div>
 </header>

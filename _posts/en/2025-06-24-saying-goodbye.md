@@ -3,6 +3,7 @@ layout: post
 title:  "The Season of Goodbyes"
 date:   2025-06-24 10:30:00 +0100
 image:  "/assets/img/saying-goodbye.png"
+tags: [personal, career, team-culture]
 lang: en
 ---
 >"I can't do this, Patrick!" - SpongeBob SquarePants

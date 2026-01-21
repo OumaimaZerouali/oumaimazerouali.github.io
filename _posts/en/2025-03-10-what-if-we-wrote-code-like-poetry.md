@@ -3,6 +3,7 @@ layout: post
 title:  "What If We Wrote Code Like We Write Poetry?"
 date:   2025-03-10 19:00:00 +0100
 image:  "/assets/img/software-dev-and-poetry.jpg"
+tags: [best-practices, clean-code, philosophy]
 lang: en
 ---
 > "Ravioli, ravioli, give me the formuoli!" - Spongebob SquarePants

@@ -4,7 +4,157 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: update URLs in HTML files for deployment and add Nokogiri and REXML gems" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: update URLs in HTML files for deployment and add Nokogiri and REXML gems">
+      <change afterPath="$PROJECT_DIR$/.github/instructions/redesign.instructions.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_includes/icons/github.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_includes/icons/instagram.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_includes/icons/linkedin.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layouts/about.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layouts/posts.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/nl/about/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/theme-toggle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl/about.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl/index.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl/posts.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/posts.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/agents/mobile-design.agent.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/agents/seo.agent.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/translations/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/translations/nl.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/nl.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/article-card.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/default.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/post.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-02-06-i-love-my-job.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-02-06-i-love-my-job.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-02-12-spongebob-and-software.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-02-12-spongebob-and-software.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-03-01-ramadan-and-work.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-03-01-ramadan-and-work.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-03-10-what-if-we-wrote-code-like-poetry.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-03-10-what-if-we-wrote-code-like-poetry.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-04-05-i-dont-know-everything.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-04-05-i-dont-know-everything.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-05-18-what-if-your-code-had-a-personality.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-05-18-what-if-your-code-had-a-personality.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-05-19-saying-no-to-say-yes-to-yourself.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-05-19-saying-no-to-say-yes-to-yourself.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-06-24-saying-goodbye.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-06-24-saying-goodbye.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-08-01-error-404-motiviation-not-found.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-08-01-error-404-motiviation-not-found.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/about/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/base/fonts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/base/reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/base/typography.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/base/variables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/components/buttons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/components/cards.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/components/code-blocks.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/components/cookie-banner.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/components/footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/components/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/components/progress-bar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/layout/containers.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/layout/grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/pages/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/pages/post.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/manrope-bold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/manrope-extrabold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/manrope-light.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/manrope-medium.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/manrope-regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/manrope-semibold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/manrope-thin.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/manrope/manrope.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/modius/Modius Regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/modius/Preview/Preview_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/modius/Preview/Preview_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/modius/Preview/Preview_03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/modius/Preview/Preview_04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/modius/Preview/Preview_05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/modius/Preview/Preview_06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/font/modius/Read Me.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/js/button-animation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/js/code-copy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/js/cookie-consent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/js/lang-switcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/js/lang-switcher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/overview/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/about.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/base/fonts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/base/reset.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/base/typography.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/base/variables.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/components/buttons.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/components/cards.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/components/code-blocks.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/components/cookie-banner.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/components/footer.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/components/header.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/components/progress-bar.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/layout/containers.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/layout/grid.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/pages/home.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/pages/post.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/responsive.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/manrope-bold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/manrope-extrabold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/manrope-light.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/manrope-medium.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/manrope-regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/manrope-semibold.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/manrope-thin.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/manrope/manrope.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/modius/Modius Regular.otf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/modius/Preview/Preview_01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/modius/Preview/Preview_02.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/modius/Preview/Preview_03.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/modius/Preview/Preview_04.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/modius/Preview/Preview_05.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/modius/Preview/Preview_06.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/font/modius/Read Me.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/button-animation.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/code-copy.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/cookie-consent.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/lang-switcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/lang-switcher.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/overview.md" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -86,7 +236,7 @@
     &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/assets/css&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -98,7 +248,7 @@
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;npm.lint.executor&quot;: &quot;Run&quot;,
     &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.customization.CustomizationConfigurable&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/oumaimazerouali/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -335,6 +485,10 @@
       <workItem from="1767615341993" duration="52000" />
       <workItem from="1767615404619" duration="20000" />
       <workItem from="1768996620424" duration="394000" />
+      <workItem from="1769000989227" duration="153000" />
+      <workItem from="1769001150841" duration="19000" />
+      <workItem from="1769001186179" duration="7251000" />
+      <workItem from="1769019064248" duration="5056000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -657,6 +811,10 @@
   </component>
   <component name="VgoProject">
     <integration-enabled>false</integration-enabled>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="github-copilot-workspace">
     <instructionFileLocations>
