@@ -3,10 +3,19 @@ description: >
   Thoughtful reflections on software development, written by a developer for developers.
 baseurl: ""
 url: "https://oumaimazerouali.github.io"
+logo: "/assets/favicon/logo.svg"
 
 author:
   name: "Oumaima Zerouali"
   email: oumaima.zerouali@gmail.com
+
+social:
+  name: Oumaima Zerouali
+  links:
+    - https://github.com/OumaimaZerouali
+    - https://www.linkedin.com/in/oumaima-zerouali-16b189223/
+    - https://www.instagram.com/_oumietje_/
+    - https://jcast.dev
 
 languages: ["en", "nl"]
 default_lang: "en"
@@ -15,7 +24,6 @@ exclude_from_localization: ["assets", "js", "css", "img"]
 plugins:
   - jekyll-feed
   - jekyll-sitemap
-  - jekyll-seo-tag
 
 defaults:
   - scope:

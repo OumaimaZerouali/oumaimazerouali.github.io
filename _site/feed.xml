@@ -1,5 +1,663 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-22T11:49:12+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
-</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</title><link href="http://localhost:4000/nl/2025/10/05/testcontainers/" rel="alternate" type="text/html" title="Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten" /><published>2025-10-05T09:00:00+02:00</published><updated>2025-10-05T09:00:00+02:00</updated><id>http://localhost:4000/nl/2025/10/05/testcontainers</id><content type="html" xml:base="http://localhost:4000/nl/2025/10/05/testcontainers/"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-22T16:30:52+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
+</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos</title><link href="http://localhost:4000/nl/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
+  <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
+</blockquote>
+
+<p>Iedereen zegt altijd dat upgraden van Spring makkelijk is, toch? Gewoon <strong>OpenRewrite</strong> draaien, een paar kleine dingen fixen en klaar.</p>
+
+<p>Nou… laat me vertellen over onze migratie van <strong>Java 17/21 naar Java 25</strong> en <strong>Spring Boot 3 naar 4.0.1</strong>.</p>
+
+<p>Voor één service kost het nu maximaal één uur om alles te fixen. Niet zo erg. Maar ik heb deze migratie al een paar keer gedaan bij de klant. En ik blijf steeds dezelfde problemen tegenkomen, keer op keer.</p>
+
+<p>Dus ik dacht: laat ik dit opschrijven. Misschien helpt het iemand anders die deze migratie moet doen.</p>
+
+<h2 id="waarom-we-dit-überhaupt-deden">Waarom we dit überhaupt deden</h2>
+
+<p>Onze tech lead wilde naar <strong>Java 25</strong>. Zijn reden? Hij wil altijd de nieuwste versie van alles. En eerlijk, ik was wel enthousiast om eens een migratie mee te maken.</p>
+
+<p>Daarnaast moesten we:</p>
+
+<ul>
+  <li>Upgraden naar <strong>Spring Boot 4</strong> en <strong>Spring Framework 7</strong></li>
+  <li>De <strong>Jakarta-migratie</strong> volledig afronden</li>
+  <li>Oude code opruimen voordat we nieuwe features toevoegen</li>
+</ul>
+
+<p>Onze applicaties bevatten allemaal:</p>
+
+<ul>
+  <li>REST APIs</li>
+  <li>Custom HTTP clients</li>
+  <li>JWT security</li>
+  <li>File uploads</li>
+  <li>Heel veel tests met MockMvc</li>
+  <li>Jackson voor JSON overal</li>
+</ul>
+
+<h2 id="openrewrite-helpt-maar-is-geen-magie">OpenRewrite: helpt, maar is geen magie</h2>
+
+<p>We begonnen met <strong>OpenRewrite</strong> en de officiële Spring recipes (<a href="https://docs.openrewrite.org/recipes/java">bron</a>).</p>
+
+<p>Wat Rewrite goed deed:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">javax.*</code> → <code class="language-plaintext highlighter-rouge">jakarta.*</code></li>
+  <li>Spring imports updaten</li>
+  <li>Deprecated APIs fixen</li>
+  <li>Config classes aanpassen</li>
+  <li><strong>Try-catch syntax vereenvoudigen</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new MappingJackson2HttpMessageConverter())</code> → <code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new JacksonJsonHttpMessageConverter())</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.format(...)</code> → <code class="language-plaintext highlighter-rouge">.formatted(...)</code></li>
+  <li><strong>YAML splitsen per profiel</strong></li>
+</ul>
+
+<p><em>Maar… er kwamen ook snel problemen.</em></p>
+
+<h2 id="openrewrite--jdkjre-mismatch">OpenRewrite + JDK/JRE mismatch</h2>
+
+<p>Eerste keer dat ik OpenRewrite draaide op Java 25 crashte het met:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">LinkageError</span><span class="o">:</span> <span class="n">loader</span> <span class="n">constraint</span> <span class="nl">violation:</span> <span class="n">com</span><span class="o">.</span><span class="na">sun</span><span class="o">.</span><span class="na">tools</span><span class="o">.</span><span class="na">javac</span><span class="o">.</span><span class="na">parser</span><span class="o">.</span><span class="na">Tokens</span><span class="n">$Comment$CommentStyle</span>
+</code></pre></div></div>
+
+<p>Oorzaak: <strong>JDK en JRE waren niet dezelfde versie</strong>.</p>
+
+<p><strong>Fix:</strong></p>
+
+<ul>
+  <li>Check altijd dat JDK en JRE dezelfde versie hebben</li>
+  <li>Voor ons: beide op <strong>Java 25</strong> zetten</li>
+</ul>
+
+<h2 id="alles-compileert--dan-exploderen-de-tests">“Alles compileert!” … dan exploderen de tests</h2>
+
+<p>Na Rewrite en alle compileerfouten fixen, startten we de tests. En dan? Alles faalde.</p>
+
+<p>Problemen zaten vooral in:</p>
+
+<ul>
+  <li>MockMvc tests</li>
+  <li>JSON serialization</li>
+  <li>HTTP clients</li>
+  <li>Jackson config</li>
+</ul>
+
+<h2 id="jackson-de-pijn-die-nooit-stopt">Jackson: de pijn die nooit stopt</h2>
+
+<p>Spring Boot 4 verhuist Jackson van:</p>
+
+<p>Oude locatie:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">com</span><span class="o">.</span><span class="na">fasterxml</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
+</code></pre></div></div>
+
+<p>Nieuwe locatie:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tools</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
+</code></pre></div></div>
+
+<p>Problemen die we tegenkwamen:</p>
+
+<ul>
+  <li>Mixed imports in tests</li>
+  <li>Constants zoals <code class="language-plaintext highlighter-rouge">WRITE_DATES_AS_TIMESTAMPS</code> verdwenen</li>
+  <li>ObjectMapper conflicts, vooral in tests met meerdere primary beans</li>
+</ul>
+
+<p>Vroeger hadden we:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="nd">@Primary</span>
+<span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">(</span><span class="nc">Jackson2ObjectMapperBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">dateFormat</span><span class="o">(...).</span><span class="na">build</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>In Boot 4:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Jackson2ObjectMapperBuilder</code> is <strong>deprecated</strong></li>
+  <li>Boot maakt zijn eigen <strong>primary</strong> <code class="language-plaintext highlighter-rouge">jacksonJsonMapper</code></li>
+</ul>
+
+<p>Resultaat:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NoUniqueBeanDefinitionException:
+more than one 'primary' bean found: [objectMapper, jacksonJsonMapper]
+</code></pre></div></div>
+
+<p><strong>Nieuwe aanpak:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">var</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleDateFormat</span><span class="o">(</span><span class="s">"dd-MM-yyyy"</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="nc">JsonMapper</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">defaultDateFormat</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">findAndAddModules</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Bron:</strong> <a href="https://spring.io/blog/2025/10/07/introducing-jackson-3-support-in-spring">Introducing Jackson 3 support in Spring</a></p>
+
+<h2 id="resttemplate--http-veranderingen">RestTemplate &amp; HTTP veranderingen</h2>
+
+<h3 id="resttemplatebuilder-verplaatst">RestTemplateBuilder verplaatst</h3>
+
+<p>Oude locatie:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
+</code></pre></div></div>
+
+<p>Nieuwe locatie:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">restclient</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>In productiecode migreer je vaak naar <strong>RestClient</strong>, Spring Boot 4 geeft hier voorkeur aan.</p>
+</blockquote>
+
+<h3 id="response-api-veranderd">Response API veranderd</h3>
+
+<p>Oude manier:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCodeValue</span><span class="o">()</span>
+</code></pre></div></div>
+
+<p>Nieuwe manier:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">().</span><span class="na">value</span><span class="o">()</span>
+</code></pre></div></div>
+
+<h3 id="headers-vervangen">Headers vervangen</h3>
+
+<p>Oude Apache manier:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Header</span><span class="o">[]</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getAllHeaders</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>Nieuwe Spring manier:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getHeaders</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="timeouts-zijn-nu-builders">Timeouts zijn nu builders</h3>
+
+<p>Oude setters bestaan niet meer. Nieuw:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpComponentsClientHttpRequestFactory</span> <span class="n">requestFactory</span> <span class="o">=</span>
+    <span class="nc">ClientHttpRequestFactoryBuilder</span><span class="o">.</span><span class="na">httpComponents</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">withDefaultRequestConfigCustomizer</span><span class="o">(</span><span class="n">rc</span> <span class="o">-&gt;</span> <span class="n">rc</span>
+            <span class="o">.</span><span class="na">setConnectTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">setConnectionRequestTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">setResponseTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
+        <span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p><strong>Custom HttpClients</strong> moeten nu via <code class="language-plaintext highlighter-rouge">.withHttpClientCustomizer(...)</code> worden toegevoegd.
+<strong>Bron:</strong> <a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">Spring Framework 7 HTTP Client</a></p>
+
+<h2 id="apache-httpclient-4--5">Apache HttpClient 4 → 5</h2>
+
+<p>Alles is veranderd:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">org.apache.http.*</code> → <code class="language-plaintext highlighter-rouge">org.apache.hc.*</code></li>
+  <li>Timeouts, SSL, connection managers, request builders → volledige rewrite</li>
+</ul>
+
+<p><strong>Bron:</strong> <a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">Apache HttpClient 5 Migration</a></p>
+
+<h2 id="swagger--openapi-na-jakarta">Swagger &amp; OpenAPI na Jakarta</h2>
+
+<p>Na migratie verdwijnen OpenAPI annotaties. Voeg toe:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.swagger.core.v3<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>swagger-annotations-jakarta<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+<p><strong>Bron:</strong> <a href="https://github.com/swagger-api/swagger-core">Swagger</a></p>
+
+<h2 id="spring-security-7-websocket">Spring Security 7 WebSocket</h2>
+
+<p><code class="language-plaintext highlighter-rouge">AbstractSecurityWebSocketMessageBrokerConfigurer</code> is verwijderd. Voor ons werkt deze aanpak:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.messaging.Message</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationDecision</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.config.annotation.web.messaging.EnableWebSocketSecurity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageAuthorizationContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageMatcherDelegatingAuthorizationManager</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableWebSocketSecurity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSocketSecurityConfig</span> <span class="o">{</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">messageAuthorizationManager</span><span class="o">(</span>
+            <span class="nc">MessageMatcherDelegatingAuthorizationManager</span><span class="o">.</span><span class="na">Builder</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">messages</span>
+                <span class="o">.</span><span class="na">nullDestMatcher</span><span class="o">().</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">simpSubscribeDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">simpDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">anyMessage</span><span class="o">().</span><span class="na">permitAll</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">messages</span><span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">MessageAuthorizationContext</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">authorizationManager</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">_</span><span class="o">,</span> <span class="n">_</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">AuthorizationDecision</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Bron:</strong> <a href="https://newreleases.io/project/github/spring-projects/spring-security/release/7.0.0-M1">Spring Security 7 WebSocket</a>,
+<a href="https://github.com/spring-projects/spring-security/pull/17328">Github Thread</a></p>
+
+<h2 id="terugkerende-problemen">Terugkerende problemen</h2>
+
+<p>Tijdens de migratie kwamen de meeste problemen steeds terug, vooral in tests:</p>
+
+<ul>
+  <li>Jackson namespace breekt constant</li>
+  <li>ObjectMapper conflicts in tests</li>
+  <li>HTTP client configuratie moet volledig herschreven worden</li>
+  <li>Response handling methoden gewijzigd</li>
+  <li>RestTemplate en builders hebben nieuwe imports of zijn vervangen door RestClient</li>
+  <li>Tests falen vaak ondanks succesvolle compilatie</li>
+</ul>
+
+<p>Daarnaast blijkt dat compiler, serialisatielaag, SSL-configuratie en auto-configuration allemaal tegelijk worden beïnvloed door de upgrade.</p>
+
+<h2 id="wat-ik-zou-aanraden">Wat ik zou aanraden</h2>
+
+<ul>
+  <li>Plan extra tijd voor tests</li>
+  <li>Verwacht Jackson-problemen en ObjectMapper-conflicten</li>
+  <li>Bereid je voor op herschrijven van HTTP client code</li>
+  <li>Run je volledige test suite vroeg en vaak</li>
+  <li>Gebruik OpenRewrite</li>
+</ul>
+
+<p>Persoonlijk ben ik blij dat ik deze migratie zelf mocht doen. Ondanks de frustraties en het vele lezen van documentatie, gaf het me een veel dieper inzicht in hoe Spring Boot en Spring Framework werken en hoe ze de controle over infrastructuur en configuratie hebben.</p>
+
+<p>Wil je meer weten over Spring Boot 4 en Spring Framework 7? Check dan volgende post: <a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">Spring Boot 4 &amp; Spring Framework 7</a>.</p>
+
+<h2 id="overzicht-van-alle-bronnen">Overzicht van alle bronnen</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OpenRewrite recipes</td>
+      <td><a href="https://docs.openrewrite.org/recipes/java">https://docs.openrewrite.org/recipes/java</a></td>
+    </tr>
+    <tr>
+      <td>Spring Framework 7 HTTP Client</td>
+      <td><a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories</a></td>
+    </tr>
+    <tr>
+      <td>Apache HttpClient 5 Migration</td>
+      <td><a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html</a></td>
+    </tr>
+    <tr>
+      <td>Swagger (swagger-core)</td>
+      <td><a href="https://github.com/swagger-api/swagger-core">https://github.com/swagger-api/swagger-core</a></td>
+    </tr>
+    <tr>
+      <td>Spring Security 7 WebSocket (PR)</td>
+      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
+    </tr>
+    <tr>
+      <td>Spring Security 7 (discussion thread)</td>
+      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
+    </tr>
+    <tr>
+      <td>Spring Boot 4 &amp; Spring Framework 7 (overview)</td>
+      <td><a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">https://www.baeldung.com/spring-boot-4-spring-framework-7</a></td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring" /><category term="migration" /><category term="openrewrite" /><category term="softwaredevelopment" /><summary type="html"><![CDATA[“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Migration to Java 25 and Spring Boot 4: honestly, it was chaos</title><link href="http://localhost:4000/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migration to Java 25 and Spring Boot 4: honestly, it was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
+  <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
+</blockquote>
+
+<p>Everyone always says that upgrading Spring is easy, right? Just run <strong>OpenRewrite</strong>, fix a few small things, and you’re done.</p>
+
+<p>Well… let me tell you about our migration from <strong>Java 17/21 to Java 25</strong> and from <strong>Spring Boot 3 to 4.0.1</strong>.</p>
+
+<p>For a single service it now takes at most an hour to fix everything. Not too bad. But I’ve already done this migration a few times for clients. And I keep running into the same problems, over and over again.</p>
+
+<p>So I thought: let me write this down. Maybe it helps someone else who has to go through this migration.</p>
+
+<h2 id="why-we-did-this-in-the-first-place">Why we did this in the first place</h2>
+
+<p>Our tech lead wanted to move to <strong>Java 25</strong>. His reason? He always wants the newest version of everything. And honestly, I was pretty excited to experience a migration like this.</p>
+
+<p>On top of that, we had to:</p>
+
+<ul>
+  <li>Upgrade to <strong>Spring Boot 4</strong> and <strong>Spring Framework 7</strong></li>
+  <li>Fully finish the <strong>Jakarta migration</strong></li>
+  <li>Clean up old code before adding new features</li>
+</ul>
+
+<p>All of our applications contain:</p>
+
+<ul>
+  <li>REST APIs</li>
+  <li>Custom HTTP clients</li>
+  <li>JWT security</li>
+  <li>File uploads</li>
+  <li>A lot of tests with MockMvc</li>
+  <li>Jackson for JSON everywhere</li>
+</ul>
+
+<h2 id="openrewrite-helpful-but-not-magic">OpenRewrite: helpful, but not magic</h2>
+
+<p>We started with <strong>OpenRewrite</strong> and the official Spring recipes (<a href="https://docs.openrewrite.org/recipes/java">source</a>).</p>
+
+<p>What Rewrite did well:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">javax.*</code> → <code class="language-plaintext highlighter-rouge">jakarta.*</code></li>
+  <li>Updating Spring imports</li>
+  <li>Fixing deprecated APIs</li>
+  <li>Adjusting config classes</li>
+  <li><strong>Simplifying try-catch syntax</strong></li>
+  <li><code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new MappingJackson2HttpMessageConverter())</code> → <code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new JacksonJsonHttpMessageConverter())</code></li>
+  <li><code class="language-plaintext highlighter-rouge">.format(...)</code> → <code class="language-plaintext highlighter-rouge">.formatted(...)</code></li>
+  <li><strong>Splitting YAML per profile</strong></li>
+</ul>
+
+<p><em>But… problems showed up pretty quickly.</em></p>
+
+<h2 id="openrewrite--jdkjre-mismatch">OpenRewrite + JDK/JRE mismatch</h2>
+
+<p>The first time I ran OpenRewrite on Java 25 it crashed with:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">LinkageError</span><span class="o">:</span> <span class="n">loader</span> <span class="n">constraint</span> <span class="nl">violation:</span> <span class="n">com</span><span class="o">.</span><span class="na">sun</span><span class="o">.</span><span class="na">tools</span><span class="o">.</span><span class="na">javac</span><span class="o">.</span><span class="na">parser</span><span class="o">.</span><span class="na">Tokens</span><span class="n">$Comment$CommentStyle</span>
+</code></pre></div></div>
+
+<p>Cause: <strong>JDK and JRE were not the same version</strong>.</p>
+
+<p><strong>Fix:</strong></p>
+
+<ul>
+  <li>Always check that JDK and JRE are the same version</li>
+  <li>For us: set both to <strong>Java 25</strong></li>
+</ul>
+
+<h2 id="everything-compiles--then-the-tests-explode">“Everything compiles!” … then the tests explode</h2>
+
+<p>After Rewrite and fixing all compilation errors, we started the tests. And then? Everything failed.</p>
+
+<p>Most problems were in:</p>
+
+<ul>
+  <li>MockMvc tests</li>
+  <li>JSON serialization</li>
+  <li>HTTP clients</li>
+  <li>Jackson config</li>
+</ul>
+
+<h2 id="jackson-the-pain-that-never-ends">Jackson: the pain that never ends</h2>
+
+<p>Spring Boot 4 moves Jackson from:</p>
+
+<p>Old location:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">com</span><span class="o">.</span><span class="na">fasterxml</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
+</code></pre></div></div>
+
+<p>New location:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tools</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
+</code></pre></div></div>
+
+<p>Problems we ran into:</p>
+
+<ul>
+  <li>Mixed imports in tests</li>
+  <li>Constants like <code class="language-plaintext highlighter-rouge">WRITE_DATES_AS_TIMESTAMPS</code> disappeared</li>
+  <li>ObjectMapper conflicts, especially in tests with multiple primary beans</li>
+</ul>
+
+<p>Before we had:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="nd">@Primary</span>
+<span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">(</span><span class="nc">Jackson2ObjectMapperBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">dateFormat</span><span class="o">(...).</span><span class="na">build</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>In Boot 4:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Jackson2ObjectMapperBuilder</code> is <strong>deprecated</strong></li>
+  <li>Boot creates its own <strong>primary</strong> <code class="language-plaintext highlighter-rouge">jacksonJsonMapper</code></li>
+</ul>
+
+<p>Result:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NoUniqueBeanDefinitionException:
+more than one 'primary' bean found: [objectMapper, jacksonJsonMapper]
+</code></pre></div></div>
+
+<p><strong>New approach:</strong></p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
+<span class="kd">public</span> <span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kt">var</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleDateFormat</span><span class="o">(</span><span class="s">"dd-MM-yyyy"</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="nc">JsonMapper</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">defaultDateFormat</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">)</span>
+            <span class="o">.</span><span class="na">findAndAddModules</span><span class="o">()</span>
+            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Source:</strong> <a href="https://spring.io/blog/2025/10/07/introducing-jackson-3-support-in-spring">Introducing Jackson 3 support in Spring</a></p>
+
+<h2 id="resttemplate--http-changes">RestTemplate &amp; HTTP changes</h2>
+
+<h3 id="resttemplatebuilder-moved">RestTemplateBuilder moved</h3>
+
+<p>Old location:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
+</code></pre></div></div>
+
+<p>New location:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">restclient</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
+</code></pre></div></div>
+
+<blockquote>
+  <p>In production code you’ll often migrate to <strong>RestClient</strong>, which Spring Boot 4 prefers.</p>
+</blockquote>
+
+<h3 id="response-api-changed">Response API changed</h3>
+
+<p>Old way:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCodeValue</span><span class="o">()</span>
+</code></pre></div></div>
+
+<p>New way:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">().</span><span class="na">value</span><span class="o">()</span>
+</code></pre></div></div>
+
+<h3 id="headers-replaced">Headers replaced</h3>
+
+<p>Old Apache way:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Header</span><span class="o">[]</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getAllHeaders</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p>New Spring way:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getHeaders</span><span class="o">();</span>
+</code></pre></div></div>
+
+<h3 id="timeouts-are-now-builders">Timeouts are now builders</h3>
+
+<p>The old setters no longer exist. New:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpComponentsClientHttpRequestFactory</span> <span class="n">requestFactory</span> <span class="o">=</span>
+    <span class="nc">ClientHttpRequestFactoryBuilder</span><span class="o">.</span><span class="na">httpComponents</span><span class="o">()</span>
+        <span class="o">.</span><span class="na">withDefaultRequestConfigCustomizer</span><span class="o">(</span><span class="n">rc</span> <span class="o">-&gt;</span> <span class="n">rc</span>
+            <span class="o">.</span><span class="na">setConnectTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">setConnectionRequestTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
+            <span class="o">.</span><span class="na">setResponseTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
+        <span class="o">)</span>
+        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+</code></pre></div></div>
+
+<p><strong>Custom HttpClients</strong> now have to be added via <code class="language-plaintext highlighter-rouge">.withHttpClientCustomizer(...)</code>.</p>
+
+<p><strong>Source:</strong> <a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">Spring Framework 7 HTTP Client</a></p>
+
+<h2 id="apache-httpclient-4--5">Apache HttpClient 4 → 5</h2>
+
+<p>Everything changed:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">org.apache.http.*</code> → <code class="language-plaintext highlighter-rouge">org.apache.hc.*</code></li>
+  <li>Timeouts, SSL, connection managers, request builders → complete rewrite</li>
+</ul>
+
+<p><strong>Source:</strong> <a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">Apache HttpClient 5 Migration</a></p>
+
+<h2 id="swagger--openapi-after-jakarta">Swagger &amp; OpenAPI after Jakarta</h2>
+
+<p>After the migration, OpenAPI annotations disappear. Add:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>io.swagger.core.v3<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>swagger-annotations-jakarta<span class="nt">&lt;/artifactId&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div></div>
+
+<p><strong>Source:</strong> <a href="https://github.com/swagger-api/swagger-core">Swagger</a></p>
+
+<h2 id="spring-security-7-websocket">Spring Security 7 WebSocket</h2>
+
+<p><code class="language-plaintext highlighter-rouge">AbstractSecurityWebSocketMessageBrokerConfigurer</code> is gone. For us, this approach works:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.messaging.Message</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationDecision</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationManager</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.config.annotation.web.messaging.EnableWebSocketSecurity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageAuthorizationContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageMatcherDelegatingAuthorizationManager</span><span class="o">;</span>
+
+<span class="nd">@Configuration</span>
+<span class="nd">@EnableWebSocketSecurity</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSocketSecurityConfig</span> <span class="o">{</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">messageAuthorizationManager</span><span class="o">(</span>
+            <span class="nc">MessageMatcherDelegatingAuthorizationManager</span><span class="o">.</span><span class="na">Builder</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">messages</span>
+                <span class="o">.</span><span class="na">nullDestMatcher</span><span class="o">().</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">simpSubscribeDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">simpDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
+                <span class="o">.</span><span class="na">anyMessage</span><span class="o">().</span><span class="na">permitAll</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">messages</span><span class="o">.</span><span class="na">build</span><span class="o">();</span>
+    <span class="o">}</span>
+
+    <span class="nd">@Bean</span>
+    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">MessageAuthorizationContext</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">authorizationManager</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="o">(</span><span class="n">_</span><span class="o">,</span> <span class="n">_</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">AuthorizationDecision</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>Source:</strong> <a href="https://newreleases.io/project/github/spring-projects/spring-security/release/7.0.0-M1">Spring Security 7 WebSocket</a>,
+<a href="https://github.com/spring-projects/spring-security/pull/17328">Github Thread</a></p>
+
+<h2 id="recurring-problems">Recurring problems</h2>
+
+<p>During the migration, most issues kept coming back, especially in tests:</p>
+
+<ul>
+  <li>Jackson namespace constantly breaks</li>
+  <li>ObjectMapper conflicts in tests</li>
+  <li>HTTP client configuration has to be fully rewritten</li>
+  <li>Response handling methods changed</li>
+  <li>RestTemplate and builders have new imports or are replaced by RestClient</li>
+  <li>Tests often fail even though compilation succeeds</li>
+</ul>
+
+<p>On top of that, the compiler, serialization layer, SSL configuration, and auto-configuration all get affected at the same time by the upgrade.</p>
+
+<h2 id="what-i-would-recommend">What I would recommend</h2>
+
+<ul>
+  <li>Plan extra time for tests</li>
+  <li>Expect Jackson problems and ObjectMapper conflicts</li>
+  <li>Be prepared to rewrite HTTP client code</li>
+  <li>Run your full test suite early and often</li>
+  <li>Use OpenRewrite</li>
+</ul>
+
+<p>Personally, I’m glad I got to do this migration myself. Despite the frustrations and all the documentation reading, it gave me a much deeper understanding of how Spring Boot and Spring Framework work and how much control they have over infrastructure and configuration.</p>
+
+<p>Want to learn more about Spring Boot 4 and Spring Framework 7? Check out this post: <a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">Spring Boot 4 &amp; Spring Framework 7</a>.</p>
+
+<h2 id="overview-of-all-sources">Overview of all sources</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resource</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>OpenRewrite recipes</td>
+      <td><a href="https://docs.openrewrite.org/recipes/java">https://docs.openrewrite.org/recipes/java</a></td>
+    </tr>
+    <tr>
+      <td>Spring Framework 7 HTTP Client</td>
+      <td><a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories</a></td>
+    </tr>
+    <tr>
+      <td>Apache HttpClient 5 Migration</td>
+      <td><a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html</a></td>
+    </tr>
+    <tr>
+      <td>Swagger (swagger-core)</td>
+      <td><a href="https://github.com/swagger-api/swagger-core">https://github.com/swagger-api/swagger-core</a></td>
+    </tr>
+    <tr>
+      <td>Spring Security 7 WebSocket (PR)</td>
+      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
+    </tr>
+    <tr>
+      <td>Spring Security 7 (discussion thread)</td>
+      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
+    </tr>
+    <tr>
+      <td>Spring Boot 4 &amp; Spring Framework 7 (overview)</td>
+      <td><a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">https://www.baeldung.com/spring-boot-4-spring-framework-7</a></td>
+    </tr>
+  </tbody>
+</table>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring" /><category term="migration" /><category term="openrewrite" /><category term="softwaredevelopment" /><summary type="html"><![CDATA[“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</title><link href="http://localhost:4000/nl/2025/10/05/testcontainers/" rel="alternate" type="text/html" title="Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten" /><published>2025-10-05T09:00:00+02:00</published><updated>2025-10-05T09:00:00+02:00</updated><id>http://localhost:4000/nl/2025/10/05/testcontainers</id><content type="html" xml:base="http://localhost:4000/nl/2025/10/05/testcontainers/"><![CDATA[<blockquote>
   <p>“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me</p>
 </blockquote>
 
@@ -781,177 +1439,7 @@ Your future self (and your teammates) will thank you.</p>
 <ul>
   <li><a href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a></li>
   <li><a href="https://mvnrepository.com/artifact/org.testcontainers">Maven Central - Testcontainers</a></li>
-</ul>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring-boot" /><category term="testing" /><category term="docker" /><summary type="html"><![CDATA[“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" /><media:content medium="image" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Exceptions: De Noodrem, niet de stuurwiel</title><link href="http://localhost:4000/nl/2025/08/05/exceptions-should-be-exceptional/" rel="alternate" type="text/html" title="Exceptions: De Noodrem, niet de stuurwiel" /><published>2025-08-05T09:00:00+02:00</published><updated>2025-08-05T09:00:00+02:00</updated><id>http://localhost:4000/nl/2025/08/05/exceptions-should-be-exceptional</id><content type="html" xml:base="http://localhost:4000/nl/2025/08/05/exceptions-should-be-exceptional/"><![CDATA[<blockquote>
-  <p>“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants</p>
-</blockquote>
-
-<p>Als developers wordt ons verteld dat we fouten moeten afhandelen.<br />
-Maar hoe we dat doen beïnvloedt echt hoe onze code werkt.</p>
-
-<p>Een veelgemaakte fout, vooral in Java, is het gebruik van exceptions om normale, verwachte dingen te beheren.<br />
-Het is alsof je elke keer de noodrem van je auto gebruikt bij een rood licht.<br />
-Het werkt een beetje… totdat het dat niet doet.</p>
-
-<p>Uiteindelijk vertraagt je code, wordt het een rommeltje, en ontwijken mensen het alsof het vervloekt is.</p>
-
-<p>En ja, ik heb het ook gedaan.<br />
-Een exception gooien is makkelijk.<br />
-Het voelt als een nette uitweg wanneer logica te ingewikkeld wordt.<br />
-Maar hier is het punt: exceptions zijn bedoeld voor <strong>onverwachte problemen</strong>, niet voor de dagelijkse flow.</p>
-
-<p>Martin Fowler zei het het beste:</p>
-<blockquote>
-  <p><strong>Exceptions moeten uitzonderlijk zijn.</strong></p>
-</blockquote>
-
-<p>Laten we dat even uit elkaar halen.</p>
-
-<h2 id="wat-telt-echt-als-uitzonderlijk">Wat Telt <em>Echt</em> als “Uitzonderlijk”?</h2>
-
-<p>Denk aan een exception als een brandalarm.<br />
-Het mag alleen afgaan wanneer er echt iets mis is.<br />
-Iets waar de code niet op had kunnen plannen.</p>
-
-<p>Een snelle check:</p>
-<ul>
-  <li>Is dit een <em>normaal</em> onderdeel van de businesslogica? → Niet gooien.</li>
-  <li>Is dit een <em>vreemde</em> fout waardoor de methode onmogelijk afgemaakt kan worden? → Tijd voor een exception.</li>
-</ul>
-
-<h3 id="voorbeelden">Voorbeelden</h3>
-<p><strong>Echt Uitzonderlijk</strong></p>
-<ul>
-  <li>De database ligt eruit.</li>
-  <li>Configuratiebestand ontbreekt of is niet leesbaar.</li>
-  <li>API geeft ineens een 500 terug.</li>
-</ul>
-
-<p><strong>Niet Uitzonderlijk</strong></p>
-<ul>
-  <li>Geen gebruiker gevonden bij een zoekopdracht.</li>
-  <li>Ongeldig e-mailadres.</li>
-  <li>Lijst is leeg.</li>
-</ul>
-
-<p>Als het iets is dat je <em>zou verwachten</em>, handel het gewoon af met normale logica.</p>
-
-<h2 id="wanneer-een-exception-wél-sinnig-is">Wanneer Een Exception Wél Sinnig Is</h2>
-
-<p>Hier is een goed voorbeeld van wanneer een exception logisch is.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">wortel</span><span class="o">(</span><span class="kt">double</span> <span class="n">getal</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">getal</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
-        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"Kan de wortel van een negatief getal niet berekenen."</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">getal</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Deze methode moet wortels berekenen. Als je er een negatief getal in stopt, kan hij dat letterlijk niet doen.
-Dus ja, een exception is terecht. Dit is niet zomaar “foute input”, het breekt de regels van wat de methode überhaupt kan doen.</p>
-
-<h2 id="wat-te-doen-wanneer-fouten-niet-uitzonderlijk-zijn">Wat Te Doen Wanneer Fouten <em>Niet</em> Uitzonderlijk Zijn</h2>
-
-<p>Laten we het hebben over validatie.</p>
-
-<p>Stel, een gebruiker registreert zich met een slecht e-mailadres <em>en</em> een zwak wachtwoord.
-Wil je voor elk probleem een exception gooien en stoppen na het eerste?
-Of wil je alle problemen tegelijk tonen?</p>
-
-<h3 id="de-verkeerde-manier">De Verkeerde Manier</h3>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(!</span><span class="n">email</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"E-mail is ongeldig."</span><span class="o">);</span>
-<span class="o">}</span>
-<span class="k">if</span> <span class="o">(</span><span class="n">password</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"Wachtwoord te kort."</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Dit stopt na de eerste fout, dus de gebruiker moet één probleem tegelijk oplossen.
-Super irritant.</p>
-
-<h3 id="een-betere-manier-notification-pattern">Een Betere Manier: Notification Pattern</h3>
-
-<p>Verzamel alle problemen tegelijk:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Notificatie</span> <span class="o">{</span>
-    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">fouten</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
-
-    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">voegFoutToe</span><span class="o">(</span><span class="nc">String</span> <span class="n">bericht</span><span class="o">)</span> <span class="o">{</span> <span class="n">fouten</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bericht</span><span class="o">);</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">heeftFouten</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">!</span><span class="n">fouten</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span> <span class="o">}</span>
-    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">getFouten</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">fouten</span><span class="o">;</span> <span class="o">}</span>
-<span class="o">}</span>
-
-<span class="kd">public</span> <span class="nc">Notificatie</span> <span class="nf">valideer</span><span class="o">(</span><span class="nc">Gebruiker</span> <span class="n">gebruiker</span><span class="o">)</span> <span class="o">{</span>
-    <span class="nc">Notificatie</span> <span class="n">notificatie</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Notificatie</span><span class="o">();</span>
-
-    <span class="k">if</span> <span class="o">(!</span><span class="n">gebruiker</span><span class="o">.</span><span class="na">getEmail</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
-        <span class="n">notificatie</span><span class="o">.</span><span class="na">voegFoutToe</span><span class="o">(</span><span class="s">"E-mail is ongeldig."</span><span class="o">);</span>
-    <span class="o">}</span>
-    <span class="k">if</span> <span class="o">(</span><span class="n">gebruiker</span><span class="o">.</span><span class="na">getPassword</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">notificatie</span><span class="o">.</span><span class="na">voegFoutToe</span><span class="o">(</span><span class="s">"Wachtwoord moet minstens 8 tekens bevatten."</span><span class="o">);</span>
-    <span class="o">}</span>
-
-    <span class="k">return</span> <span class="n">notificatie</span><span class="o">;</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Nu krijgt de gebruiker <em>alle</em> feedback tegelijk.
-De backend blijft rustig.
-Geen noodrem nodig.</p>
-
-<h2 id="custom-exceptions-wanneer-ze-wél-handig-zijn">Custom Exceptions: Wanneer Ze Wél Handig Zijn</h2>
-
-<p>Custom exceptions zijn prima wanneer ze iets <em>specifieks</em> betekenen, vooral in businesslogica.</p>
-
-<p>Voorbeeld: een bankapplicatie.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OnvoldoendeSaldoException</span> <span class="kd">extends</span> <span class="nc">RuntimeException</span> <span class="o">{</span>
-    <span class="kd">public</span> <span class="nf">OnvoldoendeSaldoException</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
-        <span class="kd">super</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Dit maakt meteen duidelijk wat er misging, en je kunt dit anders afhandelen dan bijvoorbeeld een netwerkfout.</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
-    <span class="n">rekeningService</span><span class="o">.</span><span class="na">opnemen</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">OnvoldoendeSaldoException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">toonFout</span><span class="o">(</span><span class="s">"Je hebt niet genoeg saldo."</span><span class="o">);</span>
-<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NetworkException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
-    <span class="n">toonFout</span><span class="o">(</span><span class="s">"Verbindingsfout. Probeer opnieuw."</span><span class="o">);</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>Doel: fouten <em>begrijpelijk</em> en <em>handelbaar</em> maken.</p>
-
-<h2 id="de-verborgen-kosten-van-misbruik-van-exceptions">De Verborgen Kosten van Misbruik van Exceptions</h2>
-
-<p><strong>1. Performance</strong>
-Exceptions gooien is niet gratis.
-De JVM legt de volledige stacktrace vast, en dat kost tijd.
-Als je dit in een strakke loop of in een drukke app doet, vraag je om problemen.</p>
-
-<p><strong>2. Leesbaarheid</strong>
-<code class="language-plaintext highlighter-rouge">try-catch</code> blokken zijn luid.
-Gebruik je ze voor dingen die geen fout zijn, dan wordt je code moeilijker te lezen.
-Toekomstig jij, of een collega, moet stoppen en denken: “Is dit <em>echt</em> een fout?”</p>
-
-<p><strong>3. Slechte API’s</strong>
-Gooi je een exception voor foute input in de backend, dan stuurt hij misschien gewoon een generieke <code class="language-plaintext highlighter-rouge">500</code>.
-Maar dat is geen serverfout, het is een gebruikersfout.
-Stuur liever een <code class="language-plaintext highlighter-rouge">400 Bad Request</code> met een nette JSON die uitlegt wat er mis is.</p>
-
-<h2 id="het-grote-geheel-wees-duidelijk-niet-slim">Het Grote Geheel: Wees Duidelijk, Niet “Slim”</h2>
-
-<p>Exceptions gooien voor normale dingen voelt eerst slim.
-Maar slimme code veroudert slecht.</p>
-
-<p>Schone code is duidelijke code.
-Het gebruikt exceptions niet als fancy <code class="language-plaintext highlighter-rouge">if</code> statements.
-Het gebruikt ze alleen wanneer iets echt stuk gaat.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="best-practices" /><category term="architecture" /><summary type="html"><![CDATA[“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/exceptions.png" /><media:content medium="image" url="http://localhost:4000/assets/img/exceptions.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Exceptions: The Emergency Brake, Not the Steering Wheel</title><link href="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/" rel="alternate" type="text/html" title="Exceptions: The Emergency Brake, Not the Steering Wheel" /><published>2025-08-05T09:00:00+02:00</published><updated>2025-08-05T09:00:00+02:00</updated><id>http://localhost:4000/2025/08/05/exceptions-should-be-exceptional</id><content type="html" xml:base="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/"><![CDATA[<blockquote>
+</ul>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring-boot" /><category term="testing" /><category term="docker" /><summary type="html"><![CDATA[“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" /><media:content medium="image" url="http://localhost:4000/assets/img/spongebob-testcontainers.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Exceptions: The Emergency Brake, Not the Steering Wheel</title><link href="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/" rel="alternate" type="text/html" title="Exceptions: The Emergency Brake, Not the Steering Wheel" /><published>2025-08-05T09:00:00+02:00</published><updated>2025-08-05T09:00:00+02:00</updated><id>http://localhost:4000/2025/08/05/exceptions-should-be-exceptional</id><content type="html" xml:base="http://localhost:4000/2025/08/05/exceptions-should-be-exceptional/"><![CDATA[<blockquote>
   <p>“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -1121,52 +1609,177 @@ But clever code ages badly.</p>
 
 <p>Clean code is clear code.
 It doesn’t use exceptions like fancy <code class="language-plaintext highlighter-rouge">if</code> statements.
-It uses them when something genuinely breaks.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="best-practices" /><category term="architecture" /><summary type="html"><![CDATA[“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/exceptions.png" /><media:content medium="image" url="http://localhost:4000/assets/img/exceptions.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Error 404: Motivation Not Found. When Your Codebase Ghosts You</title><link href="http://localhost:4000/2025/08/01/error-404-motiviation-not-found/" rel="alternate" type="text/html" title="Error 404: Motivation Not Found. When Your Codebase Ghosts You" /><published>2025-08-01T13:00:00+02:00</published><updated>2025-08-01T13:00:00+02:00</updated><id>http://localhost:4000/2025/08/01/error-404-motiviation-not-found</id><content type="html" xml:base="http://localhost:4000/2025/08/01/error-404-motiviation-not-found/"><![CDATA[<blockquote>
-  <p>“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants</p>
+It uses them when something genuinely breaks.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="best-practices" /><category term="architecture" /><summary type="html"><![CDATA[“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/exceptions.png" /><media:content medium="image" url="http://localhost:4000/assets/img/exceptions.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Exceptions: De Noodrem, niet de stuurwiel</title><link href="http://localhost:4000/nl/2025/08/05/exceptions-should-be-exceptional/" rel="alternate" type="text/html" title="Exceptions: De Noodrem, niet de stuurwiel" /><published>2025-08-05T09:00:00+02:00</published><updated>2025-08-05T09:00:00+02:00</updated><id>http://localhost:4000/nl/2025/08/05/exceptions-should-be-exceptional</id><content type="html" xml:base="http://localhost:4000/nl/2025/08/05/exceptions-should-be-exceptional/"><![CDATA[<blockquote>
+  <p>“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants</p>
 </blockquote>
 
-<p>We’ve all been there: those days when you’re full of energy, diving into a new project. 
-The code flows, the tests pass, and you feel like the master of the digital world. 
-But then, it happens: You open your editor and… nothing. 
-The inspiration is gone. 
-<strong>Error 404: Motivation Not Found.</strong></p>
+<p>Als developers wordt ons verteld dat we fouten moeten afhandelen.<br />
+Maar hoe we dat doen beïnvloedt echt hoe onze code werkt.</p>
 
-<p>This isn’t just procrastination. 
-The project that was once so promising now feels like a stubborn, unfamiliar landscape. 
-You know you have to do something with it, but you have no idea where to start.</p>
+<p>Een veelgemaakte fout, vooral in Java, is het gebruik van exceptions om normale, verwachte dingen te beheren.<br />
+Het is alsof je elke keer de noodrem van je auto gebruikt bij een rood licht.<br />
+Het werkt een beetje… totdat het dat niet doet.</p>
 
-<h3 id="the-stranger-in-your-own-code">The Stranger in Your Own Code</h3>
-<p>One of the most common reasons for this feeling is that your codebase feels like it belongs to someone else. 
-Even if you wrote it yourself, a project from just a few months ago can feel like a stranger.</p>
+<p>Uiteindelijk vertraagt je code, wordt het een rommeltje, en ontwijken mensen het alsof het vervloekt is.</p>
 
+<p>En ja, ik heb het ook gedaan.<br />
+Een exception gooien is makkelijk.<br />
+Het voelt als een nette uitweg wanneer logica te ingewikkeld wordt.<br />
+Maar hier is het punt: exceptions zijn bedoeld voor <strong>onverwachte problemen</strong>, niet voor de dagelijkse flow.</p>
+
+<p>Martin Fowler zei het het beste:</p>
+<blockquote>
+  <p><strong>Exceptions moeten uitzonderlijk zijn.</strong></p>
+</blockquote>
+
+<p>Laten we dat even uit elkaar halen.</p>
+
+<h2 id="wat-telt-echt-als-uitzonderlijk">Wat Telt <em>Echt</em> als “Uitzonderlijk”?</h2>
+
+<p>Denk aan een exception als een brandalarm.<br />
+Het mag alleen afgaan wanneer er echt iets mis is.<br />
+Iets waar de code niet op had kunnen plannen.</p>
+
+<p>Een snelle check:</p>
 <ul>
-  <li><strong>Unreadable code:</strong> No clear variable names, no documentation. What did that function do again? Why did I write it this way?</li>
-  <li><strong>Incomprehensible architecture:</strong> The structure of the project is so complex that you can no longer follow the logic.</li>
-  <li><strong>Broken tests:</strong> Or, even worse, no tests at all. The fear of changing something and crashing the whole thing prevents you from writing any.</li>
+  <li>Is dit een <em>normaal</em> onderdeel van de businesslogica? → Niet gooien.</li>
+  <li>Is dit een <em>vreemde</em> fout waardoor de methode onmogelijk afgemaakt kan worden? → Tijd voor een exception.</li>
 </ul>
 
-<p>These are the moments when you realize you’ve invested in a liability: <strong>technical debt</strong>. 
-It’s like you’ve been putting off washing the dishes for years, and now you’re faced with a mountain of dirty plates so high that you lose the motivation to even begin.</p>
+<h3 id="voorbeelden">Voorbeelden</h3>
+<p><strong>Echt Uitzonderlijk</strong></p>
+<ul>
+  <li>De database ligt eruit.</li>
+  <li>Configuratiebestand ontbreekt of is niet leesbaar.</li>
+  <li>API geeft ineens een 500 terug.</li>
+</ul>
 
-<h3 id="the-endless-refactor-loop">The Endless Refactor Loop</h3>
-<p>Beyond technical debt, there’s another major motivation killer: the constant need to change. 
-One day you have a great idea for the design, a new color scheme, or a different approach to the architecture. 
-A few days later, you change your mind and decide to refactor everything. 
-This endless loop of “I’ll get it perfect this time” is a trap. 
-You never commit to a single idea long enough to see it through, so you end up with a fragmented, half-finished project and zero motivation.</p>
+<p><strong>Niet Uitzonderlijk</strong></p>
+<ul>
+  <li>Geen gebruiker gevonden bij een zoekopdracht.</li>
+  <li>Ongeldig e-mailadres.</li>
+  <li>Lijst is leeg.</li>
+</ul>
 
-<h3 id="how-to-reconnect">How to Reconnect</h3>
-<p>Repairing the relationship with your codebase requires a few strategic steps. 
-It’s not a quick fix but an investment in the future.</p>
+<p>Als het iets is dat je <em>zou verwachten</em>, handel het gewoon af met normale logica.</p>
 
-<ol>
-  <li><strong>Start small. Very small.</strong> Don’t try to rewrite the entire project. Find a small, isolated task. A bug fix in a single function, or refactoring a few lines of code to make them more readable. Make small commits with clear messages so you can easily refer back to them.</li>
-  <li><strong>Finish one idea before starting another.</strong> Instead of constantly refactoring, commit to a single idea for your design or architecture. Work on it, finish it, and <strong>deploy something</strong>. Once it’s live, you can make an informed decision about what needs to change.</li>
-  <li><strong>Write tests.</strong> Nothing provides more confidence than good tests. Add a simple unit test to the code you’re touching. This gives you a safety net and the courage to make further changes.</li>
-  <li><strong>Document your own code.</strong> Once you’ve understood a small part, write it down. Add comments, update the README. This helps not only your future self but also anyone who works with this code after you.</li>
-  <li><strong>Talk about it.</strong> Discuss the project with a colleague or in a community. Sometimes a fresh perspective is all you need. Explain where you’re stuck. The process of articulating your problem can often lead to the solution.</li>
-  <li><strong>Give yourself a break.</strong> Sometimes the best approach is to step away entirely. Go for a walk, read a book, or work on a different project. The solution often comes at the most unexpected moments, when your mind isn’t actively working on it.</li>
-</ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Error 404: Motivatie Niet Gevonden. Wanneer Je Codebase Je Laat Laten Staan</title><link href="http://localhost:4000/nl/2025/08/01/error-404-motiviation-not-found/" rel="alternate" type="text/html" title="Error 404: Motivatie Niet Gevonden. Wanneer Je Codebase Je Laat Laten Staan" /><published>2025-08-01T13:00:00+02:00</published><updated>2025-08-01T13:00:00+02:00</updated><id>http://localhost:4000/nl/2025/08/01/error-404-motiviation-not-found</id><content type="html" xml:base="http://localhost:4000/nl/2025/08/01/error-404-motiviation-not-found/"><![CDATA[<blockquote>
+<h2 id="wanneer-een-exception-wél-sinnig-is">Wanneer Een Exception Wél Sinnig Is</h2>
+
+<p>Hier is een goed voorbeeld van wanneer een exception logisch is.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kt">double</span> <span class="nf">wortel</span><span class="o">(</span><span class="kt">double</span> <span class="n">getal</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">getal</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">"Kan de wortel van een negatief getal niet berekenen."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="nc">Math</span><span class="o">.</span><span class="na">sqrt</span><span class="o">(</span><span class="n">getal</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Deze methode moet wortels berekenen. Als je er een negatief getal in stopt, kan hij dat letterlijk niet doen.
+Dus ja, een exception is terecht. Dit is niet zomaar “foute input”, het breekt de regels van wat de methode überhaupt kan doen.</p>
+
+<h2 id="wat-te-doen-wanneer-fouten-niet-uitzonderlijk-zijn">Wat Te Doen Wanneer Fouten <em>Niet</em> Uitzonderlijk Zijn</h2>
+
+<p>Laten we het hebben over validatie.</p>
+
+<p>Stel, een gebruiker registreert zich met een slecht e-mailadres <em>en</em> een zwak wachtwoord.
+Wil je voor elk probleem een exception gooien en stoppen na het eerste?
+Of wil je alle problemen tegelijk tonen?</p>
+
+<h3 id="de-verkeerde-manier">De Verkeerde Manier</h3>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="o">(!</span><span class="n">email</span><span class="o">.</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"E-mail is ongeldig."</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">if</span> <span class="o">(</span><span class="n">password</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">throw</span> <span class="k">new</span> <span class="nf">InvalidUserException</span><span class="o">(</span><span class="s">"Wachtwoord te kort."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Dit stopt na de eerste fout, dus de gebruiker moet één probleem tegelijk oplossen.
+Super irritant.</p>
+
+<h3 id="een-betere-manier-notification-pattern">Een Betere Manier: Notification Pattern</h3>
+
+<p>Verzamel alle problemen tegelijk:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Notificatie</span> <span class="o">{</span>
+    <span class="kd">private</span> <span class="kd">final</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="n">fouten</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">voegFoutToe</span><span class="o">(</span><span class="nc">String</span> <span class="n">bericht</span><span class="o">)</span> <span class="o">{</span> <span class="n">fouten</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">bericht</span><span class="o">);</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">heeftFouten</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="o">!</span><span class="n">fouten</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">();</span> <span class="o">}</span>
+    <span class="kd">public</span> <span class="nc">List</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">&gt;</span> <span class="nf">getFouten</span><span class="o">()</span> <span class="o">{</span> <span class="k">return</span> <span class="n">fouten</span><span class="o">;</span> <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="nc">Notificatie</span> <span class="nf">valideer</span><span class="o">(</span><span class="nc">Gebruiker</span> <span class="n">gebruiker</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Notificatie</span> <span class="n">notificatie</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Notificatie</span><span class="o">();</span>
+
+    <span class="k">if</span> <span class="o">(!</span><span class="n">gebruiker</span><span class="o">.</span><span class="na">getEmail</span><span class="o">().</span><span class="na">contains</span><span class="o">(</span><span class="s">"@"</span><span class="o">))</span> <span class="o">{</span>
+        <span class="n">notificatie</span><span class="o">.</span><span class="na">voegFoutToe</span><span class="o">(</span><span class="s">"E-mail is ongeldig."</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">if</span> <span class="o">(</span><span class="n">gebruiker</span><span class="o">.</span><span class="na">getPassword</span><span class="o">().</span><span class="na">length</span><span class="o">()</span> <span class="o">&lt;</span> <span class="mi">8</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">notificatie</span><span class="o">.</span><span class="na">voegFoutToe</span><span class="o">(</span><span class="s">"Wachtwoord moet minstens 8 tekens bevatten."</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="k">return</span> <span class="n">notificatie</span><span class="o">;</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Nu krijgt de gebruiker <em>alle</em> feedback tegelijk.
+De backend blijft rustig.
+Geen noodrem nodig.</p>
+
+<h2 id="custom-exceptions-wanneer-ze-wél-handig-zijn">Custom Exceptions: Wanneer Ze Wél Handig Zijn</h2>
+
+<p>Custom exceptions zijn prima wanneer ze iets <em>specifieks</em> betekenen, vooral in businesslogica.</p>
+
+<p>Voorbeeld: een bankapplicatie.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">OnvoldoendeSaldoException</span> <span class="kd">extends</span> <span class="nc">RuntimeException</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="nf">OnvoldoendeSaldoException</span><span class="o">(</span><span class="nc">String</span> <span class="n">message</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">message</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Dit maakt meteen duidelijk wat er misging, en je kunt dit anders afhandelen dan bijvoorbeeld een netwerkfout.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="n">rekeningService</span><span class="o">.</span><span class="na">opnemen</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">OnvoldoendeSaldoException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">toonFout</span><span class="o">(</span><span class="s">"Je hebt niet genoeg saldo."</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">NetworkException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">toonFout</span><span class="o">(</span><span class="s">"Verbindingsfout. Probeer opnieuw."</span><span class="o">);</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Doel: fouten <em>begrijpelijk</em> en <em>handelbaar</em> maken.</p>
+
+<h2 id="de-verborgen-kosten-van-misbruik-van-exceptions">De Verborgen Kosten van Misbruik van Exceptions</h2>
+
+<p><strong>1. Performance</strong>
+Exceptions gooien is niet gratis.
+De JVM legt de volledige stacktrace vast, en dat kost tijd.
+Als je dit in een strakke loop of in een drukke app doet, vraag je om problemen.</p>
+
+<p><strong>2. Leesbaarheid</strong>
+<code class="language-plaintext highlighter-rouge">try-catch</code> blokken zijn luid.
+Gebruik je ze voor dingen die geen fout zijn, dan wordt je code moeilijker te lezen.
+Toekomstig jij, of een collega, moet stoppen en denken: “Is dit <em>echt</em> een fout?”</p>
+
+<p><strong>3. Slechte API’s</strong>
+Gooi je een exception voor foute input in de backend, dan stuurt hij misschien gewoon een generieke <code class="language-plaintext highlighter-rouge">500</code>.
+Maar dat is geen serverfout, het is een gebruikersfout.
+Stuur liever een <code class="language-plaintext highlighter-rouge">400 Bad Request</code> met een nette JSON die uitlegt wat er mis is.</p>
+
+<h2 id="het-grote-geheel-wees-duidelijk-niet-slim">Het Grote Geheel: Wees Duidelijk, Niet “Slim”</h2>
+
+<p>Exceptions gooien voor normale dingen voelt eerst slim.
+Maar slimme code veroudert slecht.</p>
+
+<p>Schone code is duidelijke code.
+Het gebruikt exceptions niet als fancy <code class="language-plaintext highlighter-rouge">if</code> statements.
+Het gebruikt ze alleen wanneer iets echt stuk gaat.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="best-practices" /><category term="architecture" /><summary type="html"><![CDATA[“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/exceptions.png" /><media:content medium="image" url="http://localhost:4000/assets/img/exceptions.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Error 404: Motivatie Niet Gevonden. Wanneer Je Codebase Je Laat Laten Staan</title><link href="http://localhost:4000/nl/2025/08/01/error-404-motiviation-not-found/" rel="alternate" type="text/html" title="Error 404: Motivatie Niet Gevonden. Wanneer Je Codebase Je Laat Laten Staan" /><published>2025-08-01T13:00:00+02:00</published><updated>2025-08-01T13:00:00+02:00</updated><id>http://localhost:4000/nl/2025/08/01/error-404-motiviation-not-found</id><content type="html" xml:base="http://localhost:4000/nl/2025/08/01/error-404-motiviation-not-found/"><![CDATA[<blockquote>
   <p>“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants</p>
 </blockquote>
 
@@ -1211,6 +1824,51 @@ Het is geen snelle oplossing, maar een investering in de toekomst.</p>
   <li><strong>Documenteer je eigen code.</strong> Zodra je een klein onderdeel hebt begrepen, schrijf het op. Voeg commentaar toe, update de README. Dit helpt niet alleen jezelf in de toekomst, maar ook iedereen die later met deze code werkt.</li>
   <li><strong>Praat erover.</strong> Bespreek het project met een collega of in een community. Soms is een frisse blik alles wat je nodig hebt. Leg uit waar je vastloopt. Het proces van je probleem verwoorden kan vaak tot de oplossing leiden.</li>
   <li><strong>Gun jezelf een pauze.</strong> Soms is de beste aanpak om er helemaal afstand van te nemen. Ga wandelen, lees een boek, of werk aan een ander project. De oplossing komt vaak op de meest onverwachte momenten, wanneer je geest niet actief aan het worstelen is.</li>
+</ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Error 404: Motivation Not Found. When Your Codebase Ghosts You</title><link href="http://localhost:4000/2025/08/01/error-404-motiviation-not-found/" rel="alternate" type="text/html" title="Error 404: Motivation Not Found. When Your Codebase Ghosts You" /><published>2025-08-01T13:00:00+02:00</published><updated>2025-08-01T13:00:00+02:00</updated><id>http://localhost:4000/2025/08/01/error-404-motiviation-not-found</id><content type="html" xml:base="http://localhost:4000/2025/08/01/error-404-motiviation-not-found/"><![CDATA[<blockquote>
+  <p>“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants</p>
+</blockquote>
+
+<p>We’ve all been there: those days when you’re full of energy, diving into a new project. 
+The code flows, the tests pass, and you feel like the master of the digital world. 
+But then, it happens: You open your editor and… nothing. 
+The inspiration is gone. 
+<strong>Error 404: Motivation Not Found.</strong></p>
+
+<p>This isn’t just procrastination. 
+The project that was once so promising now feels like a stubborn, unfamiliar landscape. 
+You know you have to do something with it, but you have no idea where to start.</p>
+
+<h3 id="the-stranger-in-your-own-code">The Stranger in Your Own Code</h3>
+<p>One of the most common reasons for this feeling is that your codebase feels like it belongs to someone else. 
+Even if you wrote it yourself, a project from just a few months ago can feel like a stranger.</p>
+
+<ul>
+  <li><strong>Unreadable code:</strong> No clear variable names, no documentation. What did that function do again? Why did I write it this way?</li>
+  <li><strong>Incomprehensible architecture:</strong> The structure of the project is so complex that you can no longer follow the logic.</li>
+  <li><strong>Broken tests:</strong> Or, even worse, no tests at all. The fear of changing something and crashing the whole thing prevents you from writing any.</li>
+</ul>
+
+<p>These are the moments when you realize you’ve invested in a liability: <strong>technical debt</strong>. 
+It’s like you’ve been putting off washing the dishes for years, and now you’re faced with a mountain of dirty plates so high that you lose the motivation to even begin.</p>
+
+<h3 id="the-endless-refactor-loop">The Endless Refactor Loop</h3>
+<p>Beyond technical debt, there’s another major motivation killer: the constant need to change. 
+One day you have a great idea for the design, a new color scheme, or a different approach to the architecture. 
+A few days later, you change your mind and decide to refactor everything. 
+This endless loop of “I’ll get it perfect this time” is a trap. 
+You never commit to a single idea long enough to see it through, so you end up with a fragmented, half-finished project and zero motivation.</p>
+
+<h3 id="how-to-reconnect">How to Reconnect</h3>
+<p>Repairing the relationship with your codebase requires a few strategic steps. 
+It’s not a quick fix but an investment in the future.</p>
+
+<ol>
+  <li><strong>Start small. Very small.</strong> Don’t try to rewrite the entire project. Find a small, isolated task. A bug fix in a single function, or refactoring a few lines of code to make them more readable. Make small commits with clear messages so you can easily refer back to them.</li>
+  <li><strong>Finish one idea before starting another.</strong> Instead of constantly refactoring, commit to a single idea for your design or architecture. Work on it, finish it, and <strong>deploy something</strong>. Once it’s live, you can make an informed decision about what needs to change.</li>
+  <li><strong>Write tests.</strong> Nothing provides more confidence than good tests. Add a simple unit test to the code you’re touching. This gives you a safety net and the courage to make further changes.</li>
+  <li><strong>Document your own code.</strong> Once you’ve understood a small part, write it down. Add comments, update the README. This helps not only your future self but also anyone who works with this code after you.</li>
+  <li><strong>Talk about it.</strong> Discuss the project with a colleague or in a community. Sometimes a fresh perspective is all you need. Explain where you’re stuck. The process of articulating your problem can often lead to the solution.</li>
+  <li><strong>Give yourself a break.</strong> Sometimes the best approach is to step away entirely. Go for a walk, read a book, or work on a different project. The solution often comes at the most unexpected moments, when your mind isn’t actively working on it.</li>
 </ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Het Seizoen van Afscheid</title><link href="http://localhost:4000/nl/2025/06/24/saying-goodbye/" rel="alternate" type="text/html" title="Het Seizoen van Afscheid" /><published>2025-06-24T11:30:00+02:00</published><updated>2025-06-24T11:30:00+02:00</updated><id>http://localhost:4000/nl/2025/06/24/saying-goodbye</id><content type="html" xml:base="http://localhost:4000/nl/2025/06/24/saying-goodbye/"><![CDATA[<blockquote>
   <p>“I can’t do this, Patrick!” - SpongeBob SquarePants</p>
 </blockquote>
@@ -1439,364 +2097,4 @@ Who make work feel human.</p>
 <p>To my mentor, and to every colleague I’ll be saying goodbye to in the next few weeks: <strong>Thank you</strong>. 
 For being part of this chapter. 
 For everything you gave, knowingly or not. 
-You may be leaving the building, but you’re not leaving my story.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="team-culture" /><summary type="html"><![CDATA[“I can’t do this, Patrick!” - SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/saying-goodbye.png" /><media:content medium="image" url="http://localhost:4000/assets/img/saying-goodbye.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Saying No to Say Yes to Yourself</title><link href="http://localhost:4000/2025/05/19/saying-no-to-say-yes-to-yourself/" rel="alternate" type="text/html" title="Saying No to Say Yes to Yourself" /><published>2025-05-19T16:30:00+02:00</published><updated>2025-05-19T16:30:00+02:00</updated><id>http://localhost:4000/2025/05/19/saying-no-to-say-yes-to-yourself</id><content type="html" xml:base="http://localhost:4000/2025/05/19/saying-no-to-say-yes-to-yourself/"><![CDATA[<blockquote>
-  <p>“I can’t do this… but I’m doing it anyway.” — SpongeBob SquarePants</p>
-</blockquote>
-
-<p>Today, I made a decision I didn’t expect to make:
-I stepped down from being co-lead of a community I <em>loved</em> at work.</p>
-
-<p><strong>It wasn’t easy.</strong>
-In fact, it was one of the harder choices I’ve made in a while. 
-<strong>Because I care.</strong> 
-I care deeply about building communities, creating spaces for learning and connection, and saying yes to things that energize me.</p>
-
-<p>But this time, saying yes had started to take something away.</p>
-
-<p>Here’s what I shared with the team:</p>
-<blockquote>
-  <p><em>“Hey everyone, I’ve decided to step down as a JCommunity lead. Recently I’ve noticed that it has become a burden, in organizing and facilitating the events and meetings on top of my other responsibilities. During our last meeting, I felt way too stressed, and it started affecting both my work and my personal life. At this moment, I just can’t give my 100% to this community — and that feels unfair to everyone involved. That said, I still deeply care about this community and would love to stay involved in a way that feels sustainable. For example, helping find and connect speakers — something I truly enjoy and feel is one of my strengths.”</em></p>
-</blockquote>
-
-<p>Saying those words was hard. 
-Because I <em>believe</em> in the value of that community. 
-I <em>want</em> to contribute. 
-But I’ve also learned the hard way that when your plate is already full, adding one more thing,<strong>even something you love</strong>, can tip the balance.</p>
-
-<h2 id="the-cost-of-yes">The Cost of “Yes”</h2>
-
-<p>Over the last couple of weeks, I’ve found myself stretched thin. 
-I was co-leading a community at work, organizing another one entirely, recording a podcast, juggling a busy personal life, and trying to still have time to study for certifications.</p>
-
-<p><strong>The truth is: I was doing too much.</strong></p>
-
-<p>But I kept saying yes.</p>
-
-<p>I said yes because I <em>believe</em> in that community.
-Because I care deeply about what it represents. 
-Because I wanted to be part of building something good, something people could lean on.</p>
-
-<p>And maybe, if I’m honest, because I felt like I had to, <em>like it was my responsibility to carry it forward</em>.</p>
-
-<p>But also, I said yes because I didn’t want to let people down.
-People who had signed up for the event.
-People who are willing to give up their free time, showing up with excitement and curiosity, believing in what we’re creating.
-It felt wrong to offer them anything less than my best.</p>
-
-<p>So I kept going.
-Yes to helping everyone.
-Yes to stepping in when others couldn’t.
-Yes to making sure things didn’t fall through.</p>
-
-<p>Somewhere along the way, I forgot to say yes to myself.</p>
-
-<p>With the community I stepped down from, it wasn’t just the meetings or the event planning, it was the invisible weight that came with it.
-The quiet expectations.</p>
-
-<p>The first event was meant to be exciting. 
-It ended up being stressful.
-Not just “a bit of pressure” kind of stress, but the kind that creeps into your evenings, your focus, your peace.</p>
-
-<p>And I realized:
-<strong>When something that’s supposed to give you energy starts draining you, it’s time to pause.</strong>
-Not because you don’t care. But because you <em>do</em>, and you can’t give what you don’t have.</p>
-
-<h2 id="stepping-back-isnt-stepping-away">Stepping Back Isn’t Stepping Away</h2>
-
-<p>I want to be clear:
-I still believe in the value of that community. 
-I believe it should exist.
-I believe in what we were trying to build and I want to see it thrive.</p>
-
-<p>But I also knew I couldn’t give it the energy and attention it deserved, not without compromising everything else.</p>
-
-<p>Today, I had a hard but honest conversation with my manager.
-The kind that feels heavy going in, but lighter coming out.
-I shared where I was at, and we agreed: <em>it was time to step back</em>.</p>
-
-<p>And I’ll be honest, it feels good and bad at the same time.
-Good, because I made a decision <em>for myself</em>.
-Bad, because it’s easy to feel like I’m letting others down.
-But also good again, because I’m finally <strong>listening to my own limits</strong>.</p>
-
-<p>I let the team know the truth: that I was overwhelmed, that it was impacting my personal life, and that I simply couldn’t give 100% and to give any less felt unfair to the community and to myself.</p>
-
-<p>But I didn’t walk away completely.
-In my message, I wrote:</p>
-
-<blockquote>
-  <p>“That said, I still deeply care about this community and would love to stay involved in a way where I can help find and connect speakers, which is something I truly enjoy and feel is one of my strengths.”</p>
-</blockquote>
-
-<p>Because that’s the thing about boundaries, they’re not walls.
-They’re choices.
-And this choice lets me stay connected in a way that’s healthy and true to what I can offer right now.</p>
-
-<h2 id="a-love-letter-to-boundaries">A Love Letter to Boundaries</h2>
-
-<p>I love saying yes. I love being involved. I love learning, collaborating, socializing, and building things that matter.
-But I’m learning, <strong>that you can’t say yes to everything without saying no to yourself.</strong>
-Saying no isn’t selfish.
-It’s <em>sustainable</em>. It’s self-respect.</p>
-
-<p>And honestly, I didn’t get to that realization alone.</p>
-
-<p>It took a hard conversation with someone who saw what I couldn’t.
-My manager didn’t just listen, he <em>really</em> listened.
-He asked the hard questions I had been avoiding.
-He helped me step back far enough to <em>see</em> how much I was carrying.
-He made it okay to admit that I was overwhelmed, and reminded me that stepping back didn’t make me any less committed, capable, or trusted.</p>
-
-<p>In a moment where I was afraid I’d be letting people down, he showed me what support actually looks like.
-And that meant the world.
-I couldn’t ask for a better manager, someone who offered honesty, encouragement, and belief in me, even when I was doubting myself.
-I’m so thankful. 
-And I know how lucky I am to have had that kind of support when I needed it most.</p>
-
-<p>Because sometimes, the most important boundary we can set is the one that reminds us: <strong>We don’t have to carry everything alone.</strong></p>
-
-<h2 id="what-im-taking-with-me">What I’m Taking With Me</h2>
-
-<p>I’m still organizing the other community.
-I’m still podcasting.
-I’m still learning, growing, and showing up.</p>
-
-<p>This experience reminded me that boundaries aren’t the end of something, they’re the beginning of doing things with intention.
-Of showing up fully <em>where it matters most</em>, instead of halfway everywhere.</p>
-
-<p>If you’re reading this and feeling stretched too thin, consider this your gentle reminder:</p>
-
-<p><strong>Saying no to something doesn’t mean you’re giving up.
-Sometimes, it’s how you make room for what matters most.
-Sometimes, it’s how you say yes to yourself.</strong></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="work-life-balance" /><summary type="html"><![CDATA[“I can’t do this… but I’m doing it anyway.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/say-no.png" /><media:content medium="image" url="http://localhost:4000/assets/img/say-no.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">What if Your Code Had a Personality? Matching Programming Paradigms to Myers-Briggs Types</title><link href="http://localhost:4000/2025/05/18/what-if-your-code-had-a-personality/" rel="alternate" type="text/html" title="What if Your Code Had a Personality? Matching Programming Paradigms to Myers-Briggs Types" /><published>2025-05-18T16:30:00+02:00</published><updated>2025-05-18T16:30:00+02:00</updated><id>http://localhost:4000/2025/05/18/what-if-your-code-had-a-personality</id><content type="html" xml:base="http://localhost:4000/2025/05/18/what-if-your-code-had-a-personality/"><![CDATA[<blockquote>
-  <p>“We’re all different. You, me, this garbage can.” - Spongebob SquarePants</p>
-</blockquote>
-
-<p><em>What if programming paradigms were people?</em></p>
-
-<p>Would Object-Oriented Programming be the charismatic team lead, always calling meetings between objects?
-Would Functional Programming be the quiet genius, scribbling equations on a whiteboard and mumbling about side effects?</p>
-
-<p>Before I started working as a full-stack developer, I actually studied political and social sciences. 
-I’ve always been curious about <em>how people think</em>, why we behave the way we do, how we make decisions, and how our personalities shape the way we interact with the world.</p>
-
-<p>Now, a couple of years later, I find myself asking similar questions… but about code.</p>
-
-<p>Because the more I write software, the more I realize:
-<strong>The way we structure code often mirrors the way we think.</strong>
-Some of us thrive in structure and rules. 
-Others gravitate toward abstraction and theory. 
-And while there’s no one “right” way to code, there <em>are</em> very different personalities behind each paradigm.</p>
-
-<p>That got me wondering: <strong>What if we matched programming paradigms to personality types — specifically, the Myers-Briggs Type Indicator (MBTI)?</strong></p>
-
-<p><strong>This isn’t a psychology paper, and it’s definitely not meant to be scientific.</strong> 
-It’s a fun metaphor. A playful lens to explore the <em>character</em> of different programming styles.</p>
-
-<h2 id="myers-briggs-101-whats-your-type">Myers-Briggs 101: What’s Your Type?</h2>
-<p>The <strong>Myers-Briggs Type Indicator (MBTI)</strong> is a personality framework inspired by the work of <em>Carl Jung</em> and developed by <em>Isabel Briggs Myers</em> and <em>Katharine Cook Briggs</em>. 
-It’s designed to explore how people perceive the world, process information, and make decisions. Ultimately sorting individuals into one of <strong>16 personality types</strong> based on four key preference pairs:</p>
-
-<ul>
-  <li><strong>Introversion (I) vs. Extroversion (E):</strong>
-Where do you get your energy? From solitude (I) or social interaction (E)?</li>
-  <li><strong>Sensing (S) vs. Intuition (N):</strong>
-Do you focus on specific facts and concrete details (S), or do you prefer big-picture thinking and patterns (N)?</li>
-  <li><strong>Thinking (T) vs. Feeling (F):</strong>
-Do you make decisions through logical analysis (T), or by considering people and values (F)?</li>
-  <li><strong>Judging (J) vs. Perceiving (P):</strong>
-Do you like structured plans and closure (J), or do you prefer flexibility and spontaneity (P)?</li>
-</ul>
-
-<p>The MBTI isn’t without its critics (many psychologists argue it oversimplifies personality), but as a reflective tool and especially as a metaphor, it can be surprisingly insightful.</p>
-
-<h3 id="want-to-learn-more">Want to learn more?</h3>
-<p>Here are a few good jumping-off points:</p>
-
-<ul>
-  <li><a href="https://www.16personalities.com/">16Personalities</a> – A popular and approachable site for taking the test and exploring each type.</li>
-  <li><a href="https://www.themyersbriggs.com/">Official MBTI Foundation</a> – For a more academic and historical view.</li>
-  <li><a href="https://www.psychologicalscience.org/news/releases/2021-utc-myers-briggs.html">Critique of MBTI</a> from <em>APS</em> – Skeptical ‘Deep Dive’ on the Myers-Briggs Test.</li>
-</ul>
-
-<p>So what happens when we take those same dimensions… and apply them to programming paradigms?</p>
-
-<h2 id="object-oriented-programming-oop--the-extroverted-organizer">Object-Oriented Programming (OOP) – The Extroverted Organizer</h2>
-
-<p><strong>MBTI Match:</strong> <strong>ESTJ</strong> – The Executive</p>
-
-<blockquote>
-  <p>Logical, structured, team-oriented — always has a plan.</p>
-</blockquote>
-
-<p>Object-Oriented Programming (OOP) is like that energetic team lead who’s always organizing standups, assigning roles, and making sure everyone knows their job.</p>
-
-<p>OOP thrives on <em>interaction</em>: objects collaborate, send messages, and delegate responsibilities. 
-Each object has a clear identity, encapsulated state, and well-defined responsibilities. Kind of like individual team members working toward a shared goal.</p>
-
-<p><strong>Why ESTJ?</strong></p>
-<ul>
-  <li><strong>E</strong> – OOP is inherently about interaction and coordination between components.</li>
-  <li><strong>S</strong> – Focused on concrete models and real-world analogies (think: Car has an Engine).</li>
-  <li><strong>T</strong> – Emphasizes structure and logic via class hierarchies and strict interfaces.</li>
-  <li><strong>J</strong> – Favors predictability, maintainability, and clear roles.</li>
-</ul>
-
-<p><strong>Design patterns?</strong>
-Those are OOP’s social conventions, the established etiquette for how classes interact.</p>
-
-<h2 id="functional-programming-fp--the-introverted-strategist">Functional Programming (FP) – The Introverted Strategist</h2>
-
-<p><strong>MBTI Match:</strong> <strong>INTP</strong> – The Architect</p>
-
-<blockquote>
-  <p>Quiet, analytical, and abstract. Always looking for a cleaner, purer way to solve the problem.</p>
-</blockquote>
-
-<p>If OOP is your team lead talking to everyone, Functional Programming is the person in the corner solving the same problem, but with mathematical elegance, recursion, and <em>zero side effects</em>.</p>
-
-<p>Functional code doesn’t care about state changes or object relationships. 
-It’s about <strong>transforming data</strong>, pure input, output, no surprises. 
-If something changes, you pass it along as a new value, not by mutating what already exists.</p>
-
-<p><strong>Why INTP?</strong></p>
-
-<ul>
-  <li><strong>I</strong> – FP minimizes external dependencies and avoids shared state — much like introverts who prefer internal clarity over external chatter.</li>
-  <li><strong>N</strong> – Abstracts away from real-world models in favor of mathematical purity and composability.</li>
-  <li><strong>T</strong> – Prioritizes logic, consistency, and predictable behavior.</li>
-  <li><strong>P</strong> – Embraces flexibility and openness.</li>
-</ul>
-
-<p><strong>Recursion over loops?</strong>
-<em>Of course.</em> 
-It’s like thinking in nested concepts rather than flat sequences, a perfect metaphor for the depth-loving INTP.</p>
-
-<h2 id="procedural-programming--the-structured-traditionalist">Procedural Programming – The Structured Traditionalist</h2>
-
-<p><strong>MBTI Match:</strong> <strong>ISTJ</strong> – The Logistician</p>
-
-<blockquote>
-  <p>Practical, methodical, and reliable. Follows the rules, trusts the process, and always gets the job done.</p>
-</blockquote>
-
-<p>Procedural programming is the classic approach: break a problem down into a sequence of instructions, group them into procedures, and execute them in a clear, step-by-step manner. 
-It’s the bedrock of early software and still powers tons of systems today.</p>
-
-<p>There’s no dancing around with abstractions or fancy indirection. 
-Just clear flowcharts, predictable behavior, and a deep respect for <strong>order</strong>.</p>
-
-<p><strong>Why ISTJ?</strong></p>
-
-<ul>
-  <li><strong>I</strong> – Prefers working independently and focuses on getting things right over social interaction.</li>
-  <li><strong>S</strong> – Grounded in concrete steps and practical implementation.</li>
-  <li><strong>T</strong> – Values logic and functionality over flair or experimentation.</li>
-  <li><strong>J</strong> – Thrives in structured environments, following a defined plan from start to finish.</li>
-</ul>
-
-<p><strong>Loops, conditions, and control flow?</strong>
-<em>Yes please.</em> 
-If it’s not in the execution path, it doesn’t matter.</p>
-
-<p>Procedural programming doesn’t try to reinvent the wheel, <strong>it’s the wheel</strong>. 
-It believes in clean inputs, expected outputs, and that <strong>well-ordered code is good code</strong>.</p>
-
-<h2 id="reactive-programming--the-perceptive-adapter">Reactive Programming – The Perceptive Adapter</h2>
-
-<p><strong>MBTI Match:</strong> <strong>ENFP</strong> / <strong>INTP</strong> – The Curious Improviser &amp; The Analytical Explorer</p>
-
-<blockquote>
-  <p>Agile, responsive, and dynamic — always ready to adapt on the fly.</p>
-</blockquote>
-
-<p>Reactive Programming is like the quick-witted improviser, constantly listening to the world and reacting to events as they happen. 
-It thrives in chaos and change, turning streams of asynchronous data into meaningful flows.</p>
-
-<p><strong>Why ENFP / INTP?</strong></p>
-
-<ul>
-  <li><strong>E / I</strong> – ENFPs bring the social curiosity, while INTPs contribute thoughtful analysis.</li>
-  <li><strong>N</strong> – Focused on possibilities and patterns within evolving data streams.</li>
-  <li><strong>F / T</strong> – ENFPs add intuitive empathy to reacting with flexibility, INTPs bring logical composability.</li>
-  <li><strong>P</strong> – Embraces spontaneity and open-ended workflows.</li>
-</ul>
-
-<p><strong>Streams and Observables?</strong>
-Imagine emotional currents flowing through your code, where every event triggers a new ripple of behavior. 
-Instead of commanding the flow, reactive code listens, waits, and responds.</p>
-
-<p><strong>Real-world tie-in:</strong>
-Frontend frameworks like React and RxJS, event-driven backend systems, and real-time data processing all showcase this adaptable, ever-alert personality.</p>
-
-<h2 id="aspect-oriented-programming-aop--the-visionary-architect">Aspect-Oriented Programming (AOP) – The Visionary Architect</h2>
-
-<p><strong>MBTI Match:</strong> <strong>INFJ</strong> / <strong>ENTP</strong> – The Insightful Organizer &amp; The Innovative Strategist</p>
-
-<blockquote>
-  <p>Sees the unseen patterns, weaving elegant layers beneath the surface.</p>
-</blockquote>
-
-<p>Aspect-Oriented Programming is the master planner working behind the scenes. 
-The visionary who extracts and weaves cross-cutting concerns like security, logging, and transactions, so the main code stays clean and focused.</p>
-
-<p><strong>Why INFJ / ENTP?</strong></p>
-
-<ul>
-  <li><strong>I / E</strong> – INFJs quietly perceive complex system-wide patterns, ENTPs actively innovate with those insights.</li>
-  <li><strong>N</strong> – Sees connections and relationships invisible to others.</li>
-  <li><strong>F / T</strong> – INFJs bring a deep understanding of system harmony, ENTPs experiment with creative modularity.</li>
-  <li><strong>J / P</strong> – Combines structure and flexibility to elegantly manage concerns that span across the codebase.</li>
-</ul>
-
-<p><strong>Weaving behaviors?</strong>
-Think of invisible threads running through your program, seamlessly adding features without cluttering core logic.</p>
-
-<p><strong>Real-world tie-in:</strong>
-Spring AOP, security frameworks, and monitoring tools use this layered approach to keep large, complex applications manageable and elegant.</p>
-
-<h2 id="hybrids-and-real-world-blends--the-adaptable-chameleons">Hybrids and Real-World Blends – The Adaptable Chameleons</h2>
-
-<p><strong>MBTI Match:</strong> <strong>ENFJ</strong> / <strong>INTJ</strong> – The Strategic Collaborator &amp; The Visionary Planner</p>
-
-<blockquote>
-  <p>Mixing styles, blending strengths — thriving in complexity.</p>
-</blockquote>
-
-<p>In the real world, code rarely fits neatly into just one paradigm. 
-Most projects combine multiple styles—object-oriented structures layered with functional programming concepts, or procedural code enriched with reactive event handling. 
-These hybrids are like versatile multitaskers, adapting to whatever the project demands.</p>
-
-<p><strong>Why ENFJ / INTJ?</strong></p>
-
-<ul>
-  <li><strong>E / I</strong> – ENFJs bring interpersonal savvy to connect different modules; INTJs offer strategic insight to architect scalable solutions.</li>
-  <li><strong>N</strong> – Both excel at spotting patterns and envisioning possibilities across systems.</li>
-  <li><strong>F / T</strong> – ENFJs prioritize harmony and usability, while INTJs focus on logical consistency and efficiency.</li>
-  <li><strong>J</strong> – Both balance structure with enough flexibility to innovate.</li>
-</ul>
-
-<p><strong>Mixing paradigms?</strong>
-Think of a developer fluent in multiple coding “languages” of style — essential for navigating complex, evolving projects.</p>
-
-<p><strong>Real-world tie-in:</strong>
-Full-stack apps, microservices, and frameworks like Angular or Spring Boot blend paradigms to build maintainable, robust systems.</p>
-
-<h2 id="why-this-perspective-matters--and-whats-your-codes-persona">Why This Perspective Matters — and What’s Your Code’s Persona?</h2>
-
-<p>Matching programming paradigms to personality types isn’t about putting developers in boxes or limiting creativity. 
-Instead, it’s a tool for <strong>self-awareness</strong> and <strong>empathy</strong>—two qualities that can transform how we write code and work together.</p>
-
-<p>Understanding your coding “persona” helps you make intentional choices: which tools to use, how to structure your projects, and what roles suit you best in a team. 
-It also opens the door to appreciating others’ unique approaches, improving collaboration and reducing friction. 
-When you see that every style has its own strengths—whether it’s the organized clarity of Object-Oriented Programming, the abstract elegance of Functional Programming, you begin to understand the <em>why</em> behind your habits and preferences. 
-That insight makes your work more meaningful and fulfilling.</p>
-
-<p>Programming paradigms are more than just technical frameworks, they are reflections of how we think, solve problems, and express ourselves as developers. 
-Each style carries a personality: some thrive on structure and clear roles, others on abstraction and theory, and some on flexibility and spontaneity. 
-By viewing these paradigms through the lens of personality types like the MBTI, we gain a playful yet meaningful way to explore our coding habits without judgment or rigidity.</p>
-
-<p>Recognizing your code’s persona helps you design systems that fit your workflow, choose tools that resonate with your thinking style, and collaborate with teammates whose approaches complement your own. 
-Most importantly, it encourages you to embrace the personal side of coding.</p>
-
-<p>Because when your code has personality, it becomes more than just software — it becomes a creative, personal expression of <em>you</em>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="philosophy" /><category term="programming-paradigms" /><category term="learning" /><summary type="html"><![CDATA[“We’re all different. You, me, this garbage can.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/pp-as-mbp.png" /><media:content medium="image" url="http://localhost:4000/assets/img/pp-as-mbp.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+You may be leaving the building, but you’re not leaving my story.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="team-culture" /><summary type="html"><![CDATA[“I can’t do this, Patrick!” - SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/saying-goodbye.png" /><media:content medium="image" url="http://localhost:4000/assets/img/saying-goodbye.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

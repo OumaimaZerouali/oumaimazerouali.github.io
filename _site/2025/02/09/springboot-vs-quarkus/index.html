@@ -3,37 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oumi's Blog - Thoughtful reflections on software development, written by a developer for developers.
-</title>
+    <title>Spring Boot vs. Quarkus: Which One Should You Use? | Oumi's Blog</title>
     <meta name="description" content="Thoughtful reflections on software development, written by a developer for developers.
 ">
 
-    <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Spring Boot vs. Quarkus: Which One Should You Use? | Oumi’s Blog</title>
-<meta name="generator" content="Jekyll v4.3.4" />
-<meta property="og:title" content="Spring Boot vs. Quarkus: Which One Should You Use?" />
-<meta name="author" content="Oumaima Zerouali" />
-<meta property="og:locale" content="en" />
-<meta name="description" content="“It took us three days to make that potato salad… three days!” - Spongebob SquarePants" />
-<meta property="og:description" content="“It took us three days to make that potato salad… three days!” - Spongebob SquarePants" />
-<link rel="canonical" href="http://localhost:4000/2025/02/09/springboot-vs-quarkus/" />
-<meta property="og:url" content="http://localhost:4000/2025/02/09/springboot-vs-quarkus/" />
-<meta property="og:site_name" content="Oumi’s Blog" />
-<meta property="og:image" content="http://localhost:4000/assets/img/quarkus-vs-springboot.jpg" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-02-09T20:25:00+01:00" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:image" content="http://localhost:4000/assets/img/quarkus-vs-springboot.jpg" />
-<meta property="twitter:title" content="Spring Boot vs. Quarkus: Which One Should You Use?" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Oumaima Zerouali"},"dateModified":"2025-02-09T20:25:00+01:00","datePublished":"2025-02-09T20:25:00+01:00","description":"“It took us three days to make that potato salad… three days!” - Spongebob SquarePants","headline":"Spring Boot vs. Quarkus: Which One Should You Use?","image":"http://localhost:4000/assets/img/quarkus-vs-springboot.jpg","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/02/09/springboot-vs-quarkus/"},"url":"http://localhost:4000/2025/02/09/springboot-vs-quarkus/"}</script>
-<!-- End Jekyll SEO tag -->
 
-
-    <!-- Canonical URL -->
     <link rel="canonical" href="http://localhost:4000/2025/02/09/springboot-vs-quarkus/" />
 
-    <!-- Open Graph -->
     <meta property="og:title" content="Spring Boot vs. Quarkus: Which One Should You Use?" />
     <meta property="og:description" content="Thoughtful reflections on software development, written by a developer for developers.
 " />
@@ -43,7 +19,6 @@
     <meta property="og:image" content="http://localhost:4000/assets/img/quarkus-vs-springboot.jpg" />
     
 
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Spring Boot vs. Quarkus: Which One Should You Use?" />
     <meta name="twitter:description" content="Thoughtful reflections on software development, written by a developer for developers.
@@ -52,10 +27,19 @@
     <meta name="twitter:image" content="http://localhost:4000/assets/img/quarkus-vs-springboot.jpg" />
     
 
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","name":"Oumi's Blog","url":"http://localhost:4000","description":"Thoughtful reflections on software development, written by a developer for developers.","publisher":{"@type":"Person","name":"Oumaima Zerouali","url":"http://localhost:4000"}}
+</script>
+    <script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"Oumaima Zerouali","url":"http://localhost:4000","image":"http://localhost:4000/assets/favicon/logo.svg","jobTitle":"Software Developer","sameAs":["https://github.com/OumaimaZerouali","https://www.linkedin.com/in/oumaima-zerouali-16b189223","https://www.instagram.com/_oumietje_","https://jcast.dev"],"affiliation":{"@type":"Organization","@id":"https://jcast.dev/#org","name":"JCast","url":"https://jcast.dev"}}
+</script>
+
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
 </head>
 <body>
+
+<div id="live-announcer" role="status" aria-live="polite" aria-atomic="true" class="sr-only"></div>
 
 <a href="#main-content" class="skip-link">Skip to main content</a><header class="site-header">
   <div class="wrapper">
@@ -80,9 +64,9 @@
       <a href="/about">About</a>
 
       <div class="lang-switcher desktop-only" role="group" aria-label="Language switcher">
-        <button class="lang-link" data-lang="en" id="lang-en" aria-label="Switch to English">EN</button>
+        <button class="lang-link" data-lang="en" id="lang-en" aria-label="Switch to English" aria-pressed="true">EN</button>
         <span class="lang-separator" aria-hidden="true">/</span>
-        <button class="lang-link" data-lang="nl" id="lang-nl" aria-label="Switch to Dutch">NL</button>
+        <button class="lang-link" data-lang="nl" id="lang-nl" aria-label="Switch to Dutch" aria-pressed="false">NL</button>
       </div>
 
       <button id="theme-toggle" class="desktop-only" aria-label="Toggle theme">
@@ -163,7 +147,14 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileSwitchTheme.addEventListener('click', function() {
       const html = document.documentElement;
       const current = html.getAttribute('data-theme');
-      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+
+      // Announce theme change to screen readers
+      const liveAnnouncer = document.getElementById('live-announcer');
+      if (liveAnnouncer) {
+        liveAnnouncer.textContent = `Theme switched to ${newTheme} mode`;
+      }
     });
   }
 
@@ -173,35 +164,11 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <main id="main-content">
     <div class="wrapper">
-        <!-- Structured Data for SEO -->
+        
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "Spring Boot vs. Quarkus: Which One Should You Use?",
-  "datePublished": "2025-02-09T20:25:00+01:00",
-  "dateModified": "2025-02-09T20:25:00+01:00",
-  "author": {
-    "@type": "Person",
-    "name": "Oumaima Zerouali"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "Oumaima Zerouali"
-  },
-  "description": "
-  “It took us three days to make that potato salad… three days!” - Spongebob SquarePants
-
-",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://localhost:4000/2025/02/09/springboot-vs-quarkus/"
-  }
-  ,
-  "image": "http://localhost:4000/assets/img/quarkus-vs-springboot.jpg"
-  
-}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"Spring Boot vs. Quarkus: Which One Should You Use?","description":"  “It took us three days to make that potato salad… three days!” - Spongebob SquarePants","author":{"@type":"Person","name":"Oumaima Zerouali","url":"http://localhost:4000"},"datePublished":"2025-02-09T20:25:00+01:00","dateModified":"2025-02-09T20:25:00+01:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2025/02/09/springboot-vs-quarkus/"},"publisher":{"@type":"Person","name":"Oumaima Zerouali"},"image":{"@type":"ImageObject","url":"http://localhost:4000/assets/img/quarkus-vs-springboot.jpg"}}
 </script>
+
 
 <article class="post">
     <header class="post-header">
@@ -766,22 +733,22 @@ There’s no one-size-fits-all answer, and the best way to find out which framew
 </main><footer class="site-footer" role="contentinfo">
     <div class="wrapper">
         <div class="footer-content">
-            <p>&copy; 2026 Oumaima Zerouali · <a href="https://jcast.dev" target="_blank" rel="noopener noreferrer" class="jcast-link">JCast<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="External link"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></p>
+            <p>&copy; 2026 Oumaima Zerouali · <a href="https://jcast.dev" target="_blank" rel="noopener noreferrer" class="jcast-link">JCast<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></p>
             <div class="footer-social-links">
-                <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
                         <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                 </a>
-                <a href="https://github.com/OumaimaZerouali" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <a href="https://github.com/OumaimaZerouali" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                         <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                     </svg>
                 </a>
-                <a href="https://www.instagram.com/_oumietje_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <a href="https://www.instagram.com/_oumietje_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram profile">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>

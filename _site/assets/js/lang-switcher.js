@@ -20,6 +20,13 @@ document.addEventListener('DOMContentLoaded', function() {
       } else if (newPath === '/' || newPath === '') {
         newPath = '/';
       }
+
+      // Announce language change to screen readers
+      const liveAnnouncer = document.getElementById('live-announcer');
+      if (liveAnnouncer) {
+        liveAnnouncer.textContent = 'Switching to English';
+      }
+
       window.location.href = newPath;
     }
   });
@@ -36,8 +43,26 @@ document.addEventListener('DOMContentLoaded', function() {
       } else {
         newPath = '/nl' + currentPath;
       }
+
+      // Announce language change to screen readers
+      const liveAnnouncer = document.getElementById('live-announcer');
+      if (liveAnnouncer) {
+        liveAnnouncer.textContent = 'Switching to Dutch';
+      }
+
       window.location.href = newPath;
     }
+  });
+
+  // Add keyboard support for language buttons
+  const langButtons = document.querySelectorAll('.lang-link');
+  langButtons.forEach(button => {
+    button.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
   });
 
   // ========== Theme Toggle ==========

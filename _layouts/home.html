@@ -25,6 +25,13 @@ layout: default
                 <p class="post-card-excerpt">{{ featured_lead | truncatewords: 180 }}</p>
                 {% endif %}
 
+                {% assign parts = featured_post.content | split: '</blockquote>' %}
+                {% assign cleaned = parts[1] %}
+                {% assign intro_text = cleaned | strip_html | truncatewords: 80 %}
+                {% if intro_text %}
+                <p class="post-card-intro">{{ intro_text }}</p>
+                {% endif %}
+
                 <div class="post-card-meta">
                     <time datetime="{{ featured_post.date | date_to_xmlschema }}">{{ featured_post.date | date: "%B %d, %Y" }}</time>
                 </div>
@@ -61,9 +68,9 @@ layout: default
                         <div class="post-card-image-small">
                             <a href="{{ post.url | relative_url }}">
                                 {% if post.image %}
-                                <img src="{{ post.image | relative_url }}" alt="{{ post.title }}" loading="lazy" decoding="async">
+                                <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title | append: ' - Featured image' }}" loading="lazy" decoding="async">
                                 {% else %}
-                                <img src="https://picsum.photos/seed/{{ post.title | slugify }}/200/200" alt="{{ post.title }}" loading="lazy" decoding="async">
+                                <img src="https://picsum.photos/seed/{{ post.title | slugify }}/200/200" alt="Placeholder image for {{ post.title }}" loading="lazy" decoding="async">
                                 {% endif %}
                             </a>
                         </div>

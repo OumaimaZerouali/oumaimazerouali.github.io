@@ -34,9 +34,9 @@
       <a href="{{ about_url | relative_url }}">About</a>
 
       <div class="lang-switcher desktop-only" role="group" aria-label="Language switcher">
-        <button class="lang-link" data-lang="en" id="lang-en" aria-label="Switch to English">EN</button>
+        <button class="lang-link" data-lang="en" id="lang-en" aria-label="Switch to English" aria-pressed="{% if page.lang == 'en' or current_lang == 'en' %}true{% else %}false{% endif %}">EN</button>
         <span class="lang-separator" aria-hidden="true">/</span>
-        <button class="lang-link" data-lang="nl" id="lang-nl" aria-label="Switch to Dutch">NL</button>
+        <button class="lang-link" data-lang="nl" id="lang-nl" aria-label="Switch to Dutch" aria-pressed="{% if page.lang == 'nl' or current_lang == 'nl' %}true{% else %}false{% endif %}">NL</button>
       </div>
 
       <button id="theme-toggle" class="desktop-only" aria-label="Toggle theme">
@@ -119,7 +119,14 @@ document.addEventListener('DOMContentLoaded', function() {
     mobileSwitchTheme.addEventListener('click', function() {
       const html = document.documentElement;
       const current = html.getAttribute('data-theme');
-      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+      const newTheme = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', newTheme);
+
+      // Announce theme change to screen readers
+      const liveAnnouncer = document.getElementById('live-announcer');
+      if (liveAnnouncer) {
+        liveAnnouncer.textContent = `Theme switched to ${newTheme} mode`;
+      }
     });
   }
 

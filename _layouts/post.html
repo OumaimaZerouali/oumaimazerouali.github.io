@@ -2,32 +2,15 @@
 layout: default
 ---
 
-<!-- Structured Data for SEO -->
+{% if page.image %}
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "{{ page.title }}",
-  "datePublished": "{{ page.date | date_to_xmlschema }}",
-  "dateModified": "{{ page.date | date_to_xmlschema }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ site.author.name }}"
-  },
-  "publisher": {
-    "@type": "Person",
-    "name": "{{ site.author.name }}"
-  },
-  "description": "{{ page.description | default: page.excerpt | strip_html | truncatewords: 30 }}",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "{{ page.url | absolute_url }}"
-  }
-  {% if page.image %},
-  "image": "{{ page.image | absolute_url }}"
-  {% endif %}
-}
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"{{ page.title }}","description":"{{ page.description | default: page.excerpt | strip_html | strip_newlines | truncatewords: 30 }}","author":{"@type":"Person","name":"{{ site.author.name }}","url":"{{ site.url }}"},"datePublished":"{{ page.date | date_to_xmlschema }}","dateModified":"{{ page.last_modified_at | default: page.date | date_to_xmlschema }}","mainEntityOfPage":{"@type":"WebPage","@id":"{{ page.url | absolute_url }}"},"publisher":{"@type":"Person","name":"{{ site.author.name }}"},"image":{"@type":"ImageObject","url":"{{ page.image | absolute_url }}"}}
 </script>
+{% else %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","headline":"{{ page.title }}","description":"{{ page.description | default: page.excerpt | strip_html | strip_newlines | truncatewords: 30 }}","author":{"@type":"Person","name":"{{ site.author.name }}","url":"{{ site.url }}"},"datePublished":"{{ page.date | date_to_xmlschema }}","dateModified":"{{ page.last_modified_at | default: page.date | date_to_xmlschema }}","mainEntityOfPage":{"@type":"WebPage","@id":"{{ page.url | absolute_url }}"},"publisher":{"@type":"Person","name":"{{ site.author.name }}"}}
+</script>
+{% endif %}
 
 <article class="post">
     <header class="post-header">

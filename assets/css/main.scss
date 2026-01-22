@@ -115,6 +115,19 @@ a:hover {
   outline-offset: 3px;
 }
 
+/* Screen Reader Only - for assistive technology */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* Skip to Main Content Link */
 .skip-link {
   position: absolute;
@@ -840,7 +853,7 @@ main {
     margin: 0 !important; /* ensure spacing controlled by top */
     background: var(--color-text) !important;
     border-radius: 2px !important;
-    transition: transform 200ms cubic-bezier(.2,.9,.3,1) !important, opacity 160ms ease !important;
+    transition: transform 200ms cubic-bezier(.2,.9,.3,1), opacity 160ms ease !important;
     will-change: transform, opacity;
     display: block !important;
     opacity: 1 !important;
@@ -1016,9 +1029,6 @@ main {
   transition: opacity 0.2s ease;
 }
 
-/* Specific override: keep small sidebar cards as row layout with image on right
-   This selector is deliberately more specific than the generic `.post-card` rule
-   and is placed after it to ensure the layout doesn't collapse into a column. */
 .sidebar-grid article.post-card.post-card--small,
 .post-card.post-card--small {
   display: flex;
@@ -1034,7 +1044,7 @@ main {
 
 .post-card.post-card--small .post-card-content {
   order: 1;
-  min-width: 0; /* allow truncation of long titles/excerpts */
+  min-width: 0;
 }
 
 /* ========== Single Post Page ========== */

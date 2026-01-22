@@ -30,5 +30,14 @@ document.addEventListener("DOMContentLoaded", () => {
     root.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
     updateIcons(newTheme);
+
+    // Update button label
+    toggle.setAttribute("aria-label", `Switch to ${newTheme === "dark" ? "light" : "dark"} theme`);
+
+    // Announce theme change to screen readers
+    const liveAnnouncer = document.getElementById('live-announcer');
+    if (liveAnnouncer) {
+      liveAnnouncer.textContent = `Theme switched to ${newTheme} mode`;
+    }
   });
 });
