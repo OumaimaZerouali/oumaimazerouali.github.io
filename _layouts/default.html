@@ -37,6 +37,14 @@
 
     <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon/favicon.ico' | relative_url }}">
+
+    <!-- Google Analytics - loaded conditionally based on cookie consent -->
+    <script id="ga-script" type="text/plain" data-consent="analytics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6X9TVDQMN7', { 'anonymize_ip': true });
+    </script>
 </head>
 <body>
 
@@ -54,9 +62,15 @@
 
 {%- include footer.html -%}
 
+{%- include cookie-banner.html -%}
+
 <script src="{{ '/assets/js/mobile-menu.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/lang-switcher.js' | relative_url }}"></script>
 <script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/code-copy.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/cookie-consent.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/giscus-init.js' | relative_url }}"></script>
+<script src="{{ '/assets/js/giscus-theme.js' | relative_url }}"></script>
 
 </body>
 </html>

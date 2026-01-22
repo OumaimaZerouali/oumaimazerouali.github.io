@@ -40,6 +40,14 @@
 
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+
+    <!-- Google Analytics - loaded conditionally based on cookie consent -->
+    <script id="ga-script" type="text/plain" data-consent="analytics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6X9TVDQMN7', { 'anonymize_ip': true });
+    </script>
 </head>
 <body>
 
@@ -141,27 +149,43 @@
 }
 </script>
 
-<article class="post">
-    <header class="post-header">
-        <h1 class="post-title">OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)</h1>
-        <div class="post-meta">
-            <time datetime="2025-04-08T08:00:00+02:00">April 08, 2025</time>
-        </div>
-    </header>
 
+
+<article class="post">
     
-    <div class="post-image">
+    
+    <div class="post-hero">
         <img
             src="/assets/img/angular-vs-manual.jpg"
             alt="Featured image for OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)"
-            loading="lazy"
-            decoding="async"
+            loading="eager"
         />
     </div>
     
 
-    <div class="post-content">
-        <blockquote>
+    <div class="post-container">
+        
+        <div class="post-main">
+            <header class="post-header">
+                <h1 class="post-title">OpenAPI in Angular: From Manual Services to Generated Goodness (and a Lot of Refactoring)</h1>
+                <div class="post-meta-inline">
+                    <time datetime="2025-04-08T08:00:00+02:00">April 08, 2025</time>
+                    
+                    <div class="post-tags-inline">
+                        
+                        <span class="tag">angular</span>
+                        
+                        <span class="tag">openapi</span>
+                        
+                        <span class="tag">frontend</span>
+                        
+                    </div>
+                    
+                </div>
+            </header>
+
+            <div class="post-content">
+                <blockquote>
   <p>“Firmly grasp it in your hand!” - Patrick Star</p>
 </blockquote>
 
@@ -339,6 +363,49 @@ Automate what can be automated.
 Let the machines do the boilerplate. 
 And use your time for the parts that matter.</p>
 
+            </div>
+        </div>
+
+        
+        <aside class="post-sidebar">
+            
+            <div class="sidebar-section author-info">
+                <h3>Author</h3>
+                <p class="author-name">Oumaima Zerouali</p>
+                <p class="author-title">Software Developer</p>
+            </div>
+
+            
+            <div class="sidebar-section">
+                <a href="https://github.com/OumaimaZerouali/OumaimaZerouali.github.io/edit/master/_posts/en/2025-04-08-openapi-angular.md"
+                   class="sidebar-button"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Suggest an edit to this post on GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    <span>Suggest an edit</span>
+                </a>
+            </div>
+
+            
+            
+            
+            
+
+            
+
+            
+            
+
+            
+            <div class="sidebar-section sidebar-comments">
+                <h3>Comments</h3>
+                <div class="giscus-wrapper"></div>
+            </div>
+        </aside>
     </div>
 </article>
 
@@ -347,7 +414,18 @@ And use your time for the parts that matter.</p>
 </main><footer class="site-footer" role="contentinfo">
     <div class="wrapper">
         <div class="footer-content">
-            <p>&copy; 2026 Oumaima Zerouali · <a href="https://jcast.dev" target="_blank" rel="noopener noreferrer" class="jcast-link">JCast<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></p>
+            
+
+            <div class="footer-left">
+                <button id="cookie-settings-link" class="cookie-settings-link" type="button" aria-label="Cookie Settings">
+                    Cookie Settings
+                </button>
+            </div>
+
+            <div class="footer-center">
+                <p>&copy; 2026 Oumaima Zerouali · <a href="https://jcast.dev" target="_blank" rel="noopener noreferrer" class="jcast-link">JCast<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></p>
+            </div>
+
             <div class="footer-social-links">
                 <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
@@ -372,9 +450,30 @@ And use your time for the parts that matter.</p>
         </div>
     </div>
 </footer>
+
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+    <div class="cookie-banner-content">
+        <p class="cookie-banner-message">
+            We use cookies to improve your experience. Can we use analytics cookies?
+        </p>
+        <div class="cookie-banner-actions">
+            <button id="cookie-accept" class="cookie-btn cookie-btn-accept" type="button">
+                Accept
+            </button>
+            <button id="cookie-decline" class="cookie-btn cookie-btn-decline" type="button">
+                Decline
+            </button>
+        </div>
+    </div>
+</div>
 <script src="/assets/js/mobile-menu.js"></script>
 <script src="/assets/js/lang-switcher.js"></script>
 <script src="/assets/js/theme-toggle.js"></script>
+<script src="/assets/js/code-copy.js"></script>
+<script src="/assets/js/cookie-consent.js"></script>
+<script src="/assets/js/giscus-init.js"></script>
+<script src="/assets/js/giscus-theme.js"></script>
 
 </body>
 </html>

@@ -37,6 +37,14 @@
 
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
+
+    <!-- Google Analytics - loaded conditionally based on cookie consent -->
+    <script id="ga-script" type="text/plain" data-consent="analytics">
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6X9TVDQMN7', { 'anonymize_ip': true });
+    </script>
 </head>
 <body>
 
@@ -234,7 +242,18 @@
 </main><footer class="site-footer" role="contentinfo">
     <div class="wrapper">
         <div class="footer-content">
-            <p>&copy; 2026 Oumaima Zerouali · <a href="https://jcast.dev" target="_blank" rel="noopener noreferrer" class="jcast-link">JCast<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></p>
+            
+
+            <div class="footer-left">
+                <button id="cookie-settings-link" class="cookie-settings-link" type="button" aria-label="Cookie Settings">
+                    Cookie Settings
+                </button>
+            </div>
+
+            <div class="footer-center">
+                <p>&copy; 2026 Oumaima Zerouali · <a href="https://jcast.dev" target="_blank" rel="noopener noreferrer" class="jcast-link">JCast<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg></a></p>
+            </div>
+
             <div class="footer-social-links">
                 <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
@@ -259,9 +278,30 @@
         </div>
     </div>
 </footer>
+
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+    <div class="cookie-banner-content">
+        <p class="cookie-banner-message">
+            We use cookies to improve your experience. Can we use analytics cookies?
+        </p>
+        <div class="cookie-banner-actions">
+            <button id="cookie-accept" class="cookie-btn cookie-btn-accept" type="button">
+                Accept
+            </button>
+            <button id="cookie-decline" class="cookie-btn cookie-btn-decline" type="button">
+                Decline
+            </button>
+        </div>
+    </div>
+</div>
 <script src="/assets/js/mobile-menu.js"></script>
 <script src="/assets/js/lang-switcher.js"></script>
 <script src="/assets/js/theme-toggle.js"></script>
+<script src="/assets/js/code-copy.js"></script>
+<script src="/assets/js/cookie-consent.js"></script>
+<script src="/assets/js/giscus-init.js"></script>
+<script src="/assets/js/giscus-theme.js"></script>
 
 </body>
 </html>

@@ -17,5 +17,23 @@ posts:
   subtitle: "Thoughtful reflections on software development, learning, and growth."
   filter_all: "All"
 
+related_posts:
+  title: "Related Posts"
+
+post_actions:
+  suggest_edit: "Suggest an edit"
+
+post_sidebar:
+  author: "Author"
+
+comments:
+  title: "Comments"
+
+cookie_banner:
+  message: "We use cookies to improve your experience. Can we use analytics cookies?"
+  accept: "Accept"
+  decline: "Decline"
+  settings: "Cookie Settings"
+
 footer:
   copyright: "Built with care"

@@ -1,0 +1,17 @@
+{% assign current_lang = page.lang | default: site.lang | default: 'en' %}
+
+<div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent" hidden>
+    <div class="cookie-banner-content">
+        <p class="cookie-banner-message">
+            {{ site.data.translations[current_lang].cookie_banner.message }}
+        </p>
+        <div class="cookie-banner-actions">
+            <button id="cookie-accept" class="cookie-btn cookie-btn-accept" type="button">
+                {{ site.data.translations[current_lang].cookie_banner.accept }}
+            </button>
+            <button id="cookie-decline" class="cookie-btn cookie-btn-decline" type="button">
+                {{ site.data.translations[current_lang].cookie_banner.decline }}
+            </button>
+        </div>
+    </div>
+</div>

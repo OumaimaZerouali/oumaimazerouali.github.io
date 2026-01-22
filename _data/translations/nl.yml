@@ -17,5 +17,23 @@ posts:
   subtitle: "Doordachte reflecties over softwareontwikkeling, leren en groei."
   filter_all: "Alle"
 
+related_posts:
+  title: "Gerelateerde Artikelen"
+
+post_actions:
+  suggest_edit: "Stel een wijziging voor"
+
+post_sidebar:
+  author: "Auteur"
+
+comments:
+  title: "Reacties"
+
+cookie_banner:
+  message: "We gebruiken cookies om je ervaring te verbeteren. Mogen we analytics-cookies gebruiken?"
+  accept: "Accepteren"
+  decline: "Weigeren"
+  settings: "Cookie-instellingen"
+
 footer:
   copyright: "Met zorg gebouwd"

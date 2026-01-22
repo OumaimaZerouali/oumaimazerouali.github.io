@@ -34,27 +34,105 @@ layout: default
 }
 </script>
 
-<article class="post">
-    <header class="post-header">
-        <h1 class="post-title">{{ page.title }}</h1>
-        <div class="post-meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
-        </div>
-    </header>
+{% assign current_lang = page.lang | default: site.default_lang %}
 
+<article class="post">
+    {% comment %} Hero section with large image {% endcomment %}
     {% if page.image %}
-    <div class="post-image">
+    <div class="post-hero">
         <img
             src="{{ site.baseurl }}{{ page.image }}"
             alt="{{ page.image_alt | default: 'Featured image for ' | append: page.title }}"
-            loading="lazy"
-            decoding="async"
+            loading="eager"
         />
     </div>
     {% endif %}
 
-    <div class="post-content">
-        {{ content }}
+    <div class="post-container">
+        {% comment %} Main content column {% endcomment %}
+        <div class="post-main">
+            <header class="post-header">
+                <h1 class="post-title">{{ page.title }}</h1>
+                <div class="post-meta-inline">
+                    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+                    {% if page.tags %}
+                    <div class="post-tags-inline">
+                        {% for tag in page.tags limit:3 %}
+                        <span class="tag">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </header>
+
+            <div class="post-content">
+                {{ content }}
+            </div>
+        </div>
+
+        {% comment %} Sidebar column {% endcomment %}
+        <aside class="post-sidebar">
+            {% comment %} Author info {% endcomment %}
+            <div class="sidebar-section author-info">
+                <h3>{{ site.data.translations[current_lang].post_sidebar.author | default: "Author" }}</h3>
+                <p class="author-name">{{ site.author.name }}</p>
+                <p class="author-title">Software Developer</p>
+            </div>
+
+            {% comment %} Suggest edit {% endcomment %}
+            <div class="sidebar-section">
+                <a href="https://github.com/{{ site.github_username }}/{{ site.github_username }}.github.io/edit/master/{{ page.path }}"
+                   class="sidebar-button"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Suggest an edit to this post on GitHub">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                        <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+                    </svg>
+                    <span>{{ site.data.translations[current_lang].post_actions.suggest_edit | default: "Suggest an edit" }}</span>
+                </a>
+            </div>
+
+            {% comment %} Related posts {% endcomment %}
+            {% if page.tags %}
+            {% assign related_posts = "" | split: "" %}
+            {% assign max_related = 5 %}
+
+            {% for post in site.posts %}
+                {% if post.url != page.url and post.lang == current_lang %}
+                    {% assign shared_tags = 0 %}
+                    {% for tag in post.tags %}
+                        {% if page.tags contains tag %}
+                            {% assign shared_tags = shared_tags | plus: 1 %}
+                        {% endif %}
+                    {% endfor %}
+                    {% if shared_tags > 0 %}
+                        {% assign related_posts = related_posts | push: post %}
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            {% if related_posts.size > 0 %}
+            <div class="sidebar-section">
+                <h3>{{ site.data.translations[current_lang].related_posts.title | default: "Related Posts" }}</h3>
+                <ul class="sidebar-links">
+                    {% for post in related_posts limit:max_related %}
+                    <li>
+                        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            {% endif %}
+            {% endif %}
+
+            {% comment %} Comments Section {% endcomment %}
+            <div class="sidebar-section sidebar-comments">
+                <h3>{{ site.data.translations[current_lang].comments.title | default: "Comments" }}</h3>
+                <div class="giscus-wrapper"></div>
+            </div>
+        </aside>
     </div>
 </article>
 
