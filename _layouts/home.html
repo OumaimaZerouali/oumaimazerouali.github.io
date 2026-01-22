@@ -2,6 +2,44 @@
 layout: default
 ---
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{{ site.title }}",
+  "url": "{{ site.url }}",
+  "description": "{{ site.description | strip_newlines }}",
+  "publisher": {
+    "@type": "Person",
+    "name": "{{ site.author.name }}",
+    "url": "{{ site.url }}"
+  }
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "{{ site.author.name }}",
+  "url": "{{ site.url }}",
+  "image": "{{ site.logo | absolute_url }}",
+  "jobTitle": "Software Developer",
+  "sameAs": [
+    "https://github.com/{{ site.github_username }}",
+    "https://www.linkedin.com/in/{{ site.linkedin_username }}",
+    "https://www.instagram.com/{{ site.instagram_username }}",
+    "https://jcast.dev"
+  ],
+  "affiliation": {
+    "@type": "Organization",
+    "@id": "https://jcast.dev/#org",
+    "name": "JCast",
+    "url": "https://jcast.dev"
+  }
+}
+</script>
+
 <section class="hero">
     <h1 class="hero-title">{{ page.title }}</h1>
     <p class="hero-tagline">{{ page.tagline | default: site.description }}</p>
@@ -23,13 +61,6 @@ layout: default
                 {% assign featured_lead = featured_post.excerpt | default: featured_post.content | strip_html %}
                 {% if featured_lead %}
                 <p class="post-card-excerpt">{{ featured_lead | truncatewords: 180 }}</p>
-                {% endif %}
-
-                {% assign parts = featured_post.content | split: '</blockquote>' %}
-                {% assign cleaned = parts[1] %}
-                {% assign intro_text = cleaned | strip_html | truncatewords: 80 %}
-                {% if intro_text %}
-                <p class="post-card-intro">{{ intro_text }}</p>
                 {% endif %}
 
                 <div class="post-card-meta">

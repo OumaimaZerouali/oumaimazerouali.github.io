@@ -20,12 +20,16 @@
     <meta name="twitter:description" content="Alle posts van Oumi's Corner – inzichten over softwareontwikkeling, Java, Spring Boot en ontwikkelaarservaringen." />
     
 
-    <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"Oumi's Blog","url":"http://localhost:4000","description":"Thoughtful reflections on software development, written by a developer for developers.","publisher":{"@type":"Person","name":"Oumaima Zerouali","url":"http://localhost:4000"}}
-</script>
-    <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Oumaima Zerouali","url":"http://localhost:4000","image":"http://localhost:4000/assets/favicon/logo.svg","jobTitle":"Software Developer","sameAs":["https://github.com/OumaimaZerouali","https://www.linkedin.com/in/oumaima-zerouali-16b189223","https://www.instagram.com/_oumietje_","https://jcast.dev"],"affiliation":{"@type":"Organization","@id":"https://jcast.dev/#org","name":"JCast","url":"https://jcast.dev"}}
-</script>
+    <script>
+      // Blocking script to prevent FOUC (Flash of Unstyled Content)
+      // Must run before CSS loads to apply theme immediately
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      })();
+    </script>
 
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
@@ -62,11 +66,12 @@
         <button class="lang-link" data-lang="nl" id="lang-nl" aria-label="Switch to Dutch" aria-pressed="true">NL</button>
       </div>
 
-      <button id="theme-toggle" class="desktop-only" aria-label="Toggle theme">
+      <button id="theme-toggle" class="desktop-only" aria-label="Switch to dark theme">
         <svg id="icon-sun" class="hidden"
              xmlns="http://www.w3.org/2000/svg" width="20" height="20"
              viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
           <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -80,7 +85,8 @@
 
         <svg id="icon-moon" class="hidden"
              xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-             viewBox="0 0 24 24" fill="currentColor">
+             viewBox="0 0 24 24" fill="currentColor"
+             aria-hidden="true" focusable="false">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
@@ -94,67 +100,6 @@
     </nav>
   </div>
 </header>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.getElementById('hamburger-toggle');
-  const nav = document.querySelector('.site-nav');
-  const mobileSwitchTheme = document.getElementById('mobile-switch-theme');
-
-  function closeMenu() {
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.classList.remove('active');
-    nav.classList.remove('active');
-  }
-
-  function openMenu() {
-    hamburger.setAttribute('aria-expanded', 'true');
-    hamburger.classList.add('active');
-    nav.classList.add('active');
-  }
-
-  if (hamburger) {
-    hamburger.addEventListener('click', function(event) {
-      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-      if (isExpanded) closeMenu(); else openMenu();
-      event.stopPropagation();
-    });
-  }
-
-  document.addEventListener('click', function(event) {
-    if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
-      closeMenu();
-    }
-  });
-
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' || event.key === 'Esc') {
-      if (nav.classList.contains('active')) {
-        closeMenu();
-        hamburger.focus();
-      }
-    }
-  });
-
-  if (mobileSwitchTheme) {
-    mobileSwitchTheme.addEventListener('click', function() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const newTheme = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-
-      // Announce theme change to screen readers
-      const liveAnnouncer = document.getElementById('live-announcer');
-      if (liveAnnouncer) {
-        liveAnnouncer.textContent = `Theme switched to ${newTheme} mode`;
-      }
-    });
-  }
-
-  const navLinks = nav.querySelectorAll('a');
-  navLinks.forEach(link => link.addEventListener('click', () => setTimeout(closeMenu, 50)));
-});
-</script>
 <main id="main-content">
     <div class="wrapper">
         
@@ -211,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
             
             
-            <article class="post-card post-card--large" data-tags="java,spring,migration,openrewrite,softwaredevelopment">
+            <article class="post-card" data-tags="java,spring,migration,openrewrite,softwaredevelopment">
                 <h2 class="post-card-title">
                     <a href="/nl/2026/01/22/migration-to-java-25/">Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos</a>
                 </h2>
@@ -242,7 +187,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
             
             
-            <article class="post-card post-card--large" data-tags="java,spring-boot,testing,docker">
+            <article class="post-card" data-tags="java,spring-boot,testing,docker">
                 <h2 class="post-card-title">
                     <a href="/nl/2025/10/05/testcontainers/">Testcontainers in Spring Boot: Van Snelle Winst tot Geavanceerde Zetten</a>
                 </h2>
@@ -273,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
             
             
-            <article class="post-card post-card--large" data-tags="java,best-practices,architecture">
+            <article class="post-card" data-tags="java,best-practices,architecture">
                 <h2 class="post-card-title">
                     <a href="/nl/2025/08/05/exceptions-should-be-exceptional/">Exceptions: De Noodrem, niet de stuurwiel</a>
                 </h2>
@@ -304,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
             
             
-            <article class="post-card post-card--large" data-tags="personal,career,productivity">
+            <article class="post-card" data-tags="personal,career,productivity">
                 <h2 class="post-card-title">
                     <a href="/nl/2025/08/01/error-404-motiviation-not-found/">Error 404: Motivatie Niet Gevonden. Wanneer Je Codebase Je Laat Laten Staan</a>
                 </h2>
@@ -335,7 +280,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
             
             
-            <article class="post-card post-card--large" data-tags="personal,career,team-culture">
+            <article class="post-card" data-tags="personal,career,team-culture">
                 <h2 class="post-card-title">
                     <a href="/nl/2025/06/24/saying-goodbye/">Het Seizoen van Afscheid</a>
                 </h2>
@@ -393,42 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
     </section>
 </section>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const tagSelect = document.getElementById('tag-select');
-    const postCards = document.querySelectorAll('.post-card');
-    const liveAnnouncer = document.getElementById('live-announcer');
-
-    tagSelect.addEventListener('change', function() {
-        const selectedTag = this.value;
-        let visibleCount = 0;
-
-        postCards.forEach(card => {
-            const cardTags = card.getAttribute('data-tags');
-
-            if (selectedTag === 'all') {
-                card.style.display = 'flex';
-                setTimeout(() => card.style.opacity = '1', 10);
-                visibleCount++;
-            } else if (cardTags && cardTags.split(',').includes(selectedTag)) {
-                card.style.display = 'flex';
-                setTimeout(() => card.style.opacity = '1', 10);
-                visibleCount++;
-            } else {
-                card.style.opacity = '0';
-                setTimeout(() => card.style.display = 'none', 200);
-            }
-        });
-
-        if (liveAnnouncer) {
-            const message = selectedTag === 'all'
-                ? `Showing all ${visibleCount} posts`
-                : `Filtered to ${visibleCount} post${visibleCount !== 1 ? 's' : ''} with tag ${selectedTag}`;
-            liveAnnouncer.textContent = message;
-        }
-    });
-});
-</script>
+<script src="/assets/js/post-filter.js"></script>
 
     </div>
 </main><footer class="site-footer" role="contentinfo">
@@ -459,6 +369,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </footer>
+<script src="/assets/js/mobile-menu.js"></script>
 <script src="/assets/js/lang-switcher.js"></script>
 <script src="/assets/js/theme-toggle.js"></script>
 

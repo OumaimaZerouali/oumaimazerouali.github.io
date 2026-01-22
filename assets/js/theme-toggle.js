@@ -25,6 +25,9 @@ document.addEventListener("DOMContentLoaded", () => {
   root.setAttribute("data-theme", theme);
   updateIcons(theme);
 
+  // Set initial aria-label based on current theme
+  toggle.setAttribute("aria-label", `Switch to ${theme === "dark" ? "light" : "dark"} theme`);
+
   toggle.addEventListener("click", () => {
     const newTheme = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
     root.setAttribute("data-theme", newTheme);

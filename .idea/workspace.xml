@@ -4,56 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: remove home link from navigation for improved site structure and consistency">
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: enhance accessibility and SEO by adding structured data, improving language switcher, and refining image alt attributes">
       <change afterPath="$PROJECT_DIR$/.github/instructions/accessibility.agent.md" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.github/instructions/seo.agent.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/en/2026-01-22-migration-to-java-25.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/nl/2026-01-22-migration-to-java-25.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/migration-to-java-25.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/instructions/redesign.instructions.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/footer.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/about.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/default.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/post.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/post.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/js/lang-switcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/js/lang-switcher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/lang-switcher.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/lang-switcher.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/js/theme-toggle.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/theme-toggle.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +102,7 @@
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;npm.lint.executor&quot;: &quot;Run&quot;,
     &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.github.copilot.settings.customization.CustomizationConfigurable&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;ts.external.directory.path&quot;: &quot;/Users/oumaimazerouali/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
@@ -392,7 +346,8 @@
       <workItem from="1769019064248" duration="7961000" />
       <workItem from="1769078537322" duration="2627000" />
       <workItem from="1769083991476" duration="5166000" />
-      <workItem from="1769091093516" duration="4716000" />
+      <workItem from="1769091093516" duration="5842000" />
+      <workItem from="1769102695188" duration="65000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -690,7 +645,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769078975929</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="feat: enhance accessibility and SEO by adding structured data, improving language switcher, and refining image alt attributes">
+      <option name="closed" value="true" />
+      <created>1769095869209</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1769095869209</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -709,7 +672,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactor workflows path" />
     <MESSAGE value="Refactor" />
     <MESSAGE value="added tag to package.json" />
     <MESSAGE value="Changes to CI/CD pipeline" />
@@ -734,7 +696,8 @@
     <MESSAGE value="feat: add about page and implement language switcher functionality" />
     <MESSAGE value="feat: update site branding from &quot;Oumi's Thoughts&quot; to &quot;Oumi's Blog&quot; for consistency and improved SEO" />
     <MESSAGE value="feat: remove home link from navigation for improved site structure and consistency" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: remove home link from navigation for improved site structure and consistency" />
+    <MESSAGE value="feat: enhance accessibility and SEO by adding structured data, improving language switcher, and refining image alt attributes" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: enhance accessibility and SEO by adding structured data, improving language switcher, and refining image alt attributes" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">

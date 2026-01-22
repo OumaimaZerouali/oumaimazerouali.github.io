@@ -20,12 +20,16 @@
     <meta name="twitter:description" content="About Oumaima Zerouali — software developer, writer, and speaker." />
     
 
-    <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","name":"Oumi's Blog","url":"http://localhost:4000","description":"Thoughtful reflections on software development, written by a developer for developers.","publisher":{"@type":"Person","name":"Oumaima Zerouali","url":"http://localhost:4000"}}
-</script>
-    <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Oumaima Zerouali","url":"http://localhost:4000","image":"http://localhost:4000/assets/favicon/logo.svg","jobTitle":"Software Developer","sameAs":["https://github.com/OumaimaZerouali","https://www.linkedin.com/in/oumaima-zerouali-16b189223","https://www.instagram.com/_oumietje_","https://jcast.dev"],"affiliation":{"@type":"Organization","@id":"https://jcast.dev/#org","name":"JCast","url":"https://jcast.dev"}}
-</script>
+    <script>
+      // Blocking script to prevent FOUC (Flash of Unstyled Content)
+      // Must run before CSS loads to apply theme immediately
+      (function() {
+        var theme = localStorage.getItem('theme');
+        if (theme) {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+      })();
+    </script>
 
     <link rel="stylesheet" href="/assets/css/main.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon/favicon.ico">
@@ -62,11 +66,12 @@
         <button class="lang-link" data-lang="nl" id="lang-nl" aria-label="Switch to Dutch" aria-pressed="false">NL</button>
       </div>
 
-      <button id="theme-toggle" class="desktop-only" aria-label="Toggle theme">
+      <button id="theme-toggle" class="desktop-only" aria-label="Switch to dark theme">
         <svg id="icon-sun" class="hidden"
              xmlns="http://www.w3.org/2000/svg" width="20" height="20"
              viewBox="0 0 24 24" fill="none" stroke="currentColor"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+             stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+             aria-hidden="true" focusable="false">
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>
           <line x1="12" y1="21" x2="12" y2="23"></line>
@@ -80,7 +85,8 @@
 
         <svg id="icon-moon" class="hidden"
              xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-             viewBox="0 0 24 24" fill="currentColor">
+             viewBox="0 0 24 24" fill="currentColor"
+             aria-hidden="true" focusable="false">
           <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
         </svg>
       </button>
@@ -94,67 +100,6 @@
     </nav>
   </div>
 </header>
-
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const hamburger = document.getElementById('hamburger-toggle');
-  const nav = document.querySelector('.site-nav');
-  const mobileSwitchTheme = document.getElementById('mobile-switch-theme');
-
-  function closeMenu() {
-    hamburger.setAttribute('aria-expanded', 'false');
-    hamburger.classList.remove('active');
-    nav.classList.remove('active');
-  }
-
-  function openMenu() {
-    hamburger.setAttribute('aria-expanded', 'true');
-    hamburger.classList.add('active');
-    nav.classList.add('active');
-  }
-
-  if (hamburger) {
-    hamburger.addEventListener('click', function(event) {
-      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
-      if (isExpanded) closeMenu(); else openMenu();
-      event.stopPropagation();
-    });
-  }
-
-  document.addEventListener('click', function(event) {
-    if (!nav.contains(event.target) && !hamburger.contains(event.target)) {
-      closeMenu();
-    }
-  });
-
-  document.addEventListener('keydown', function(event) {
-    if (event.key === 'Escape' || event.key === 'Esc') {
-      if (nav.classList.contains('active')) {
-        closeMenu();
-        hamburger.focus();
-      }
-    }
-  });
-
-  if (mobileSwitchTheme) {
-    mobileSwitchTheme.addEventListener('click', function() {
-      const html = document.documentElement;
-      const current = html.getAttribute('data-theme');
-      const newTheme = current === 'dark' ? 'light' : 'dark';
-      html.setAttribute('data-theme', newTheme);
-
-      // Announce theme change to screen readers
-      const liveAnnouncer = document.getElementById('live-announcer');
-      if (liveAnnouncer) {
-        liveAnnouncer.textContent = `Theme switched to ${newTheme} mode`;
-      }
-    });
-  }
-
-  const navLinks = nav.querySelectorAll('a');
-  navLinks.forEach(link => link.addEventListener('click', () => setTimeout(closeMenu, 50)));
-});
-</script>
 <main id="main-content">
     <div class="wrapper">
         <div class="about-page">
@@ -211,20 +156,20 @@ In addition, I organize and continue to run initiatives such as <strong>JTires</
   <p>Feel free to connect. I’m always happy to talk about software, architecture, and ideas.</p>
 
   <div class="social-links">
-  <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
       <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
       <rect x="2" y="9" width="4" height="12"></rect>
       <circle cx="4" cy="4" r="2"></circle>
     </svg>
   </a>
-  <a href="https://github.com/OumaimaZerouali" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <a href="https://github.com/OumaimaZerouali" target="_blank" rel="noopener noreferrer" aria-label="View GitHub profile">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
       <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
     </svg>
   </a>
-  <a href="https://www.instagram.com/_oumietje_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <a href="https://www.instagram.com/_oumietje_/" target="_blank" rel="noopener noreferrer" aria-label="Follow on Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
@@ -271,6 +216,7 @@ In addition, I organize and continue to run initiatives such as <strong>JTires</
         </div>
     </div>
 </footer>
+<script src="/assets/js/mobile-menu.js"></script>
 <script src="/assets/js/lang-switcher.js"></script>
 <script src="/assets/js/theme-toggle.js"></script>
 
