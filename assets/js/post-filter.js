@@ -13,12 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
       const cardTags = card.getAttribute('data-tags');
 
       if (selectedTag === 'all') {
-        card.style.display = 'flex';
-        setTimeout(() => card.style.opacity = '1', 10);
+        card.style.display = '';
+        card.style.opacity = '1';
         visibleCount++;
       } else if (cardTags && cardTags.split(',').includes(selectedTag)) {
-        card.style.display = 'flex';
-        setTimeout(() => card.style.opacity = '1', 10);
+        card.style.display = '';
+        card.style.opacity = '1';
         visibleCount++;
       } else {
         card.style.opacity = '0';

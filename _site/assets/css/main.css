@@ -448,6 +448,11 @@ main {
   color: var(--color-accent);
 }
 
+.post-card--featured .post-card-quote {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-md);
+}
+
 .post-card--featured .post-card-excerpt {
   margin: 0;
   color: var(--color-text-secondary);
@@ -857,6 +862,29 @@ main {
   margin-bottom: var(--spacing-2xl);
 }
 
+/* Magazine-style Grid with Dynamic Sizing */
+.posts-grid--magazine {
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  grid-auto-rows: minmax(240px, auto);
+  gap: var(--spacing-lg);
+  grid-auto-flow: dense; /* Fill gaps intelligently */
+}
+
+/* Ensure clean layout on larger screens - prefer 3 or 4 columns */
+@media (min-width: 1024px) {
+  .posts-grid--magazine {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+/* Magazine grid specific card styles */
+.posts-grid--magazine .post-card {
+  min-height: 240px;
+}
+
+.posts-grid--magazine .post-card-meta {
+  margin-top: auto;
+}
+
 /* ========== Post Card Component ========== */
 .post-card {
   background: var(--color-surface);
@@ -888,6 +916,17 @@ main {
 
 .post-card-title a:hover {
   color: var(--color-accent);
+}
+
+.post-card-quote {
+  margin: 0;
+  color: var(--color-text);
+  line-height: 1.5;
+  font-size: 1.05rem;
+  font-style: italic;
+  font-weight: 500;
+  padding-left: var(--spacing-md);
+  border-left: 3px solid var(--color-accent);
 }
 
 .post-card-excerpt {
@@ -924,6 +963,79 @@ main {
   border-radius: 4px;
   font-size: 0.85rem;
   font-weight: 500;
+}
+
+/* ========== Dynamic Post Card Variants ========== */
+/* Wide card - spans 2 columns */
+.post-card--wide {
+  grid-column: span 2;
+  min-height: 240px;
+}
+
+/* Tall card - spans 2 rows */
+.post-card--tall {
+  grid-row: span 2;
+  min-height: 500px;
+}
+
+/* Featured card with image - spans 2 columns and 2 rows */
+.post-card--featured-grid {
+  grid-column: span 2;
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  min-height: 500px;
+}
+
+.post-card--featured-grid .post-card-image {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 6px;
+  margin-bottom: var(--spacing-md);
+  flex-shrink: 0;
+}
+
+.post-card--featured-grid .post-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.post-card--featured-grid:hover .post-card-image img {
+  transform: scale(1.05);
+}
+
+.post-card--featured-grid .post-card-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  flex: 1;
+}
+
+.post-card--featured-grid .post-card-title {
+  font-size: 1.75rem;
+}
+
+.post-card--featured-grid .post-card-quote {
+  font-size: 1.1rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.post-card--featured-grid .post-card-excerpt {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.post-card--featured-grid .post-card-meta {
+  margin-top: auto;
+}
+
+/* Adjust text sizes for wide cards */
+.post-card--wide .post-card-title {
+  font-size: 1.4rem;
 }
 
 /* ========== Posts Page ========== */
@@ -1439,6 +1551,25 @@ main {
   .posts-grid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   }
+  /* Simplify magazine grid on tablet */
+  .posts-grid--magazine {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(200px, auto);
+  }
+  /* Reduce featured card size on tablet */
+  .post-card--featured-grid .post-card-image {
+    height: 140px;
+  }
+  .post-card--featured-grid .post-card-title {
+    font-size: 1.5rem;
+  }
+  /* Ensure tall cards don't get too tall on tablet */
+  .post-card--tall {
+    min-height: 400px;
+  }
+  .post-card--featured-grid {
+    min-height: 420px;
+  }
   .post-title {
     font-size: 2rem;
   }
@@ -1482,6 +1613,24 @@ main {
   }
   .posts-grid {
     grid-template-columns: 1fr;
+  }
+  /* Single column on mobile */
+  .posts-grid--magazine {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  /* All cards become regular size on mobile */
+  .post-card--wide,
+  .post-card--tall,
+  .post-card--featured-grid {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+  .post-card--featured-grid .post-card-image {
+    height: 200px;
+  }
+  .post-card--featured-grid .post-card-title {
+    font-size: 1.5rem;
   }
   .post-card {
     padding: var(--spacing-md);

@@ -63,6 +63,16 @@ layout: default
                 <p class="post-card-excerpt">{{ featured_lead | truncatewords: 180 }}</p>
                 {% endif %}
 
+                {% assign post_content = featured_post.content | markdownify %}
+                {% assign after_quote = post_content | split: "</blockquote>" %}
+
+                {% if after_quote.size > 1 %}
+                {% assign following_html = after_quote[1] %}
+                {% assign first_sentences = following_html | strip_html | strip %}
+                <p>{{ first_sentences | truncatewords: 80 }}</p>
+                {% endif %}
+
+
                 <div class="post-card-meta">
                     <time datetime="{{ featured_post.date | date_to_xmlschema }}">{{ featured_post.date | date: "%B %d, %Y" }}</time>
                 </div>
