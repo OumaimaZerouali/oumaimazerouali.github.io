@@ -1,4 +1,4 @@
-# Oumaima Zerouali's Blog
+# Oumi's Blog
 
 Clean and minimal blog about software development.
 
