@@ -954,6 +954,20 @@ main {
   border-left: 3px solid var(--color-accent);
 }
 
+/* When quote contains blockquote HTML, remove our custom styling */
+.post-card-quote blockquote {
+  margin: 0;
+  padding-left: var(--spacing-md);
+  border-left: 3px solid var(--color-accent);
+  font-style: italic;
+}
+
+.post-card-quote:has(blockquote) {
+  padding-left: 0;
+  border-left: none;
+  font-style: normal;
+}
+
 .post-card-excerpt {
   margin: 0;
   color: var(--color-text-secondary);

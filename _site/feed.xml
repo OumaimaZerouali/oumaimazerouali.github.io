@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-22T19:26:43+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-22T20:02:55+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
 </subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos</title><link href="http://localhost:4000/nl/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
   <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
 </blockquote>
@@ -1984,11 +1984,7 @@ Die werk menselijk maken.</p>
 Voor het onderdeel zijn van dit hoofdstuk.<br />
 Voor alles wat je gaf, bewust of onbewust.<br />
 Je verlaat misschien het gebouw, maar je verlaat mijn verhaal niet.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="team-culture" /><summary type="html"><![CDATA[“I can’t do this, Patrick!” - SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/saying-goodbye.png" /><media:content medium="image" url="http://localhost:4000/assets/img/saying-goodbye.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">The Season of Goodbyes</title><link href="http://localhost:4000/2025/06/24/saying-goodbye/" rel="alternate" type="text/html" title="The Season of Goodbyes" /><published>2025-06-24T11:30:00+02:00</published><updated>2025-06-24T11:30:00+02:00</updated><id>http://localhost:4000/2025/06/24/saying-goodbye</id><content type="html" xml:base="http://localhost:4000/2025/06/24/saying-goodbye/"><![CDATA[<blockquote>
-  <p>“I can’t do this, Patrick!” - SpongeBob SquarePants</p>
-</blockquote>
-
-<blockquote>
-  <p>“That’s okay, SpongeBob. I can’t do it either.” - Patrick Star</p>
+  <p>“I can’t do this, Patrick! That’s okay, SpongeBob. I can’t do it either.”</p>
 </blockquote>
 
 <p>Lately, it feels like a season of goodbyes.</p>
@@ -2097,4 +2093,4 @@ Who make work feel human.</p>
 <p>To my mentor, and to every colleague I’ll be saying goodbye to in the next few weeks: <strong>Thank you</strong>. 
 For being part of this chapter. 
 For everything you gave, knowingly or not. 
-You may be leaving the building, but you’re not leaving my story.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="team-culture" /><summary type="html"><![CDATA[“I can’t do this, Patrick!” - SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/saying-goodbye.png" /><media:content medium="image" url="http://localhost:4000/assets/img/saying-goodbye.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+You may be leaving the building, but you’re not leaving my story.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="team-culture" /><summary type="html"><![CDATA[“I can’t do this, Patrick! That’s okay, SpongeBob. I can’t do it either.”]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/saying-goodbye.png" /><media:content medium="image" url="http://localhost:4000/assets/img/saying-goodbye.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

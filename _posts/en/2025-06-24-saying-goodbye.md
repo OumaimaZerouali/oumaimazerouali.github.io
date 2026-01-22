@@ -6,9 +6,7 @@ image:  "/assets/img/saying-goodbye.png"
 tags: [personal, career, team-culture]
 lang: en
 ---
->"I can't do this, Patrick!" - SpongeBob SquarePants
-
->"That's okay, SpongeBob. I can't do it either." - Patrick Star
+>"I can't do this, Patrick! That's okay, SpongeBob. I can't do it either."
 
 Lately, it feels like a season of goodbyes.
 
