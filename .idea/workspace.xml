@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: update page titles and improve navigation for better SEO and accessibility">
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: update site branding from &quot;Oumi's Thoughts&quot; to &quot;Oumi's Blog&quot; for consistency and improved SEO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/translations/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/en.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/translations/nl.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/nl.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/header.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
@@ -372,7 +369,7 @@
       <workItem from="1769001150841" duration="19000" />
       <workItem from="1769001186179" duration="7251000" />
       <workItem from="1769019064248" duration="7961000" />
-      <workItem from="1769078537322" duration="94000" />
+      <workItem from="1769078537322" duration="414000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -654,7 +651,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769024184824</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="feat: update site branding from &quot;Oumi's Thoughts&quot; to &quot;Oumi's Blog&quot; for consistency and improved SEO">
+      <option name="closed" value="true" />
+      <created>1769078654125</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1769078654125</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -673,7 +678,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Module application and frontend + CI/CD setup" />
     <MESSAGE value="CI/CD name master" />
     <MESSAGE value="Refactor workflows path" />
     <MESSAGE value="Refactor" />
@@ -698,7 +702,8 @@
     <MESSAGE value="feat: add initial layout and styling for the editorial magazine" />
     <MESSAGE value="feat: update URLs in HTML files for deployment and add Nokogiri and REXML gems" />
     <MESSAGE value="feat: add about page and implement language switcher functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: add about page and implement language switcher functionality" />
+    <MESSAGE value="feat: update site branding from &quot;Oumi's Thoughts&quot; to &quot;Oumi's Blog&quot; for consistency and improved SEO" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: update site branding from &quot;Oumi's Thoughts&quot; to &quot;Oumi's Blog&quot; for consistency and improved SEO" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">

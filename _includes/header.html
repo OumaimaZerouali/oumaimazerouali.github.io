@@ -2,24 +2,22 @@
   <div class="wrapper">
     {% assign current_lang = page.lang | default: site.default_lang %}
     {% if current_lang == 'nl' %}
-      {% assign home_url = "/nl/" %}
       {% assign posts_url = "/nl/posts" %}
       {% assign about_url = "/nl/about" %}
     {% else %}
-      {% assign home_url = "/" %}
       {% assign posts_url = "/posts" %}
       {% assign about_url = "/about" %}
     {% endif %}
 
     {% if page.url == "/" or page.url == "/index.html" or page.url == "/nl/" or page.url == "/nl/index.html" %}
       <h1 class="site-title">
-        <a href="{{ home_url | relative_url }}">
+        <a href="{{ '/' | relative_url }}">
           <img src="{{ '/assets/favicon/logo.svg' | relative_url }}" alt="{{ site.title }}" class="site-logo">
           <span class="site-title-text">{{ site.title }}</span>
         </a>
       </h1>
     {% else %}
-      <a class="site-title" href="{{ home_url | relative_url }}">
+      <a class="site-title" href="{{ '/' | relative_url }}">
         <img src="{{ '/assets/favicon/logo.svg' | relative_url }}" alt="{{ site.title }}" class="site-logo">
         <span class="site-title-text">{{ site.title }}</span>
       </a>
@@ -32,7 +30,6 @@
     </button>
 
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
-      <a href="{{ home_url | relative_url }}">Home</a>
       <a href="{{ posts_url | relative_url }}">Posts</a>
       <a href="{{ about_url | relative_url }}">About</a>
 
