@@ -10,6 +10,7 @@ layout: default
   "description": "{{ page.description | default: page.excerpt | strip_html | strip_newlines | truncatewords: 30 }}",
   "author": {
     "@type": "Person",
+    "@id": "{{ site.url }}/#author",
     "name": "{{ site.author.name }}",
     "url": "{{ site.url }}"
   },
