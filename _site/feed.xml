@@ -1,5 +1,349 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-22T23:57:24+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
-</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos</title><link href="http://localhost:4000/nl/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-23T21:59:06+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
+</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">JCast-merch ontwerpen (zonder enige designervaring)</title><link href="http://localhost:4000/nl/2026/01/23/jcast-merch/" rel="alternate" type="text/html" title="JCast-merch ontwerpen (zonder enige designervaring)" /><published>2026-01-23T12:00:00+01:00</published><updated>2026-01-23T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/23/jcast-merch</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/23/jcast-merch/"><![CDATA[<blockquote>
+  <p>“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants</p>
+</blockquote>
+
+<p>Toen we met <a href="https://jcast.dev">JCast</a> begonnen, was het doel simpel: een podcast opnemen, over tech praten en zien waar het zou eindigen.</p>
+
+<p>Onderweg werd het… serieuzer.</p>
+
+<p>We hebben onze apparatuur geüpgraded.<br />
+We bleven consequent opnemen.<br />
+Het enthousiasme was er nog steeds, aflevering na aflevering.</p>
+
+<p>Op een bepaald moment voelde het minder als “een leuk zijproject” en meer als… een echte podcast.</p>
+
+<p>En toen had ik, op een compleet willekeurige dag, een gedachte:</p>
+
+<p><em>Deze podcast heeft merch nodig.</em></p>
+
+<p>Niet voor luisteraars. Niet voor advertenties. Gewoon voor ons.<br />
+Voor Viktor, Maarten en mijzelf. Iets simpels. Iets leuks. Een klein symbool dat zei: “Ja, dit is nu echt.”</p>
+
+<h3 id="van-java-naar-pinterest">Van Java naar Pinterest</h3>
+
+<p>Er was alleen één klein probleem.</p>
+
+<p>Ik had nog nooit in mijn leven iets ontworpen. En al helemaal geen merch.<br />
+Dus deed ik wat elke verantwoordelijke developer doet als hij onbekend terrein betreedt:</p>
+
+<p>Ik opende Pinterest.</p>
+
+<p>Ik scrolde door eindeloze T-shirtontwerpen.<br />
+Podcastlogo’s. Minimalistische typografie. Quotes. Layouts.</p>
+
+<p>Daarna opende ik Canva en begon te spelen met fonts en kleine designexperimenten.</p>
+
+<p>En… niets werkte.</p>
+
+<p>Alles zag er óf:</p>
+
+<ul>
+  <li>Te generiek</li>
+  <li>Te druk</li>
+  <li>Te cringe</li>
+  <li>Of gewoon niet “JCast” uit</li>
+</ul>
+
+<p>Ik had iets in mijn hoofd, maar ik kreeg het niet vertaald naar het scherm.<br />
+Dus deed ik de enige logische volgende stap.</p>
+
+<p>Ik opende Figma.</p>
+
+<h3 id="een-t-shirt-ontwerpen-alsof-het-een-poster-was">Een T-shirt ontwerpen alsof het een poster was</h3>
+
+<p>In plaats van te denken in stof, begon ik te denken in iets dat ik <em>wel</em> kende: layout.<br />
+Ik maakte A4-ontwerpen.<br />
+Alsof ik posters ontwierp, geen T-shirts.</p>
+
+<p>Ik plaatste het logo.<br />
+Speelde met witruimte.<br />
+Probeerde verschillende fontcombinaties.</p>
+
+<p>Langzaam begon er iets vorm te krijgen.</p>
+
+<p>En het verrassende?</p>
+
+<p>Ik vond het geweldig.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 2fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
+  <div>
+    <img src="/assets/img/merch_draft_1.png" alt="Eerste T-shirt ontwerp variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 1: Minimalistisch logo design</p>
+  </div>
+  <div>
+    <img src="/assets/img/full_color.png" alt="De uiteindelijke gedrukte T-shirt met JCast logo" style="max-width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 2: Kleurencombo’s testen</p>
+  </div>
+  <div>
+    <img src="/assets/img/merch_draft_2.png" alt="Tweede T-shirt ontwerp variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 3: Typography focus</p>
+  </div>
+</div>
+
+<p>Dit leek totaal niet op programmeren.</p>
+
+<p>Geen compiler errors.<br />
+Geen stack traces.<br />
+Geen tests die faalden door een ontbrekende puntkomma.</p>
+
+<p>Gewoon puur experimenteren.</p>
+
+<p>Iets een beetje naar links schuiven.<br />
+Een fontgewicht aanpassen.<br />
+De helft verwijderen en opnieuw beginnen.</p>
+
+<p>Het was rustig. Creatief. Bijna therapeutisch.</p>
+
+<h3 id="de-eerste-print">De eerste print</h3>
+
+<p>Uiteindelijk had ik iets waar ik echt blij mee was.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
+  <div style="text-align: center;">
+    <img src="/assets/img/first_variant.svg" alt="Eerste definitieve T-shirt print design" style="max-width: 100%; height: auto;" />
+  </div>
+  <div style="text-align: center;">
+    <img src="/assets/img/second_variant.svg" alt="Tweede definitieve T-shirt print design" style="max-width: 100%; height: auto;" />
+  </div>
+</div>
+
+<p>Dus ik liet er eentje drukken.</p>
+
+<p>Gewoon <em>één</em>.</p>
+
+<p>Ik nam hem mee naar de jongens en liet hem zien. Ze vonden het leuk.</p>
+
+<p>En toen gebeurde er iets onverwachts. Andere collega’s hoorden ervan.</p>
+
+<p>“Wacht… jij hebt JCast-T-shirts gemaakt?”<br />
+“Kan ik er ook eentje krijgen?”<br />
+“Heb je hem ook in een andere kleur?”</p>
+
+<p>Plots werd dit ding, dat alleen voor de drie hosts bedoeld was…<br />
+iets wat andere mensen ook wilden.</p>
+
+<p>We maakten er meer.<br />
+Andere kleuren.<br />
+Andere maten.</p>
+
+<p>En mensen begonnen ze daadwerkelijk te dragen.</p>
+
+<h3 id="het-onverwachte-trotsmoment">Het onverwachte trotsmoment</h3>
+
+<p>Het moment dat me het meest is bijgebleven, is dit:</p>
+
+<p>Iemand zien, die geen deel uitmaakt van de podcast, die een T-shirt draagt met een ontwerp dat <em>ik</em> heb gemaakt.</p>
+
+<p>Niet omdat het moest.<br />
+Niet omdat het merch was.</p>
+
+<p>Maar gewoon… omdat ze het mooi vonden.</p>
+
+<p>Als developers bouwen we vaak dingen die onzichtbaar zijn.<br />
+API’s. Services. Achtergrondsystemen.</p>
+
+<p>Deze keer had ik iets gemaakt dat je letterlijk kunt dragen.</p>
+
+<p>En dat voelde ongelooflijk speciaal.</p>
+
+<p>Dat kleine moment deed me ook even stilstaan bij wat dit project me eigenlijk had geleerd.</p>
+
+<p>Creativiteit, zo bleek, is gewoon een andere vorm van probleemoplossen.<br />
+Weer ergens slecht in zijn is verfrissend.<br />
+Beperkingen — print, kleuren, layout — helpen design, net zoals beperkingen architectuur helpen.</p>
+
+<p>En soms beginnen de meest belonende projecten met een willekeurig idee op een willekeurige dag.</p>
+
+<p><a href="https://jcast.dev">JCast</a> begon als een podcast.<br />
+Onderweg werd het een kleine community.</p>
+
+<p>En blijkbaar… ook een kledingmerk.</p>
+
+<figure style="margin: 3rem 0; text-align: center;">
+  <img src="/assets/img/overview_figma_file.png" alt="Screenshot van mijn Figma werkbestand met verschillende T-shirt ontwerp varianten" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #666;">
+    Een screenshot van mijn Figma-bord aan het einde van het proces — vol ideeën, varianten en half afgemaakte pogingen.
+  </figcaption>
+</figure>
+
+<hr />
+
+<p><em>Benieuwd naar de podcast achter deze T-shirts?</em></p>
+
+<p>Neem gerust een kijkje op <a href="https://jcast.dev">jcast.dev</a> en ontdek <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Designing JCast Merch (Without Any Design Experience)</title><link href="http://localhost:4000/2026/01/23/jcast-merch/" rel="alternate" type="text/html" title="Designing JCast Merch (Without Any Design Experience)" /><published>2026-01-23T12:00:00+01:00</published><updated>2026-01-23T12:00:00+01:00</updated><id>http://localhost:4000/2026/01/23/jcast-merch</id><content type="html" xml:base="http://localhost:4000/2026/01/23/jcast-merch/"><![CDATA[<blockquote>
+  <p>“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants</p>
+</blockquote>
+
+<p>When we started <a href="https://jcast.dev">JCast</a>, the goal was simple: record a podcast, talk about tech, and see where it would end up.</p>
+
+<p>Along the way, it became… more serious.</p>
+
+<p>We upgraded our equipment.
+We kept recording consistently.
+The enthusiasm was still there, episode after episode.</p>
+
+<p>At some point, it started to feel less like “a fun side project” and more like… a real podcast.</p>
+
+<p>And then, on a completely random day, I had a thought:</p>
+
+<p><em>This podcast needs merch.</em></p>
+
+<p>Not for listeners. Not for ads. Just for us.
+For Viktor, Maarten, and myself. Something simple. Something fun. A small symbol that said: “Yes, this is real now.”</p>
+
+<h3 id="from-java-to-pinterest">From Java to Pinterest</h3>
+
+<p>There was only one small problem.</p>
+
+<p>I had never designed anything in my life. Let alone merch.
+So I did what every responsible developer does when entering unknown territory:</p>
+
+<p>I opened Pinterest.</p>
+
+<p>I scrolled through endless T-shirt designs.
+Podcast logos. Minimal typography. Quotes. Layouts.</p>
+
+<p>Then I opened Canva and started playing with fonts and tiny design experiments.</p>
+
+<p>And… nothing worked.</p>
+
+<p>Everything looked either:</p>
+
+<ul>
+  <li>Too generic</li>
+  <li>Too busy</li>
+  <li>Too cringe</li>
+  <li>Or simply not “JCast”</li>
+</ul>
+
+<p>I had something in my head, but I couldn’t translate it onto the screen.
+So I took the only logical next step.</p>
+
+<p>I opened Figma.</p>
+
+<h3 id="designing-a-t-shirt-like-it-was-a-poster">Designing a T-shirt like it was a poster</h3>
+
+<p>Instead of thinking in fabric, I started thinking in something I <em>did</em> know: layout.
+I made A4 designs.
+As if I were designing posters, not T-shirts.</p>
+
+<p>I placed the logo.
+Played with whitespace.
+Tried different font combinations.</p>
+
+<p>Slowly, something started to take shape.</p>
+
+<p>And the surprising part?</p>
+
+<p>I loved it.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 2fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
+  <div>
+    <img src="/assets/img/merch_draft_1.png" alt="First T-shirt design variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 1: Minimal logo design</p>
+  </div>
+  <div>
+    <img src="/assets/img/full_color.png" alt="Final printed JCast T-shirt with logo" style="max-width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 2: Testing color combinations</p>
+  </div>
+  <div>
+    <img src="/assets/img/merch_draft_2.png" alt="Second T-shirt design variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 3: Typography-focused</p>
+  </div>
+</div>
+
+<p>This looked nothing like programming.</p>
+
+<p>No compiler errors.
+No stack traces.
+No tests failing because of a missing semicolon.</p>
+
+<p>Just pure experimentation.</p>
+
+<p>Move something slightly to the left.
+Adjust a font weight.
+Delete half of it and start over.</p>
+
+<p>It was calm. Creative. Almost therapeutic.</p>
+
+<h3 id="the-first-print">The first print</h3>
+
+<p>Eventually, I had something I was genuinely happy with.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
+  <div style="text-align: center;">
+    <img src="/assets/img/first_variant.svg" alt="First final T-shirt print design" style="max-width: 100%; height: auto;" />
+  </div>
+  <div style="text-align: center;">
+    <img src="/assets/img/second_variant.svg" alt="Second final T-shirt print design" style="max-width: 100%; height: auto;" />
+  </div>
+</div>
+
+<p>So I had one printed.</p>
+
+<p>Just <em>one</em>.</p>
+
+<p>I brought it to the guys and showed it to them. They liked it.</p>
+
+<p>And then something unexpected happened. Other colleagues heard about it.</p>
+
+<p>“Wait… you made JCast T-shirts?”
+“Can I get one too?”
+“Do you have it in another color?”</p>
+
+<p>Suddenly, this thing that was only meant for the three hosts…
+became something other people wanted too.</p>
+
+<p>We made more.
+Different colors.
+Different sizes.</p>
+
+<p>And people actually started wearing them.</p>
+
+<h3 id="the-unexpected-proud-moment">The unexpected proud moment</h3>
+
+<p>The moment that stuck with me the most was this:</p>
+
+<p>Seeing someone, who isn’t part of the podcast, wearing a T-shirt with a design <em>I</em> made.</p>
+
+<p>Not because they had to.
+Not because it was merch.</p>
+
+<p>But simply… because they liked it.</p>
+
+<p>As developers, we often build things that are invisible.
+APIs. Services. Backend systems.</p>
+
+<p>This time, I had built something you can literally wear.</p>
+
+<p>And that felt incredibly special.</p>
+
+<p>That small moment also made me reflect on what this project had really taught me.</p>
+
+<p>Creativity, it turns out, is just another form of problem-solving.
+Being bad at something again is refreshing.
+Constraints, print, colors, layout, help design, just like constraints help architecture.</p>
+
+<p>And sometimes, the most rewarding projects start with a random idea on a random day.</p>
+
+<p><a href="https://jcast.dev">JCast</a> started as a podcast.
+Along the way, it became a small community.</p>
+
+<p>And apparently… also a clothing brand.</p>
+
+<figure style="margin: 3rem 0; text-align: center;">
+  <img src="/assets/img/overview_figma_file.png" alt="Screenshot of my Figma workspace with multiple T-shirt design variants" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #666;">
+    A screenshot of my Figma board at the end of the process — full of ideas, variants, and half-finished attempts.
+  </figcaption>
+</figure>
+
+<hr />
+
+<p><em>Curious about the podcast behind these T-shirts?</em></p>
+
+<p>Feel free to visit <a href="https://jcast.dev">jcast.dev</a> and discover <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos</title><link href="http://localhost:4000/nl/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
   <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
 </blockquote>
 
@@ -1869,228 +2213,4 @@ It’s not a quick fix but an investment in the future.</p>
   <li><strong>Document your own code.</strong> Once you’ve understood a small part, write it down. Add comments, update the README. This helps not only your future self but also anyone who works with this code after you.</li>
   <li><strong>Talk about it.</strong> Discuss the project with a colleague or in a community. Sometimes a fresh perspective is all you need. Explain where you’re stuck. The process of articulating your problem can often lead to the solution.</li>
   <li><strong>Give yourself a break.</strong> Sometimes the best approach is to step away entirely. Go for a walk, read a book, or work on a different project. The solution often comes at the most unexpected moments, when your mind isn’t actively working on it.</li>
-</ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Het Seizoen van Afscheid</title><link href="http://localhost:4000/nl/2025/06/24/saying-goodbye/" rel="alternate" type="text/html" title="Het Seizoen van Afscheid" /><published>2025-06-24T11:30:00+02:00</published><updated>2025-06-24T11:30:00+02:00</updated><id>http://localhost:4000/nl/2025/06/24/saying-goodbye</id><content type="html" xml:base="http://localhost:4000/nl/2025/06/24/saying-goodbye/"><![CDATA[<blockquote>
-  <p>“I can’t do this, Patrick!” - SpongeBob SquarePants</p>
-</blockquote>
-
-<blockquote>
-  <p>“That’s okay, SpongeBob. I can’t do it either.” - Patrick Star</p>
-</blockquote>
-
-<p>De laatste tijd voelt het als een seizoen van afscheid.</p>
-
-<p>Afgelopen vrijdag verliet mijn stagebegeleider het bedrijf.<br />
-In de komende weken zal ik afscheid nemen van nog vijf collega’s.<br />
-Mensen die mijn reis hier hebben gevormd, op manieren groot en klein.<br />
-Mensen die met me hebben gelachen, me uitgedaagd, gesteund en in mij geloofd.</p>
-
-<p>En hoewel ze allemaal doorgaan naar iets nieuws, laat elk afscheid een stille pijn achter.<br />
-Niet omdat ik niet blij voor ze ben — <strong>dat ben ik</strong> — maar omdat elk vertrek je laat beseffen hoeveel de mensen om je heen eigenlijk betekenen.</p>
-
-<p>Deze post is niet alleen een afscheid.<br />
-Het is een <strong>dankjewel</strong>.<br />
-Aan mijn mentor, aan mijn collega’s, en aan iedereen die ooit een plek meer dan “gewoon werk” heeft laten voelen.</p>
-
-<h2 id="mentoren-zijn-belangrijker-dan-je-denkt">Mentoren Zijn Belangrijker Dan Je Denkt</h2>
-<p>Ik liep stage bij het toenmalige Ordina.<br />
-We hadden een cloud-gerelateerd stageproject gekozen, ondanks dat we absoluut niets van cloud wisten.<br />
-We struikelden ons een weg door de opdracht, probeerden alles wat we konden bedenken, en worstelden meer dan eens.<br />
-Onze mentor hield onze hand er niet doorheen.<br />
-In plaats daarvan gaf hij precies genoeg: genoeg richting om op het juiste pad te komen, maar nooit zoveel dat we het niet zelf zouden ontdekken.<br />
-Hij liet ruimte om trots te zijn op wat we bouwden.</p>
-
-<p><em>En toen kwam de eindpresentatie.</em></p>
-
-<p>Dit was niet zomaar een show; het telde mee voor onze cijfers en het was voor echte medewerkers.<br />
-Het begon goed.<br />
-Maar ergens onderweg nam de stress het over.<br />
-<em>Ik verstijfde.</em><br />
-<em>Volledig blanco.</em><br />
-<em>Een lange, zware stilte.</em><br />
-En toen, ik haalde diep adem, herpakte mezelf, en zette door.<br />
-Daarna huilde ik.<br />
-Ik was ervan overtuigd dat ik gefaald had. <em>Hij gaat ze vertellen dat ik er nog niet klaar voor ben,</em> dacht ik.<br />
-<em>Dit is het.</em></p>
-
-<p>Maar een paar dagen later kreeg ik een bericht van mijn docent:</p>
-<blockquote>
-  <p>“Ik heb net met je mentors gesproken; ik weet niet wat je deed, maar zij zijn je grootste fans.”</p>
-</blockquote>
-
-<p>Ik kon het niet geloven. En kort daarna kreeg ik een contractaanbieding.</p>
-
-<p>Op zijn laatste dag herinnerde hij me aan dat moment. Hij zei:</p>
-<blockquote>
-  <p>“Het blijft me verbazen; hoe je tijdens die eerste presentatie bijna instortte… en nu presenteert alsof het vanzelfsprekend is.”</p>
-</blockquote>
-
-<p>En dat was het soort mentor dat hij was.<br />
-Hij zag meer in mij dan ik zelf zag.<br />
-Hij geloofde in mijn potentieel toen ik alleen maar mijn fouten zag.<br />
-En dankzij hem begon ik deze hele reis met vertrouwen dat ik nog niet had verdiend, maar hij gaf het me toch.</p>
-
-<p>Daar ben ik altijd dankbaar voor.</p>
-
-<h2 id="impact-is-niet-altijd-zichtbaar-maar-het-is-er">Impact Is Niet Altijd Zichtbaar (Maar Het Is Er)</h2>
-<p>Ik weet niet precies wat voor impact ik heb gehad op de mensen die vertrekken.<br />
-<em>Ik hoop dat ik ze aan het lachen heb gemaakt.</em><br />
-<em>Ik hoop dat ik ze het gevoel gaf gezien, gesteund en gewaardeerd te worden, zoals zij voor mij deden.</em><br />
-Ik hoop dat iets wat ik zei of deed hielp, zelfs maar een beetje.</p>
-
-<p>Maar ik weet wél welke impact zij op mij hebben gehad.</p>
-
-<p>De stille aanmoedigingen.<br />
-Het korte “je kunt dit” vlak voor een presentatie.<br />
-De check-ins die precies op het juiste moment kwamen, ook al wisten ze dat niet zelf.</p>
-
-<p>De momenten die op dat moment klein leken, maar achteraf?<br />
-Het waren goudmomenten.<br />
-Het is makkelijk te onderschatten hoeveel verschil iemand kan maken door gewoon zichzelf te zijn.<br />
-Door gewoon consistent te zijn.</p>
-
-<p>En als ik nadenk over nalatenschap, niet in carrière-termen, maar in <em>menselijke</em> zin:<br />
-dat zijn de mensen die de grootste indruk achterlaten. Niet door wat ze bouwden.<br />
-Maar door hoe ze <em>mensen lieten voelen</em> terwijl ze dat deden.</p>
-
-<h2 id="laat-het-pijn-doen-maar-laat-het-betekenis-hebben">Laat Het Pijn Doen, Maar Laat Het Betekenis Hebben</h2>
-<p>Ik ga niet doen alsof afscheid nemen geen pijn doet, want dat doet het.<br />
-Het doet pijn op stille, onverwachte manieren.<br />
-In de pauze voordat je een bericht stuurt en beseft dat ze er niet meer zijn.<br />
-Bij de laatste zwaai.<br />
-In de lege plek die iemand achterlaat.</p>
-
-<p>Het doet pijn omdat iets ertoe deed.<br />
-Omdat iemand ertoe deed.<br />
-Omdat de tijd die je deelde niet zomaar tijd was, maar vertrouwen, groei, lachen, steun.<br />
-Het was echt.<br />
-Het is verleidelijk om het weg te poetsen, te zeggen <em>het gaat wel</em>, te glimlachen, bezig en afgeleid te blijven.<br />
-Maar deze keer kies ik ervoor dat niet te doen.</p>
-
-<p>Ik laat het een beetje pijn doen.<br />
-Het laten pijn doen is een manier om de waarde van die connectie te erkennen.<br />
-Het is een manier om te zeggen: <em>dit was niet zomaar iemand met wie ik werkte, dit was iemand die ik zo respecteerde.</em></p>
-
-<h2 id="de-mensen-maken-de-plek">De Mensen Maken de Plek</h2>
-<p><em>Banen zijn banen.</em><br />
-<em>Projecten komen en gaan.</em><br />
-Maar de mensen… die maken het tot wat het is.</p>
-
-<p>Het zijn de mensen die echt vragen hoe het met je gaat.<br />
-Die je uitdagen met vriendelijkheid.<br />
-Die juichen bij je successen en naast je zitten bij de verliezen.<br />
-Die werk menselijk maken.</p>
-
-<p>Aan mijn mentor, en aan elke collega van wie ik de komende weken afscheid neem: <strong>Dankjewel</strong>.<br />
-Voor het onderdeel zijn van dit hoofdstuk.<br />
-Voor alles wat je gaf, bewust of onbewust.<br />
-Je verlaat misschien het gebouw, maar je verlaat mijn verhaal niet.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="team-culture" /><summary type="html"><![CDATA[“I can’t do this, Patrick!” - SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/saying-goodbye.png" /><media:content medium="image" url="http://localhost:4000/assets/img/saying-goodbye.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">The Season of Goodbyes</title><link href="http://localhost:4000/2025/06/24/saying-goodbye/" rel="alternate" type="text/html" title="The Season of Goodbyes" /><published>2025-06-24T11:30:00+02:00</published><updated>2025-06-24T11:30:00+02:00</updated><id>http://localhost:4000/2025/06/24/saying-goodbye</id><content type="html" xml:base="http://localhost:4000/2025/06/24/saying-goodbye/"><![CDATA[<blockquote>
-  <p>“I can’t do this, Patrick! That’s okay, SpongeBob. I can’t do it either.”</p>
-</blockquote>
-
-<p>Lately, it feels like a season of goodbyes.</p>
-
-<p>Last Friday, my internship mentor left the company. 
-In the coming weeks, I’ll be saying goodbye to five more colleagues. 
-People who’ve shaped my journey here in ways both big and small. 
-People who’ve laughed with me, challenged me, supported me, and believed in me.</p>
-
-<p>And while they’re each moving on to new things, each goodbye leaves a quiet ache. 
-Not because I’m not happy for them, <strong>I am</strong>, but because every departure makes you realize just how much the people around you matter.</p>
-
-<p>This post isn’t just a goodbye. 
-It’s a thank you. 
-To my mentor, to my colleagues, and to anyone who’s ever made a place feel like more than just a job.</p>
-
-<h2 id="mentors-matter-more-than-you-think">Mentors Matter More Than You Think</h2>
-<p>I did my internship at what was then called Ordina. 
-We had picked a cloud-related internship project, despite knowing absolutely nothing about the cloud. 
-We fumbled our way through, tried everything we could think of, and struggled more than once. 
-Our mentor didn’t hold our hands through it. 
-Instead, he gave us just enough: enough guidance to set us in the right direction, but never so much that we wouldn’t discover it ourselves. 
-He left room for us to feel proud of what we were building.</p>
-
-<p><em>Then came the final presentation.</em></p>
-
-<p>This wasn’t just for show, it counted toward our grades, and it was in front of real employees. 
-It started well. 
-But somewhere along the way, stress took over.
-<em>I froze.</em>
-<em>Complete blank.</em>
-<em>A long, heavy silence.</em>
-And then, I gathered myself, took a breath, and pushed through. 
-Afterwards, I cried. 
-I was convinced I had failed. <em>He’s going to tell them I’m not ready,</em> I thought. 
-<em>This is it.</em></p>
-
-<p>But a few days later, I got a message from my teacher:</p>
-<blockquote>
-  <p>“Just spoke with your mentors; I don’t know what you did, but they’re your biggest fans.”</p>
-</blockquote>
-
-<p>I couldn’t believe it. And shortly after, I had a contract offer.</p>
-
-<p>On his last day, he reminded me of that moment. He said:</p>
-<blockquote>
-  <p>“It still amazes me; how you went from nearly collapsing during that first presentation… to presenting like it’s second nature now.”</p>
-</blockquote>
-
-<p>And that’s the kind of mentor he was. 
-He saw more in me than I saw in myself. 
-He believed in my potential when all I could see were my mistakes. 
-And because of him, I started this whole journey with confidence I hadn’t yet earned, but he gave it to me anyway.</p>
-
-<p>And for that, I’ll always be grateful.</p>
-
-<h2 id="impact-isnt-always-visible-but-its-there">Impact Isn’t Always Visible (But It’s There)</h2>
-<p>I don’t know what impact I’ve had on the people who are leaving.
-<em>I hope I made them laugh.</em>
-<em>I hope I made them feel seen, supported, and appreciated in the way they did for me.</em>
-I hope something I said or did helped, even if just a little.</p>
-
-<p>But I <em>do</em> know the impact they’ve had on me.</p>
-
-<p>The quiet encouragements.
-The quick “you’ve got this” before a talk.
-The check-ins that came at <em>exactly</em> the right time, even if they didn’t know it.</p>
-
-<p>The moments that felt small at the moment, but looking back? 
-They were gold. 
-It’s easy to underestimate how much of a difference someone can make just by showing up as themselves. 
-Just by being consistent.</p>
-
-<p>And when I think about legacy, not in the career sense, but the <em>human</em> sense
-those are the people who left the biggest marks. Not because of what they built. 
-But because of how they <em>made people feel</em> while they were building it.</p>
-
-<h2 id="let-it-hurt-but-let-it-mean-something">Let It Hurt, But Let It Mean Something</h2>
-<p>I won’t pretend that goodbyes don’t hurt, because they do.
-They hurt in quiet, unexpected ways. 
-In the pause before you send a message and realize they’re no longer there. 
-In the final wave. 
-In the space someone used to fill.</p>
-
-<p>They hurt because something mattered. 
-Because someone mattered. 
-Because the time you shared wasn’t just time, it was trust, growth, laughter, support. 
-It was real. 
-It’s tempting to brush it off, to say <em>I’m fine</em>, to smile through it, to stay busy and distracted. 
-But this time, I’m choosing not to.</p>
-
-<p>I’m letting it hurt, just a little.
-Letting it hurt is a way of recognizing the value of that connection. 
-It’s a way of saying: <em>this wasn’t just someone I worked with, this was someone who I respected so much.</em></p>
-
-<h2 id="the-people-make-the-place">The People Make the Place</h2>
-<p><em>Jobs are jobs.</em>
-<em>Projects come and go.</em>
-But the people, they make it what it is.</p>
-
-<p>It’s the ones who ask how you’re really doing. 
-The ones who challenge you with kindness. 
-Who cheer for your wins and sit with you in the losses. 
-Who make work feel human.</p>
-
-<p>To my mentor, and to every colleague I’ll be saying goodbye to in the next few weeks: <strong>Thank you</strong>. 
-For being part of this chapter. 
-For everything you gave, knowingly or not. 
-You may be leaving the building, but you’re not leaving my story.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="team-culture" /><summary type="html"><![CDATA[“I can’t do this, Patrick! That’s okay, SpongeBob. I can’t do it either.”]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/saying-goodbye.png" /><media:content medium="image" url="http://localhost:4000/assets/img/saying-goodbye.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+</ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
