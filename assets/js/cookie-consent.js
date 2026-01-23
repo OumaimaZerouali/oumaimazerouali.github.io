@@ -32,7 +32,6 @@
     }
   }
 
-  // Show cookie banner
   function showBanner() {
     const banner = document.getElementById('cookie-banner');
     if (banner) {
@@ -41,7 +40,6 @@
     }
   }
 
-  // Hide cookie banner
   function hideBanner() {
     const banner = document.getElementById('cookie-banner');
     if (banner) {
@@ -50,52 +48,42 @@
     }
   }
 
-  // Handle accept
   function handleAccept() {
     setConsent(CONSENT_ACCEPTED);
     hideBanner();
     loadAnalytics();
 
-    // Announce to screen readers
     const announcer = document.getElementById('live-announcer');
     if (announcer) {
       announcer.textContent = 'Cookie preferences saved. Analytics enabled.';
     }
   }
 
-  // Handle decline
   function handleDecline() {
     setConsent(CONSENT_DECLINED);
     hideBanner();
 
-    // Announce to screen readers
     const announcer = document.getElementById('live-announcer');
     if (announcer) {
       announcer.textContent = 'Cookie preferences saved. Analytics disabled.';
     }
   }
 
-  // Reset consent (for settings link)
   window.resetCookieConsent = function() {
     localStorage.removeItem(CONSENT_KEY);
     showBanner();
   };
 
-  // Initialize on DOM load
   document.addEventListener('DOMContentLoaded', function() {
     const consent = getConsent();
 
     if (consent === CONSENT_ACCEPTED) {
-      // User previously accepted, load analytics
       loadAnalytics();
     } else if (consent === CONSENT_DECLINED) {
-      // User previously declined, do nothing
     } else {
-      // No consent recorded, show banner
       showBanner();
     }
 
-    // Attach event listeners
     const acceptBtn = document.getElementById('cookie-accept');
     const declineBtn = document.getElementById('cookie-decline');
     const settingsLink = document.getElementById('cookie-settings-link');
@@ -115,3 +103,4 @@
     }
   });
 })();
+
