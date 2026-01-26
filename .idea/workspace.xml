@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new post on software craftsmanship, update related posts and sitemap, and introduce agent instruction files">
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="chore: remove unnecessary separator in craftsmanship post and update workspace metadata">
+      <change afterPath="$PROJECT_DIR$/.github/instructions/jsonld.agent.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/2026-01-26-craftsmanship.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2026-01-26-craftsmanship.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,40 +154,6 @@
     <configuration name="Angular Application (frontend)" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="oumaimazerouali.github.io" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="oumaimazerouali.github.io" />
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="oumaimazerouali.github.io" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="application" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="oumaimazerouali.Application" />
@@ -200,19 +166,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="oumaimazerouali.github.io" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="RUN_TOOL" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="Angular CLI Server (frontend)" type="js.build_tools.npm">
       <package-json value="$PROJECT_DIR$/frontend/package.json" />
@@ -351,7 +304,8 @@
       <workItem from="1769201169463" duration="1052000" />
       <workItem from="1769286602350" duration="573000" />
       <workItem from="1769436076693" duration="711000" />
-      <workItem from="1769436924763" duration="10000" />
+      <workItem from="1769436924763" duration="346000" />
+      <workItem from="1769439591176" duration="1125000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -681,7 +635,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769436790346</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="chore: remove unnecessary separator in craftsmanship post and update workspace metadata">
+      <option name="closed" value="true" />
+      <created>1769436940882</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1769436940882</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -700,7 +662,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Java version changed" />
     <MESSAGE value="Setup openapi" />
     <MESSAGE value="Start of project: navigation + music component" />
     <MESSAGE value="Did some things: can't remember" />
@@ -725,7 +686,8 @@
     <MESSAGE value="feat: Add new post about designing JCast merch and update related content" />
     <MESSAGE value="fix: Update alumni organization in structured data for improved accuracy" />
     <MESSAGE value="feat: Add new post on software craftsmanship, update related posts and sitemap, and introduce agent instruction files" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new post on software craftsmanship, update related posts and sitemap, and introduce agent instruction files" />
+    <MESSAGE value="chore: remove unnecessary separator in craftsmanship post and update workspace metadata" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: remove unnecessary separator in craftsmanship post and update workspace metadata" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">

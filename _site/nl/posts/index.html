@@ -110,7 +110,42 @@
 </header>
 <main id="main-content">
     <div class="wrapper">
-        
+        <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "http://localhost:4000/#person",
+      "name": "Oumaima Zerouali",
+      "url": "http://localhost:4000"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://localhost:4000/#website",
+      "url": "http://localhost:4000",
+      "name": "Oumi's Blog",
+      "publisher": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "http://localhost:4000/nl/posts/#webpage",
+      "url": "http://localhost:4000/nl/posts/",
+      "name": "Posts",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "http://localhost:4000/#website"
+      },
+      "inLanguage": "nl"
+    }
+  ]
+}
+</script>
+
+
 
 <section class="posts-page">
   <header class="posts-header">
@@ -186,7 +221,7 @@
 
         
 
-        <article class="post-card post-card--wide" data-tags="jcast,merch,design,figma,canva,podcast">
+        <article class="post-card post-card--wide" data-tags="jcast,merch,design,figma,canva,podcast" onclick="window.location.href='/nl/2026/01/23/jcast-merch/'" style="cursor: pointer;">
 
           
 
@@ -202,13 +237,11 @@
               
               
                 
-                <div class="post-card-excerpt"><blockquote>
-  <p>“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants</p>
-</div>
+                <p class="post-card-excerpt"><em>“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants</em></p>
 
                 
                 
-                <p class="post-card-excerpt">Toen we met JCast begonnen, was het doel simpel: een podcast opnemen, over tech praten en zien waar het zou eindigen. Onderweg werd het… serieuzer. We hebben onze apparatuur geüpgraded. We bleven consequent opnemen. Het enthousiasme was er nog steeds, aflevering na aflevering. Op een bepaald moment voelde het minder als “een leuk zijproject” en meer als… een echte podcast. En toen had ik, op een compleet willekeurige dag, een gedachte: Deze podcast heeft merch nodig. Niet voor luisteraars. Niet...</p>
+                <p class="post-card-excerpt">Toen we met JCast begonnen, was het doel simpel: een podcast opnemen, over tech praten en zien waar het zou eindigen. Onderweg werd het… serieuzer....</p>
 
               
 
@@ -243,7 +276,7 @@
 
         
 
-        <article class="post-card " data-tags="java,spring,migration,openrewrite,softwaredevelopment">
+        <article class="post-card " data-tags="java,spring,migration,openrewrite,softwaredevelopment" onclick="window.location.href='/nl/2026/01/22/migration-to-java-25/'" style="cursor: pointer;">
 
           
 
@@ -290,7 +323,7 @@
 
         
 
-        <article class="post-card post-card--tall" data-tags="java,spring-boot,testing,docker">
+        <article class="post-card post-card--tall" data-tags="java,spring-boot,testing,docker" onclick="window.location.href='/nl/2025/10/05/testcontainers/'" style="cursor: pointer;">
 
           
 
@@ -306,13 +339,11 @@
               
               
                 
-                <div class="post-card-excerpt"><blockquote>
-  <p>“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me</p>
-</div>
+                <p class="post-card-excerpt"><em>“Testcontainers is like having SpongeBob at the helm of your CI: cheerful, reliable, and somehow turning chaos into perfection.” - Me</em></p>
 
                 
                 
-                <p class="post-card-excerpt">Als junior developer ben ik constant nieuwe tools en werkwijzen aan het leren. Een les van mijn senioren die echt bij me bleef hangen was deze: mocking brengt je maar tot een bepaald punt. Op een gegeven moment moet je testen tegen het echte werk: een echte database, een echte message broker, een echte service. Toen ontdekte ik Testcontainers, en het veranderde volledig hoe ik integratietests schrijf in Java en Spring Boot. Na ermee te hebben geëxperimenteerd en mijn bevindingen...</p>
+                <p class="post-card-excerpt">Als junior developer ben ik constant nieuwe tools en werkwijzen aan het leren. Een les van mijn senioren die echt bij me bleef hangen was...</p>
 
               
 
@@ -347,7 +378,7 @@
 
         
 
-        <article class="post-card " data-tags="java,best-practices,architecture">
+        <article class="post-card " data-tags="java,best-practices,architecture" onclick="window.location.href='/nl/2025/08/05/exceptions-should-be-exceptional/'" style="cursor: pointer;">
 
           
 
@@ -394,7 +425,7 @@
 
         
 
-        <article class="post-card " data-tags="personal,career,productivity">
+        <article class="post-card " data-tags="personal,career,productivity" onclick="window.location.href='/nl/2025/08/01/error-404-motiviation-not-found/'" style="cursor: pointer;">
 
           
 
@@ -441,7 +472,7 @@
 
         
 
-        <article class="post-card " data-tags="personal,career,team-culture">
+        <article class="post-card " data-tags="personal,career,team-culture" onclick="window.location.href='/nl/2025/06/24/saying-goodbye/'" style="cursor: pointer;">
 
           
 

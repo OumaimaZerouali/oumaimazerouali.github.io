@@ -115,38 +115,59 @@
         <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "Oumi's Blog",
-  "url": "http://localhost:4000",
-  "description": "Thoughtful reflections on software development, written by a developer for developers.",
-  "publisher": {
-    "@type": "Person",
-    "name": "Oumaima Zerouali",
-    "url": "http://localhost:4000"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Oumaima Zerouali",
-  "url": "http://localhost:4000",
-  "image": "http://localhost:4000/assets/favicon/logo.svg",
-  "jobTitle": "Software Developer",
-  "sameAs": [
-    "https://github.com/OumaimaZerouali",
-    "https://www.linkedin.com/in/oumaima-zerouali-16b189223",
-    "https://www.instagram.com/_oumietje_",
-    "https://jcast.dev"
-  ],
-  "affiliation": {
-    "@type": "Organization",
-    "@id": "https://jcast.dev/#org",
-    "name": "JCast",
-    "url": "https://jcast.dev"
-  }
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "http://localhost:4000/#person",
+      "name": "Oumaima Zerouali",
+      "url": "http://localhost:4000",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "http://localhost:4000/#logo",
+        "url": "http://localhost:4000/assets/favicon/logo.svg"
+      },
+      "jobTitle": "Software Developer",
+      "sameAs": [
+        "https://github.com/OumaimaZerouali",
+        "https://www.linkedin.com/in/oumaima-zerouali-16b189223",
+        "https://www.instagram.com/_oumietje_",
+        "https://jcast.dev"
+      ],
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://jcast.dev/#org",
+        "name": "JCast",
+        "url": "https://jcast.dev"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://localhost:4000/#website",
+      "url": "http://localhost:4000",
+      "name": "Oumi's Blog",
+      "description": "Thoughtful reflections on software development, written by a developer for developers.",
+      "publisher": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      },
+      "inLanguage": "nl"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "http://localhost:4000/nl/#webpage",
+      "url": "http://localhost:4000/nl/",
+      "name": "Hoi, ik ben Oumaima",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "http://localhost:4000/#website"
+      },
+      "about": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      },
+      "inLanguage": "nl"
+    }
+  ]
 }
 </script>
 

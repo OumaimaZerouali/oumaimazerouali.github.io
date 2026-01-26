@@ -120,33 +120,70 @@
         <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "The Season of Goodbyes",
-  "description": "  “I can’t do this, Patrick! That’s okay, SpongeBob. I can’t do it either.”",
-  "author": {
-    "@type": "Person",
-    "@id": "http://localhost:4000/#author",
-    "name": "Oumaima Zerouali",
-    "url": "http://localhost:4000"
-  },
-  "datePublished": "2025-06-24T11:30:00+02:00",
-  "dateModified": "2025-06-24T11:30:00+02:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://localhost:4000/2025/06/24/saying-goodbye/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Oumi's Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://localhost:4000/assets/favicon/logo.svg"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "http://localhost:4000/#person",
+      "name": "Oumaima Zerouali",
+      "url": "http://localhost:4000",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "http://localhost:4000/#logo",
+        "url": "http://localhost:4000/assets/favicon/logo.svg"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://localhost:4000/#website",
+      "url": "http://localhost:4000",
+      "name": "Oumi's Blog",
+      "publisher": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "http://localhost:4000/2025/06/24/saying-goodbye/#webpage",
+      "url": "http://localhost:4000/2025/06/24/saying-goodbye/",
+      "name": "The Season of Goodbyes",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "http://localhost:4000/#website"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "http://localhost:4000/assets/img/saying-goodbye.png"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "http://localhost:4000/2025/06/24/saying-goodbye/#article",
+      "headline": "The Season of Goodbyes",
+      "description": "  “I can’t do this, Patrick! That’s okay, SpongeBob. I can’t do it either.”",
+      "author": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      },
+      "datePublished": "2025-06-24T11:30:00+02:00",
+      "dateModified": "2025-06-24T11:30:00+02:00",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2025/06/24/saying-goodbye/#webpage"
+      },
+      "url": "http://localhost:4000/2025/06/24/saying-goodbye/",
+      "inLanguage": "en",
+      "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:4000/assets/img/saying-goodbye.png"
+      }
     }
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "http://localhost:4000/assets/img/saying-goodbye.png"
-  }
+  ]
 }
 </script>
 

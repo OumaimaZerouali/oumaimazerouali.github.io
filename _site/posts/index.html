@@ -110,7 +110,42 @@
 </header>
 <main id="main-content">
     <div class="wrapper">
-        
+        <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "http://localhost:4000/#person",
+      "name": "Oumaima Zerouali",
+      "url": "http://localhost:4000"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://localhost:4000/#website",
+      "url": "http://localhost:4000",
+      "name": "Oumi's Blog",
+      "publisher": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "http://localhost:4000/posts/#webpage",
+      "url": "http://localhost:4000/posts/",
+      "name": "Posts",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "http://localhost:4000/#website"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
+</script>
+
+
 
 <section class="posts-page">
   <header class="posts-header">
@@ -216,7 +251,7 @@
 
         
 
-        <article class="post-card post-card--wide" data-tags="craftsmanship,training,learning,developer,growth">
+        <article class="post-card post-card--wide" data-tags="craftsmanship,training,learning,developer,growth" onclick="window.location.href='/2026/01/26/craftsmanship/'" style="cursor: pointer;">
 
           
 
@@ -232,23 +267,11 @@
               
               
                 
-                <div class="post-card-excerpt"><p>Three years ago, on my very first weeks as a developer, I sat in a room listening to Maarten and Bjorn talk about software craftsmanship.</p>
-
-<p>Clean Code. SOLID. TDD. Feedback loops. Katas. Ethics. Professionalism.</p>
-
-<p>It sounded impressive. It also sounded like… noise.</p>
-
-<p>I had just left school. I had barely written tests. I was still proud when my code simply compiled. And here someone was explaining how software development was an <em>ethical profession</em> and why naming was one of the hardest problems in computer science.</p>
-
-<p>I remember leaving that training thinking:</p>
-
-<blockquote>
-  <p>“This is interesting… but I honestly have no idea what just happened.”</p>
-</div>
+                <p class="post-card-excerpt"><em>“This is interesting… but I honestly have no idea what just happened.”</em></p>
 
                 
                 
-                <p class="post-card-excerpt">A lot went over my head. And if I’m being completely honest, part of that training didn’t just go over my head, it completely overwhelmed me. We were doing strict mob programming. For the first time in my life, I had to program in front of a group of experienced developers, with all the attention on me. My hands were shaking, my mind went blank, and I was no longer thinking about design or clean code. I was thinking: What...</p>
+                <p class="post-card-excerpt">A lot went over my head. And if I’m being completely honest, part of that training didn’t just go over my head, it completely overwhelmed...</p>
 
               
 
@@ -283,7 +306,7 @@
 
         
 
-        <article class="post-card " data-tags="jcast,merch,design,figma,canva,podcast">
+        <article class="post-card " data-tags="jcast,merch,design,figma,canva,podcast" onclick="window.location.href='/2026/01/23/jcast-merch/'" style="cursor: pointer;">
 
           
 
@@ -330,7 +353,7 @@
 
         
 
-        <article class="post-card post-card--tall" data-tags="java,spring,migration,openrewrite,softwaredevelopment">
+        <article class="post-card post-card--tall" data-tags="java,spring,migration,openrewrite,softwaredevelopment" onclick="window.location.href='/2026/01/22/migration-to-java-25/'" style="cursor: pointer;">
 
           
 
@@ -346,13 +369,11 @@
               
               
                 
-                <div class="post-card-excerpt"><blockquote>
-  <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
-</div>
+                <p class="post-card-excerpt"><em>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</em></p>
 
                 
                 
-                <p class="post-card-excerpt">Everyone always says that upgrading Spring is easy, right? Just run OpenRewrite, fix a few small things, and you’re done. Well… let me tell you about our migration from Java 17/21 to Java 25 and from Spring Boot 3 to 4.0.1. For a single service it now takes at most an hour to fix everything. Not too bad. But I’ve already done this migration a few times for clients. And I keep running into the same problems, over and over...</p>
+                <p class="post-card-excerpt">Everyone always says that upgrading Spring is easy, right? Just run OpenRewrite, fix a few small things, and you’re done. Well… let me tell you...</p>
 
               
 
@@ -387,7 +408,7 @@
 
         
 
-        <article class="post-card " data-tags="java,spring-boot,testing,docker">
+        <article class="post-card " data-tags="java,spring-boot,testing,docker" onclick="window.location.href='/2025/10/05/testcontainers/'" style="cursor: pointer;">
 
           
 
@@ -434,7 +455,7 @@
 
         
 
-        <article class="post-card post-card--featured-grid" data-tags="java,best-practices,architecture">
+        <article class="post-card post-card--featured-grid" data-tags="java,best-practices,architecture" onclick="window.location.href='/2025/08/05/exceptions-should-be-exceptional/'" style="cursor: pointer;">
 
           
             <div class="post-card-image">
@@ -454,13 +475,11 @@
               
               
                 
-                <div class="post-card-excerpt"><blockquote>
-  <p>“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants</p>
-</div>
+                <p class="post-card-excerpt"><em>“You don’t need a license to drive a sandwich.” — SpongeBob SquarePants</em></p>
 
                 
                 
-                <p class="post-card-excerpt">As developers, we’re told to handle errors. But how we handle them really affects the way our code works. A common mistake, especially in Java, is using exceptions to manage normal, expected stuff. It’s like using your car’s emergency brake every time you hit a red light. It kinda works… until it doesn’t. Eventually, your code slows down, gets messy, and people avoid touching it like it’s cursed. And hey, I’ve done it too. Throwing an exception is easy. It...</p>
+                <p class="post-card-excerpt">As developers, we’re told to handle errors. But how we handle them really affects the way our code works. A common mistake, especially in Java,...</p>
 
               
 
@@ -495,7 +514,7 @@
 
         
 
-        <article class="post-card " data-tags="personal,career,productivity">
+        <article class="post-card " data-tags="personal,career,productivity" onclick="window.location.href='/2025/08/01/error-404-motiviation-not-found/'" style="cursor: pointer;">
 
           
 
@@ -542,7 +561,7 @@
 
         
 
-        <article class="post-card " data-tags="personal,career,team-culture">
+        <article class="post-card " data-tags="personal,career,team-culture" onclick="window.location.href='/2025/06/24/saying-goodbye/'" style="cursor: pointer;">
 
           
 
@@ -587,7 +606,7 @@
 
         
 
-        <article class="post-card post-card--wide" data-tags="personal,career,work-life-balance">
+        <article class="post-card post-card--wide" data-tags="personal,career,work-life-balance" onclick="window.location.href='/2025/05/19/saying-no-to-say-yes-to-yourself/'" style="cursor: pointer;">
 
           
 
@@ -603,13 +622,11 @@
               
               
                 
-                <div class="post-card-excerpt"><blockquote>
-  <p>“I can’t do this… but I’m doing it anyway.” — SpongeBob SquarePants</p>
-</div>
+                <p class="post-card-excerpt"><em>“I can’t do this… but I’m doing it anyway.” — SpongeBob SquarePants</em></p>
 
                 
                 
-                <p class="post-card-excerpt">Today, I made a decision I didn’t expect to make: I stepped down from being co-lead of a community I loved at work. It wasn’t easy. In fact, it was one of the harder choices I’ve made in a while. Because I care. I care deeply about building communities, creating spaces for learning and connection, and saying yes to things that energize me. But this time, saying yes had started to take something away. Here’s what I shared with the...</p>
+                <p class="post-card-excerpt">Today, I made a decision I didn’t expect to make: I stepped down from being co-lead of a community I loved at work. It wasn’t...</p>
 
               
 
@@ -642,7 +659,7 @@
 
         
 
-        <article class="post-card " data-tags="philosophy,programming-paradigms,learning">
+        <article class="post-card " data-tags="philosophy,programming-paradigms,learning" onclick="window.location.href='/2025/05/18/what-if-your-code-had-a-personality/'" style="cursor: pointer;">
 
           
 
@@ -687,7 +704,7 @@
 
         
 
-        <article class="post-card post-card--tall" data-tags="career,community,personal">
+        <article class="post-card post-card--tall" data-tags="career,community,personal" onclick="window.location.href='/2025/05/08/jcast/'" style="cursor: pointer;">
 
           
 
@@ -703,13 +720,11 @@
               
               
                 
-                <div class="post-card-excerpt"><blockquote>
-  <p>“It started with three developers and a microphone.”</p>
-</div>
+                <p class="post-card-excerpt"><em>“It started with three developers and a microphone.”</em></p>
 
                 
                 
-                <p class="post-card-excerpt">If there’s one thing we love as devs—besides solving problems and shipping code—it’s talking about the journey. The highs, the bugs, the coffee-fueled nights. That’s exactly why we started JCast. JCast is a Dutch-language podcast hosted by me and two awesome colleagues, Viktor and Maarten. We’re developers with different experiences, opinions, and code habits, but we share one thing: a passion for talking tech in a way that’s real. No buzzword bingo. No sales talk. Just devs chatting about the...</p>
+                <p class="post-card-excerpt">If there’s one thing we love as devs—besides solving problems and shipping code—it’s talking about the journey. The highs, the bugs, the coffee-fueled nights. That’s...</p>
 
               
 
@@ -742,7 +757,7 @@
 
         
 
-        <article class="post-card " data-tags="angular,openapi,frontend">
+        <article class="post-card " data-tags="angular,openapi,frontend" onclick="window.location.href='/2025/04/08/openapi-angular/'" style="cursor: pointer;">
 
           
 
@@ -787,7 +802,7 @@
 
         
 
-        <article class="post-card post-card--featured-grid" data-tags="career,personal,learning">
+        <article class="post-card post-card--featured-grid" data-tags="career,personal,learning" onclick="window.location.href='/2025/04/05/i-dont-know-everything/'" style="cursor: pointer;">
 
           
             <div class="post-card-image">
@@ -807,13 +822,11 @@
               
               
                 
-                <div class="post-card-excerpt"><blockquote>
-  <p>“The inner machinations of my mind are an enigma.” - Patrick Star</p>
-</div>
+                <p class="post-card-excerpt"><em>“The inner machinations of my mind are an enigma.” - Patrick Star</em></p>
 
                 
                 
-                <p class="post-card-excerpt">Sometimes, I feel like I don’t know anything. Like I’m trying to wrap my head around GraalVM native images in Quarkus, and I’m just nodding, hoping no one asks me to explain how to optimize build times. Look, let’s be real – the world of Java development is insane. There are always new frameworks and technologies to learn, and now with things like serverless and native image compilation, it’s getting even more complicated. And honestly? That used to freak me...</p>
+                <p class="post-card-excerpt">Sometimes, I feel like I don’t know anything. Like I’m trying to wrap my head around GraalVM native images in Quarkus, and I’m just nodding,...</p>
 
               
 
@@ -846,7 +859,7 @@
 
         
 
-        <article class="post-card " data-tags="career,community,personal">
+        <article class="post-card " data-tags="career,community,personal" onclick="window.location.href='/2025/04/04/my-first-kubecon/'" style="cursor: pointer;">
 
           
 
@@ -891,7 +904,7 @@
 
         
 
-        <article class="post-card " data-tags="java,kubernetes,cloud-native">
+        <article class="post-card " data-tags="java,kubernetes,cloud-native" onclick="window.location.href='/2025/04/02/java-and-kubernetes/'" style="cursor: pointer;">
 
           
 
@@ -936,7 +949,7 @@
 
         
 
-        <article class="post-card post-card--wide" data-tags="best-practices,clean-code,philosophy">
+        <article class="post-card post-card--wide" data-tags="best-practices,clean-code,philosophy" onclick="window.location.href='/2025/03/10/what-if-we-wrote-code-like-poetry/'" style="cursor: pointer;">
 
           
 
@@ -952,13 +965,11 @@
               
               
                 
-                <div class="post-card-excerpt"><blockquote>
-  <p>“Ravioli, ravioli, give me the formuoli!” - Spongebob SquarePants</p>
-</div>
+                <p class="post-card-excerpt"><em>“Ravioli, ravioli, give me the formuoli!” - Spongebob SquarePants</em></p>
 
                 
                 
-                <p class="post-card-excerpt">We often hear terms like “clean code,” “elegant solutions,” and “beautiful architecture” thrown around in software development. But what if we took those concepts a step further? What if we started approaching our craft, software engineering, with the same artistry, intention, and mindful attention to detail that poets bring to their verses? I’m not suggesting we start writing code that looks like a sonnet, but rather, what if we embraced poetic principles in our coding process? As a Java and...</p>
+                <p class="post-card-excerpt">We often hear terms like “clean code,” “elegant solutions,” and “beautiful architecture” thrown around in software development. But what if we took those concepts a...</p>
 
               
 
@@ -991,7 +1002,7 @@
 
         
 
-        <article class="post-card " data-tags="personal,career,team-culture">
+        <article class="post-card " data-tags="personal,career,team-culture" onclick="window.location.href='/2025/03/01/ramadan-and-work/'" style="cursor: pointer;">
 
           
 
@@ -1036,7 +1047,7 @@
 
         
 
-        <article class="post-card post-card--tall" data-tags="career,best-practices,personal">
+        <article class="post-card post-card--tall" data-tags="career,best-practices,personal" onclick="window.location.href='/2025/02/12/spongebob-and-software/'" style="cursor: pointer;">
 
           
 
@@ -1052,13 +1063,11 @@
               
               
                 
-                <div class="post-card-excerpt"><blockquote>
-  <p>I’m ready! I’m ready! I’m ready! - Spongebob SquarePants (and me, every Monday morning… after lots of coffee)</p>
-</div>
+                <p class="post-card-excerpt"><em>I’m ready! I’m ready! I’m ready! - Spongebob SquarePants (and me, every Monday morning… after lots of coffee)</em></p>
 
                 
                 
-                <p class="post-card-excerpt">Okay, maybe not every Monday. There was this one time when I spent two hours trying to figure out why my Java application was throwing a NullPointerException. It turned out that I had forgotten to initialise a crucial object. Facepalm. It was a classic ‘Where’s the remote control’ moment - the solution was so obvious, it was almost invisible. Then it dawned on me: Spongebob Squarepants, the absorbing, yellow resident of Bikini Bottom, can teach us a lot about software...</p>
+                <p class="post-card-excerpt">Okay, maybe not every Monday. There was this one time when I spent two hours trying to figure out why my Java application was throwing...</p>
 
               
 
@@ -1091,7 +1100,7 @@
 
         
 
-        <article class="post-card " data-tags="java,spring-boot,quarkus">
+        <article class="post-card " data-tags="java,spring-boot,quarkus" onclick="window.location.href='/2025/02/09/springboot-vs-quarkus/'" style="cursor: pointer;">
 
           
 
@@ -1136,7 +1145,7 @@
 
         
 
-        <article class="post-card " data-tags="career,personal,learning">
+        <article class="post-card " data-tags="career,personal,learning" onclick="window.location.href='/2025/02/06/i-love-my-job/'" style="cursor: pointer;">
 
           
 
@@ -1181,7 +1190,7 @@
 
         
 
-        <article class="post-card " data-tags="career,community,personal">
+        <article class="post-card " data-tags="career,community,personal" onclick="window.location.href='/2025/01/14/journey-as-a-junior/'" style="cursor: pointer;">
 
           
 

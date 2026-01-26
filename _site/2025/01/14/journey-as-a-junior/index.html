@@ -120,33 +120,70 @@
         <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "headline": "The Journey of a Junior Developer: Bridging the Gap Between Theory and Practice",
-  "description": "  “I’m ready! I’m ready! I’m ready!” – SpongeBob SquarePants",
-  "author": {
-    "@type": "Person",
-    "@id": "http://localhost:4000/#author",
-    "name": "Oumaima Zerouali",
-    "url": "http://localhost:4000"
-  },
-  "datePublished": "2025-01-14T20:54:30+01:00",
-  "dateModified": "2025-01-14T20:54:30+01:00",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "http://localhost:4000/2025/01/14/journey-as-a-junior/"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Oumi's Blog",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "http://localhost:4000/assets/favicon/logo.svg"
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "http://localhost:4000/#person",
+      "name": "Oumaima Zerouali",
+      "url": "http://localhost:4000",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "http://localhost:4000/#logo",
+        "url": "http://localhost:4000/assets/favicon/logo.svg"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://localhost:4000/#website",
+      "url": "http://localhost:4000",
+      "name": "Oumi's Blog",
+      "publisher": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "http://localhost:4000/2025/01/14/journey-as-a-junior/#webpage",
+      "url": "http://localhost:4000/2025/01/14/journey-as-a-junior/",
+      "name": "The Journey of a Junior Developer: Bridging the Gap Between Theory and Practice",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "http://localhost:4000/#website"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "http://localhost:4000/assets/img/spongebob-image.jpeg"
+      },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "http://localhost:4000/2025/01/14/journey-as-a-junior/#article",
+      "headline": "The Journey of a Junior Developer: Bridging the Gap Between Theory and Practice",
+      "description": "  “I’m ready! I’m ready! I’m ready!” – SpongeBob SquarePants",
+      "author": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      },
+      "publisher": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      },
+      "datePublished": "2025-01-14T20:54:30+01:00",
+      "dateModified": "2025-01-14T20:54:30+01:00",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "http://localhost:4000/2025/01/14/journey-as-a-junior/#webpage"
+      },
+      "url": "http://localhost:4000/2025/01/14/journey-as-a-junior/",
+      "inLanguage": "en",
+      "image": {
+        "@type": "ImageObject",
+        "url": "http://localhost:4000/assets/img/spongebob-image.jpeg"
+      }
     }
-  },
-  "image": {
-    "@type": "ImageObject",
-    "url": "http://localhost:4000/assets/img/spongebob-image.jpeg"
-  }
+  ]
 }
 </script>
 

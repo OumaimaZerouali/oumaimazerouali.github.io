@@ -5,38 +5,59 @@ layout: default
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "{{ site.title }}",
-  "url": "{{ site.url }}",
-  "description": "{{ site.description | strip_newlines }}",
-  "publisher": {
-    "@type": "Person",
-    "name": "{{ site.author.name }}",
-    "url": "{{ site.url }}"
-  }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "{{ site.author.name }}",
-  "url": "{{ site.url }}",
-  "image": "{{ site.logo | absolute_url }}",
-  "jobTitle": "Software Developer",
-  "sameAs": [
-    "https://github.com/{{ site.github_username }}",
-    "https://www.linkedin.com/in/{{ site.linkedin_username }}",
-    "https://www.instagram.com/{{ site.instagram_username }}",
-    "https://jcast.dev"
-  ],
-  "affiliation": {
-    "@type": "Organization",
-    "@id": "https://jcast.dev/#org",
-    "name": "JCast",
-    "url": "https://jcast.dev"
-  }
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#person",
+      "name": "{{ site.author.name }}",
+      "url": "{{ site.url }}",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "{{ site.url }}/#logo",
+        "url": "{{ site.logo | absolute_url }}"
+      },
+      "jobTitle": "Software Developer",
+      "sameAs": [
+        "https://github.com/{{ site.github_username }}",
+        "https://www.linkedin.com/in/{{ site.linkedin_username }}",
+        "https://www.instagram.com/{{ site.instagram_username }}",
+        "https://jcast.dev"
+      ],
+      "affiliation": {
+        "@type": "Organization",
+        "@id": "https://jcast.dev/#org",
+        "name": "JCast",
+        "url": "https://jcast.dev"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}",
+      "name": "{{ site.title }}",
+      "description": "{{ site.description | strip_newlines }}",
+      "publisher": {
+        "@type": "Person",
+        "@id": "{{ site.url }}/#person"
+      },
+      "inLanguage": "{{ page.lang | default: site.default_lang }}"
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ page.url | absolute_url }}#webpage",
+      "url": "{{ page.url | absolute_url }}",
+      "name": "{{ page.title }}",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website"
+      },
+      "about": {
+        "@type": "Person",
+        "@id": "{{ site.url }}/#person"
+      },
+      "inLanguage": "{{ page.lang | default: site.default_lang }}"
+    }
+  ]
 }
 </script>
 

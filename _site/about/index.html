@@ -191,7 +191,91 @@ In addition, I organize and continue to run initiatives such as <strong>JTires</
 </div>
 
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"Oumaima Zerouali","url":"http://localhost:4000/about/","email":"oumaima.zerouali@gmail.com","description":"Full-stack software developer specializing in Java, Spring Boot, Quarkus, and Angular. Co-host of JCast podcast and CoderDojo mentor","knowsAbout":["Java","Spring Boot","Quarkus","Angular","Software Architecture","Backend Development","Clean Code"],"affiliation":[{"@type":"Organization","@id":"https://jcast.dev/#org","name":"JCast","url":"https://jcast.dev"},{"@type":"Organization","name":"CoderDojo"}],"performerIn":{"@type":"PodcastSeries","@id":"https://jcast.dev#podcast-series","name":"JCast","url":"https://jcast.dev"},"alumniOf":{"@type":"Organization","name":"Erasmus Hogeschool"}}
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "http://localhost:4000/#person",
+      "name": "Oumaima Zerouali",
+      "url": "http://localhost:4000",
+      "email": "oumaima.zerouali@gmail.com",
+      "image": {
+        "@type": "ImageObject",
+        "@id": "http://localhost:4000/#logo",
+        "url": "http://localhost:4000/assets/favicon/logo.svg"
+      },
+      "description": "Full-stack software developer specializing in Java, Spring Boot, Quarkus, and Angular. Co-host of JCast podcast and CoderDojo mentor",
+      "jobTitle": "Software Developer",
+      "knowsAbout": [
+        "Java",
+        "Spring Boot",
+        "Quarkus",
+        "Angular",
+        "Software Architecture",
+        "Backend Development",
+        "Clean Code"
+      ],
+      "affiliation": [
+        {
+          "@type": "Organization",
+          "@id": "https://jcast.dev/#org",
+          "name": "JCast",
+          "url": "https://jcast.dev"
+        },
+        {
+          "@type": "Organization",
+          "name": "CoderDojo"
+        }
+      ],
+      "performerIn": {
+        "@type": "PodcastSeries",
+        "@id": "https://jcast.dev/#podcast-series",
+        "name": "JCast",
+        "url": "https://jcast.dev"
+      },
+      "alumniOf": {
+        "@type": "Organization",
+        "name": "Erasmus Hogeschool"
+      },
+      "sameAs": [
+        "https://github.com/OumaimaZerouali",
+        "https://www.linkedin.com/in/oumaima-zerouali-16b189223",
+        "https://www.instagram.com/_oumietje_",
+        "https://jcast.dev"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "http://localhost:4000/#website",
+      "url": "http://localhost:4000",
+      "name": "Oumi's Blog",
+      "publisher": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "http://localhost:4000/about/#webpage",
+      "url": "http://localhost:4000/about/",
+      "name": "About",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "http://localhost:4000/#website"
+      },
+      "about": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      },
+      "mainEntity": {
+        "@type": "Person",
+        "@id": "http://localhost:4000/#person"
+      },
+      "inLanguage": "en"
+    }
+  ]
+}
 </script>
 
 
