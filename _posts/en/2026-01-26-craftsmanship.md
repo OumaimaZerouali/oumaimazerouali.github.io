@@ -146,7 +146,6 @@ That moment, when a concept suddenly connects to your lived experience, is magic
 
 That's when learning really starts. Not when you memorize the definition, but when you *feel* why it matters.
 
----
 
 ## Why I'm grateful I had this training twice
 

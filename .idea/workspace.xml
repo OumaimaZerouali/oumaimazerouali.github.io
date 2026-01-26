@@ -4,19 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="fix: Update alumni organization in structured data for improved accuracy">
-      <change afterPath="$PROJECT_DIR$/_posts/en/2026-01-26-craftsmanship.md" afterDir="false" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new post on software craftsmanship, update related posts and sitemap, and introduce agent instruction files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-01-26-craftsmanship.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2026-01-26-craftsmanship.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -360,7 +350,8 @@
       <workItem from="1769105244747" duration="27000" />
       <workItem from="1769201169463" duration="1052000" />
       <workItem from="1769286602350" duration="573000" />
-      <workItem from="1769436076693" duration="690000" />
+      <workItem from="1769436076693" duration="711000" />
+      <workItem from="1769436924763" duration="10000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -682,7 +673,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769286702022</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="feat: Add new post on software craftsmanship, update related posts and sitemap, and introduce agent instruction files">
+      <option name="closed" value="true" />
+      <created>1769436790346</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1769436790346</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -701,7 +700,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Changes to CI/CD pipeline" />
     <MESSAGE value="Java version changed" />
     <MESSAGE value="Setup openapi" />
     <MESSAGE value="Start of project: navigation + music component" />
@@ -726,7 +724,8 @@
     <MESSAGE value="feat: enhance accessibility and SEO by adding structured data, improving language switcher, and refining image alt attributes" />
     <MESSAGE value="feat: Add new post about designing JCast merch and update related content" />
     <MESSAGE value="fix: Update alumni organization in structured data for improved accuracy" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: Update alumni organization in structured data for improved accuracy" />
+    <MESSAGE value="feat: Add new post on software craftsmanship, update related posts and sitemap, and introduce agent instruction files" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new post on software craftsmanship, update related posts and sitemap, and introduce agent instruction files" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
