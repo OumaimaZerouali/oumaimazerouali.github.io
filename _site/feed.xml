@@ -1,177 +1,206 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-23T21:59:06+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
-</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">JCast-merch ontwerpen (zonder enige designervaring)</title><link href="http://localhost:4000/nl/2026/01/23/jcast-merch/" rel="alternate" type="text/html" title="JCast-merch ontwerpen (zonder enige designervaring)" /><published>2026-01-23T12:00:00+01:00</published><updated>2026-01-23T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/23/jcast-merch</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/23/jcast-merch/"><![CDATA[<blockquote>
-  <p>“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-01-26T15:12:54+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
+</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="en"><title type="html">The Training I Didn’t Understand (Until I Did)</title><link href="http://localhost:4000/2026/01/26/craftsmanship/" rel="alternate" type="text/html" title="The Training I Didn’t Understand (Until I Did)" /><published>2026-01-26T14:00:00+01:00</published><updated>2026-01-26T14:00:00+01:00</updated><id>http://localhost:4000/2026/01/26/craftsmanship</id><content type="html" xml:base="http://localhost:4000/2026/01/26/craftsmanship/"><![CDATA[<p>Three years ago, on my very first weeks as a developer, I sat in a room listening to Maarten and Bjorn talk about software craftsmanship.</p>
+
+<p>Clean Code. SOLID. TDD. Feedback loops. Katas. Ethics. Professionalism.</p>
+
+<p>It sounded impressive. It also sounded like… noise.</p>
+
+<p>I had just left school. I had barely written tests. I was still proud when my code simply compiled. And here someone was explaining how software development was an <em>ethical profession</em> and why naming was one of the hardest problems in computer science.</p>
+
+<p>I remember leaving that training thinking:</p>
+
+<blockquote>
+  <p>“This is interesting… but I honestly have no idea what just happened.”</p>
 </blockquote>
 
-<p>Toen we met <a href="https://jcast.dev">JCast</a> begonnen, was het doel simpel: een podcast opnemen, over tech praten en zien waar het zou eindigen.</p>
+<p>A lot went over my head.</p>
 
-<p>Onderweg werd het… serieuzer.</p>
+<p>And if I’m being completely honest, part of that training didn’t just go over my head, it completely overwhelmed me.</p>
 
-<p>We hebben onze apparatuur geüpgraded.<br />
-We bleven consequent opnemen.<br />
-Het enthousiasme was er nog steeds, aflevering na aflevering.</p>
+<p>We were doing strict mob programming.</p>
 
-<p>Op een bepaald moment voelde het minder als “een leuk zijproject” en meer als… een echte podcast.</p>
+<p>For the first time in my life, I had to program in front of a group of experienced developers, with all the attention on me. My hands were shaking, my mind went blank, and I was no longer thinking about design or clean code.</p>
 
-<p>En toen had ik, op een compleet willekeurige dag, een gedachte:</p>
+<p>I was thinking:</p>
 
-<p><em>Deze podcast heeft merch nodig.</em></p>
+<p><em>What if they see I’m not good enough?</em>
+<em>What if they fire me?</em>
+<em>What if I make a mistake and everyone judges me?</em></p>
 
-<p>Niet voor luisteraars. Niet voor advertenties. Gewoon voor ons.<br />
-Voor Viktor, Maarten en mijzelf. Iets simpels. Iets leuks. Een klein symbool dat zei: “Ja, dit is nu echt.”</p>
+<p>At that point, I wasn’t learning craftsmanship.</p>
 
-<h3 id="van-java-naar-pinterest">Van Java naar Pinterest</h3>
+<p>I was just trying not to panic.</p>
 
-<p>Er was alleen één klein probleem.</p>
+<p>I was so focused on not embarrassing myself that I couldn’t absorb the actual lessons. The concepts flew past me while I was busy managing my anxiety. Looking back, I realize how common this experience is for junior developers. That fear of being “found out” can completely block learning.</p>
 
-<p>Ik had nog nooit in mijn leven iets ontworpen. En al helemaal geen merch.<br />
-Dus deed ik wat elke verantwoordelijke developer doet als hij onbekend terrein betreedt:</p>
+<h2 id="fast-forward-three-years">Fast forward three years</h2>
 
-<p>Ik opende Pinterest.</p>
+<p>Last week, I followed (almost) the same training again. Same trainer. Same themes. Same slides in some places.</p>
 
-<p>Ik scrolde door eindeloze T-shirtontwerpen.<br />
-Podcastlogo’s. Minimalistische typografie. Quotes. Layouts.</p>
+<p>But this time, something very different happened.</p>
 
-<p>Daarna opende ik Canva en begon te spelen met fonts en kleine designexperimenten.</p>
+<p>Instead of confusion, I kept thinking:</p>
 
-<p>En… niets werkte.</p>
+<blockquote>
+  <p>“Oh… so <em>that’s</em> what they meant back then.”</p>
+</blockquote>
 
-<p>Alles zag er óf:</p>
+<p>And again:</p>
+
+<blockquote>
+  <p>“Wait, this explains half the problems I’ve been fighting in my projects.”</p>
+</blockquote>
+
+<p>The training had not changed much. I had.</p>
+
+<p>I no longer care about mob or pair programming, in fact, I now see it as just another tool for collaboration, not something to fear. I am getting more confident giving my ideas, even when they might be wrong. And I am not afraid of being wrong anymore, because I’ve learned that we are all constantly learning, even the senior developers I was so intimidated by three years ago.</p>
+
+<p>That fear from my first training? Gone.</p>
+
+<p>What replaced it was curiosity. Instead of worrying about judgment, I was genuinely interested in the problems we were solving. I asked questions. I challenged ideas. I contributed. For me the difference was night and day.</p>
+
+<h2 id="concrete-lessons-from-the-craftsmanship-training">Concrete lessons from the Craftsmanship training</h2>
+
+<p>Maarten’s training reminded me of <em>how much there is to practice, even in simple exercises</em>. These katas aren’t just coding puzzles, they’re safe spaces to experiment with principles that are risky to try for the first time in production code.</p>
+
+<h3 id="the-bowling-kata-when-confusion-leads-to-learning">The Bowling Kata: When confusion leads to learning</h3>
+
+<p>Take the Bowling Kata, for example. I struggled to implement the spare. It sounded confusing. What even <em>is</em> a spare in bowling terms? How does the scoring work?</p>
+
+<p>But I did write my first test… then my second. I googled the rules, tried it with an online bowling simulator, experimented with different approaches.</p>
+
+<p>Here’s what I learned: even when we don’t fully understand something, it’s important to think before implementing. To really grasp the problem domain before jumping to a solution.</p>
+
+<p>In real life, we often rush to implement without fully grasping the problem. A ticket comes in, we glance at the requirements, and we start coding. This kata reminded me why that’s risky. The time spent understanding the problem, really understanding it, saves far more time than it costs.</p>
+
+<h3 id="other-key-takeaways">Other key takeaways</h3>
 
 <ul>
-  <li>Te generiek</li>
-  <li>Te druk</li>
-  <li>Te cringe</li>
-  <li>Of gewoon niet “JCast” uit</li>
+  <li>
+    <p><strong>Testing boundaries:</strong> We spent time discussing edge cases. It’s not enough to test the happy path. What happens at zero? What happens at the maximum? What happens when inputs are unexpected? Always think about boundaries, not just the middle.</p>
+  </li>
+  <li>
+    <p><strong>SOLID refresher:</strong> I thought I knew SOLID. But seeing these principles applied concretely, in real code, during the katas made them stick again. It’s one thing to memorize that the “S” stands for Single Responsibility. It’s another to see a class violating it and feel the pain it causes when trying to test it.</p>
+  </li>
+  <li>
+    <p><strong>Pull Requests vs. Boy Scout Rule:</strong> This discussion was particularly interesting. Maarten says PRs/MRs should always do one thing, one feature, one bug fix, one clear change. But the Boy Scout Rule says: leave the code cleaner than you found it. So what happens when you’re implementing a feature and you stumble on code that desperately needs refactoring? Do you do it in the same PR, or create a new one?</p>
+  </li>
 </ul>
 
-<p>Ik had iets in mijn hoofd, maar ik kreeg het niet vertaald naar het scherm.<br />
-Dus deed ik de enige logische volgende stap.</p>
+<p>There’s no perfect answer. Context matters. Sometimes the refactoring is essential to your change. Sometimes it’s a distraction. But the discussion itself is invaluable, it makes you think about the tradeoffs, about code review burden, about git history, about how changes are communicated to your team.</p>
 
-<p>Ik opende Figma.</p>
+<h2 id="why-it-didnt-work-the-first-time">Why it didn’t work the first time</h2>
 
-<h3 id="een-t-shirt-ontwerpen-alsof-het-een-poster-was">Een T-shirt ontwerpen alsof het een poster was</h3>
+<p>When you are a junior developer, you simply don’t have the mental hooks yet.</p>
 
-<p>In plaats van te denken in stof, begon ik te denken in iets dat ik <em>wel</em> kende: layout.<br />
-Ik maakte A4-ontwerpen.<br />
-Alsof ik posters ontwierp, geen T-shirts.</p>
+<p>You haven’t:</p>
 
-<p>Ik plaatste het logo.<br />
-Speelde met witruimte.<br />
-Probeerde verschillende fontcombinaties.</p>
+<ul>
+  <li>Refactored a 10-year-old codebase where every change feels like defusing a bomb.</li>
+  <li>Fought with flaky tests that pass locally but fail in CI, wasting hours of your time.</li>
+  <li>Been scared to change a single line because you know, deep down, that <em>everything might break</em>.</li>
+  <li>Seen how one bad design decision, made in haste, maybe even by you slowly poisons an entire system over months or years.</li>
+</ul>
 
-<p>Langzaam begon er iets vorm te krijgen.</p>
+<p>So when someone tells you:</p>
 
-<p>En het verrassende?</p>
+<ul>
+  <li>“Test behavior, not implementation”</li>
+  <li>“Good naming is more important than clever code”</li>
+  <li>“Exceptions are part of your domain”</li>
+  <li>“Craftsmanship is about responsibility”</li>
+</ul>
 
-<p>Ik vond het geweldig.</p>
+<p>…your brain has nowhere to attach those ideas.</p>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 2fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
-  <div>
-    <img src="/assets/img/merch_draft_1.png" alt="Eerste T-shirt ontwerp variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
-    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 1: Minimalistisch logo design</p>
-  </div>
-  <div>
-    <img src="/assets/img/full_color.png" alt="De uiteindelijke gedrukte T-shirt met JCast logo" style="max-width: 100%; height: auto; border-radius: 8px;" />
-    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 2: Kleurencombo’s testen</p>
-  </div>
-  <div>
-    <img src="/assets/img/merch_draft_2.png" alt="Tweede T-shirt ontwerp variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
-    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 3: Typography focus</p>
-  </div>
-</div>
+<p>They remain abstract. The words sound wise, inspirational even, but they don’t stick. You nod along, maybe take some notes, but there’s no real understanding. How could there be? You haven’t felt the pain these principles are designed to prevent.</p>
 
-<p>Dit leek totaal niet op programmeren.</p>
+<p>At that stage, you mostly care about:</p>
 
-<p>Geen compiler errors.<br />
-Geen stack traces.<br />
-Geen tests die faalden door een ontbrekende puntkomma.</p>
+<ul>
+  <li>Making it work just get the green checkmark</li>
+  <li>Finishing the ticket so you can move to the next one</li>
+  <li>Not breaking the build and getting a message from the team</li>
+  <li>Proving you can deliver something, anything</li>
+</ul>
 
-<p>Gewoon puur experimenteren.</p>
+<p>And that is perfectly normal. You have to walk before you can run. You have to make mistakes before you can learn from them.</p>
 
-<p>Iets een beetje naar links schuiven.<br />
-Een fontgewicht aanpassen.<br />
-De helft verwijderen en opnieuw beginnen.</p>
+<h2 id="why-it-suddenly-made-sense-now">Why it suddenly made sense now</h2>
 
-<p>Het was rustig. Creatief. Bijna therapeutisch.</p>
+<p>Three years later, I have scars.</p>
 
-<h3 id="de-eerste-print">De eerste print</h3>
+<p>I have seen:</p>
 
-<p>Uiteindelijk had ik iets waar ik echt blij mee was.</p>
+<ul>
+  <li>Tests that tested the wrong thing mocking so much that the test passed even when the actual feature was broken.</li>
+  <li>Code that nobody dared to touch because the original developer left and there were no tests, no documentation, just cryptic variable names and mysterious business logic.</li>
+  <li>Classes with five responsibilities, making them impossible to test in isolation and painful to modify.</li>
+  <li>Methods that needed comments because the names were meaningless: <code class="language-plaintext highlighter-rouge">processData()</code>, <code class="language-plaintext highlighter-rouge">handleStuff()</code>, <code class="language-plaintext highlighter-rouge">doTheThing()</code>, giving you no clue what they actually did.</li>
+  <li>“Quick fixes” that were supposed to be temporary but lived in production for years because no one wanted to be the one to refactor them.</li>
+</ul>
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
-  <div style="text-align: center;">
-    <img src="/assets/img/first_variant.svg" alt="Eerste definitieve T-shirt print design" style="max-width: 100%; height: auto;" />
-  </div>
-  <div style="text-align: center;">
-    <img src="/assets/img/second_variant.svg" alt="Tweede definitieve T-shirt print design" style="max-width: 100%; height: auto;" />
-  </div>
-</div>
+<p>So when Maarten now talks about:</p>
 
-<p>Dus ik liet er eentje drukken.</p>
+<ul>
+  <li><strong>Feedback loops:</strong> Getting fast confirmation that your code works, through tests, through small iterations, through quick deployments.</li>
+  <li><strong>Boundaries around infrastructure:</strong> Keeping your business logic separate from databases, APIs, frameworks so you can test without spinning up the entire world.</li>
+  <li><strong>Single Responsibility:</strong> Each class, each method, doing one thing well, so when change comes (and it always does), you know exactly where to look.</li>
+  <li><strong>Craftsmanship as a mindset, not a checklist:</strong> This isn’t about following rules blindly. It’s about caring. About taking pride in your work. About leaving things better than you found them.</li>
+</ul>
 
-<p>Gewoon <em>één</em>.</p>
+<p>…I wasn’t hearing theory anymore.</p>
 
-<p>Ik nam hem mee naar de jongens en liet hem zien. Ze vonden het leuk.</p>
+<p>I was hearing explanations for my own past mistakes. Solutions to problems I had personally struggled with. War stories I could relate to because I had lived through similar battles.</p>
 
-<p>En toen gebeurde er iets onverwachts. Andere collega’s hoorden ervan.</p>
+<p>That moment, when a concept suddenly connects to your lived experience, is magical.</p>
 
-<p>“Wacht… jij hebt JCast-T-shirts gemaakt?”<br />
-“Kan ik er ook eentje krijgen?”<br />
-“Heb je hem ook in een andere kleur?”</p>
-
-<p>Plots werd dit ding, dat alleen voor de drie hosts bedoeld was…<br />
-iets wat andere mensen ook wilden.</p>
-
-<p>We maakten er meer.<br />
-Andere kleuren.<br />
-Andere maten.</p>
-
-<p>En mensen begonnen ze daadwerkelijk te dragen.</p>
-
-<h3 id="het-onverwachte-trotsmoment">Het onverwachte trotsmoment</h3>
-
-<p>Het moment dat me het meest is bijgebleven, is dit:</p>
-
-<p>Iemand zien, die geen deel uitmaakt van de podcast, die een T-shirt draagt met een ontwerp dat <em>ik</em> heb gemaakt.</p>
-
-<p>Niet omdat het moest.<br />
-Niet omdat het merch was.</p>
-
-<p>Maar gewoon… omdat ze het mooi vonden.</p>
-
-<p>Als developers bouwen we vaak dingen die onzichtbaar zijn.<br />
-API’s. Services. Achtergrondsystemen.</p>
-
-<p>Deze keer had ik iets gemaakt dat je letterlijk kunt dragen.</p>
-
-<p>En dat voelde ongelooflijk speciaal.</p>
-
-<p>Dat kleine moment deed me ook even stilstaan bij wat dit project me eigenlijk had geleerd.</p>
-
-<p>Creativiteit, zo bleek, is gewoon een andere vorm van probleemoplossen.<br />
-Weer ergens slecht in zijn is verfrissend.<br />
-Beperkingen — print, kleuren, layout — helpen design, net zoals beperkingen architectuur helpen.</p>
-
-<p>En soms beginnen de meest belonende projecten met een willekeurig idee op een willekeurige dag.</p>
-
-<p><a href="https://jcast.dev">JCast</a> begon als een podcast.<br />
-Onderweg werd het een kleine community.</p>
-
-<p>En blijkbaar… ook een kledingmerk.</p>
-
-<figure style="margin: 3rem 0; text-align: center;">
-  <img src="/assets/img/overview_figma_file.png" alt="Screenshot van mijn Figma werkbestand met verschillende T-shirt ontwerp varianten" style="max-width: 100%; height: auto; border-radius: 8px;" />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #666;">
-    Een screenshot van mijn Figma-bord aan het einde van het proces — vol ideeën, varianten en half afgemaakte pogingen.
-  </figcaption>
-</figure>
+<p>That’s when learning really starts. Not when you memorize the definition, but when you <em>feel</em> why it matters.</p>
 
 <hr />
 
-<p><em>Benieuwd naar de podcast achter deze T-shirts?</em></p>
+<h2 id="why-im-grateful-i-had-this-training-twice">Why I’m grateful I had this training twice</h2>
 
-<p>Neem gerust een kijkje op <a href="https://jcast.dev">jcast.dev</a> en ontdek <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Designing JCast Merch (Without Any Design Experience)</title><link href="http://localhost:4000/2026/01/23/jcast-merch/" rel="alternate" type="text/html" title="Designing JCast Merch (Without Any Design Experience)" /><published>2026-01-23T12:00:00+01:00</published><updated>2026-01-23T12:00:00+01:00</updated><id>http://localhost:4000/2026/01/23/jcast-merch</id><content type="html" xml:base="http://localhost:4000/2026/01/23/jcast-merch/"><![CDATA[<blockquote>
+<p>Looking back, I’m actually very grateful I had this training twice.</p>
+
+<p>Even though I didn’t understand much the first time, the ideas stayed somewhere in the back of my mind. Like seeds planted in soil, waiting for the right conditions to grow.</p>
+
+<p>They influenced:</p>
+
+<ul>
+  <li>How I look at code, I notice code smells faster now</li>
+  <li>How I think about testing, not as a chore, but as a design tool</li>
+  <li>How seriously I take my responsibility as an engineer, the code I write today becomes someone else’s legacy tomorrow</li>
+</ul>
+
+<p>This second time, the training did not just teach me new things.</p>
+
+<p>It helped me reinterpret my entire first years as a developer. Suddenly, all those frustrating experiences made sense. They weren’t just random problems, they were predictable consequences of violating these principles.</p>
+
+<p>The messy codebase? Lack of Single Responsibility and poor boundaries.</p>
+
+<p>The flaky tests? Testing implementation instead of behavior.</p>
+
+<p>The fear of changing code? No safety net of tests, poor naming making intent unclear.</p>
+
+<p>Everything connected. And that is probably the real value of craftsmanship education: Not giving you rules to follow blindly.
+But slowly shaping how you think about your work. Building a mental model that helps you make better decisions, even in new situations you’ve never encountered before.</p>
+
+<h2 id="whats-next">What’s next</h2>
+
+<p>This was only part 1 of the training. Part 2 is coming, and honestly? I can’t wait.</p>
+
+<p>If part 1 gave me this many insights, this many “aha!” moments where past experiences suddenly made sense, I’m excited to see what part 2 will reveal. What other patterns will I recognize? What other mistakes will I understand?</p>
+
+<p>The beauty of this journey is that there’s always more to learn. Always another layer to uncover. Always another way to improve.</p>
+
+<p>Three years ago, I left that training room confused and overwhelmed.</p>
+
+<p>Today, I leave it energized and ready to dig deeper.</p>
+
+<h2 id="thank-you">Thank you</h2>
+
+<p>Thank you, Maarten, for the training and for suggesting I take it again. You were right: timing matters, and sometimes the best gift is the same lesson at the right moment.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="craftsmanship" /><category term="training" /><category term="learning" /><category term="developer" /><category term="growth" /><summary type="html"><![CDATA[Three years ago, on my very first weeks as a developer, I sat in a room listening to Maarten and Bjorn talk about software craftsmanship.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/software_craftsmanship.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/software_craftsmanship.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Designing JCast Merch (Without Any Design Experience)</title><link href="http://localhost:4000/2026/01/23/jcast-merch/" rel="alternate" type="text/html" title="Designing JCast Merch (Without Any Design Experience)" /><published>2026-01-23T12:00:00+01:00</published><updated>2026-01-23T12:00:00+01:00</updated><id>http://localhost:4000/2026/01/23/jcast-merch</id><content type="html" xml:base="http://localhost:4000/2026/01/23/jcast-merch/"><![CDATA[<blockquote>
   <p>“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants</p>
 </blockquote>
 
@@ -343,7 +372,179 @@ Along the way, it became a small community.</p>
 
 <p><em>Curious about the podcast behind these T-shirts?</em></p>
 
-<p>Feel free to visit <a href="https://jcast.dev">jcast.dev</a> and discover <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos</title><link href="http://localhost:4000/nl/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
+<p>Feel free to visit <a href="https://jcast.dev">jcast.dev</a> and discover <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">JCast-merch ontwerpen (zonder enige designervaring)</title><link href="http://localhost:4000/nl/2026/01/23/jcast-merch/" rel="alternate" type="text/html" title="JCast-merch ontwerpen (zonder enige designervaring)" /><published>2026-01-23T12:00:00+01:00</published><updated>2026-01-23T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/23/jcast-merch</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/23/jcast-merch/"><![CDATA[<blockquote>
+  <p>“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants</p>
+</blockquote>
+
+<p>Toen we met <a href="https://jcast.dev">JCast</a> begonnen, was het doel simpel: een podcast opnemen, over tech praten en zien waar het zou eindigen.</p>
+
+<p>Onderweg werd het… serieuzer.</p>
+
+<p>We hebben onze apparatuur geüpgraded.<br />
+We bleven consequent opnemen.<br />
+Het enthousiasme was er nog steeds, aflevering na aflevering.</p>
+
+<p>Op een bepaald moment voelde het minder als “een leuk zijproject” en meer als… een echte podcast.</p>
+
+<p>En toen had ik, op een compleet willekeurige dag, een gedachte:</p>
+
+<p><em>Deze podcast heeft merch nodig.</em></p>
+
+<p>Niet voor luisteraars. Niet voor advertenties. Gewoon voor ons.<br />
+Voor Viktor, Maarten en mijzelf. Iets simpels. Iets leuks. Een klein symbool dat zei: “Ja, dit is nu echt.”</p>
+
+<h3 id="van-java-naar-pinterest">Van Java naar Pinterest</h3>
+
+<p>Er was alleen één klein probleem.</p>
+
+<p>Ik had nog nooit in mijn leven iets ontworpen. En al helemaal geen merch.<br />
+Dus deed ik wat elke verantwoordelijke developer doet als hij onbekend terrein betreedt:</p>
+
+<p>Ik opende Pinterest.</p>
+
+<p>Ik scrolde door eindeloze T-shirtontwerpen.<br />
+Podcastlogo’s. Minimalistische typografie. Quotes. Layouts.</p>
+
+<p>Daarna opende ik Canva en begon te spelen met fonts en kleine designexperimenten.</p>
+
+<p>En… niets werkte.</p>
+
+<p>Alles zag er óf:</p>
+
+<ul>
+  <li>Te generiek</li>
+  <li>Te druk</li>
+  <li>Te cringe</li>
+  <li>Of gewoon niet “JCast” uit</li>
+</ul>
+
+<p>Ik had iets in mijn hoofd, maar ik kreeg het niet vertaald naar het scherm.<br />
+Dus deed ik de enige logische volgende stap.</p>
+
+<p>Ik opende Figma.</p>
+
+<h3 id="een-t-shirt-ontwerpen-alsof-het-een-poster-was">Een T-shirt ontwerpen alsof het een poster was</h3>
+
+<p>In plaats van te denken in stof, begon ik te denken in iets dat ik <em>wel</em> kende: layout.<br />
+Ik maakte A4-ontwerpen.<br />
+Alsof ik posters ontwierp, geen T-shirts.</p>
+
+<p>Ik plaatste het logo.<br />
+Speelde met witruimte.<br />
+Probeerde verschillende fontcombinaties.</p>
+
+<p>Langzaam begon er iets vorm te krijgen.</p>
+
+<p>En het verrassende?</p>
+
+<p>Ik vond het geweldig.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 2fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
+  <div>
+    <img src="/assets/img/merch_draft_1.png" alt="Eerste T-shirt ontwerp variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 1: Minimalistisch logo design</p>
+  </div>
+  <div>
+    <img src="/assets/img/full_color.png" alt="De uiteindelijke gedrukte T-shirt met JCast logo" style="max-width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 2: Kleurencombo’s testen</p>
+  </div>
+  <div>
+    <img src="/assets/img/merch_draft_2.png" alt="Tweede T-shirt ontwerp variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
+    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 3: Typography focus</p>
+  </div>
+</div>
+
+<p>Dit leek totaal niet op programmeren.</p>
+
+<p>Geen compiler errors.<br />
+Geen stack traces.<br />
+Geen tests die faalden door een ontbrekende puntkomma.</p>
+
+<p>Gewoon puur experimenteren.</p>
+
+<p>Iets een beetje naar links schuiven.<br />
+Een fontgewicht aanpassen.<br />
+De helft verwijderen en opnieuw beginnen.</p>
+
+<p>Het was rustig. Creatief. Bijna therapeutisch.</p>
+
+<h3 id="de-eerste-print">De eerste print</h3>
+
+<p>Uiteindelijk had ik iets waar ik echt blij mee was.</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
+  <div style="text-align: center;">
+    <img src="/assets/img/first_variant.svg" alt="Eerste definitieve T-shirt print design" style="max-width: 100%; height: auto;" />
+  </div>
+  <div style="text-align: center;">
+    <img src="/assets/img/second_variant.svg" alt="Tweede definitieve T-shirt print design" style="max-width: 100%; height: auto;" />
+  </div>
+</div>
+
+<p>Dus ik liet er eentje drukken.</p>
+
+<p>Gewoon <em>één</em>.</p>
+
+<p>Ik nam hem mee naar de jongens en liet hem zien. Ze vonden het leuk.</p>
+
+<p>En toen gebeurde er iets onverwachts. Andere collega’s hoorden ervan.</p>
+
+<p>“Wacht… jij hebt JCast-T-shirts gemaakt?”<br />
+“Kan ik er ook eentje krijgen?”<br />
+“Heb je hem ook in een andere kleur?”</p>
+
+<p>Plots werd dit ding, dat alleen voor de drie hosts bedoeld was…<br />
+iets wat andere mensen ook wilden.</p>
+
+<p>We maakten er meer.<br />
+Andere kleuren.<br />
+Andere maten.</p>
+
+<p>En mensen begonnen ze daadwerkelijk te dragen.</p>
+
+<h3 id="het-onverwachte-trotsmoment">Het onverwachte trotsmoment</h3>
+
+<p>Het moment dat me het meest is bijgebleven, is dit:</p>
+
+<p>Iemand zien, die geen deel uitmaakt van de podcast, die een T-shirt draagt met een ontwerp dat <em>ik</em> heb gemaakt.</p>
+
+<p>Niet omdat het moest.<br />
+Niet omdat het merch was.</p>
+
+<p>Maar gewoon… omdat ze het mooi vonden.</p>
+
+<p>Als developers bouwen we vaak dingen die onzichtbaar zijn.<br />
+API’s. Services. Achtergrondsystemen.</p>
+
+<p>Deze keer had ik iets gemaakt dat je letterlijk kunt dragen.</p>
+
+<p>En dat voelde ongelooflijk speciaal.</p>
+
+<p>Dat kleine moment deed me ook even stilstaan bij wat dit project me eigenlijk had geleerd.</p>
+
+<p>Creativiteit, zo bleek, is gewoon een andere vorm van probleemoplossen.<br />
+Weer ergens slecht in zijn is verfrissend.<br />
+Beperkingen — print, kleuren, layout — helpen design, net zoals beperkingen architectuur helpen.</p>
+
+<p>En soms beginnen de meest belonende projecten met een willekeurig idee op een willekeurige dag.</p>
+
+<p><a href="https://jcast.dev">JCast</a> begon als een podcast.<br />
+Onderweg werd het een kleine community.</p>
+
+<p>En blijkbaar… ook een kledingmerk.</p>
+
+<figure style="margin: 3rem 0; text-align: center;">
+  <img src="/assets/img/overview_figma_file.png" alt="Screenshot van mijn Figma werkbestand met verschillende T-shirt ontwerp varianten" style="max-width: 100%; height: auto; border-radius: 8px;" />
+  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #666;">
+    Een screenshot van mijn Figma-bord aan het einde van het proces — vol ideeën, varianten en half afgemaakte pogingen.
+  </figcaption>
+</figure>
+
+<hr />
+
+<p><em>Benieuwd naar de podcast achter deze T-shirts?</em></p>
+
+<p>Neem gerust een kijkje op <a href="https://jcast.dev">jcast.dev</a> en ontdek <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos</title><link href="http://localhost:4000/nl/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
   <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
 </blockquote>
 
@@ -2168,49 +2369,4 @@ Het is geen snelle oplossing, maar een investering in de toekomst.</p>
   <li><strong>Documenteer je eigen code.</strong> Zodra je een klein onderdeel hebt begrepen, schrijf het op. Voeg commentaar toe, update de README. Dit helpt niet alleen jezelf in de toekomst, maar ook iedereen die later met deze code werkt.</li>
   <li><strong>Praat erover.</strong> Bespreek het project met een collega of in een community. Soms is een frisse blik alles wat je nodig hebt. Leg uit waar je vastloopt. Het proces van je probleem verwoorden kan vaak tot de oplossing leiden.</li>
   <li><strong>Gun jezelf een pauze.</strong> Soms is de beste aanpak om er helemaal afstand van te nemen. Ga wandelen, lees een boek, of werk aan een ander project. De oplossing komt vaak op de meest onverwachte momenten, wanneer je geest niet actief aan het worstelen is.</li>
-</ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Error 404: Motivation Not Found. When Your Codebase Ghosts You</title><link href="http://localhost:4000/2025/08/01/error-404-motiviation-not-found/" rel="alternate" type="text/html" title="Error 404: Motivation Not Found. When Your Codebase Ghosts You" /><published>2025-08-01T13:00:00+02:00</published><updated>2025-08-01T13:00:00+02:00</updated><id>http://localhost:4000/2025/08/01/error-404-motiviation-not-found</id><content type="html" xml:base="http://localhost:4000/2025/08/01/error-404-motiviation-not-found/"><![CDATA[<blockquote>
-  <p>“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants</p>
-</blockquote>
-
-<p>We’ve all been there: those days when you’re full of energy, diving into a new project. 
-The code flows, the tests pass, and you feel like the master of the digital world. 
-But then, it happens: You open your editor and… nothing. 
-The inspiration is gone. 
-<strong>Error 404: Motivation Not Found.</strong></p>
-
-<p>This isn’t just procrastination. 
-The project that was once so promising now feels like a stubborn, unfamiliar landscape. 
-You know you have to do something with it, but you have no idea where to start.</p>
-
-<h3 id="the-stranger-in-your-own-code">The Stranger in Your Own Code</h3>
-<p>One of the most common reasons for this feeling is that your codebase feels like it belongs to someone else. 
-Even if you wrote it yourself, a project from just a few months ago can feel like a stranger.</p>
-
-<ul>
-  <li><strong>Unreadable code:</strong> No clear variable names, no documentation. What did that function do again? Why did I write it this way?</li>
-  <li><strong>Incomprehensible architecture:</strong> The structure of the project is so complex that you can no longer follow the logic.</li>
-  <li><strong>Broken tests:</strong> Or, even worse, no tests at all. The fear of changing something and crashing the whole thing prevents you from writing any.</li>
-</ul>
-
-<p>These are the moments when you realize you’ve invested in a liability: <strong>technical debt</strong>. 
-It’s like you’ve been putting off washing the dishes for years, and now you’re faced with a mountain of dirty plates so high that you lose the motivation to even begin.</p>
-
-<h3 id="the-endless-refactor-loop">The Endless Refactor Loop</h3>
-<p>Beyond technical debt, there’s another major motivation killer: the constant need to change. 
-One day you have a great idea for the design, a new color scheme, or a different approach to the architecture. 
-A few days later, you change your mind and decide to refactor everything. 
-This endless loop of “I’ll get it perfect this time” is a trap. 
-You never commit to a single idea long enough to see it through, so you end up with a fragmented, half-finished project and zero motivation.</p>
-
-<h3 id="how-to-reconnect">How to Reconnect</h3>
-<p>Repairing the relationship with your codebase requires a few strategic steps. 
-It’s not a quick fix but an investment in the future.</p>
-
-<ol>
-  <li><strong>Start small. Very small.</strong> Don’t try to rewrite the entire project. Find a small, isolated task. A bug fix in a single function, or refactoring a few lines of code to make them more readable. Make small commits with clear messages so you can easily refer back to them.</li>
-  <li><strong>Finish one idea before starting another.</strong> Instead of constantly refactoring, commit to a single idea for your design or architecture. Work on it, finish it, and <strong>deploy something</strong>. Once it’s live, you can make an informed decision about what needs to change.</li>
-  <li><strong>Write tests.</strong> Nothing provides more confidence than good tests. Add a simple unit test to the code you’re touching. This gives you a safety net and the courage to make further changes.</li>
-  <li><strong>Document your own code.</strong> Once you’ve understood a small part, write it down. Add comments, update the README. This helps not only your future self but also anyone who works with this code after you.</li>
-  <li><strong>Talk about it.</strong> Discuss the project with a colleague or in a community. Sometimes a fresh perspective is all you need. Explain where you’re stuck. The process of articulating your problem can often lead to the solution.</li>
-  <li><strong>Give yourself a break.</strong> Sometimes the best approach is to step away entirely. Go for a walk, read a book, or work on a different project. The solution often comes at the most unexpected moments, when your mind isn’t actively working on it.</li>
 </ol>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="personal" /><category term="career" /><category term="productivity" /><summary type="html"><![CDATA[“I’ll have you know that I stubbed my toe last week and only cried for 20 minutes.” - Spongebob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/error-motivation-not-found.png" /><media:content medium="image" url="http://localhost:4000/assets/img/error-motivation-not-found.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
