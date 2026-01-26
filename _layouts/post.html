@@ -8,7 +8,7 @@ layout: default
   "@graph": [
     {
       "@type": "Person",
-      "@id": "{{ site.url }}/#person",
+      "@id": "{{ site.url }}/#oumaima-zerouali",
       "name": "{{ site.author.name }}",
       "url": "{{ site.url }}",
       "image": {
@@ -24,7 +24,7 @@ layout: default
       "name": "{{ site.title }}",
       "publisher": {
         "@type": "Person",
-        "@id": "{{ site.url }}/#person"
+        "@id": "{{ site.url }}/#oumaima-zerouali"
       }
     },
     {
@@ -49,11 +49,11 @@ layout: default
       "description": "{{ page.description | default: page.excerpt | strip_html | strip_newlines | truncatewords: 30 }}",
       "author": {
         "@type": "Person",
-        "@id": "{{ site.url }}/#person"
+        "@id": "{{ site.url }}/#oumaima-zerouali"
       },
       "publisher": {
         "@type": "Person",
-        "@id": "{{ site.url }}/#person"
+        "@id": "{{ site.url }}/#oumaima-zerouali"
       },
       "datePublished": "{{ page.date | date_to_xmlschema }}",
       "dateModified": "{{ page.last_modified_at | default: page.date | date_to_xmlschema }}",
