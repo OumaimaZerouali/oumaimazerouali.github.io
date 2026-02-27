@@ -7,6 +7,8 @@ tags: [java, ai, chatbot, spring-ai]
 lang: en
 ---
 
+>  "I’m ready to try something new!" – SpongeBob SquarePants
+
 A few weeks ago, Gabriel and I gave a talk with a deliberately provocative premise:
 
 **Java developers don’t need to learn Python to build serious AI applications.**

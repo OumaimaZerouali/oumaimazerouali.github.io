@@ -7,6 +7,8 @@ tags: [java, ai, chatbot, spring-ai]
 lang: nl
 ---
 
+>  "I’m ready to try something new!" – SpongeBob SquarePants
+
 Een paar weken geleden gaven Gabriel en ik een talk met een bewuste stelling:  
 
 **Java-ontwikkelaars hoeven geen Python te leren om serieuze AI-toepassingen te bouwen.**  
