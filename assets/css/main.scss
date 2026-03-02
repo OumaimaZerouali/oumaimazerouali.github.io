@@ -1570,8 +1570,7 @@ main {
 
 /* ========== About Page ========== */
 .about-page {
-  max-width: var(--content-width);
-  margin: 0 auto;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .about-page section {
@@ -2449,7 +2448,20 @@ main {
   flex-shrink: 0;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
+  .weekly-teaser-strip {
+    flex-wrap: wrap;
+    gap: var(--spacing-xs);
+  }
+
+  .weekly-teaser-strip-title {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    width: 100%;
+    flex-basis: 100%;
+  }
+
   .weekly-teaser-strip-date {
     display: none;
   }
@@ -2458,14 +2470,12 @@ main {
 
 /* ========== Weekly Dev Note - Archive Page ========== */
 .weekly-page {
-  max-width: var(--max-width);
-  margin: 0 auto;
+  margin-bottom: var(--spacing-2xl);
 }
 
 .weekly-header {
   margin-bottom: var(--spacing-2xl);
   padding-bottom: var(--spacing-xl);
-  border-bottom: 1px solid var(--color-border);
 }
 
 .weekly-header h1 {
