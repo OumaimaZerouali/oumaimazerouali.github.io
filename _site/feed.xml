@@ -1,5 +1,149 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-03-02T13:58:19+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
-</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">Waarom ik JCast begon</title><link href="http://localhost:4000/nl/2026/02/28/jcast/" rel="alternate" type="text/html" title="Waarom ik JCast begon" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/28/jcast/"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-03-02T21:46:39+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi’s Blog</title><subtitle>Thoughtful reflections on software development, written by a developer for developers.
+</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="en"><title type="html">Week 1 – 30 Deployments and the Weight of Production</title><link href="http://localhost:4000/2026/03/01/weekly-dev-note-week-1/" rel="alternate" type="text/html" title="Week 1 – 30 Deployments and the Weight of Production" /><published>2026-03-01T08:00:00+01:00</published><updated>2026-03-01T08:00:00+01:00</updated><id>http://localhost:4000/2026/03/01/weekly-dev-note-week-1</id><content type="html" xml:base="http://localhost:4000/2026/03/01/weekly-dev-note-week-1/"><![CDATA[<p>This week I didn’t build new features.
+I didn’t refactor complex logic.
+I deployed.</p>
+
+<p>Around 30 services moved across environments: TA → INT → PROD.</p>
+
+<p>On paper, deployments are semi-automated. Pipelines run, pods spin up, logs appear. But in reality, production work is less about pressing a button and more about discipline.</p>
+
+<h2 id="its-never-just-run-the-pipeline">It’s Never Just “Run the Pipeline”</h2>
+
+<p>Each deployment required manual attention:</p>
+
+<ul>
+  <li>Adjusting configuration per environment</li>
+  <li>Verifying the correct service version</li>
+  <li>Running scripts (sometimes Windows-only, while I’m on macOS)</li>
+  <li>Waiting for pods to initialize</li>
+  <li>Monitoring logs in Kibana</li>
+  <li>Confirming stability before promoting to the next environment</li>
+</ul>
+
+<p>And then repeating the process. Again. And again.</p>
+
+<p>Technically, none of it was extremely complex.
+Mentally, it required focus.</p>
+
+<h2 id="the-real-difficulty-context-switching">The Real Difficulty: Context Switching</h2>
+
+<p>When you’re deploying one service, it’s manageable.</p>
+
+<p>When you’re deploying many services back-to-back, the risk shifts. The challenge becomes cognitive load:</p>
+
+<ul>
+  <li>Is this the correct version?</li>
+  <li>Did someone forget to update the tag?</li>
+  <li>Is this config aligned with the target environment?</li>
+  <li>Am I deploying the right artifact to the right cluster?</li>
+</ul>
+
+<p>Not everyone followed the same conventions. Sometimes versions were missing. Sometimes scripts weren’t available for all platforms. That meant extra verification, extra caution, extra attention.</p>
+
+<p>The biggest risk wasn’t the tooling.
+It was human error.</p>
+
+<h2 id="production-changes-your-mindset">Production Changes Your Mindset</h2>
+
+<p>Deploying to TA feels routine.
+Deploying to INT requires validation.
+Deploying to PROD feels different.</p>
+
+<p>In production, mistakes have impact.</p>
+
+<p>You double-check versions.
+You re-read configs.
+You monitor logs more closely.
+You prepare for rollback before you need it.</p>
+
+<h2 id="what-i-learned">What I Learned</h2>
+
+<p>This week reinforced a few things:</p>
+
+<ul>
+  <li>Deployment is engineering.</li>
+  <li>Consistency in versioning and configuration reduces stress.</li>
+  <li>Observability (logs, monitoring) is not optional.</li>
+  <li>Context switching increases the probability of mistakes.</li>
+  <li>Discipline beats speed in production.</li>
+</ul>
+
+<p>Writing code is creative.
+Deploying code is responsibility.</p>
+
+<p>And production doesn’t reward cleverness, it rewards precision.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="weekly" /><summary type="html"><![CDATA[This week I didn’t build new features. I didn’t refactor complex logic. I deployed.]]></summary></entry><entry xml:lang="nl"><title type="html">Week 1 – 30 Deployments en het Gewicht van Productie</title><link href="http://localhost:4000/nl/2026/03/01/weekly-dev-note-week-1/" rel="alternate" type="text/html" title="Week 1 – 30 Deployments en het Gewicht van Productie" /><published>2026-03-01T08:00:00+01:00</published><updated>2026-03-01T08:00:00+01:00</updated><id>http://localhost:4000/nl/2026/03/01/weekly-dev-note-week-1</id><content type="html" xml:base="http://localhost:4000/nl/2026/03/01/weekly-dev-note-week-1/"><![CDATA[<p>Deze week heb ik geen nieuwe features gebouwd.
+Ik heb geen complexe logica gerefactored.
+Ik heb gedeployed.</p>
+
+<p>Ongeveer 30 services zijn verplaatst over omgevingen: TA → INT → PROD.</p>
+
+<p>Op papier zijn deployments semi-geautomatiseerd. Pipelines draaien, pods starten op, logs verschijnen. Maar in werkelijkheid draait productiewerk minder om het indrukken van een knop en meer om discipline.</p>
+
+<h2 id="het-is-nooit-gewoon-run-the-pipeline">Het Is Nooit Gewoon “Run the Pipeline”</h2>
+
+<p>Elke deployment vroeg om handmatige aandacht:</p>
+
+<ul>
+  <li>Configuratie aanpassen per omgeving</li>
+  <li>De juiste serviceversie verifiëren</li>
+  <li>Scripts uitvoeren (soms alleen beschikbaar voor Windows, terwijl ik op macOS werk)</li>
+  <li>Wachten tot pods geïnitialiseerd zijn</li>
+  <li>Logs monitoren in Kibana</li>
+  <li>Stabiliteit bevestigen voordat je doorpromoot naar de volgende omgeving</li>
+</ul>
+
+<p>En dan het proces herhalen. Opnieuw. En opnieuw.</p>
+
+<p>Technisch gezien was niets hiervan extreem complex.
+Mentaal vereiste het focus.</p>
+
+<h2 id="de-echte-uitdaging-context-switching">De Echte Uitdaging: Context Switching</h2>
+
+<p>Eén service deployen is beheersbaar.</p>
+
+<p>Veel services achter elkaar deployen verschuift het risico. De uitdaging wordt cognitieve belasting:</p>
+
+<ul>
+  <li>Is dit de juiste versie?</li>
+  <li>Heeft iemand vergeten de tag bij te werken?</li>
+  <li>Klopt deze config voor de doelomgeving?</li>
+  <li>Deploy ik het juiste artifact naar het juiste cluster?</li>
+</ul>
+
+<p>Niet iedereen hanteerde dezelfde conventies. Soms ontbraken versies. Soms waren scripts niet beschikbaar voor alle platforms. Dat betekende extra verificatie, extra voorzichtigheid, extra aandacht.</p>
+
+<p>Het grootste risico was niet de tooling.
+Het was menselijke fout.</p>
+
+<h2 id="productie-verandert-je-mindset">Productie Verandert Je Mindset</h2>
+
+<p>Deployen naar TA voelt routinematig.
+Deployen naar INT vereist validatie.
+Deployen naar PROD voelt anders.</p>
+
+<p>In productie hebben fouten impact.</p>
+
+<p>Je controleert versies nogmaals.
+Je herleest configs.
+Je monitort logs nauwkeuriger.
+Je bereidt een rollback voor voordat je hem nodig hebt.</p>
+
+<h2 id="wat-ik-heb-geleerd">Wat Ik Heb Geleerd</h2>
+
+<p>Deze week bevestigde een aantal dingen:</p>
+
+<ul>
+  <li>Deployment is engineering.</li>
+  <li>Consistentie in versiebeheer en configuratie vermindert stress.</li>
+  <li>Observability (logs, monitoring) is niet optioneel.</li>
+  <li>Context switching vergroot de kans op fouten.</li>
+  <li>Discipline verslaat snelheid in productie.</li>
+</ul>
+
+<p>Code schrijven is creatief.
+Code deployen is verantwoordelijkheid.</p>
+
+<p>En productie beloont geen slimheid, het beloont precisie.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="weekly" /><summary type="html"><![CDATA[Deze week heb ik geen nieuwe features gebouwd. Ik heb geen complexe logica gerefactored. Ik heb gedeployed.]]></summary></entry><entry xml:lang="nl"><title type="html">Waarom ik JCast begon</title><link href="http://localhost:4000/nl/2026/02/28/jcast/" rel="alternate" type="text/html" title="Waarom ik JCast begon" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/28/jcast/"><![CDATA[<blockquote>
   <p>“I’m ready! I’m ready!” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -1570,662 +1714,4 @@ Along the way, it became a small community.</p>
 
 <p><em>Curious about the podcast behind these T-shirts?</em></p>
 
-<p>Feel free to visit <a href="https://jcast.dev">jcast.dev</a> and discover <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Migration to Java 25 and Spring Boot 4: honestly, it was chaos</title><link href="http://localhost:4000/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migration to Java 25 and Spring Boot 4: honestly, it was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
-  <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
-</blockquote>
-
-<p>Everyone always says that upgrading Spring is easy, right? Just run <strong>OpenRewrite</strong>, fix a few small things, and you’re done.</p>
-
-<p>Well… let me tell you about our migration from <strong>Java 17/21 to Java 25</strong> and from <strong>Spring Boot 3 to 4.0.1</strong>.</p>
-
-<p>For a single service it now takes at most an hour to fix everything. Not too bad. But I’ve already done this migration a few times for clients. And I keep running into the same problems, over and over again.</p>
-
-<p>So I thought: let me write this down. Maybe it helps someone else who has to go through this migration.</p>
-
-<h2 id="why-we-did-this-in-the-first-place">Why we did this in the first place</h2>
-
-<p>Our tech lead wanted to move to <strong>Java 25</strong>. His reason? He always wants the newest version of everything. And honestly, I was pretty excited to experience a migration like this.</p>
-
-<p>On top of that, we had to:</p>
-
-<ul>
-  <li>Upgrade to <strong>Spring Boot 4</strong> and <strong>Spring Framework 7</strong></li>
-  <li>Fully finish the <strong>Jakarta migration</strong></li>
-  <li>Clean up old code before adding new features</li>
-</ul>
-
-<p>All of our applications contain:</p>
-
-<ul>
-  <li>REST APIs</li>
-  <li>Custom HTTP clients</li>
-  <li>JWT security</li>
-  <li>File uploads</li>
-  <li>A lot of tests with MockMvc</li>
-  <li>Jackson for JSON everywhere</li>
-</ul>
-
-<h2 id="openrewrite-helpful-but-not-magic">OpenRewrite: helpful, but not magic</h2>
-
-<p>We started with <strong>OpenRewrite</strong> and the official Spring recipes (<a href="https://docs.openrewrite.org/recipes/java">source</a>).</p>
-
-<p>What Rewrite did well:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">javax.*</code> → <code class="language-plaintext highlighter-rouge">jakarta.*</code></li>
-  <li>Updating Spring imports</li>
-  <li>Fixing deprecated APIs</li>
-  <li>Adjusting config classes</li>
-  <li><strong>Simplifying try-catch syntax</strong></li>
-  <li><code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new MappingJackson2HttpMessageConverter())</code> → <code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new JacksonJsonHttpMessageConverter())</code></li>
-  <li><code class="language-plaintext highlighter-rouge">.format(...)</code> → <code class="language-plaintext highlighter-rouge">.formatted(...)</code></li>
-  <li><strong>Splitting YAML per profile</strong></li>
-</ul>
-
-<p><em>But… problems showed up pretty quickly.</em></p>
-
-<h2 id="openrewrite--jdkjre-mismatch">OpenRewrite + JDK/JRE mismatch</h2>
-
-<p>The first time I ran OpenRewrite on Java 25 it crashed with:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">LinkageError</span><span class="o">:</span> <span class="n">loader</span> <span class="n">constraint</span> <span class="nl">violation:</span> <span class="n">com</span><span class="o">.</span><span class="na">sun</span><span class="o">.</span><span class="na">tools</span><span class="o">.</span><span class="na">javac</span><span class="o">.</span><span class="na">parser</span><span class="o">.</span><span class="na">Tokens</span><span class="n">$Comment$CommentStyle</span>
-</code></pre></div></div>
-
-<p>Cause: <strong>JDK and JRE were not the same version</strong>.</p>
-
-<p><strong>Fix:</strong></p>
-
-<ul>
-  <li>Always check that JDK and JRE are the same version</li>
-  <li>For us: set both to <strong>Java 25</strong></li>
-</ul>
-
-<h2 id="everything-compiles--then-the-tests-explode">“Everything compiles!” … then the tests explode</h2>
-
-<p>After Rewrite and fixing all compilation errors, we started the tests. And then? Everything failed.</p>
-
-<p>Most problems were in:</p>
-
-<ul>
-  <li>MockMvc tests</li>
-  <li>JSON serialization</li>
-  <li>HTTP clients</li>
-  <li>Jackson config</li>
-</ul>
-
-<h2 id="jackson-the-pain-that-never-ends">Jackson: the pain that never ends</h2>
-
-<p>Spring Boot 4 moves Jackson from:</p>
-
-<p>Old location:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">com</span><span class="o">.</span><span class="na">fasterxml</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
-</code></pre></div></div>
-
-<p>New location:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tools</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
-</code></pre></div></div>
-
-<p>Problems we ran into:</p>
-
-<ul>
-  <li>Mixed imports in tests</li>
-  <li>Constants like <code class="language-plaintext highlighter-rouge">WRITE_DATES_AS_TIMESTAMPS</code> disappeared</li>
-  <li>ObjectMapper conflicts, especially in tests with multiple primary beans</li>
-</ul>
-
-<p>Before we had:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
-<span class="nd">@Primary</span>
-<span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">(</span><span class="nc">Jackson2ObjectMapperBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">dateFormat</span><span class="o">(...).</span><span class="na">build</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>In Boot 4:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Jackson2ObjectMapperBuilder</code> is <strong>deprecated</strong></li>
-  <li>Boot creates its own <strong>primary</strong> <code class="language-plaintext highlighter-rouge">jacksonJsonMapper</code></li>
-</ul>
-
-<p>Result:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NoUniqueBeanDefinitionException:
-more than one 'primary' bean found: [objectMapper, jacksonJsonMapper]
-</code></pre></div></div>
-
-<p><strong>New approach:</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
-<span class="kd">public</span> <span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kt">var</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleDateFormat</span><span class="o">(</span><span class="s">"dd-MM-yyyy"</span><span class="o">);</span>
-
-    <span class="k">return</span> <span class="nc">JsonMapper</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">defaultDateFormat</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">)</span>
-            <span class="o">.</span><span class="na">findAndAddModules</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><strong>Source:</strong> <a href="https://spring.io/blog/2025/10/07/introducing-jackson-3-support-in-spring">Introducing Jackson 3 support in Spring</a></p>
-
-<h2 id="resttemplate--http-changes">RestTemplate &amp; HTTP changes</h2>
-
-<h3 id="resttemplatebuilder-moved">RestTemplateBuilder moved</h3>
-
-<p>Old location:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
-</code></pre></div></div>
-
-<p>New location:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">restclient</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>In production code you’ll often migrate to <strong>RestClient</strong>, which Spring Boot 4 prefers.</p>
-</blockquote>
-
-<h3 id="response-api-changed">Response API changed</h3>
-
-<p>Old way:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCodeValue</span><span class="o">()</span>
-</code></pre></div></div>
-
-<p>New way:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">().</span><span class="na">value</span><span class="o">()</span>
-</code></pre></div></div>
-
-<h3 id="headers-replaced">Headers replaced</h3>
-
-<p>Old Apache way:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Header</span><span class="o">[]</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getAllHeaders</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p>New Spring way:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getHeaders</span><span class="o">();</span>
-</code></pre></div></div>
-
-<h3 id="timeouts-are-now-builders">Timeouts are now builders</h3>
-
-<p>The old setters no longer exist. New:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpComponentsClientHttpRequestFactory</span> <span class="n">requestFactory</span> <span class="o">=</span>
-    <span class="nc">ClientHttpRequestFactoryBuilder</span><span class="o">.</span><span class="na">httpComponents</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">withDefaultRequestConfigCustomizer</span><span class="o">(</span><span class="n">rc</span> <span class="o">-&gt;</span> <span class="n">rc</span>
-            <span class="o">.</span><span class="na">setConnectTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">setConnectionRequestTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">setResponseTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-        <span class="o">)</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p><strong>Custom HttpClients</strong> now have to be added via <code class="language-plaintext highlighter-rouge">.withHttpClientCustomizer(...)</code>.</p>
-
-<p><strong>Source:</strong> <a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">Spring Framework 7 HTTP Client</a></p>
-
-<h2 id="apache-httpclient-4--5">Apache HttpClient 4 → 5</h2>
-
-<p>Everything changed:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">org.apache.http.*</code> → <code class="language-plaintext highlighter-rouge">org.apache.hc.*</code></li>
-  <li>Timeouts, SSL, connection managers, request builders → complete rewrite</li>
-</ul>
-
-<p><strong>Source:</strong> <a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">Apache HttpClient 5 Migration</a></p>
-
-<h2 id="swagger--openapi-after-jakarta">Swagger &amp; OpenAPI after Jakarta</h2>
-
-<p>After the migration, OpenAPI annotations disappear. Add:</p>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>io.swagger.core.v3<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>swagger-annotations-jakarta<span class="nt">&lt;/artifactId&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></div>
-
-<p><strong>Source:</strong> <a href="https://github.com/swagger-api/swagger-core">Swagger</a></p>
-
-<h2 id="spring-security-7-websocket">Spring Security 7 WebSocket</h2>
-
-<p><code class="language-plaintext highlighter-rouge">AbstractSecurityWebSocketMessageBrokerConfigurer</code> is gone. For us, this approach works:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.messaging.Message</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationDecision</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationManager</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.config.annotation.web.messaging.EnableWebSocketSecurity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageAuthorizationContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageMatcherDelegatingAuthorizationManager</span><span class="o">;</span>
-
-<span class="nd">@Configuration</span>
-<span class="nd">@EnableWebSocketSecurity</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSocketSecurityConfig</span> <span class="o">{</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">messageAuthorizationManager</span><span class="o">(</span>
-            <span class="nc">MessageMatcherDelegatingAuthorizationManager</span><span class="o">.</span><span class="na">Builder</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">messages</span>
-                <span class="o">.</span><span class="na">nullDestMatcher</span><span class="o">().</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">simpSubscribeDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">simpDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">anyMessage</span><span class="o">().</span><span class="na">permitAll</span><span class="o">();</span>
-        <span class="k">return</span> <span class="n">messages</span><span class="o">.</span><span class="na">build</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">MessageAuthorizationContext</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">authorizationManager</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="o">(</span><span class="n">_</span><span class="o">,</span> <span class="n">_</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">AuthorizationDecision</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><strong>Source:</strong> <a href="https://newreleases.io/project/github/spring-projects/spring-security/release/7.0.0-M1">Spring Security 7 WebSocket</a>,
-<a href="https://github.com/spring-projects/spring-security/pull/17328">Github Thread</a></p>
-
-<h2 id="recurring-problems">Recurring problems</h2>
-
-<p>During the migration, most issues kept coming back, especially in tests:</p>
-
-<ul>
-  <li>Jackson namespace constantly breaks</li>
-  <li>ObjectMapper conflicts in tests</li>
-  <li>HTTP client configuration has to be fully rewritten</li>
-  <li>Response handling methods changed</li>
-  <li>RestTemplate and builders have new imports or are replaced by RestClient</li>
-  <li>Tests often fail even though compilation succeeds</li>
-</ul>
-
-<p>On top of that, the compiler, serialization layer, SSL configuration, and auto-configuration all get affected at the same time by the upgrade.</p>
-
-<h2 id="what-i-would-recommend">What I would recommend</h2>
-
-<ul>
-  <li>Plan extra time for tests</li>
-  <li>Expect Jackson problems and ObjectMapper conflicts</li>
-  <li>Be prepared to rewrite HTTP client code</li>
-  <li>Run your full test suite early and often</li>
-  <li>Use OpenRewrite</li>
-</ul>
-
-<p>Personally, I’m glad I got to do this migration myself. Despite the frustrations and all the documentation reading, it gave me a much deeper understanding of how Spring Boot and Spring Framework work and how much control they have over infrastructure and configuration.</p>
-
-<p>Want to learn more about Spring Boot 4 and Spring Framework 7? Check out this post: <a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">Spring Boot 4 &amp; Spring Framework 7</a>.</p>
-
-<h2 id="overview-of-all-sources">Overview of all sources</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Resource</th>
-      <th>Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>OpenRewrite recipes</td>
-      <td><a href="https://docs.openrewrite.org/recipes/java">https://docs.openrewrite.org/recipes/java</a></td>
-    </tr>
-    <tr>
-      <td>Spring Framework 7 HTTP Client</td>
-      <td><a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories</a></td>
-    </tr>
-    <tr>
-      <td>Apache HttpClient 5 Migration</td>
-      <td><a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html</a></td>
-    </tr>
-    <tr>
-      <td>Swagger (swagger-core)</td>
-      <td><a href="https://github.com/swagger-api/swagger-core">https://github.com/swagger-api/swagger-core</a></td>
-    </tr>
-    <tr>
-      <td>Spring Security 7 WebSocket (PR)</td>
-      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
-    </tr>
-    <tr>
-      <td>Spring Security 7 (discussion thread)</td>
-      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
-    </tr>
-    <tr>
-      <td>Spring Boot 4 &amp; Spring Framework 7 (overview)</td>
-      <td><a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">https://www.baeldung.com/spring-boot-4-spring-framework-7</a></td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring" /><category term="migration" /><category term="openrewrite" /><category term="softwaredevelopment" /><summary type="html"><![CDATA[“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos</title><link href="http://localhost:4000/nl/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
-  <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
-</blockquote>
-
-<p>Iedereen zegt altijd dat upgraden van Spring makkelijk is, toch? Gewoon <strong>OpenRewrite</strong> draaien, een paar kleine dingen fixen en klaar.</p>
-
-<p>Nou… laat me vertellen over onze migratie van <strong>Java 17/21 naar Java 25</strong> en <strong>Spring Boot 3 naar 4.0.1</strong>.</p>
-
-<p>Voor één service kost het nu maximaal één uur om alles te fixen. Niet zo erg. Maar ik heb deze migratie al een paar keer gedaan bij de klant. En ik blijf steeds dezelfde problemen tegenkomen, keer op keer.</p>
-
-<p>Dus ik dacht: laat ik dit opschrijven. Misschien helpt het iemand anders die deze migratie moet doen.</p>
-
-<h2 id="waarom-we-dit-überhaupt-deden">Waarom we dit überhaupt deden</h2>
-
-<p>Onze tech lead wilde naar <strong>Java 25</strong>. Zijn reden? Hij wil altijd de nieuwste versie van alles. En eerlijk, ik was wel enthousiast om eens een migratie mee te maken.</p>
-
-<p>Daarnaast moesten we:</p>
-
-<ul>
-  <li>Upgraden naar <strong>Spring Boot 4</strong> en <strong>Spring Framework 7</strong></li>
-  <li>De <strong>Jakarta-migratie</strong> volledig afronden</li>
-  <li>Oude code opruimen voordat we nieuwe features toevoegen</li>
-</ul>
-
-<p>Onze applicaties bevatten allemaal:</p>
-
-<ul>
-  <li>REST APIs</li>
-  <li>Custom HTTP clients</li>
-  <li>JWT security</li>
-  <li>File uploads</li>
-  <li>Heel veel tests met MockMvc</li>
-  <li>Jackson voor JSON overal</li>
-</ul>
-
-<h2 id="openrewrite-helpt-maar-is-geen-magie">OpenRewrite: helpt, maar is geen magie</h2>
-
-<p>We begonnen met <strong>OpenRewrite</strong> en de officiële Spring recipes (<a href="https://docs.openrewrite.org/recipes/java">bron</a>).</p>
-
-<p>Wat Rewrite goed deed:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">javax.*</code> → <code class="language-plaintext highlighter-rouge">jakarta.*</code></li>
-  <li>Spring imports updaten</li>
-  <li>Deprecated APIs fixen</li>
-  <li>Config classes aanpassen</li>
-  <li><strong>Try-catch syntax vereenvoudigen</strong></li>
-  <li><code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new MappingJackson2HttpMessageConverter())</code> → <code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new JacksonJsonHttpMessageConverter())</code></li>
-  <li><code class="language-plaintext highlighter-rouge">.format(...)</code> → <code class="language-plaintext highlighter-rouge">.formatted(...)</code></li>
-  <li><strong>YAML splitsen per profiel</strong></li>
-</ul>
-
-<p><em>Maar… er kwamen ook snel problemen.</em></p>
-
-<h2 id="openrewrite--jdkjre-mismatch">OpenRewrite + JDK/JRE mismatch</h2>
-
-<p>Eerste keer dat ik OpenRewrite draaide op Java 25 crashte het met:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">LinkageError</span><span class="o">:</span> <span class="n">loader</span> <span class="n">constraint</span> <span class="nl">violation:</span> <span class="n">com</span><span class="o">.</span><span class="na">sun</span><span class="o">.</span><span class="na">tools</span><span class="o">.</span><span class="na">javac</span><span class="o">.</span><span class="na">parser</span><span class="o">.</span><span class="na">Tokens</span><span class="n">$Comment$CommentStyle</span>
-</code></pre></div></div>
-
-<p>Oorzaak: <strong>JDK en JRE waren niet dezelfde versie</strong>.</p>
-
-<p><strong>Fix:</strong></p>
-
-<ul>
-  <li>Check altijd dat JDK en JRE dezelfde versie hebben</li>
-  <li>Voor ons: beide op <strong>Java 25</strong> zetten</li>
-</ul>
-
-<h2 id="alles-compileert--dan-exploderen-de-tests">“Alles compileert!” … dan exploderen de tests</h2>
-
-<p>Na Rewrite en alle compileerfouten fixen, startten we de tests. En dan? Alles faalde.</p>
-
-<p>Problemen zaten vooral in:</p>
-
-<ul>
-  <li>MockMvc tests</li>
-  <li>JSON serialization</li>
-  <li>HTTP clients</li>
-  <li>Jackson config</li>
-</ul>
-
-<h2 id="jackson-de-pijn-die-nooit-stopt">Jackson: de pijn die nooit stopt</h2>
-
-<p>Spring Boot 4 verhuist Jackson van:</p>
-
-<p>Oude locatie:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">com</span><span class="o">.</span><span class="na">fasterxml</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
-</code></pre></div></div>
-
-<p>Nieuwe locatie:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tools</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
-</code></pre></div></div>
-
-<p>Problemen die we tegenkwamen:</p>
-
-<ul>
-  <li>Mixed imports in tests</li>
-  <li>Constants zoals <code class="language-plaintext highlighter-rouge">WRITE_DATES_AS_TIMESTAMPS</code> verdwenen</li>
-  <li>ObjectMapper conflicts, vooral in tests met meerdere primary beans</li>
-</ul>
-
-<p>Vroeger hadden we:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
-<span class="nd">@Primary</span>
-<span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">(</span><span class="nc">Jackson2ObjectMapperBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">dateFormat</span><span class="o">(...).</span><span class="na">build</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>In Boot 4:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Jackson2ObjectMapperBuilder</code> is <strong>deprecated</strong></li>
-  <li>Boot maakt zijn eigen <strong>primary</strong> <code class="language-plaintext highlighter-rouge">jacksonJsonMapper</code></li>
-</ul>
-
-<p>Resultaat:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NoUniqueBeanDefinitionException:
-more than one 'primary' bean found: [objectMapper, jacksonJsonMapper]
-</code></pre></div></div>
-
-<p><strong>Nieuwe aanpak:</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
-<span class="kd">public</span> <span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kt">var</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleDateFormat</span><span class="o">(</span><span class="s">"dd-MM-yyyy"</span><span class="o">);</span>
-
-    <span class="k">return</span> <span class="nc">JsonMapper</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">defaultDateFormat</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">)</span>
-            <span class="o">.</span><span class="na">findAndAddModules</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><strong>Bron:</strong> <a href="https://spring.io/blog/2025/10/07/introducing-jackson-3-support-in-spring">Introducing Jackson 3 support in Spring</a></p>
-
-<h2 id="resttemplate--http-veranderingen">RestTemplate &amp; HTTP veranderingen</h2>
-
-<h3 id="resttemplatebuilder-verplaatst">RestTemplateBuilder verplaatst</h3>
-
-<p>Oude locatie:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
-</code></pre></div></div>
-
-<p>Nieuwe locatie:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">restclient</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>In productiecode migreer je vaak naar <strong>RestClient</strong>, Spring Boot 4 geeft hier voorkeur aan.</p>
-</blockquote>
-
-<h3 id="response-api-veranderd">Response API veranderd</h3>
-
-<p>Oude manier:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCodeValue</span><span class="o">()</span>
-</code></pre></div></div>
-
-<p>Nieuwe manier:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">().</span><span class="na">value</span><span class="o">()</span>
-</code></pre></div></div>
-
-<h3 id="headers-vervangen">Headers vervangen</h3>
-
-<p>Oude Apache manier:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Header</span><span class="o">[]</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getAllHeaders</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p>Nieuwe Spring manier:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getHeaders</span><span class="o">();</span>
-</code></pre></div></div>
-
-<h3 id="timeouts-zijn-nu-builders">Timeouts zijn nu builders</h3>
-
-<p>Oude setters bestaan niet meer. Nieuw:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpComponentsClientHttpRequestFactory</span> <span class="n">requestFactory</span> <span class="o">=</span>
-    <span class="nc">ClientHttpRequestFactoryBuilder</span><span class="o">.</span><span class="na">httpComponents</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">withDefaultRequestConfigCustomizer</span><span class="o">(</span><span class="n">rc</span> <span class="o">-&gt;</span> <span class="n">rc</span>
-            <span class="o">.</span><span class="na">setConnectTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">setConnectionRequestTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">setResponseTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-        <span class="o">)</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p><strong>Custom HttpClients</strong> moeten nu via <code class="language-plaintext highlighter-rouge">.withHttpClientCustomizer(...)</code> worden toegevoegd.
-<strong>Bron:</strong> <a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">Spring Framework 7 HTTP Client</a></p>
-
-<h2 id="apache-httpclient-4--5">Apache HttpClient 4 → 5</h2>
-
-<p>Alles is veranderd:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">org.apache.http.*</code> → <code class="language-plaintext highlighter-rouge">org.apache.hc.*</code></li>
-  <li>Timeouts, SSL, connection managers, request builders → volledige rewrite</li>
-</ul>
-
-<p><strong>Bron:</strong> <a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">Apache HttpClient 5 Migration</a></p>
-
-<h2 id="swagger--openapi-na-jakarta">Swagger &amp; OpenAPI na Jakarta</h2>
-
-<p>Na migratie verdwijnen OpenAPI annotaties. Voeg toe:</p>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>io.swagger.core.v3<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>swagger-annotations-jakarta<span class="nt">&lt;/artifactId&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></div>
-<p><strong>Bron:</strong> <a href="https://github.com/swagger-api/swagger-core">Swagger</a></p>
-
-<h2 id="spring-security-7-websocket">Spring Security 7 WebSocket</h2>
-
-<p><code class="language-plaintext highlighter-rouge">AbstractSecurityWebSocketMessageBrokerConfigurer</code> is verwijderd. Voor ons werkt deze aanpak:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.messaging.Message</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationDecision</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationManager</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.config.annotation.web.messaging.EnableWebSocketSecurity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageAuthorizationContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageMatcherDelegatingAuthorizationManager</span><span class="o">;</span>
-
-<span class="nd">@Configuration</span>
-<span class="nd">@EnableWebSocketSecurity</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSocketSecurityConfig</span> <span class="o">{</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">messageAuthorizationManager</span><span class="o">(</span>
-            <span class="nc">MessageMatcherDelegatingAuthorizationManager</span><span class="o">.</span><span class="na">Builder</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">messages</span>
-                <span class="o">.</span><span class="na">nullDestMatcher</span><span class="o">().</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">simpSubscribeDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">simpDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">anyMessage</span><span class="o">().</span><span class="na">permitAll</span><span class="o">();</span>
-        <span class="k">return</span> <span class="n">messages</span><span class="o">.</span><span class="na">build</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">MessageAuthorizationContext</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">authorizationManager</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="o">(</span><span class="n">_</span><span class="o">,</span> <span class="n">_</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">AuthorizationDecision</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><strong>Bron:</strong> <a href="https://newreleases.io/project/github/spring-projects/spring-security/release/7.0.0-M1">Spring Security 7 WebSocket</a>,
-<a href="https://github.com/spring-projects/spring-security/pull/17328">Github Thread</a></p>
-
-<h2 id="terugkerende-problemen">Terugkerende problemen</h2>
-
-<p>Tijdens de migratie kwamen de meeste problemen steeds terug, vooral in tests:</p>
-
-<ul>
-  <li>Jackson namespace breekt constant</li>
-  <li>ObjectMapper conflicts in tests</li>
-  <li>HTTP client configuratie moet volledig herschreven worden</li>
-  <li>Response handling methoden gewijzigd</li>
-  <li>RestTemplate en builders hebben nieuwe imports of zijn vervangen door RestClient</li>
-  <li>Tests falen vaak ondanks succesvolle compilatie</li>
-</ul>
-
-<p>Daarnaast blijkt dat compiler, serialisatielaag, SSL-configuratie en auto-configuration allemaal tegelijk worden beïnvloed door de upgrade.</p>
-
-<h2 id="wat-ik-zou-aanraden">Wat ik zou aanraden</h2>
-
-<ul>
-  <li>Plan extra tijd voor tests</li>
-  <li>Verwacht Jackson-problemen en ObjectMapper-conflicten</li>
-  <li>Bereid je voor op herschrijven van HTTP client code</li>
-  <li>Run je volledige test suite vroeg en vaak</li>
-  <li>Gebruik OpenRewrite</li>
-</ul>
-
-<p>Persoonlijk ben ik blij dat ik deze migratie zelf mocht doen. Ondanks de frustraties en het vele lezen van documentatie, gaf het me een veel dieper inzicht in hoe Spring Boot en Spring Framework werken en hoe ze de controle over infrastructuur en configuratie hebben.</p>
-
-<p>Wil je meer weten over Spring Boot 4 en Spring Framework 7? Check dan volgende post: <a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">Spring Boot 4 &amp; Spring Framework 7</a>.</p>
-
-<h2 id="overzicht-van-alle-bronnen">Overzicht van alle bronnen</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Resource</th>
-      <th>Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>OpenRewrite recipes</td>
-      <td><a href="https://docs.openrewrite.org/recipes/java">https://docs.openrewrite.org/recipes/java</a></td>
-    </tr>
-    <tr>
-      <td>Spring Framework 7 HTTP Client</td>
-      <td><a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories</a></td>
-    </tr>
-    <tr>
-      <td>Apache HttpClient 5 Migration</td>
-      <td><a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html</a></td>
-    </tr>
-    <tr>
-      <td>Swagger (swagger-core)</td>
-      <td><a href="https://github.com/swagger-api/swagger-core">https://github.com/swagger-api/swagger-core</a></td>
-    </tr>
-    <tr>
-      <td>Spring Security 7 WebSocket (PR)</td>
-      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
-    </tr>
-    <tr>
-      <td>Spring Security 7 (discussion thread)</td>
-      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
-    </tr>
-    <tr>
-      <td>Spring Boot 4 &amp; Spring Framework 7 (overview)</td>
-      <td><a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">https://www.baeldung.com/spring-boot-4-spring-framework-7</a></td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring" /><category term="migration" /><category term="openrewrite" /><category term="softwaredevelopment" /><summary type="html"><![CDATA[“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Feel free to visit <a href="https://jcast.dev">jcast.dev</a> and discover <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>

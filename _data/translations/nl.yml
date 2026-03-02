@@ -12,6 +12,13 @@ sections:
   featured_posts: "Doordachte Reflecties"
   view_all_posts: "Bekijk alle artikelen"
 
+weekly:
+  title: "My Weekly Dev Note"
+  subtitle: "Korte, directe observaties uit de week van een developer. Elke week iets om te onthouden."
+  view_all: "Alle weekly notes bekijken"
+  latest: "Laatste Weekly Note"
+  empty: "Nog geen weekly notes — binnenkort!"
+
 posts:
   title: "Alle Artikelen"
   subtitle: "Doordachte reflecties over softwareontwikkeling, leren en groei."

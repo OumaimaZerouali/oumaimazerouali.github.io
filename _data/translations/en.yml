@@ -12,6 +12,13 @@ sections:
   featured_posts: "Thoughtful Reflections"
   view_all_posts: "View all posts"
 
+weekly:
+  title: "My Weekly Dev Note"
+  subtitle: "Short, direct observations from a developer's week. Every week, something worth noting."
+  view_all: "View all weekly notes"
+  latest: "Latest Weekly Note"
+  empty: "No weekly notes yet — coming soon!"
+
 posts:
   title: "All Posts"
   subtitle: "Thoughtful reflections on software development, learning, and growth."

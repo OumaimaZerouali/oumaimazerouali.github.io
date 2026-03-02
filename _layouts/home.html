@@ -66,6 +66,18 @@ layout: default
     <p class="hero-tagline">{{ page.tagline | default: site.description }}</p>
 </section>
 
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign lang_posts = site.posts | where: "lang", current_lang %}
+{% assign _weekly_posts = lang_posts | where: "series", "weekly-dev-note" %}
+{% if _weekly_posts.size > 0 %}
+{% assign latest_weekly = _weekly_posts.first %}
+<a href="{{ latest_weekly.url | relative_url }}" class="weekly-teaser-strip">
+    <span class="weekly-teaser-strip-label">{{ site.data.translations[current_lang].weekly.latest }}</span>
+    <span class="weekly-teaser-strip-title">{{ latest_weekly.title }}</span>
+    <span class="weekly-teaser-strip-date">{{ latest_weekly.date | date: "%b %d" }}</span>
+</a>
+{% endif %}
+
 <section class="featured-posts">
     {% assign current_lang = page.lang | default: site.default_lang %}
     {% assign lang_posts = site.posts | where: "lang", current_lang %}
@@ -152,4 +164,5 @@ layout: default
         {% endif %}
     </div>
 </section>
+
 

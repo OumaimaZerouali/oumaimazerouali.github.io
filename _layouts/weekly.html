@@ -1,0 +1,72 @@
+---
+layout: default
+---
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#oumaima-zerouali",
+      "name": "{{ site.author.name }}",
+      "url": "{{ site.url }}"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}",
+      "name": "{{ site.title }}",
+      "publisher": {
+        "@type": "Person",
+        "@id": "{{ site.url }}/#oumaima-zerouali"
+      }
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": "{{ page.url | absolute_url }}#webpage",
+      "url": "{{ page.url | absolute_url }}",
+      "name": "{{ page.title }}",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website"
+      },
+      "inLanguage": "{{ page.lang | default: site.default_lang }}"
+    }
+  ]
+}
+</script>
+
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign weekly_posts = site.posts | where: "lang", current_lang | where: "series", "weekly-dev-note" %}
+
+<section class="weekly-page">
+  <header class="weekly-header">
+    <h1>{{ site.data.translations[current_lang].weekly.title }}</h1>
+    <p class="weekly-subtitle">{{ site.data.translations[current_lang].weekly.subtitle }}</p>
+  </header>
+
+  {% if weekly_posts.size > 0 %}
+  <ol class="weekly-list" reversed>
+    {% for post in weekly_posts %}
+      {% assign week_number = weekly_posts.size | minus: forloop.index0 %}
+      <li class="weekly-item">
+        <article>
+          <div class="weekly-item-meta">
+            <span class="weekly-item-number">Week {{ week_number }}</span>
+            <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+          </div>
+          <h2 class="weekly-item-title">
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+          </h2>
+          {% if post.excerpt %}
+          <p class="weekly-item-excerpt">{{ post.excerpt | strip_html | truncatewords: 30 }}</p>
+          {% endif %}
+        </article>
+      </li>
+    {% endfor %}
+  </ol>
+  {% else %}
+  <p class="weekly-empty">{{ site.data.translations[current_lang].weekly.empty }}</p>
+  {% endif %}
+</section>
