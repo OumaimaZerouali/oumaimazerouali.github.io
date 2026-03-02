@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new post on building AI chatbots with Java, sharing insights and practical implementation details" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add quotes from SpongeBob SquarePants to posts for enhanced engagement">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,8 +33,8 @@
     <selectedModels>
       <entry key="inline" value="GPT-4.1" />
       <entry key="edit-panel" value="GPT-4.1" />
-      <entry key="chat-panel" value="GPT-4o" />
-      <entry key="agent-panel" value="GPT-4o" />
+      <entry key="chat-panel" value="Claude Sonnet 4.6" />
+      <entry key="agent-panel" value="Claude Sonnet 4.6" />
     </selectedModels>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -323,6 +337,8 @@
       <workItem from="1771596546150" duration="1378000" />
       <workItem from="1772002790932" duration="992000" />
       <workItem from="1772196736718" duration="1480000" />
+      <workItem from="1772198339846" duration="326000" />
+      <workItem from="1772456082236" duration="203000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <option name="closed" value="true" />
@@ -692,7 +708,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772198225074</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="feat: Add quotes from SpongeBob SquarePants to posts for enhanced engagement">
+      <option name="closed" value="true" />
+      <created>1772198647936</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1772198647936</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -711,7 +735,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Version 2" />
     <MESSAGE value="refactor: Refactor styling of the site" />
     <MESSAGE value="feat: Added a browser like component" />
     <MESSAGE value="feat: Added the light-themed browser tab" />
@@ -736,7 +759,8 @@
     <MESSAGE value="feat: Add new post on building AI chatbots with Java, detailing project insights and implementation steps" />
     <MESSAGE value="feat: Add new post on JCast, sharing insights on podcasting journey and personal growth" />
     <MESSAGE value="feat: Add new post on building AI chatbots with Java, sharing insights and practical implementation details" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new post on building AI chatbots with Java, sharing insights and practical implementation details" />
+    <MESSAGE value="feat: Add quotes from SpongeBob SquarePants to posts for enhanced engagement" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add quotes from SpongeBob SquarePants to posts for enhanced engagement" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">

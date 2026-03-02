@@ -412,6 +412,8 @@ main {
   flex-direction: column;
   height: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  position: relative;
+  cursor: pointer;
 }
 
 .post-card--featured:hover {
@@ -439,6 +441,15 @@ main {
 .post-card--featured .post-card-title a {
   color: var(--color-text);
   transition: color 0.2s ease;
+}
+
+/* Stretched link: cover the entire card so clicking anywhere navigates to the post */
+.post-card--featured .post-card-title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
 }
 
 .post-card--featured .post-card-title a:hover {
@@ -481,6 +492,8 @@ main {
   gap: var(--spacing-md);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   min-height: 100px;
+  position: relative;
+  cursor: pointer;
 }
 
 .post-card--small:hover {
@@ -497,6 +510,8 @@ main {
   border-radius: 8px;
   overflow: hidden;
   order: 2; /* image on right */
+  position: relative;
+  z-index: 2;
 }
 
 .post-card--small .post-card-image-small img {
@@ -527,6 +542,15 @@ main {
 .post-card--small .post-card-title a {
   color: var(--color-text);
   transition: color 0.2s ease;
+}
+
+/* Stretched link: cover the entire card so clicking anywhere navigates to the post */
+.post-card--small .post-card-title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
 }
 
 .post-card--small .post-card-title a:hover {
