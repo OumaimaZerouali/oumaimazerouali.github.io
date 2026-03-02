@@ -4,13 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add weekly dev note layout and navigation links for enhanced content organization">
-      <change afterPath="$PROJECT_DIR$/assets/img/ozerouali.jpg" afterDir="false" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Update layout and styles for about and weekly pages to improve spacing and responsiveness">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/about/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/about/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/about.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/nl/about.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -331,15 +334,7 @@
       <workItem from="1772002790932" duration="992000" />
       <workItem from="1772196736718" duration="1480000" />
       <workItem from="1772198339846" duration="326000" />
-      <workItem from="1772456082236" duration="6110000" />
-    </task>
-    <task id="LOCAL-00002" summary="Module application and frontend + CI/CD setup">
-      <option name="closed" value="true" />
-      <created>1711484490885</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1711484490885</updated>
+      <workItem from="1772456082236" duration="7501000" />
     </task>
     <task id="LOCAL-00003" summary="CI/CD name master">
       <option name="closed" value="true" />
@@ -725,7 +720,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772484459217</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="feat: Update layout and styles for about and weekly pages to improve spacing and responsiveness">
+      <option name="closed" value="true" />
+      <created>1772486478441</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1772486478441</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -744,7 +747,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Added the light-themed browser tab" />
     <MESSAGE value="feat: v1" />
     <MESSAGE value="fix: clean up" />
     <MESSAGE value="fix: deployment" />
@@ -769,7 +771,8 @@
     <MESSAGE value="feat: Add quotes from SpongeBob SquarePants to posts for enhanced engagement" />
     <MESSAGE value="feat: Update related posts and sitemap with new entries for JCast and AI chatbots" />
     <MESSAGE value="feat: Add weekly dev note layout and navigation links for enhanced content organization" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add weekly dev note layout and navigation links for enhanced content organization" />
+    <MESSAGE value="feat: Update layout and styles for about and weekly pages to improve spacing and responsiveness" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Update layout and styles for about and weekly pages to improve spacing and responsiveness" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">

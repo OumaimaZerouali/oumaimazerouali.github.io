@@ -6,9 +6,12 @@ permalink: /nl/about/
 lang: nl
 ---
 
-<section class="about-hero" markdown="1">
+<section class="about-hero">
 
-# Over mij
+<h1>Over mij</h1>
+
+<div class="about-hero-grid">
+<div class="about-hero-content" markdown="1">
 
 Hallo, ik ben Oumaima. Een full-stack software developer met een sterke focus op backend development, clean architecture en het bouwen van systemen die zowel robuust als begrijpelijk zijn.
 
@@ -21,6 +24,14 @@ Je vindt hier onder andere:
 - Reflecties over architectuur en praktische engineeringlessen
 - Ervaringen rond teamwork, mentorship en samenwerken in teams
 - Af en toe een creatieve of humoristische kijk op softwareontwikkeling
+
+</div>
+
+<div class="about-hero-image">
+  <img src="/assets/img/ozerouali.jpg" alt="Oumaima Zerouali" loading="eager">
+</div>
+
+</div>
 
 </section>
 

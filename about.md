@@ -6,9 +6,12 @@ permalink: /about/
 lang: en
 ---
 
-<section class="about-hero" markdown="1">
+<section class="about-hero">
 
-# About Me
+<h1>About Me</h1>
+
+<div class="about-hero-grid">
+<div class="about-hero-content" markdown="1">
 
 Hi, I'm Oumaima. A full-stack software developer with a strong focus on backend engineering, clean architecture, and building systems that are both robust and understandable.
 
@@ -21,6 +24,14 @@ Here you'll find:
 - Architectural reflections and practical engineering lessons
 - Personal experiences about teamwork, mentorship, and growing in the field
 - Occasional creative or humorous takes on software development
+
+</div>
+
+<div class="about-hero-image">
+  <img src="/assets/img/ozerouali.jpg" alt="Oumaima Zerouali" loading="eager">
+</div>
+
+</div>
 
 </section>
 
