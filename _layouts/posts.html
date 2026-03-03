@@ -53,11 +53,13 @@ layout: default
 
       {% for post in site.posts %}
         {% if post.lang == current_lang and post.tags %}
-          {% for tag in post.tags %}
-            {% unless all_tags contains tag %}
-              {% assign all_tags = all_tags | push: tag %}
-            {% endunless %}
-          {% endfor %}
+          {% unless post.tags contains "weekly" %}
+            {% for tag in post.tags %}
+              {% unless all_tags contains tag %}
+                {% assign all_tags = all_tags | push: tag %}
+              {% endunless %}
+            {% endfor %}
+          {% endunless %}
         {% endif %}
       {% endfor %}
 
@@ -72,13 +74,16 @@ layout: default
     {% assign total_posts = 0 %}
     {% for post in site.posts %}
       {% if post.lang == current_lang %}
-        {% assign total_posts = total_posts | plus: 1 %}
+        {% unless post.tags contains "weekly" %}
+          {% assign total_posts = total_posts | plus: 1 %}
+        {% endunless %}
       {% endif %}
     {% endfor %}
 
     {% assign post_index = 0 %}
     {% for post in site.posts %}
       {% if post.lang == current_lang %}
+        {% unless post.tags contains "weekly" %}
         {% assign post_index = post_index | plus: 1 %}
         {% assign posts_remaining = total_posts | minus: post_index %}
         {% assign pattern_pos = post_index | modulo: 7 %}
@@ -157,6 +162,7 @@ layout: default
           </div>
         </article>
 
+        {% endunless %}
       {% endif %}
     {% endfor %}
   </section>

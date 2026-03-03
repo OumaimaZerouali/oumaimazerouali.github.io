@@ -68,7 +68,7 @@ layout: default
 
 {% assign current_lang = page.lang | default: site.default_lang %}
 {% assign lang_posts = site.posts | where: "lang", current_lang %}
-{% assign _weekly_posts = lang_posts | where: "series", "weekly-dev-note" %}
+{% assign _weekly_posts = lang_posts | where_exp: "post", "post.tags contains 'weekly'" %}
 {% if _weekly_posts.size > 0 %}
 {% assign latest_weekly = _weekly_posts.first %}
 <a href="{{ latest_weekly.url | relative_url }}" class="weekly-teaser-strip">
@@ -81,6 +81,13 @@ layout: default
 <section class="featured-posts">
     {% assign current_lang = page.lang | default: site.default_lang %}
     {% assign lang_posts = site.posts | where: "lang", current_lang %}
+    {% assign filtered_posts = "" | split: "" %}
+    {% for post in lang_posts %}
+      {% unless post.tags contains "weekly" %}
+        {% assign filtered_posts = filtered_posts | push: post %}
+      {% endunless %}
+    {% endfor %}
+    {% assign lang_posts = filtered_posts %}
 
     <div class="magazine-layout">
         {% if lang_posts.size > 0 %}
