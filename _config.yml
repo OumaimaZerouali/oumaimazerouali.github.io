@@ -43,7 +43,7 @@ linkedin_username: oumaima-zerouali-16b189223
 github_username: OumaimaZerouali
 instagram_username: _oumietje_
 
-guestbook_api_url: "https://oumaimazerouali.vercel.app"
+guestbook_api_url: "https://oumaimazerouali-github-giu9zjy0s-oumaimazeroualis-projects.vercel.app"
 
 exclude:
    - .sass-cache/
