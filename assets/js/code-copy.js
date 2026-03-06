@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Copy functionality
     copyButton.addEventListener('click', async () => {
       const code = block.querySelector('code');
+      if (!code) return;
       const text = code.textContent;
 
       try {

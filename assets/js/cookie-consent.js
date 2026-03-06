@@ -79,7 +79,6 @@
 
     if (consent === CONSENT_ACCEPTED) {
       loadAnalytics();
-    } else if (consent === CONSENT_DECLINED) {
     } else {
       showBanner();
     }

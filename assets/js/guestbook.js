@@ -34,7 +34,12 @@
       var dateHtml = e.date ? '<time datetime="' + escapeAttr(e.date) + '">' + formatDate(e.date) + '</time>' : '';
       var websiteHtml = '';
       if (e.website) {
-        websiteHtml = ' &middot; <a href="' + escapeAttr(e.website) + '" target="_blank" rel="noopener noreferrer" class="gb-entry-website">' + escapeHtml(e.website) + '</a>';
+        try {
+          var parsed = new URL(e.website);
+          if (['http:', 'https:'].includes(parsed.protocol)) {
+            websiteHtml = ' &middot; <a href="' + escapeAttr(e.website) + '" target="_blank" rel="noopener noreferrer" class="gb-entry-website">' + escapeHtml(e.website) + '</a>';
+          }
+        } catch (_) { /* invalid URL — skip */ }
       }
       html += '<li class="gb-entry">';
       html += '<div class="gb-entry-header">';
