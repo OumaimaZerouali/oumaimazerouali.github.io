@@ -7,7 +7,7 @@ const MAX_ENTRIES = 100;
 const RATE_LIMIT_TTL = 86400; // 24 hours in seconds
 
 function getAllowedOrigins() {
-  const env = process.env.ALLOWED_ORIGINS || 'https://ozerouali.com,https://oumaimazerouali.github.io';
+  const env = process.env.ALLOWED_ORIGINS || 'https://ozerouali.com,https://www.ozerouali.com,https://oumaimazerouali.github.io';
   return env.split(',').map(o => o.trim());
 }
 
