@@ -43,6 +43,8 @@ linkedin_username: oumaima-zerouali-16b189223
 github_username: OumaimaZerouali
 instagram_username: _oumietje_
 
+guestbook_api_url: "https://oumaimazerouali.vercel.app"
+
 exclude:
    - .sass-cache/
    - .jekyll-cache/
@@ -55,3 +57,6 @@ exclude:
    - vendor/gems/
    - vendor/ruby/
    - README.md
+   - api/
+   - package.json
+   - vercel.json

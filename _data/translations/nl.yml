@@ -42,5 +42,21 @@ cookie_banner:
   decline: "Weigeren"
   settings: "Cookie-instellingen"
 
+guestbook:
+  title: "Gastenboek"
+  intro: "Je bent er! Zeg hallo, laat een gedachte achter, deel wat je hier bracht of laat gewoon weten dat je er was. Ik lees elk bericht."
+  form_title: "Schrijf in het gastenboek"
+  field_name: "Naam"
+  field_website: "Website"
+  field_message: "Bericht"
+  placeholder_name: "Jouw naam"
+  placeholder_message: "Zeg iets aardigs\u2026"
+  optional: "optioneel"
+  char_hint: "Maximaal 300 tekens"
+  submit: "Laat een bericht achter"
+  entries_title: "Berichten"
+  loading: "Berichten laden\u2026"
+  empty: "Nog geen berichten, wees de eerste!"
+
 footer:
   copyright: "Met zorg gebouwd"

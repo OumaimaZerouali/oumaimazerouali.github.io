@@ -2612,6 +2612,211 @@ main {
   padding: var(--spacing-2xl) 0;
 }
 
+/* ========== Guestbook ========== */
+.guestbook-page {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--spacing-xl) 0 var(--spacing-2xl);
+}
+
+.guestbook-hero {
+  margin-bottom: var(--spacing-xl);
+}
+
+.guestbook-hero h1 {
+  margin-top: 0;
+}
+
+.guestbook-intro {
+  color: var(--color-text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+.guestbook-section-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-lg);
+  padding-bottom: var(--spacing-xs);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.guestbook-form-section,
+.guestbook-entries-section {
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* Form */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--color-text);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 20%, transparent);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-optional {
+  color: var(--color-text-secondary);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.required {
+  color: var(--color-accent);
+}
+
+.char-hint {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.gb-submit {
+  display: inline-block;
+  margin-top: var(--spacing-xs);
+  padding: 0.65rem 1.5rem;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.gb-submit:hover {
+  background: var(--color-accent-hover);
+}
+
+.gb-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.gb-status {
+  margin-top: var(--spacing-sm);
+  font-size: 0.95rem;
+  min-height: 1.5rem;
+}
+
+.gb-status--success { color: #16a34a; }
+.gb-status--error   { color: #dc2626; }
+.gb-status--info    { color: var(--color-text-secondary); }
+
+/* Entries */
+.guestbook-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.gb-entry {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.gb-entry:hover {
+  border-color: var(--color-accent);
+}
+
+.gb-entry-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.gb-entry-name {
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.gb-entry-website {
+  font-size: 0.9rem;
+  color: var(--color-accent);
+  word-break: break-all;
+}
+
+.gb-entry-date {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+}
+
+.gb-entry-message {
+  margin: 0;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.guestbook-empty,
+.guestbook-loading,
+.guestbook-error {
+  color: var(--color-text-secondary);
+  font-style: italic;
+  padding: var(--spacing-xl) 0;
+}
+
+.guestbook-error {
+  color: #dc2626;
+}
+
+@media (max-width: 768px) {
+  .guestbook-page {
+    padding: var(--spacing-lg) 0 var(--spacing-xl);
+  }
+
+  .gb-entry {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .gb-entry-date {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
 @media (max-width: 768px) {
   .weekly-header h1 {
     font-size: 2rem;

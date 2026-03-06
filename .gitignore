@@ -7,6 +7,10 @@ _site/
 .bundle/
 vendor/
 
+# Node
+node_modules/
+.vercel/
+
 # macOS
 .DS_Store
 

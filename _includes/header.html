@@ -5,10 +5,12 @@
       {% assign posts_url = "/nl/posts" %}
       {% assign about_url = "/nl/about" %}
       {% assign weekly_url = "/nl/weekly" %}
+      {% assign guestbook_url = "/nl/guestbook" %}
     {% else %}
       {% assign posts_url = "/posts" %}
       {% assign about_url = "/about" %}
       {% assign weekly_url = "/weekly" %}
+      {% assign guestbook_url = "/guestbook" %}
     {% endif %}
 
     {% if page.url == "/" or page.url == "/index.html" or page.url == "/nl/" or page.url == "/nl/index.html" %}
@@ -35,6 +37,7 @@
       <a href="{{ posts_url | relative_url }}">Posts</a>
       <a href="{{ weekly_url | relative_url }}">Weekly</a>
       <a href="{{ about_url | relative_url }}">About</a>
+      <a href="{{ guestbook_url | relative_url }}">Guestbook</a>
 
       <div class="lang-switcher desktop-only" role="group" aria-label="Language switcher">
         <button class="lang-link" data-lang="en" id="lang-en" aria-label="Switch to English" aria-pressed="{% if page.lang == 'en' or current_lang == 'en' %}true{% else %}false{% endif %}">EN</button>

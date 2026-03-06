@@ -42,5 +42,21 @@ cookie_banner:
   decline: "Decline"
   settings: "Cookie Settings"
 
+guestbook:
+  title: "Guestbook"
+  intro: "You made it here. Say hi, leave a thought, share what brought you here or just let me know you were around. I read every message."
+  form_title: "Sign the guestbook"
+  field_name: "Name"
+  field_website: "Website"
+  field_message: "Message"
+  placeholder_name: "Your name"
+  placeholder_message: "Say something nice\u2026"
+  optional: "optional"
+  char_hint: "Max 300 characters"
+  submit: "Leave a message"
+  entries_title: "Messages"
+  loading: "Loading messages\u2026"
+  empty: "No messages yet, be the first to sign!"
+
 footer:
   copyright: "Built with care"

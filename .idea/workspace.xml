@@ -5,14 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Enhance about page layout and styles for improved responsiveness and visual appeal">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/posts.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_layouts/guestbook.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/guestbook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/guestbook.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/guestbook.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/nl/guestbook.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vercel.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/translations/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/translations/nl.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/nl.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
