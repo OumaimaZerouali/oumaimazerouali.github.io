@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Update cookie consent dialog for improved accessibility and user experience">
-      <change afterPath="$PROJECT_DIR$/_posts/en/2026-03-08-weekly-dev-note-week-2.md" afterDir="false" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add weekly development notes for week 2 in English and Dutch">
+      <change afterPath="$PROJECT_DIR$/_posts/en/2026-03-15-weekly-dev-note-week-3.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/nl/2026-03-15-weekly-dev-note-week-3.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,15 +336,8 @@
       <workItem from="1772198339846" duration="326000" />
       <workItem from="1772456082236" duration="8135000" />
       <workItem from="1772525560746" duration="137000" />
-      <workItem from="1772999679307" duration="381000" />
-    </task>
-    <task id="LOCAL-00008" summary="Changes to CI/CD pipeline">
-      <option name="closed" value="true" />
-      <created>1711485613166</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1711485613166</updated>
+      <workItem from="1772999679307" duration="545000" />
+      <workItem from="1773589997645" duration="1988000" />
     </task>
     <task id="LOCAL-00009" summary="Java version changed">
       <option name="closed" value="true" />
@@ -723,7 +723,15 @@
       <option name="project" value="LOCAL" />
       <updated>1772792623242</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="feat: Add weekly development notes for week 2 in English and Dutch">
+      <option name="closed" value="true" />
+      <created>1773000215640</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1773000215640</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -742,7 +750,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix: gh permissions" />
     <MESSAGE value="feat: add initial project structure with components and configuration files" />
     <MESSAGE value="feat: add initial layout and styling for the editorial magazine" />
     <MESSAGE value="feat: update URLs in HTML files for deployment and add Nokogiri and REXML gems" />
@@ -767,7 +774,8 @@
     <MESSAGE value="feat: Update guestbook and canonical URLs for improved accessibility and SEO" />
     <MESSAGE value="feat: Update guestbook API URL for improved functionality and accessibility" />
     <MESSAGE value="feat: Update cookie consent dialog for improved accessibility and user experience" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Update cookie consent dialog for improved accessibility and user experience" />
+    <MESSAGE value="feat: Add weekly development notes for week 2 in English and Dutch" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add weekly development notes for week 2 in English and Dutch" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
