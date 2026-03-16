@@ -1,0 +1,44 @@
+# Fields: title, medium, year (optional), image, description (optional), description_nl (optional)
+# Images live in: assets/img/gallery/
+
+- title: "Random Dog"
+  medium: "Acrylic markers"
+  image: "/assets/img/gallery/Random dog.png"
+  description: "A greyhound in a red turtleneck holding a cup of coffee. Very serious about it."
+  description_nl: "Een hond in een rode coltrui met een kopje koffie:"
+
+- title: "Idk"
+  medium: "Acrylic markers"
+  image: "/assets/img/gallery/Idk.png"
+  description: "An expressive figure in black and orange. I didn't know what I was making, it turned into this."
+  description_nl: "Een expressief figuur in zwart en oranje. Ik wist niet wat ik aan het maken was, het werd dit."
+
+- title: "Friend in Art Style"
+  medium: "Acrylic markers"
+  image: "/assets/img/gallery/Friend in art style.png"
+  description: "Drew a friend as a cartoon character. Boxing gloves, big grin, very much him."
+  description_nl: "Een vriend getekend als cartoonfiguur. Bokshandschoenen, brede grins, heel erg hem."
+
+- title: "Pokémon Energy Cards"
+  medium: "Acrylic"
+  image: "/assets/img/gallery/Pokemon Energy Cards.png"
+  description: "Four hand-painted Pokémon energy cards: Psychic, Lightning, Water. A fun exercise in miniature."
+  description_nl: "Vier met de hand geschilderde Pokémon energiekaarten: Psychic, Lightning, Water. Een leuke oefening op klein formaat."
+
+- title: "An Ideal Room"
+  medium: "Pencil"
+  image: "/assets/img/gallery/An ideal setup.png"
+  description: "A quiet sketch of an ideal room, plants by the window, soft pillows, a teddy bear somewhere in the corner."
+  description_nl: "Een rustige schets van een ideale kamer, planten bij het raam, zachte kussens, een teddybeer ergens in de hoek."
+
+- title: "My Head"
+  medium: "Pencil and marker"
+  image: "/assets/img/gallery/My head.png"
+  description: "A profile of my head filled with all the things fighting for attention inside it."
+  description_nl: "Een profiel van mijn hoofd, gevuld met alles wat om aandacht vecht."
+
+- title: "Free Palestine"
+  medium: "Acrylic on canvas"
+  image: "/assets/img/gallery/Free Palestine.png"
+  description: "A figure raising the Palestinian flag. Bold, flat colors on canvas."
+  description_nl: "Een figuur die de Palestijnse vlag omhooghoudt. Gedurfde, vlakke kleuren op canvas."

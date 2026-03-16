@@ -58,5 +58,12 @@ guestbook:
   loading: "Loading messages\u2026"
   empty: "No messages yet, be the first to sign!"
 
+gallery:
+  title: "Gallery"
+  subtitle: "Paintings, drawings, and other things made by hand."
+  pagination_prev: "Previous"
+  pagination_next: "Next"
+  pagination_info: "of"
+
 footer:
   copyright: "Built with care"

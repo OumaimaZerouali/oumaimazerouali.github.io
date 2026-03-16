@@ -7,6 +7,12 @@
                 <button id="cookie-settings-link" class="cookie-settings-link" type="button" aria-label="{{ site.data.translations[current_lang].cookie_banner.settings }}">
                     {{ site.data.translations[current_lang].cookie_banner.settings }}
                 </button>
+                <span class="footer-separator" aria-hidden="true">·</span>
+                {% if current_lang == 'nl' %}
+                  <a href="/nl/guestbook/" class="footer-guestbook-link">{{ site.data.translations[current_lang].guestbook.title }}</a>
+                {% else %}
+                  <a href="/guestbook/" class="footer-guestbook-link">{{ site.data.translations[current_lang].guestbook.title }}</a>
+                {% endif %}
             </div>
 
             <div class="footer-center">

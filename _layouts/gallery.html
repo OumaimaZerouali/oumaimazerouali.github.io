@@ -1,0 +1,66 @@
+---
+layout: default
+---
+
+{% assign current_lang = page.lang | default: site.default_lang %}
+{% assign t = site.data.translations[current_lang].gallery %}
+
+<section class="gallery-page">
+
+  <header class="gallery-header">
+    <h1>{{ t.title }}</h1>
+    <p class="gallery-subtitle">{{ t.subtitle }}</p>
+  </header>
+
+  <div class="gallery-wall" role="list">
+    {% for piece in site.data.gallery %}
+      {% assign num = forloop.index | prepend: "0" | slice: -2, 2 %}
+
+      <article class="gallery-piece" role="listitem">
+
+        <div class="gallery-piece-image">
+          <img src="{{ piece.image | relative_url }}"
+               alt="{{ piece.title }}{% if piece.medium %} — {{ piece.medium }}{% endif %}{% if piece.year %}, {{ piece.year }}{% endif %}"
+               loading="lazy"
+               decoding="async">
+        </div>
+
+        <div class="gallery-piece-info">
+          <span class="gallery-piece-num">{{ num }}</span>
+          <h2 class="gallery-piece-title">{{ piece.title }}</h2>
+          <p class="gallery-piece-meta">{{ piece.medium }}{% if piece.year %} · {{ piece.year }}{% endif %}</p>
+          {% if current_lang == 'nl' and piece.description_nl %}
+            <p class="gallery-piece-description">{{ piece.description_nl }}</p>
+          {% elsif piece.description %}
+            <p class="gallery-piece-description">{{ piece.description }}</p>
+          {% endif %}
+        </div>
+
+      </article>
+    {% endfor %}
+  </div>
+
+  <nav class="gallery-pagination" id="gallery-pagination" aria-label="Gallery pagination" hidden>
+    <button class="gallery-pagination-btn" id="gallery-prev" aria-label="{{ t.pagination_prev }}">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+           aria-hidden="true" focusable="false">
+        <polyline points="15 18 9 12 15 6"></polyline>
+      </svg>
+      {{ t.pagination_prev }}
+    </button>
+    <span class="gallery-pagination-info" id="gallery-page-info" aria-live="polite"></span>
+    <button class="gallery-pagination-btn" id="gallery-next" aria-label="{{ t.pagination_next }}">
+      {{ t.pagination_next }}
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+           fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+           aria-hidden="true" focusable="false">
+        <polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </button>
+  </nav>
+
+</section>
+
+<script>window.GALLERY_I18N = { of: "{{ t.pagination_info }}" };</script>
+<script src="{{ '/assets/js/gallery.js' | relative_url }}"></script>

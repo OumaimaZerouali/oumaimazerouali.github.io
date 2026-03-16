@@ -58,5 +58,12 @@ guestbook:
   loading: "Berichten laden\u2026"
   empty: "Nog geen berichten, wees de eerste!"
 
+gallery:
+  title: "Galerij"
+  subtitle: "Schilderijen, tekeningen en andere dingen gemaakt met de hand."
+  pagination_prev: "Vorige"
+  pagination_next: "Volgende"
+  pagination_info: "van"
+
 footer:
   copyright: "Met zorg gebouwd"
