@@ -63,9 +63,7 @@ Learning and knowledge sharing are at the heart of how I work. Whether it's coll
 
 For me, software development is a human adventure. It's about **connection, curiosity, and continuous growth**. Code is the tool, but **people make the difference**.
 
-If you're here to learn, reflect, or simply enjoy stories about code and collaboration: welcome. 
-
-Feel free to connect. I'm always happy to talk about software, architecture, and ideas.
+If you're here to learn, reflect, or simply enjoy stories about code and collaboration: welcome. Have a look at the [posts](/posts) or the shorter [weekly notes](/weekly) if you're in the mood for reading. And if you're curious about the side of me that draws and paints, that lives in the [gallery](/gallery). Feel free to leave something in the [guestbook](/guestbook). I'm always happy to talk about software, architecture, and ideas.
 
 <div class="social-links">
   <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">

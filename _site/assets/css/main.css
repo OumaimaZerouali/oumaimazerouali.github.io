@@ -2051,6 +2051,9 @@ main {
   .mobile-only {
     display: inline-flex !important;
   }
+  .nav-group-separator {
+    display: none;
+  }
   /* Hide the inline nav on mobile by default; it will become the overlay when .active */
   .site-nav {
     display: none !important;

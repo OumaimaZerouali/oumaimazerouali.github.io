@@ -65,9 +65,7 @@ Leren en kennis delen vormen de kern van hoe ik werk. Of het nu gaat om collega�
 
 Voor mij is softwareontwikkeling een menselijk avontuur. Het gaat om **verbinding, nieuwsgierigheid en voortdurende groei**. Code is het gereedschap, maar **mensen maken het verschil**.
 
-Als je hier bent om te leren, te reflecteren of gewoon een verhaal over code en samenwerking te lezen: welkom.
-
-Aarzel niet om contact op te nemen. Ik praat graag over software, architectuur en ideeën.
+Als je hier bent om te leren, te reflecteren of gewoon een verhaal over code en samenwerking te lezen: welkom. Kijk gerust eens naar de [posts](/nl/posts) of de kortere [weekly notes](/nl/weekly) als je zin hebt om te lezen. En als je ook nieuwsgierig bent naar de kant van mij die tekent en schildert, die vind je in de [galerij](/nl/gallery). Laat gerust iets achter in het [gastenboek](/nl/guestbook). Ik praat graag over software, architectuur en ideeën.
 
 <div class="social-links">
   <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

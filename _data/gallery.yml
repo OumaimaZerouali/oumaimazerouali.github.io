@@ -42,3 +42,15 @@
   image: "/assets/img/gallery/Free Palestine.png"
   description: "A figure raising the Palestinian flag. Bold, flat colors on canvas."
   description_nl: "Een figuur die de Palestijnse vlag omhooghoudt. Gedurfde, vlakke kleuren op canvas."
+
+- title: "Heart"
+  medium: "Acrylic on canvas"
+  image: "/assets/img/gallery/Heart painting.png"
+  description: "An anatomical heart in white line work on a deep brown canvas. Quiet and precise."
+  description_nl: "Een anatomisch hart in witte lijnen op een donkerbruin canvas. Rustig en precies."
+
+- title: "Skull Mushroom"
+  medium: "Markers"
+  image: "/assets/img/gallery/Skull.png"
+  description: "A skull wearing a red mushroom cap, red-eyed and bold. Classic tattoo flash energy."
+  description_nl: "Een schedel met een rode paddenstoelhoed, roodoog en gedurfd. Klassieke tatoeage-energie."

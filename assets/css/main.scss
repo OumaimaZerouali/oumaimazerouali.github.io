@@ -1570,6 +1570,7 @@ main {
   margin-bottom: var(--spacing-md);
 }
 
+
 /* Social Links - Minimal Icons Only */
 .social-links {
   display: flex;
@@ -2128,6 +2129,10 @@ main {
   /* Show hamburger only on mobile */
   .mobile-only {
     display: inline-flex !important;
+  }
+
+  .nav-group-separator {
+    display: none;
   }
 
   /* Hide the inline nav on mobile by default; it will become the overlay when .active */
