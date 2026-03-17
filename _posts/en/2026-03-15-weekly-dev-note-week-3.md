@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Week 3 – Urgent, But Not That Urgent"
+title: "Week 3 – Nothing Will Have Collapsed"
 date: 2026-03-15 08:00:00 +0100
 series: "weekly-dev-note"
 tags: ["weekly"]

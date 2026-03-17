@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Week 3 – Dringend, Maar Niet Zó Dringend"
+title: "Week 3 – Niets Zal Ingestort Zijn"
 date: 2026-03-15 08:00:00 +0100
 series: "weekly-dev-note"
 tags: ["weekly"]

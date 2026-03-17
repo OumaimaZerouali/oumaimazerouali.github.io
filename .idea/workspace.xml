@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add gallery page with multilingual support and pagination">
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/Heart painting.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/Skull.png" afterDir="false" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new artworks to gallery with multilingual descriptions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/gallery.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/gallery.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/about.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nl/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/nl/about.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-03-15-weekly-dev-note-week-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2026-03-15-weekly-dev-note-week-3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-03-15-weekly-dev-note-week-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/nl/2026-03-15-weekly-dev-note-week-3.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,15 +333,8 @@
       <workItem from="1772999679307" duration="545000" />
       <workItem from="1773589997645" duration="2012000" />
       <workItem from="1773687165928" duration="5644000" />
-      <workItem from="1773734850120" duration="536000" />
-    </task>
-    <task id="LOCAL-00011" summary="Start of project: navigation + music component">
-      <option name="closed" value="true" />
-      <created>1720633751893</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1720633751893</updated>
+      <workItem from="1773734850120" duration="588000" />
+      <workItem from="1773758058836" duration="1628000" />
     </task>
     <task id="LOCAL-00012" summary="Did some things: can't remember">
       <option name="closed" value="true" />
@@ -736,7 +720,15 @@
       <option name="project" value="LOCAL" />
       <updated>1773694610036</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="feat: Add new artworks to gallery with multilingual descriptions">
+      <option name="closed" value="true" />
+      <created>1773735429543</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1773735429543</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -755,7 +747,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: update URLs in HTML files for deployment and add Nokogiri and REXML gems" />
     <MESSAGE value="feat: add about page and implement language switcher functionality" />
     <MESSAGE value="feat: update site branding from &quot;Oumi's Thoughts&quot; to &quot;Oumi's Blog&quot; for consistency and improved SEO" />
     <MESSAGE value="feat: remove home link from navigation for improved site structure and consistency" />
@@ -780,7 +771,8 @@
     <MESSAGE value="feat: Add weekly development notes for week 2 in English and Dutch" />
     <MESSAGE value="feat: Add weekly development notes for week 3 in English and Dutch" />
     <MESSAGE value="feat: Add gallery page with multilingual support and pagination" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add gallery page with multilingual support and pagination" />
+    <MESSAGE value="feat: Add new artworks to gallery with multilingual descriptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new artworks to gallery with multilingual descriptions" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
