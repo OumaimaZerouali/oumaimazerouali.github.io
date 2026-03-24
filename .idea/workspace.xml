@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new artworks to gallery with multilingual descriptions">
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Update weekly development note title for clarity and consistency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/2026-03-15-weekly-dev-note-week-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2026-03-15-weekly-dev-note-week-3.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-03-15-weekly-dev-note-week-3.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/nl/2026-03-15-weekly-dev-note-week-3.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,6 +336,7 @@
       <workItem from="1773687165928" duration="5644000" />
       <workItem from="1773734850120" duration="588000" />
       <workItem from="1773758058836" duration="1628000" />
+      <workItem from="1774347991114" duration="536000" />
     </task>
     <task id="LOCAL-00012" summary="Did some things: can't remember">
       <option name="closed" value="true" />
