@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add weekly development notes for week 4 in English and Dutch">
-      <change afterPath="$PROJECT_DIR$/_posts/en/2026-03-29-weekly-dev-note-week-5.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/nl/2026-03-29-weekly-dev-note-week-5.md" afterDir="false" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add weekly development notes for week 5 in English and Dutch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -336,15 +334,8 @@
       <workItem from="1773734850120" duration="588000" />
       <workItem from="1773758058836" duration="1628000" />
       <workItem from="1774347991114" duration="763000" />
-      <workItem from="1774942450721" duration="538000" />
-    </task>
-    <task id="LOCAL-00013" summary="Rollback everything">
-      <option name="closed" value="true" />
-      <created>1737984140919</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1737984140919</updated>
+      <workItem from="1774942450721" duration="585000" />
+      <workItem from="1775409927105" duration="740000" />
     </task>
     <task id="LOCAL-00014" summary="Version 2">
       <option name="closed" value="true" />
@@ -730,7 +721,15 @@
       <option name="project" value="LOCAL" />
       <updated>1774348749362</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="feat: Add weekly development notes for week 5 in English and Dutch">
+      <option name="closed" value="true" />
+      <created>1774943018514</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1774943018515</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -749,7 +748,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: remove home link from navigation for improved site structure and consistency" />
     <MESSAGE value="feat: enhance accessibility and SEO by adding structured data, improving language switcher, and refining image alt attributes" />
     <MESSAGE value="feat: Add new post about designing JCast merch and update related content" />
     <MESSAGE value="fix: Update alumni organization in structured data for improved accuracy" />
@@ -774,7 +772,8 @@
     <MESSAGE value="feat: Add new artworks to gallery with multilingual descriptions" />
     <MESSAGE value="feat: Update weekly development note title for clarity and consistency" />
     <MESSAGE value="feat: Add weekly development notes for week 4 in English and Dutch" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add weekly development notes for week 4 in English and Dutch" />
+    <MESSAGE value="feat: Add weekly development notes for week 5 in English and Dutch" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add weekly development notes for week 5 in English and Dutch" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
