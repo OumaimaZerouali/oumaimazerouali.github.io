@@ -1,5 +1,104 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-24T11:41:31+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi</title><subtitle>A personal site by a software developer: engineering writing, JCast, and hand-made art.
-</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="en"><title type="html">I made a magazine for three people and that was enough</title><link href="http://localhost:4000/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="I made a magazine for three people and that was enough" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/2026/07/24/jcast-magazine</id><content type="html" xml:base="http://localhost:4000/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-24T16:24:07+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi</title><subtitle>A personal site by a software developer: engineering writing, JCast, and hand-made art.
+</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">Wanneer ben ik gestopt met junior te zijn? Ik weet het nog steeds niet</title><link href="http://localhost:4000/nl/2026/07/24/when-do-you-stop-being-a-junior/" rel="alternate" type="text/html" title="Wanneer ben ik gestopt met junior te zijn? Ik weet het nog steeds niet" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/nl/2026/07/24/when-do-you-stop-being-a-junior</id><content type="html" xml:base="http://localhost:4000/nl/2026/07/24/when-do-you-stop-being-a-junior/"><![CDATA[<p>In september doe ik dit al drie jaar. Drie jaar code reviews, stand-ups, pull requests, productiebugs die je ‘s nachts wakker houden en gesprekken die beginnen met: <em>“Dus, ik keek naar je code…”</em>
+Drie jaar dingen leren waarvan ik niet wist dat ik ze nodig zou hebben. 
+In teams die ik nog niet kende, met tools die ik nog nooit had aangeraakt.</p>
+
+<p>En ik heb nog steeds geen duidelijk antwoord op wanneer ik gestopt ben met junior te zijn.</p>
+
+<h2 id="de-vraag-waar-niemand-me-voor-gewaarschuwd-heeft">De vraag waar niemand me voor gewaarschuwd heeft</h2>
+
+<p>Als je aan je eerste job begint, voelt het label <em>junior</em> tijdelijk. 
+Iets wat je draagt tot je genoeg weet. Daarna trek je het uit en krijg je een nieuw label: medior. Senior. Of wat daarna ook komt.</p>
+
+<p>Wat niemand je vertelt, is dat je die verschuiving nooit echt voelt gebeuren.
+Je wordt niet op een ochtend wakker en denkt: <em>ah ja, vandaag ben ik geen junior developer meer.</em>
+Je brein stuurt je geen notificatie. Er verschijnt geen achievement. Geen badge unlock.</p>
+
+<p>Je gaat gewoon verder.
+En op een dag stelt iemand je een vraag en antwoord je zonder eerst Stack Overflow te openen.
+Niemand wijst dat moment aan. Je merkt het pas wanneer het al voorbij is.</p>
+
+<h2 id="vier-projecten-dezelfde-angst">Vier projecten, dezelfde angst</h2>
+
+<p>Ik ben consultant. Dat betekent dat ik niet in één team blijf.
+Ik wissel. Nieuwe klant, nieuw team, nieuwe codebase, nieuwe tools, een nieuwe eigenzinnige Confluence-setup… noem maar op.
+Ik ben ondertussen aan mijn vierde project bezig.</p>
+
+<p>En er is iets dat ik graag wil zeggen.
+Elke keer opnieuw was ik bang voor ik begon.
+Dat soort bang waarbij je denkt: *dit team gebruikt tools die ik nog nooit heb gezien. 
+Deze stack ziet er helemaal anders uit dan de vorige. Deze mensen hebben jaren context die ik niet heb. Wat als ik niet kan volgen?</p>
+
+<p>Vier projecten.
+Vier keer exact dezelfde angst.
+Maar ook vier keer hetzelfde resultaat.
+Het was oké.</p>
+
+<p>Niet “oké” in de zin van: <em>ik had alles door in de eerste week.</em>
+Wel “oké” omdat ik de juiste vragen stelde. Omdat ik de documentatie las. Omdat ik dingen eerst veilig stukmaakte voordat ik ze ergens belangrijk stukmaakte.
+En ergens rond week drie of vier stopte ik met mezelf af te vragen of ik kon volgen.
+Ik was gewoon bezig.</p>
+
+<p>Dat is misschien wel het patroon dat ik nooit had zien aankomen.
+Niet dat de angst verdwijnt.
+Maar dat je ondertussen weet hoe snel je kunt leren.</p>
+
+<h2 id="wat-ik-eigenlijk-geleerd-heb-in-drie-jaar">Wat ik eigenlijk geleerd heb in drie jaar</h2>
+
+<p>Niet zozeer een lijst technologieën.
+Ook niet een stapel certificaten.</p>
+
+<p>Vooral dit.
+Hoe je van nul begint en sneller nuttig wordt dan je zelf verwacht.
+Hoe je in een onbekende codebase toch de draad vindt die alles logisch maakt.
+Hoe je een vraag stelt op een manier die een echt antwoord oplevert, in plaats van alleen maar: <em>“Check de docs.”</em>
+Hoe je voelt wanneer je nog twintig minuten zelf moet zoeken, en wanneer het slimmer is om hulp te vragen.</p>
+
+<p>En hoe groot het verschil is tussen:
+<em>“Ik weet dit nog niet.”</em>
+en
+<em>“Ik ga dit nooit alleen uitzoeken.”</em></p>
+
+<p>Die tweede categorie blijkt veel kleiner te zijn dan ik vroeger dacht.</p>
+
+<h2 id="het-labelprobleem">Het labelprobleem</h2>
+
+<p>Wat me stoort aan het hele junior/medior/senior-verhaal, is dat het voelt alsof het een ladder is die je één keer beklimt.
+Alsof er ergens een versie van jezelf bestaat die nergens meer onzeker over is. Die nooit meer van nul moet beginnen.</p>
+
+<p>Ik denk niet dat die versie bestaat.
+Wat volgens mij wél verandert, is je relatie met die onzekerheid.</p>
+
+<p>Een junior ziet een nieuwe tool en denkt:
+<em>“Ik hoop dat ze niet merken dat ik dit nog nooit gebruikt heb.”</em>
+Iemand met meer ervaring kijkt naar dezelfde tool en denkt:
+<em>“Oké. Hoe lang gaat het duren voor ik hier comfortabel mee ben?”</em></p>
+
+<p>De tool is dezelfde.
+De vraag is anders.
+Je leert niet vertrouwen op wat je al weet.
+Je leert vertrouwen op het feit dat je al vaker iets volledig nieuws hebt geleerd.
+Ik heb dat ondertussen vier keer gedaan.</p>
+
+<p>Het bewijs begint zich langzaam op te stapelen.</p>
+
+<h2 id="september">September</h2>
+
+<p>In september doe ik dit drie jaar.
+Ik weet nog altijd niet welk label daarbij hoort.
+En eerlijk gezegd denk ik niet dat het me nog zoveel uitmaakt als vroeger.</p>
+
+<p>Wat ik wél weet, is dat ik enorm veel geleerd heb.
+Meer dan ik had verwacht.
+En meer dan ik mezelf soms krediet voor geef.</p>
+
+<p>En elke keer dat ik met die vertrouwde knoop in mijn maag een nieuw team binnenstapte, wist er ergens diep vanbinnen al iets, dat het goed zou komen.
+Zelfs als ik dat op dat moment het zelf nog niet geloofde.
+Misschien is dat uiteindelijk wat <em>ervaring</em> is.</p>
+
+<p>Niet dat de onzekerheid verdwijnt.
+Maar dat het ophoudt met het luidste geluid in de kamer te zijn.
+Vraag het me over drie jaar nog eens.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="career" /><category term="growth" /><category term="reflection" /><category term="dev-life" /><summary type="html"><![CDATA[In september doe ik dit al drie jaar. Drie jaar code reviews, stand-ups, pull requests, productiebugs die je ‘s nachts wakker houden en gesprekken die beginnen met: “Dus, ik keek naar je code…” Drie jaar dingen leren waarvan ik niet wist dat ik ze nodig zou hebben. In teams die ik nog niet kende, met tools die ik nog nooit had aangeraakt.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/not-a-junior.png" /><media:content medium="image" url="http://localhost:4000/assets/img/not-a-junior.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">I made a magazine for three people and that was enough</title><link href="http://localhost:4000/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="I made a magazine for three people and that was enough" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/2026/07/24/jcast-magazine</id><content type="html" xml:base="http://localhost:4000/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
   <p>“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -13,7 +112,7 @@
 
 <p>So I made a magazine. Thirty-two pages, A5 format, three copies. One for Viktor. One for Maarten. One for me. Ordered on March 28, 2026. €76.14. Best money I’ve ever spent.</p>
 
-<h2 id="het-verhaal--where-it-actually-started">Het verhaal — where it actually started</h2>
+<h2 id="het-verhaal-where-it-actually-started">Het verhaal: where it actually started</h2>
 
 <p>It started at a coffee machine.</p>
 
@@ -39,13 +138,13 @@
 
 <p>For a podcast about Java made by three developers in Diegem with no marketing budget and a recording setup they built themselves, I’m going to say: not bad.</p>
 
-<h2 id="de-jcrew--who-we-actually-are">De JCrew — who we actually are</h2>
+<h2 id="de-jcrew-who-we-actually-are">De JCrew: who we actually are</h2>
 
 <p>The magazine has a whole chapter on this, which I wrote and then edited approximately seven thousand times because how do you describe people you work with and also genuinely like without it sounding either too corporate or too much like a wedding toast?</p>
 
 <p>Here’s what I landed on for each of us:</p>
 
-<p><strong>Oumaima</strong>, that’s me. Someone who loves clarity, challenge, and the “why” behind systems <em>and</em> people. Backend mostly, but frontend too when it needs to happen. CoderDojo volunteer. Former JTires intern who somehow ended up collecting Pokémon cards alongside the rest of this job. When I wrote my own profile for the magazine I added: “Vijf jaar later: Wat een random cool ding om mee te maken.” Five years later: what a randomly cool thing to be part of.</p>
+<p><strong>Oumaima</strong>, that’s me. Someone who loves clarity, challenge, and the “why” behind systems <em>and</em> people. Backend mostly, but frontend too when it needs to happen. CoderDojo volunteer. JTires lead who somehow ended up collecting Pokémon cards alongside the rest of this job. When I wrote my own profile for the magazine I added: “Vijf jaar later: Wat een random cool ding om mee te maken.” Five years later: what a randomly cool thing to be part of.</p>
 
 <p><strong>Viktor Van Steenweghen</strong> is what the magazine calls “een brok chaos”, a lump of chaos, but always in on learning something new. He handles the montage, which means he’s the one who sits with the raw recordings and turns three people stumbling over their words into something you’d actually want to listen to. The thing that surprised him most this season? Claude Code. He also plays snooker offline, which I feel like is important context about who Viktor is as a person.</p>
 
@@ -53,7 +152,7 @@
 
 <p>Together, the magazine says, we work “niet ondanks de chaos, maar dankzij.” Not despite the chaos, but because of it. That felt right when I wrote it and it still feels right now.</p>
 
-<h2 id="een-seizoen-vol-gesprekken--all-12-episodes">Een seizoen vol gesprekken — all 12 episodes</h2>
+<h2 id="een-seizoen-vol-gesprekken-all-12-episodes">Een seizoen vol gesprekken: all 12 episodes</h2>
 
 <p>Twelve episodes. Twelve weeks of recording, editing, publishing, promoting, and doing it again. Here’s the full season one, because I spent time putting it in the magazine and I want to put it here too.</p>
 
@@ -95,7 +194,7 @@ End of season. Wrap-up. The episode where we reflected on what we’d made befor
 
 <p>Eight guests across twelve episodes. Topics ranging from clean code to capacity planning to what people do on weekends. A range I’m proud of.</p>
 
-<h2 id="jcast-in-het-wild--the-physical-stuff">JCast in het wild — the physical stuff</h2>
+<h2 id="jcast-in-het-wild-the-physical-stuff">JCast in het wild: the physical stuff</h2>
 
 <p>Here’s the part that people who don’t know me might not expect: I care a lot about the physical version of things.</p>
 
@@ -111,7 +210,7 @@ End of season. Wrap-up. The episode where we reflected on what we’d made befor
 
 <p>All of this: the merch, the site, the social, the physical banners we carried to actual places. That’s what I put in the “JCast in het wild” chapter. Because JCast didn’t just exist in a DAW and on Spotify. It existed in the world.</p>
 
-<h2 id="terugblikken--vooruitkijken--the-numbers-and-what-they-mean">Terugblikken &amp; vooruitkijken — the numbers and what they mean</h2>
+<h2 id="terugblikken--vooruitkijken-the-numbers-and-what-they-mean">Terugblikken &amp; vooruitkijken: the numbers and what they mean</h2>
 
 <p>Cijfers van 28/03/2026. Numbers as of the day I ordered the print.</p>
 
@@ -139,7 +238,7 @@ End of season. Wrap-up. The episode where we reflected on what we’d made befor
 
 <p>The last one is my favorite. <em>Het nog steeds superleuk vinden.</em> Still finding it genuinely fun. That one’s not a nice-to-have. That one’s the whole thing. If that box ever gets unchecked, the rest of the list doesn’t matter.</p>
 
-<h2 id="season-2--whats-coming">Season 2 — what’s coming</h2>
+<h2 id="season-2-whats-coming">Season 2: what’s coming</h2>
 
 <p><em>“Maar we zijn nog niet klaar. Seizoen 2 staat voor de deur en als seizoen 1 bewees dat we het konden, dan belooft seizoen 2 te bewijzen dat we het beter kunnen.”</em></p>
 
@@ -187,7 +286,7 @@ End of season. Wrap-up. The episode where we reflected on what we’d made befor
 
 <p>This magazine is not an ending. It’s a snapshot of who we are, what we made, and where we’re going.</p>
 
-<p>Season 2 is already happening. New episodes, new guests, new chaos. And at the end of it, I’ll probably make another magazine. Because apparently I need it.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Ik maakte een magazine voor drie mensen en dat was genoeg</title><link href="http://localhost:4000/nl/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="Ik maakte een magazine voor drie mensen en dat was genoeg" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/nl/2026/07/24/jcast-magazine</id><content type="html" xml:base="http://localhost:4000/nl/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
+<p>Season 2 is already happening. New episodes, new guests, new chaos. And at the end of it, I’ll probably make another magazine. Because apparently I need it.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-magazine.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-magazine.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Ik maakte een magazine voor drie mensen en dat was genoeg</title><link href="http://localhost:4000/nl/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="Ik maakte een magazine voor drie mensen en dat was genoeg" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/nl/2026/07/24/jcast-magazine</id><content type="html" xml:base="http://localhost:4000/nl/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
   <p>“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -234,7 +333,7 @@ Gewoon ik, een Canva-account en een gevoel dat ik maar niet kwijt raakte: seizoe
 
 <p>Dit is wat ik uiteindelijk schreef:</p>
 
-<p><strong>Oumaima</strong>, dat ben ik. Iemand die houdt van duidelijkheid, uitdaging en het “waarom” achter systemen én mensen. Voornamelijk backend, maar frontend ook als het moet. CoderDojo-vrijwilliger. Voormalig JTires-stagiair die ergens onderweg ook Pokémonkaarten is beginnen verzamelen. In mijn eigen profiel schreef ik: “Vijf jaar later: Wat een random cool ding om mee te maken.”</p>
+<p><strong>Oumaima</strong>, dat ben ik. Iemand die houdt van duidelijkheid, uitdaging en het “waarom” achter systemen én mensen. Voornamelijk backend, maar frontend ook als het moet. CoderDojo-vrijwilliger. JTires-lead die ergens onderweg ook Pokémonkaarten is beginnen verzamelen. In mijn eigen profiel schreef ik: “Vijf jaar later: Wat een random cool ding om mee te maken.”</p>
 
 <p><strong>Viktor Van Steenweghen</strong> is wat het magazine “een brok chaos” noemt, maar altijd in om iets nieuws bij te leren. Hij verzorgt de montage, wat betekent dat hij degene is die met de ruwe opnames gaat zitten en van drie mensen die struikelen over hun woorden iets maakt waar je effectief naar wilt luisteren. Het ding dat hem dit seizoen het meest verraste? Claude Code. Hij speelt ook snooker offline, wat ik belangrijk context vind over wie Viktor is als persoon.</p>
 
@@ -364,7 +463,97 @@ Einde van het seizoen. Afronding. De aflevering waarbij we terugkeken op wat we 
 
 <p>Seizoen 2 is al bezig. Nieuwe afleveringen, nieuwe gasten, nieuwe chaos. En op het einde maak ik waarschijnlijk nog een magazine. Want blijkbaar heb ik het nodig.</p>
 
-<p>Ik ben trots op ons 🎙️</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Waarom ik JCast begon</title><link href="http://localhost:4000/nl/2026/02/28/jcast/" rel="alternate" type="text/html" title="Waarom ik JCast begon" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/28/jcast/"><![CDATA[<blockquote>
+<p>Ik ben trots op ons 🎙️</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-magazine.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-magazine.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Why I Started JCast</title><link href="http://localhost:4000/2026/02/28/jcast/" rel="alternate" type="text/html" title="Why I Started JCast" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/2026/02/28/jcast/"><![CDATA[<blockquote>
+  <p>“I’m ready! I’m ready!” — SpongeBob SquarePants</p>
+</blockquote>
+
+<p>I’ve always known I wanted to make a podcast. Seriously, the idea had been floating in my head for a while, and I even pitched it to a few friends.<br />
+The result? Not exactly a smashing success. They nodded, smiled, said <em>“cool idea”</em>, and went about their lives.</p>
+
+<p>But then Viktor, a colleague, came up with the same idea, and suddenly something concrete started to take shape.<br />
+We talked a few times about it, but until then, it was mostly enthusiasm but nothing tangible.<br />
+Just the desire to create something people would enjoy and that we would have fun making.</p>
+
+<h2 id="from-idea-to-reality">From Idea to Reality</h2>
+
+<p>Then Maarten, our people manager, stepped in. What a character. It literally took him a few seconds to be fully on board… and he came with concrete actions immediately.<br />
+That moment was a wake-up call: this could actually happen.</p>
+
+<p>After that, we had a brainstorming session.<br />
+Name? Check.<br />
+Ideas? Check.<br />
+Fun intros? Check.<br />
+Plan of attack? Check.<br />
+The first session was recorded with cheap microphones, a bit rattly, but that actually gave it some charm. Feedback came in: some things needed tweaking, audio could be better, the flow needed tightening.</p>
+
+<p>Second attempt: much better. In the meantime, Maarten and I built the website, Viktor handled all the copy-paste work, and Maarten posted updates on LinkedIn. That’s how JCast really started to take shape.</p>
+
+<p>And now, a year later, all I can say is: <strong>wow</strong>.<br />
+A year of making JCast, and I’ve learned so much I hardly know where to start.</p>
+
+<h2 id="the-awkwardness-and-the-stress">The Awkwardness and the Stress</h2>
+
+<p>I’ve always been scared of speaking in front of people. Writing is so much easier; talking suddenly makes everything feel vulnerable.<br />
+I also tend to use street language in conversations, and this was about Java development, would people take me seriously? That thought caused <strong>a lot of stress</strong> at first.</p>
+
+<p>The first episodes were a rollercoaster: nerves, improvisation, sometimes even a bit of panic.<br />
+But I was 100% committed: picking topics, inviting guests, publishing episodes on time, building a semi-automated pipeline. Everything was well thought out and I wanted it to feel professional, but still authentic.</p>
+
+<p>Still, one episode went a little off-track. The episode about people skills with Bjorn as a guest was fantastic. He was honest, direct, and articulated exactly what I was feeling.<br />
+And that moment… damn!<br />
+I had no idea that such a confrontation could be part of making a podcast.<br />
+It felt like someone had looked straight into your soul, but it taught me <strong>a lot about vulnerability and authenticity</strong>.</p>
+
+<h2 id="creativity-and-small-wins">Creativity and Small Wins</h2>
+
+<p>After some refinements, we also launched Instagram.<br />
+I manage the account, and being creative is something I really enjoy.<br />
+Canva and I are now best friends. I design visuals, post quotes, create teaser posts. The views aren’t massive, but that doesn’t matter, the process itself is energizing.</p>
+
+<p>Then came the JCast t-shirts.<br />
+I got to design them, and what a hit!<br />
+They were originally only for the JCast crew, but soon people outside our team were ordering them too.<br />
+That feeling – that something you’ve poured your creative energy into makes other people happy – is priceless.</p>
+
+<p>Other small wins:</p>
+
+<ul>
+  <li>Spotify comments that make you pause and smile</li>
+  <li>Feedback on LinkedIn or Instagram that warms your heart</li>
+  <li>Messages from listeners checking in after each episode to say they enjoyed it</li>
+</ul>
+
+<p>These little things are what make keeping a podcast going truly worthwhile.</p>
+
+<h2 id="what-i-didnt-expect">What I Didn’t Expect</h2>
+
+<p>Honestly? I thought: we’ll make a podcast about Java, share some knowledge, maybe it’ll be fun, maybe not. But it became so much more:</p>
+
+<ul>
+  <li><strong>Personal growth</strong>: From someone scared to speak to someone semi-comfortable behind the mic</li>
+  <li><strong>Real connections</strong>: With guests, listeners, and especially my co-hosts</li>
+  <li><strong>Creativity</strong>: Instagram, t-shirt design, website development, all things I love doing</li>
+  <li><strong>Community impact</strong>: People enjoy our content, learn something, and have a laugh</li>
+</ul>
+
+<p>And yes, I didn’t expect to enjoy the <strong>small things</strong> so much: a fun graphic post, a funny intro, or someone sharing your playlist. Those moments are pure gold.</p>
+
+<h2 id="reflection-proud-of-my-co-hosts">Reflection: Proud of My Co-Hosts</h2>
+
+<p>Now, nearly a year later, all I can do is be proud of my co-hosts: Maarten and Viktor.</p>
+
+<p>Without them, this wouldn’t have worked.<br />
+Without them, it wouldn’t have been fun.<br />
+Without them, it wouldn’t have been JCast.<br />
+Fantastic people, just as committed as I am, and together we built something I’m genuinely happy about.</p>
+
+<p>JCast isn’t just a podcast about Java; it’s a learning journey, a creative outlet, and proof that a small idea, with the right people, can grow into something to be proud of.</p>
+
+<p>And we’re far from done. Season 2, here we come!</p>
+
+<hr />
+
+<p><em>Listen to JCast at <a href="https://jcast.dev">jcast.dev</a> or wherever you get your podcasts.</em></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="java" /><category term="software craftsmanship" /><category term="creativity" /><category term="personal growth" /><summary type="html"><![CDATA[“I’m ready! I’m ready!” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Waarom ik JCast begon</title><link href="http://localhost:4000/nl/2026/02/28/jcast/" rel="alternate" type="text/html" title="Waarom ik JCast begon" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/28/jcast/"><![CDATA[<blockquote>
   <p>“I’m ready! I’m ready!” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -462,97 +651,7 @@ Fantastische mensen, net zo committed als ik, en samen hebben we iets gebouwd wa
 <p>En we zijn nog lang niet klaar. Seizoen 2, here we come! ️</p>
 
 <hr />
-<p><em>Luister naar JCast op <a href="https://jcast.dev">jcast.dev</a> of waar je ook podcasts luistert.</em></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="java" /><category term="software craftsmanship" /><category term="creativiteit" /><category term="persoonlijke groei" /><summary type="html"><![CDATA[“I’m ready! I’m ready!” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Why I Started JCast</title><link href="http://localhost:4000/2026/02/28/jcast/" rel="alternate" type="text/html" title="Why I Started JCast" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/2026/02/28/jcast/"><![CDATA[<blockquote>
-  <p>“I’m ready! I’m ready!” — SpongeBob SquarePants</p>
-</blockquote>
-
-<p>I’ve always known I wanted to make a podcast. Seriously, the idea had been floating in my head for a while, and I even pitched it to a few friends.<br />
-The result? Not exactly a smashing success. They nodded, smiled, said <em>“cool idea”</em>, and went about their lives.</p>
-
-<p>But then Viktor, a colleague, came up with the same idea, and suddenly something concrete started to take shape.<br />
-We talked a few times about it, but until then, it was mostly enthusiasm but nothing tangible.<br />
-Just the desire to create something people would enjoy and that we would have fun making.</p>
-
-<h2 id="from-idea-to-reality">From Idea to Reality</h2>
-
-<p>Then Maarten, our people manager, stepped in. What a character. It literally took him a few seconds to be fully on board… and he came with concrete actions immediately.<br />
-That moment was a wake-up call: this could actually happen.</p>
-
-<p>After that, we had a brainstorming session.<br />
-Name? Check.<br />
-Ideas? Check.<br />
-Fun intros? Check.<br />
-Plan of attack? Check.<br />
-The first session was recorded with cheap microphones, a bit rattly, but that actually gave it some charm. Feedback came in: some things needed tweaking, audio could be better, the flow needed tightening.</p>
-
-<p>Second attempt: much better. In the meantime, Maarten and I built the website, Viktor handled all the copy-paste work, and Maarten posted updates on LinkedIn. That’s how JCast really started to take shape.</p>
-
-<p>And now, a year later, all I can say is: <strong>wow</strong>.<br />
-A year of making JCast, and I’ve learned so much I hardly know where to start.</p>
-
-<h2 id="the-awkwardness-and-the-stress">The Awkwardness and the Stress</h2>
-
-<p>I’ve always been scared of speaking in front of people. Writing is so much easier; talking suddenly makes everything feel vulnerable.<br />
-I also tend to use street language in conversations, and this was about Java development, would people take me seriously? That thought caused <strong>a lot of stress</strong> at first.</p>
-
-<p>The first episodes were a rollercoaster: nerves, improvisation, sometimes even a bit of panic.<br />
-But I was 100% committed: picking topics, inviting guests, publishing episodes on time, building a semi-automated pipeline. Everything was well thought out and I wanted it to feel professional, but still authentic.</p>
-
-<p>Still, one episode went a little off-track. The episode about people skills with Bjorn as a guest was fantastic. He was honest, direct, and articulated exactly what I was feeling.<br />
-And that moment… damn!<br />
-I had no idea that such a confrontation could be part of making a podcast.<br />
-It felt like someone had looked straight into your soul, but it taught me <strong>a lot about vulnerability and authenticity</strong>.</p>
-
-<h2 id="creativity-and-small-wins">Creativity and Small Wins</h2>
-
-<p>After some refinements, we also launched Instagram.<br />
-I manage the account, and being creative is something I really enjoy.<br />
-Canva and I are now best friends. I design visuals, post quotes, create teaser posts. The views aren’t massive, but that doesn’t matter, the process itself is energizing.</p>
-
-<p>Then came the JCast t-shirts.<br />
-I got to design them, and what a hit!<br />
-They were originally only for the JCast crew, but soon people outside our team were ordering them too.<br />
-That feeling – that something you’ve poured your creative energy into makes other people happy – is priceless.</p>
-
-<p>Other small wins:</p>
-
-<ul>
-  <li>Spotify comments that make you pause and smile</li>
-  <li>Feedback on LinkedIn or Instagram that warms your heart</li>
-  <li>Messages from listeners checking in after each episode to say they enjoyed it</li>
-</ul>
-
-<p>These little things are what make keeping a podcast going truly worthwhile.</p>
-
-<h2 id="what-i-didnt-expect">What I Didn’t Expect</h2>
-
-<p>Honestly? I thought: we’ll make a podcast about Java, share some knowledge, maybe it’ll be fun, maybe not. But it became so much more:</p>
-
-<ul>
-  <li><strong>Personal growth</strong>: From someone scared to speak to someone semi-comfortable behind the mic</li>
-  <li><strong>Real connections</strong>: With guests, listeners, and especially my co-hosts</li>
-  <li><strong>Creativity</strong>: Instagram, t-shirt design, website development, all things I love doing</li>
-  <li><strong>Community impact</strong>: People enjoy our content, learn something, and have a laugh</li>
-</ul>
-
-<p>And yes, I didn’t expect to enjoy the <strong>small things</strong> so much: a fun graphic post, a funny intro, or someone sharing your playlist. Those moments are pure gold.</p>
-
-<h2 id="reflection-proud-of-my-co-hosts">Reflection: Proud of My Co-Hosts</h2>
-
-<p>Now, nearly a year later, all I can do is be proud of my co-hosts: Maarten and Viktor.</p>
-
-<p>Without them, this wouldn’t have worked.<br />
-Without them, it wouldn’t have been fun.<br />
-Without them, it wouldn’t have been JCast.<br />
-Fantastic people, just as committed as I am, and together we built something I’m genuinely happy about.</p>
-
-<p>JCast isn’t just a podcast about Java; it’s a learning journey, a creative outlet, and proof that a small idea, with the right people, can grow into something to be proud of.</p>
-
-<p>And we’re far from done. Season 2, here we come!</p>
-
-<hr />
-
-<p><em>Listen to JCast at <a href="https://jcast.dev">jcast.dev</a> or wherever you get your podcasts.</em></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="java" /><category term="software craftsmanship" /><category term="creativity" /><category term="personal growth" /><summary type="html"><![CDATA[“I’m ready! I’m ready!” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Het is echt zo makkelijk: AI-chatbots bouwen met Java</title><link href="http://localhost:4000/nl/2026/02/25/its-really-that-easy/" rel="alternate" type="text/html" title="Het is echt zo makkelijk: AI-chatbots bouwen met Java" /><published>2026-02-25T14:00:00+01:00</published><updated>2026-02-25T14:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/25/its-really-that-easy</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/25/its-really-that-easy/"><![CDATA[<blockquote>
+<p><em>Luister naar JCast op <a href="https://jcast.dev">jcast.dev</a> of waar je ook podcasts luistert.</em></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="java" /><category term="software craftsmanship" /><category term="creativiteit" /><category term="persoonlijke groei" /><summary type="html"><![CDATA[“I’m ready! I’m ready!” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Het is echt zo makkelijk: AI-chatbots bouwen met Java</title><link href="http://localhost:4000/nl/2026/02/25/its-really-that-easy/" rel="alternate" type="text/html" title="Het is echt zo makkelijk: AI-chatbots bouwen met Java" /><published>2026-02-25T14:00:00+01:00</published><updated>2026-02-25T14:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/25/its-really-that-easy</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/25/its-really-that-easy/"><![CDATA[<blockquote>
   <p>“I’m ready to try something new!” – SpongeBob SquarePants</p>
 </blockquote>
 
@@ -1591,179 +1690,7 @@ But slowly shaping how you think about your work. Building a mental model that h
 
 <h2 id="thank-you">Thank you</h2>
 
-<p>Thank you, Maarten, for the training and for suggesting I take it again. You were right: timing matters, and sometimes the best gift is the same lesson at the right moment.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="craftsmanship" /><category term="training" /><category term="learning" /><category term="developer" /><category term="growth" /><summary type="html"><![CDATA[Three years ago, on my very first weeks as a developer, I sat in a room listening to Maarten and Bjorn talk about software craftsmanship.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/software_craftsmanship.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/software_craftsmanship.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">JCast-merch ontwerpen (zonder enige designervaring)</title><link href="http://localhost:4000/nl/2026/01/23/jcast-merch/" rel="alternate" type="text/html" title="JCast-merch ontwerpen (zonder enige designervaring)" /><published>2026-01-23T12:00:00+01:00</published><updated>2026-01-23T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/23/jcast-merch</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/23/jcast-merch/"><![CDATA[<blockquote>
-  <p>“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants</p>
-</blockquote>
-
-<p>Toen we met <a href="https://jcast.dev">JCast</a> begonnen, was het doel simpel: een podcast opnemen, over tech praten en zien waar het zou eindigen.</p>
-
-<p>Onderweg werd het… serieuzer.</p>
-
-<p>We hebben onze apparatuur geüpgraded.<br />
-We bleven consequent opnemen.<br />
-Het enthousiasme was er nog steeds, aflevering na aflevering.</p>
-
-<p>Op een bepaald moment voelde het minder als “een leuk zijproject” en meer als… een echte podcast.</p>
-
-<p>En toen had ik, op een compleet willekeurige dag, een gedachte:</p>
-
-<p><em>Deze podcast heeft merch nodig.</em></p>
-
-<p>Niet voor luisteraars. Niet voor advertenties. Gewoon voor ons.<br />
-Voor Viktor, Maarten en mijzelf. Iets simpels. Iets leuks. Een klein symbool dat zei: “Ja, dit is nu echt.”</p>
-
-<h3 id="van-java-naar-pinterest">Van Java naar Pinterest</h3>
-
-<p>Er was alleen één klein probleem.</p>
-
-<p>Ik had nog nooit in mijn leven iets ontworpen. En al helemaal geen merch.<br />
-Dus deed ik wat elke verantwoordelijke developer doet als hij onbekend terrein betreedt:</p>
-
-<p>Ik opende Pinterest.</p>
-
-<p>Ik scrolde door eindeloze T-shirtontwerpen.<br />
-Podcastlogo’s. Minimalistische typografie. Quotes. Layouts.</p>
-
-<p>Daarna opende ik Canva en begon te spelen met fonts en kleine designexperimenten.</p>
-
-<p>En… niets werkte.</p>
-
-<p>Alles zag er óf:</p>
-
-<ul>
-  <li>Te generiek</li>
-  <li>Te druk</li>
-  <li>Te cringe</li>
-  <li>Of gewoon niet “JCast” uit</li>
-</ul>
-
-<p>Ik had iets in mijn hoofd, maar ik kreeg het niet vertaald naar het scherm.<br />
-Dus deed ik de enige logische volgende stap.</p>
-
-<p>Ik opende Figma.</p>
-
-<h3 id="een-t-shirt-ontwerpen-alsof-het-een-poster-was">Een T-shirt ontwerpen alsof het een poster was</h3>
-
-<p>In plaats van te denken in stof, begon ik te denken in iets dat ik <em>wel</em> kende: layout.<br />
-Ik maakte A4-ontwerpen.<br />
-Alsof ik posters ontwierp, geen T-shirts.</p>
-
-<p>Ik plaatste het logo.<br />
-Speelde met witruimte.<br />
-Probeerde verschillende fontcombinaties.</p>
-
-<p>Langzaam begon er iets vorm te krijgen.</p>
-
-<p>En het verrassende?</p>
-
-<p>Ik vond het geweldig.</p>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 2fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
-  <div>
-    <img src="/assets/img/merch_draft_1.png" alt="Eerste T-shirt ontwerp variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
-    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 1: Minimalistisch logo design</p>
-  </div>
-  <div>
-    <img src="/assets/img/full_color.png" alt="De uiteindelijke gedrukte T-shirt met JCast logo" style="max-width: 100%; height: auto; border-radius: 8px;" />
-    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 2: Kleurencombo’s testen</p>
-  </div>
-  <div>
-    <img src="/assets/img/merch_draft_2.png" alt="Tweede T-shirt ontwerp variant" style="max-width: 100%; height: auto; border-radius: 8px;" />
-    <p style="text-align: center; font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Variant 3: Typography focus</p>
-  </div>
-</div>
-
-<p>Dit leek totaal niet op programmeren.</p>
-
-<p>Geen compiler errors.<br />
-Geen stack traces.<br />
-Geen tests die faalden door een ontbrekende puntkomma.</p>
-
-<p>Gewoon puur experimenteren.</p>
-
-<p>Iets een beetje naar links schuiven.<br />
-Een fontgewicht aanpassen.<br />
-De helft verwijderen en opnieuw beginnen.</p>
-
-<p>Het was rustig. Creatief. Bijna therapeutisch.</p>
-
-<h3 id="de-eerste-print">De eerste print</h3>
-
-<p>Uiteindelijk had ik iets waar ik echt blij mee was.</p>
-
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin: 2rem 0; padding: 2rem; background: #eae6df; border-radius: 8px;">
-  <div style="text-align: center;">
-    <img src="/assets/img/first_variant.svg" alt="Eerste definitieve T-shirt print design" style="max-width: 100%; height: auto;" />
-  </div>
-  <div style="text-align: center;">
-    <img src="/assets/img/second_variant.svg" alt="Tweede definitieve T-shirt print design" style="max-width: 100%; height: auto;" />
-  </div>
-</div>
-
-<p>Dus ik liet er eentje drukken.</p>
-
-<p>Gewoon <em>één</em>.</p>
-
-<p>Ik nam hem mee naar de jongens en liet hem zien. Ze vonden het leuk.</p>
-
-<p>En toen gebeurde er iets onverwachts. Andere collega’s hoorden ervan.</p>
-
-<p>“Wacht… jij hebt JCast-T-shirts gemaakt?”<br />
-“Kan ik er ook eentje krijgen?”<br />
-“Heb je hem ook in een andere kleur?”</p>
-
-<p>Plots werd dit ding, dat alleen voor de drie hosts bedoeld was…<br />
-iets wat andere mensen ook wilden.</p>
-
-<p>We maakten er meer.<br />
-Andere kleuren.<br />
-Andere maten.</p>
-
-<p>En mensen begonnen ze daadwerkelijk te dragen.</p>
-
-<h3 id="het-onverwachte-trotsmoment">Het onverwachte trotsmoment</h3>
-
-<p>Het moment dat me het meest is bijgebleven, is dit:</p>
-
-<p>Iemand zien, die geen deel uitmaakt van de podcast, die een T-shirt draagt met een ontwerp dat <em>ik</em> heb gemaakt.</p>
-
-<p>Niet omdat het moest.<br />
-Niet omdat het merch was.</p>
-
-<p>Maar gewoon… omdat ze het mooi vonden.</p>
-
-<p>Als developers bouwen we vaak dingen die onzichtbaar zijn.<br />
-API’s. Services. Achtergrondsystemen.</p>
-
-<p>Deze keer had ik iets gemaakt dat je letterlijk kunt dragen.</p>
-
-<p>En dat voelde ongelooflijk speciaal.</p>
-
-<p>Dat kleine moment deed me ook even stilstaan bij wat dit project me eigenlijk had geleerd.</p>
-
-<p>Creativiteit, zo bleek, is gewoon een andere vorm van probleemoplossen.<br />
-Weer ergens slecht in zijn is verfrissend.<br />
-Beperkingen — print, kleuren, layout — helpen design, net zoals beperkingen architectuur helpen.</p>
-
-<p>En soms beginnen de meest belonende projecten met een willekeurig idee op een willekeurige dag.</p>
-
-<p><a href="https://jcast.dev">JCast</a> begon als een podcast.<br />
-Onderweg werd het een kleine community.</p>
-
-<p>En blijkbaar… ook een kledingmerk.</p>
-
-<figure style="margin: 3rem 0; text-align: center;">
-  <img src="/assets/img/overview_figma_file.png" alt="Screenshot van mijn Figma werkbestand met verschillende T-shirt ontwerp varianten" style="max-width: 100%; height: auto; border-radius: 8px;" />
-  <figcaption style="margin-top: 0.75rem; font-size: 0.9rem; color: #666;">
-    Een screenshot van mijn Figma-bord aan het einde van het proces — vol ideeën, varianten en half afgemaakte pogingen.
-  </figcaption>
-</figure>
-
-<hr />
-
-<p><em>Benieuwd naar de podcast achter deze T-shirts?</em></p>
-
-<p>Neem gerust een kijkje op <a href="https://jcast.dev">jcast.dev</a> en ontdek <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Designing JCast Merch (Without Any Design Experience)</title><link href="http://localhost:4000/2026/01/23/jcast-merch/" rel="alternate" type="text/html" title="Designing JCast Merch (Without Any Design Experience)" /><published>2026-01-23T12:00:00+01:00</published><updated>2026-01-23T12:00:00+01:00</updated><id>http://localhost:4000/2026/01/23/jcast-merch</id><content type="html" xml:base="http://localhost:4000/2026/01/23/jcast-merch/"><![CDATA[<blockquote>
+<p>Thank you, Maarten, for the training and for suggesting I take it again. You were right: timing matters, and sometimes the best gift is the same lesson at the right moment.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="craftsmanship" /><category term="training" /><category term="learning" /><category term="developer" /><category term="growth" /><summary type="html"><![CDATA[Three years ago, on my very first weeks as a developer, I sat in a room listening to Maarten and Bjorn talk about software craftsmanship.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/software_craftsmanship.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/software_craftsmanship.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Designing JCast Merch (Without Any Design Experience)</title><link href="http://localhost:4000/2026/01/23/jcast-merch/" rel="alternate" type="text/html" title="Designing JCast Merch (Without Any Design Experience)" /><published>2026-01-23T12:00:00+01:00</published><updated>2026-01-23T12:00:00+01:00</updated><id>http://localhost:4000/2026/01/23/jcast-merch</id><content type="html" xml:base="http://localhost:4000/2026/01/23/jcast-merch/"><![CDATA[<blockquote>
   <p>“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants</p>
 </blockquote>
 

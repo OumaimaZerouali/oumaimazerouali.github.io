@@ -1119,6 +1119,17 @@ main {
   display: block;
 }
 
+/* For small wordmark/title-card images that shouldn't be stretched full-bleed */
+.post-hero--contain {
+  background: #1a1a1a;
+}
+
+.post-hero--contain img {
+  object-fit: contain;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
 /* Two-column Container */
 .post-container {
   max-width: 1400px;
@@ -2348,6 +2359,40 @@ main {
   }
 }
 
+
+/* ========== JCast Hero (Podcast page) ========== */
+.jcast-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+}
+
+.jcast-hero-text h1 {
+  font-size: 2.25rem;
+  margin: 0 0 var(--spacing-xs);
+}
+
+.jcast-hero-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .jcast-hero {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .jcast-hero-logo {
+    width: 56px;
+    height: 56px;
+  }
+}
 
 /* ========== List Page (Podcast, etc.) ========== */
 .list-page {

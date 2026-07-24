@@ -41,9 +41,12 @@ layout: default
 {% assign podcast_posts = site.posts | where: "lang", current_lang | where_exp: "post", "post.tags contains 'jcast'" %}
 
 <section class="list-page">
-  <header class="list-header">
-    <h1>{{ site.data.translations[current_lang].podcast.title }}</h1>
-    <p class="list-subtitle">{{ site.data.translations[current_lang].podcast.subtitle }}</p>
+  <header class="jcast-hero">
+    <div class="jcast-hero-text">
+      <h1>{{ site.data.translations[current_lang].podcast.title }}</h1>
+      <p class="list-subtitle">{{ site.data.translations[current_lang].podcast.subtitle }}</p>
+    </div>
+    <img src="{{ '/assets/img/jcast-logo.png' | relative_url }}" alt="JCast logo" class="jcast-hero-logo">
   </header>
 
   <a href="https://jcast.dev" target="_blank" rel="noopener noreferrer" class="home-teaser-strip">

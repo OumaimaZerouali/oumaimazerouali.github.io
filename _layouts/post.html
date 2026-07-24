@@ -77,7 +77,7 @@ layout: default
 <article class="post">
     {% comment %} Hero section with large image {% endcomment %}
     {% if page.image %}
-    <div class="post-hero">
+    <div class="post-hero{% if page.image contains 'jcast-magazine' %} post-hero--contain{% endif %}">
         <img
             src="{{ site.baseurl }}{{ page.image }}"
             alt="{{ page.image_alt | default: 'Featured image for ' | append: page.title }}"
