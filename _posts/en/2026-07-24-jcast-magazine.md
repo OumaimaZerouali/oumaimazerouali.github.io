@@ -2,7 +2,7 @@
 layout: post
 title: "I made a magazine for three people and that was enough"
 date: 2026-07-24 10:00:00 +0100
-image: "/assets/img/jcast-cover.png"
+image: "/assets/img/jcast-magazine.png"
 tags: [jcast, podcast, personal, community, creativity]
 lang: en
 ---
@@ -19,7 +19,7 @@ I wanted something I could hold.
 
 So I made a magazine. Thirty-two pages, A5 format, three copies. One for Viktor. One for Maarten. One for me. Ordered on March 28, 2026. €76.14. Best money I've ever spent.
 
-## Het verhaal — where it actually started
+## Het verhaal: where it actually started
 
 It started at a coffee machine.
 
@@ -45,7 +45,7 @@ In the first 30 days: 97 downloads. By the time I sat down to write the magazine
 
 For a podcast about Java made by three developers in Diegem with no marketing budget and a recording setup they built themselves, I'm going to say: not bad.
 
-## De JCrew — who we actually are
+## De JCrew: who we actually are
 
 The magazine has a whole chapter on this, which I wrote and then edited approximately seven thousand times because how do you describe people you work with and also genuinely like without it sounding either too corporate or too much like a wedding toast?
 
@@ -59,7 +59,7 @@ Here's what I landed on for each of us:
 
 Together, the magazine says, we work "niet ondanks de chaos, maar dankzij." Not despite the chaos, but because of it. That felt right when I wrote it and it still feels right now.
 
-## Een seizoen vol gesprekken — all 12 episodes
+## Een seizoen vol gesprekken: all 12 episodes
 
 Twelve episodes. Twelve weeks of recording, editing, publishing, promoting, and doing it again. Here's the full season one, because I spent time putting it in the magazine and I want to put it here too.
 
@@ -101,7 +101,7 @@ End of season. Wrap-up. The episode where we reflected on what we'd made before 
 
 Eight guests across twelve episodes. Topics ranging from clean code to capacity planning to what people do on weekends. A range I'm proud of.
 
-## JCast in het wild — the physical stuff
+## JCast in het wild: the physical stuff
 
 Here's the part that people who don't know me might not expect: I care a lot about the physical version of things.
 
@@ -117,7 +117,7 @@ Super trots op het resultaat. Very proud.
 
 All of this: the merch, the site, the social, the physical banners we carried to actual places. That's what I put in the "JCast in het wild" chapter. Because JCast didn't just exist in a DAW and on Spotify. It existed in the world.
 
-## Terugblikken & vooruitkijken — the numbers and what they mean
+## Terugblikken & vooruitkijken: the numbers and what they mean
 
 Cijfers van 28/03/2026. Numbers as of the day I ordered the print.
 
@@ -145,7 +145,7 @@ Still to go: nog meer merch, posters, een internationale gast hosten, naar een p
 
 The last one is my favorite. *Het nog steeds superleuk vinden.* Still finding it genuinely fun. That one's not a nice-to-have. That one's the whole thing. If that box ever gets unchecked, the rest of the list doesn't matter.
 
-## Season 2 — what's coming
+## Season 2: what's coming
 
 *"Maar we zijn nog niet klaar. Seizoen 2 staat voor de deur en als seizoen 1 bewees dat we het konden, dan belooft seizoen 2 te bewijzen dat we het beter kunnen."*
 

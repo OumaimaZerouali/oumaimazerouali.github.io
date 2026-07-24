@@ -4,48 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Update site content and structure for clarity, including new podcast section and improved descriptions">
-      <change afterPath="$PROJECT_DIR$/_posts/en/2026-07-24-jcast-magazine.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/en/2026-07-30-mdc-logging.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/en/2026-08-10-when-do-you-stop-being-a-junior.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/en/2026-08-25-i-made-an-ai-version-of-me.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/nl/2026-07-24-jcast-magazine.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/nl/2026-07-30-mdc-logging.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/nl/2026-08-10-when-do-you-stop-being-a-junior.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/_posts/nl/2026-08-25-i-made-an-ai-version-of-me.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/default.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/default.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/404.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/about/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
-    </list>
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new articles and update existing content for improved site structure and readability" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -107,23 +66,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.004044003633743" />
-      <entry key="MS500" value="1.3397492809486726" />
-      <entry key="S2" value="2.0542213005878316" />
-      <entry key="S5" value="2.5302805633099945" />
-      <entry key="S10" value="3.1163226785480287" />
-      <entry key="S30" value="5.776980082071271" />
-      <entry key="S60" value="7.7369344119275185" />
-      <entry key="M2" value="9.170215222242815" />
-      <entry key="M5" value="10.374961552431166" />
-      <entry key="M10" value="11.173007884766072" />
-      <entry key="M15" value="11.810879898559673" />
-      <entry key="M30" value="13.476692064844832" />
-      <entry key="H1" value="15.55940278059402" />
-      <entry key="H2" value="17.3464087495451" />
-      <entry key="H4" value="18.539926215699513" />
-      <entry key="D1" value="19.735526590270176" />
-      <entry key="W1" value="19.96166253303771" />
+      <entry key="MS100" value="1.8269216223341211" />
+      <entry key="MS500" value="2.2887416157119187" />
+      <entry key="S2" value="3.034383422410146" />
+      <entry key="S5" value="3.5204780022515867" />
+      <entry key="S10" value="4.110280347180243" />
+      <entry key="S30" value="6.773243946432154" />
+      <entry key="S60" value="8.734432160654858" />
+      <entry key="M2" value="10.168732203447416" />
+      <entry key="M5" value="11.37429037910923" />
+      <entry key="M10" value="12.172646478795306" />
+      <entry key="M15" value="12.810625204653816" />
+      <entry key="M30" value="14.476546756033201" />
+      <entry key="H1" value="16.55931889782771" />
+      <entry key="H2" value="18.346361991107994" />
+      <entry key="H4" value="19.53990122785994" />
+      <entry key="D1" value="20.735522157058995" />
+      <entry key="W1" value="20.96166189246503" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -145,23 +104,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9631433869085584" />
-      <entry key="MS500" value="1.328589527660481" />
-      <entry key="S2" value="2.049342482161948" />
-      <entry key="S5" value="2.527647426435632" />
-      <entry key="S10" value="3.1144695645981852" />
-      <entry key="S30" value="5.775357694783393" />
-      <entry key="S60" value="7.73572539715207" />
-      <entry key="M2" value="9.169461699495194" />
-      <entry key="M5" value="10.374610268217177" />
-      <entry key="M10" value="11.172817605342212" />
-      <entry key="M15" value="11.810746759036938" />
-      <entry key="M30" value="13.476618872291274" />
-      <entry key="H1" value="15.559362606365758" />
-      <entry key="H2" value="17.346387222191034" />
-      <entry key="H4" value="18.539914984500626" />
-      <entry key="D1" value="19.735524641599117" />
-      <entry key="W1" value="19.961662252597463" />
+      <entry key="MS100" value="1.6168272590661286" />
+      <entry key="MS500" value="2.2399341973014963" />
+      <entry key="S2" value="3.0198945912916413" />
+      <entry key="S5" value="3.513980965968128" />
+      <entry key="S10" value="4.106491896340944" />
+      <entry key="S30" value="6.770975880238142" />
+      <entry key="S60" value="8.732900120520677" />
+      <entry key="M2" value="10.16781708129661" />
+      <entry key="M5" value="11.373874425976137" />
+      <entry key="M10" value="12.172423859181018" />
+      <entry key="M15" value="12.810470503655711" />
+      <entry key="M30" value="14.476462782037476" />
+      <entry key="H1" value="16.55927333268583" />
+      <entry key="H2" value="18.346337768243224" />
+      <entry key="H4" value="19.539888648890912" />
+      <entry key="D1" value="20.735519983757367" />
+      <entry key="W1" value="20.961661579934646" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -438,15 +397,7 @@
       <workItem from="1775409927105" duration="761000" />
       <workItem from="1778268554426" duration="1122000" />
       <workItem from="1784877626830" duration="6764000" />
-      <workItem from="1784885691098" duration="398000" />
-    </task>
-    <task id="LOCAL-00017" summary="feat: Added the light-themed browser tab">
-      <option name="closed" value="true" />
-      <created>1745485870086</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1745485870086</updated>
+      <workItem from="1784885691098" duration="445000" />
     </task>
     <task id="LOCAL-00018" summary="feat: v1">
       <option name="closed" value="true" />
@@ -832,7 +783,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784879743898</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="feat: Add new articles and update existing content for improved site structure and readability">
+      <option name="closed" value="true" />
+      <created>1784886126869</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1784886126870</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -851,7 +810,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="fix: Update alumni organization in structured data for improved accuracy" />
     <MESSAGE value="feat: Add new post on software craftsmanship, update related posts and sitemap, and introduce agent instruction files" />
     <MESSAGE value="chore: remove unnecessary separator in craftsmanship post and update workspace metadata" />
     <MESSAGE value="feat: Add new post on software craftsmanship reflecting on personal growth and insights from training" />
@@ -876,7 +834,8 @@
     <MESSAGE value="feat: Add weekly development notes for week 5 in English and Dutch" />
     <MESSAGE value="feat: Add weekly development notes for week 6 in English and Dutch" />
     <MESSAGE value="feat: Update site content and structure for clarity, including new podcast section and improved descriptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Update site content and structure for clarity, including new podcast section and improved descriptions" />
+    <MESSAGE value="feat: Add new articles and update existing content for improved site structure and readability" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new articles and update existing content for improved site structure and readability" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">

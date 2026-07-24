@@ -2,7 +2,7 @@
 layout: post
 title: "Ik maakte een magazine voor drie mensen en dat was genoeg"
 date: 2026-07-24 10:00:00 +0100
-image: "/assets/img/jcast-cover.png"
+image: "/assets/img/jcast-magazine.png"
 tags: [jcast, podcast, personal, community, creativity]
 lang: nl
 ---
