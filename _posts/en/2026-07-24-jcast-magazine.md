@@ -51,7 +51,7 @@ The magazine has a whole chapter on this, which I wrote and then edited approxim
 
 Here's what I landed on for each of us:
 
-**Oumaima**, that's me. Someone who loves clarity, challenge, and the "why" behind systems *and* people. Backend mostly, but frontend too when it needs to happen. CoderDojo volunteer. Former JTires intern who somehow ended up collecting Pokémon cards alongside the rest of this job. When I wrote my own profile for the magazine I added: "Vijf jaar later: Wat een random cool ding om mee te maken." Five years later: what a randomly cool thing to be part of.
+**Oumaima**, that's me. Someone who loves clarity, challenge, and the "why" behind systems *and* people. Backend mostly, but frontend too when it needs to happen. CoderDojo volunteer. JTires lead who somehow ended up collecting Pokémon cards alongside the rest of this job. When I wrote my own profile for the magazine I added: "Vijf jaar later: Wat een random cool ding om mee te maken." Five years later: what a randomly cool thing to be part of.
 
 **Viktor Van Steenweghen** is what the magazine calls "een brok chaos", a lump of chaos, but always in on learning something new. He handles the montage, which means he's the one who sits with the raw recordings and turns three people stumbling over their words into something you'd actually want to listen to. The thing that surprised him most this season? Claude Code. He also plays snooker offline, which I feel like is important context about who Viktor is as a person.
 

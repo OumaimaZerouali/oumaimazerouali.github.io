@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new articles and update existing content for improved site structure and readability" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Update magazine content and images for improved clarity and consistency" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,23 +66,23 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.8269216223341211" />
-      <entry key="MS500" value="2.2887416157119187" />
-      <entry key="S2" value="3.034383422410146" />
-      <entry key="S5" value="3.5204780022515867" />
-      <entry key="S10" value="4.110280347180243" />
-      <entry key="S30" value="6.773243946432154" />
-      <entry key="S60" value="8.734432160654858" />
-      <entry key="M2" value="10.168732203447416" />
-      <entry key="M5" value="11.37429037910923" />
-      <entry key="M10" value="12.172646478795306" />
-      <entry key="M15" value="12.810625204653816" />
-      <entry key="M30" value="14.476546756033201" />
-      <entry key="H1" value="16.55931889782771" />
-      <entry key="H2" value="18.346361991107994" />
-      <entry key="H4" value="19.53990122785994" />
-      <entry key="D1" value="20.735522157058995" />
-      <entry key="W1" value="20.96166189246503" />
+      <entry key="MS100" value="1.0001102594773674" />
+      <entry key="MS500" value="1.4310168384168698" />
+      <entry key="S2" value="3.4264268448838813" />
+      <entry key="S5" value="4.688313152346365" />
+      <entry key="S10" value="5.6158425872445905" />
+      <entry key="S30" value="8.513764545003479" />
+      <entry key="S60" value="10.570522812428269" />
+      <entry key="M2" value="12.074286009630619" />
+      <entry key="M5" value="13.33232243592399" />
+      <entry key="M10" value="14.150288217008333" />
+      <entry key="M15" value="14.79499262261321" />
+      <entry key="M30" value="16.46778420788311" />
+      <entry key="H1" value="18.554346787407216" />
+      <entry key="H2" value="20.343622535787347" />
+      <entry key="H4" value="21.538446886426698" />
+      <entry key="D1" value="22.735265640456223" />
+      <entry key="W1" value="22.961624865547673" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
@@ -104,23 +104,23 @@
       <entry key="W1" value="0.0" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.6168272590661286" />
-      <entry key="MS500" value="2.2399341973014963" />
-      <entry key="S2" value="3.0198945912916413" />
-      <entry key="S5" value="3.513980965968128" />
-      <entry key="S10" value="4.106491896340944" />
-      <entry key="S30" value="6.770975880238142" />
-      <entry key="S60" value="8.732900120520677" />
-      <entry key="M2" value="10.16781708129661" />
-      <entry key="M5" value="11.373874425976137" />
-      <entry key="M10" value="12.172423859181018" />
-      <entry key="M15" value="12.810470503655711" />
-      <entry key="M30" value="14.476462782037476" />
-      <entry key="H1" value="16.55927333268583" />
-      <entry key="H2" value="18.346337768243224" />
-      <entry key="H4" value="19.539888648890912" />
-      <entry key="D1" value="20.735519983757367" />
-      <entry key="W1" value="20.961661579934646" />
+      <entry key="MS100" value="0.8179990232267051" />
+      <entry key="MS500" value="1.3816159843079463" />
+      <entry key="S2" value="3.4035513063942" />
+      <entry key="S5" value="4.676739274330658" />
+      <entry key="S10" value="5.609160809531362" />
+      <entry key="S30" value="8.510455752416348" />
+      <entry key="S60" value="10.568454460185901" />
+      <entry key="M2" value="12.073096585825953" />
+      <entry key="M5" value="13.331794839097826" />
+      <entry key="M10" value="14.150009408173663" />
+      <entry key="M15" value="14.794800376467522" />
+      <entry key="M30" value="16.467681416864238" />
+      <entry key="H1" value="18.55429180177372" />
+      <entry key="H2" value="20.34359359937819" />
+      <entry key="H4" value="21.53843194979182" />
+      <entry key="D1" value="22.73526307407786" />
+      <entry key="W1" value="22.961624496860097" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -163,7 +163,7 @@
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/_posts/en&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/assets/img&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -192,11 +192,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/img" />
       <recent name="$PROJECT_DIR$/_posts/en" />
       <recent name="$PROJECT_DIR$/_posts/nl" />
       <recent name="$PROJECT_DIR$/assets/css" />
       <recent name="$PROJECT_DIR$/src/assets/icons" />
-      <recent name="$PROJECT_DIR$/frontend/src/assets" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/img/gallery" />
@@ -398,14 +398,7 @@
       <workItem from="1778268554426" duration="1122000" />
       <workItem from="1784877626830" duration="6764000" />
       <workItem from="1784885691098" duration="445000" />
-    </task>
-    <task id="LOCAL-00018" summary="feat: v1">
-      <option name="closed" value="true" />
-      <created>1748032869966</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1748032869966</updated>
+      <workItem from="1784886257586" duration="222000" />
     </task>
     <task id="LOCAL-00019" summary="fix: clean up">
       <option name="closed" value="true" />
@@ -791,7 +784,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784886126870</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="feat: Update magazine content and images for improved clarity and consistency">
+      <option name="closed" value="true" />
+      <created>1784886435694</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1784886435694</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -810,7 +811,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Add new post on software craftsmanship, update related posts and sitemap, and introduce agent instruction files" />
     <MESSAGE value="chore: remove unnecessary separator in craftsmanship post and update workspace metadata" />
     <MESSAGE value="feat: Add new post on software craftsmanship reflecting on personal growth and insights from training" />
     <MESSAGE value="feat: Add new post on building AI chatbots with Java, detailing project insights and implementation steps" />
@@ -835,7 +835,8 @@
     <MESSAGE value="feat: Add weekly development notes for week 6 in English and Dutch" />
     <MESSAGE value="feat: Update site content and structure for clarity, including new podcast section and improved descriptions" />
     <MESSAGE value="feat: Add new articles and update existing content for improved site structure and readability" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new articles and update existing content for improved site structure and readability" />
+    <MESSAGE value="feat: Update magazine content and images for improved clarity and consistency" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Update magazine content and images for improved clarity and consistency" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">

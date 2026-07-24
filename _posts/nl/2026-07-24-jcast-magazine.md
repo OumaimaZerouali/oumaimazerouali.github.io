@@ -52,7 +52,7 @@ Het magazine heeft een heel hoofdstuk hierover, dat ik schreef en daarna ongevee
 
 Dit is wat ik uiteindelijk schreef:
 
-**Oumaima**, dat ben ik. Iemand die houdt van duidelijkheid, uitdaging en het "waarom" achter systemen én mensen. Voornamelijk backend, maar frontend ook als het moet. CoderDojo-vrijwilliger. Voormalig JTires-stagiair die ergens onderweg ook Pokémonkaarten is beginnen verzamelen. In mijn eigen profiel schreef ik: "Vijf jaar later: Wat een random cool ding om mee te maken."
+**Oumaima**, dat ben ik. Iemand die houdt van duidelijkheid, uitdaging en het "waarom" achter systemen én mensen. Voornamelijk backend, maar frontend ook als het moet. CoderDojo-vrijwilliger. JTires-lead die ergens onderweg ook Pokémonkaarten is beginnen verzamelen. In mijn eigen profiel schreef ik: "Vijf jaar later: Wat een random cool ding om mee te maken."
 
 **Viktor Van Steenweghen** is wat het magazine "een brok chaos" noemt, maar altijd in om iets nieuws bij te leren. Hij verzorgt de montage, wat betekent dat hij degene is die met de ruwe opnames gaat zitten en van drie mensen die struikelen over hun woorden iets maakt waar je effectief naar wilt luisteren. Het ding dat hem dit seizoen het meest verraste? Claude Code. Hij speelt ook snooker offline, wat ik belangrijk context vind over wie Viktor is als persoon.
 
