@@ -1,5 +1,370 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-24T09:53:59+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi</title><subtitle>A personal site by a software developer: engineering writing, JCast, and hand-made art.
-</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">Waarom ik JCast begon</title><link href="http://localhost:4000/nl/2026/02/28/jcast/" rel="alternate" type="text/html" title="Waarom ik JCast begon" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/28/jcast/"><![CDATA[<blockquote>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-24T11:41:31+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi</title><subtitle>A personal site by a software developer: engineering writing, JCast, and hand-made art.
+</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="en"><title type="html">I made a magazine for three people and that was enough</title><link href="http://localhost:4000/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="I made a magazine for three people and that was enough" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/2026/07/24/jcast-magazine</id><content type="html" xml:base="http://localhost:4000/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
+  <p>“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants</p>
+</blockquote>
+
+<p>Nobody asked for a magazine.</p>
+
+<p>There was no brief, no deadline, no client. Just me, a Canva account, and a feeling I couldn’t quite shake: season 1 of JCast was wrapping up, and I didn’t want it to just… disappear.</p>
+
+<p>Podcasts are strange like that. They live in Spotify playlists and YouTube thumbnails, in the memories of people who maybe listened once on a Monday morning commute. They don’t sit on a shelf. They don’t gather dust. They just float somewhere in the cloud, and sometimes you wonder if they were ever really real.</p>
+
+<p>I wanted something I could hold.</p>
+
+<p>So I made a magazine. Thirty-two pages, A5 format, three copies. One for Viktor. One for Maarten. One for me. Ordered on March 28, 2026. €76.14. Best money I’ve ever spent.</p>
+
+<h2 id="het-verhaal--where-it-actually-started">Het verhaal — where it actually started</h2>
+
+<p>It started at a coffee machine.</p>
+
+<p>Not in a meeting room, not in a Confluence doc with a proper project plan. At a <em>koffieapparaat</em>, the way most good ideas at work start. Someone asked a question. The question became a conversation. The conversation became: “should we actually make a podcast?”</p>
+
+<p>And Maarten, without hesitating for even a second, said: <em>“Morgen starten we.”</em></p>
+
+<p>Tomorrow we start.</p>
+
+<p>That was the moment. Not a brainstorm session, not a planning week. Just Maarten, who by the way is the kind of person who would rather spend three hours truly understanding a problem than thirty minutes hacking a solution, deciding in one breath that yes, this was happening.</p>
+
+<p>Here’s the actual timeline of how JCast went from a coffee machine comment to a real thing people actually listened to:</p>
+
+<p><strong>September 30, 2024.</strong> The first real brainstorm. What would we talk about? Who would we be? What even is JCast? The answer that stuck: <em>“Java als startpunt, alles daarrond als speelveld.”</em> Java as a starting point, everything around it as a playground. That tagline ended up on the cover of the magazine.</p>
+
+<p><strong>November 4, 2024.</strong> The first recording attempt. I say “attempt” because the audio was, generously speaking, not ideal. Euhs everywhere. Microphones that fell off the table. The kind of session that you look back on and think: good that we didn’t publish this one. We didn’t.</p>
+
+<p><strong>December 16, 2024.</strong> Take two. The real take. The one we could actually work with.</p>
+
+<p><strong>April 30, 2025.</strong> S01E01 goes live. <em>Wat is een professionele ontwikkelaar?</em> What is a professional developer? Uncle Bob, Clean Code, TDD. The big questions. First episode, no guests, just the three of us figuring out how to have a podcast conversation instead of a regular one.</p>
+
+<p>In the first 30 days: 97 downloads. By the time I sat down to write the magazine: 159. And by the time I ordered the print: 925 total, 796 plays, 158 hours of consumption time, +57 followers. A #1 First Episode badge from Spotify. A Global Listeners badge.</p>
+
+<p>For a podcast about Java made by three developers in Diegem with no marketing budget and a recording setup they built themselves, I’m going to say: not bad.</p>
+
+<h2 id="de-jcrew--who-we-actually-are">De JCrew — who we actually are</h2>
+
+<p>The magazine has a whole chapter on this, which I wrote and then edited approximately seven thousand times because how do you describe people you work with and also genuinely like without it sounding either too corporate or too much like a wedding toast?</p>
+
+<p>Here’s what I landed on for each of us:</p>
+
+<p><strong>Oumaima</strong>, that’s me. Someone who loves clarity, challenge, and the “why” behind systems <em>and</em> people. Backend mostly, but frontend too when it needs to happen. CoderDojo volunteer. Former JTires intern who somehow ended up collecting Pokémon cards alongside the rest of this job. When I wrote my own profile for the magazine I added: “Vijf jaar later: Wat een random cool ding om mee te maken.” Five years later: what a randomly cool thing to be part of.</p>
+
+<p><strong>Viktor Van Steenweghen</strong> is what the magazine calls “een brok chaos”, a lump of chaos, but always in on learning something new. He handles the montage, which means he’s the one who sits with the raw recordings and turns three people stumbling over their words into something you’d actually want to listen to. The thing that surprised him most this season? Claude Code. He also plays snooker offline, which I feel like is important context about who Viktor is as a person.</p>
+
+<p><strong>Maarten Casteels</strong> is the one who would rather <em>echt</em> understand the problem than quickly get something working. He’s the tech lead energy without the ego about it. In the magazine I wrote: “De beste gesprekken zijn niet altijd de meest voorbereide.” The best conversations aren’t always the most prepared ones. Which is true of JCast in general, but especially of Maarten. Some of our best episodes happened when the plan fell apart and we just talked.</p>
+
+<p>Together, the magazine says, we work “niet ondanks de chaos, maar dankzij.” Not despite the chaos, but because of it. That felt right when I wrote it and it still feels right now.</p>
+
+<h2 id="een-seizoen-vol-gesprekken--all-12-episodes">Een seizoen vol gesprekken — all 12 episodes</h2>
+
+<p>Twelve episodes. Twelve weeks of recording, editing, publishing, promoting, and doing it again. Here’s the full season one, because I spent time putting it in the magazine and I want to put it here too.</p>
+
+<p><strong>S01E01 — Wat is een professionele ontwikkelaar?</strong>
+The debut. No guests, just the three of us. Uncle Bob, Clean Code, TDD, the eternal debates about what it even means to be professional at this job. High stakes for a first episode. We went for it anyway.</p>
+
+<p><strong>S01E02 — Clean Architecture</strong>
+Guest: Jeroen Bastijns. The theory got more concrete. What does architecture actually look like in practice, not just in books?</p>
+
+<p><strong>S01E03 — Life as a dev</strong>
+No guest. Just us, talking about what it’s actually like: the day-to-day, the context switching, the things that don’t make it into LinkedIn posts.</p>
+
+<p><strong>S01E04 — Pixel Perfect? UX/UI met Risa</strong>
+Guest: Risa Somers. This was one of my favorites because we genuinely do not talk about design enough as developers and Risa made us think differently about it.</p>
+
+<p><strong>S01E05 — (Audio)Books vs Podcasts</strong>
+No guest. Very meta, given what we were doing. We talked about how we actually learn outside of work.</p>
+
+<p><strong>S01E06 — Java, Soft Skills &amp; Mensenkennis</strong>
+Guest: Björn De Craemer. Soft skills are not soft. We had this conversation properly.</p>
+
+<p><strong>S01E07 — Meetings, stand-ups &amp; agile drama</strong>
+No guest. Cathartic. Everyone who has sat in one too many stand-ups will understand.</p>
+
+<p><strong>S01E08 — Java, AI &amp; de menselijke kant</strong>
+Guest: Jan Van Wassenhove, Devoxx speaker. AI in our field, what it means for the people doing the work. This one felt important.</p>
+
+<p><strong>S01E09 — New year, new dev</strong>
+January energy. Goede voornemens, slechte gewoontes, fresh start vibes.</p>
+
+<p><strong>S01E10 — Meer dan planning</strong>
+Guest: Barbara Cleeren, Capacity Manager. Getting out of the strictly technical zone and into the human side of how teams actually function.</p>
+
+<p><strong>S01E11 — Passie na de werkuren: Sigriet</strong>
+Guest: Sigriet Van Breusegem. Talking about what developers do when they’re not developing. This episode meant a lot to me for reasons that go beyond the podcast.</p>
+
+<p><strong>S01E12 — Seizoensfinale</strong>
+End of season. Wrap-up. The episode where we reflected on what we’d made before the magazine even existed to hold it.</p>
+
+<p>Eight guests across twelve episodes. Topics ranging from clean code to capacity planning to what people do on weekends. A range I’m proud of.</p>
+
+<h2 id="jcast-in-het-wild--the-physical-stuff">JCast in het wild — the physical stuff</h2>
+
+<p>Here’s the part that people who don’t know me might not expect: I care a lot about the physical version of things.</p>
+
+<p>The podcast exists as audio. Fine. That’s the product. But around the product there’s a whole world I built in Canva with absolutely zero design experience, and I will not apologize for enjoying that part of it enormously.</p>
+
+<p><strong>The merch.</strong> JCast stickers. A JCast T-shirt. A banner that we actually brought to events. All checked off the bucketlist by the end of season one. I made all of it in Canva, which felt appropriate since Canva is also how I made the magazine, and the episode covers, and basically every visual thing JCast has ever had. You learn by doing. Sometimes the thing you make is good. Sometimes it’s not. The stickers were good.</p>
+
+<p><strong>The website.</strong> jcast.dev. This one deserves its own paragraph. Maarten and I built it with no CMS, no plugins, no themes, nothing pre-made. Hugo, pure CSS, hosted on AWS via Terraform. The logic was: if you make a podcast about clean code, you can’t exactly have a messy codebase behind it. Viktor handled the montage while we built the site, and then at some point the blog showed up too. Not right away. First there had to be stories to tell. Then we wrote about them.</p>
+
+<p>Super trots op het resultaat. Very proud.</p>
+
+<p><strong>The Instagram.</strong> @jcast_crew. The social presence. The place where we put clips and updates and tried to remember to post consistently, which is hard when you’re also doing an actual job.</p>
+
+<p>All of this: the merch, the site, the social, the physical banners we carried to actual places. That’s what I put in the “JCast in het wild” chapter. Because JCast didn’t just exist in a DAW and on Spotify. It existed in the world.</p>
+
+<h2 id="terugblikken--vooruitkijken--the-numbers-and-what-they-mean">Terugblikken &amp; vooruitkijken — the numbers and what they mean</h2>
+
+<p>Cijfers van 28/03/2026. Numbers as of the day I ordered the print.</p>
+
+<p><strong>12</strong> episodes published. <strong>925</strong> downloads. <strong>8</strong> guests. <strong>796</strong> plays all time. <strong>158</strong> hours of consumption. <strong>+57</strong> followers.</p>
+
+<p>Those numbers are real, and they’re not nothing. But they’re also not what the magazine is actually about.</p>
+
+<p>The magazine includes this paragraph in the stats section, and I think it’s the most honest thing I wrote in the whole thing:</p>
+
+<p><em>“Een jaar geleden was JCast een idee bij het koffieapparaat. Vandaag is het een podcast met een website, een Instagram, een t-shirt, een banner en 12 afleveringen die er écht staan. Niet alles ging vlekkeloos. De eerste opname moest opnieuw. De audio was in het begin niet ideaal. Er waren euhs, blunders en microfoons die van tafel vielen. Maar dat is precies wat JCast is: echt, ongepolijst en eerlijk over het vak.”</em></p>
+
+<p>A year ago JCast was an idea at a coffee machine. Today it’s a podcast with a website, an Instagram, a t-shirt, a banner, and 12 episodes that genuinely stand up. Not everything went smoothly. The first recording had to be redone. The audio wasn’t great at the start. There were euhs and blunders and microphones falling off the table.</p>
+
+<p>But that’s exactly what JCast is: real, unpolished, and honest about the job.</p>
+
+<p>I don’t want to clean that up. The imperfection is the point.</p>
+
+<h2 id="the-bucketlist">The bucketlist</h2>
+
+<p>The magazine also has a JCast bucketlist. I love this page. Handwritten-style font, checkboxes, very much “ooit. misschien. waarschijnlijk wel.”</p>
+
+<p>Already checked off: JCast stickers ✓, JCast T-shirt ✓, Banner ✓, 500 downloads ✓.</p>
+
+<p>Still to go: nog meer merch, posters, een internationale gast hosten, naar een podcast event gaan, een podcast award krijgen, op tv komen voor de podcast, 1 miljoen downloads, het nog steeds superleuk vinden.</p>
+
+<p>The last one is my favorite. <em>Het nog steeds superleuk vinden.</em> Still finding it genuinely fun. That one’s not a nice-to-have. That one’s the whole thing. If that box ever gets unchecked, the rest of the list doesn’t matter.</p>
+
+<h2 id="season-2--whats-coming">Season 2 — what’s coming</h2>
+
+<p><em>“Maar we zijn nog niet klaar. Seizoen 2 staat voor de deur en als seizoen 1 bewees dat we het konden, dan belooft seizoen 2 te bewijzen dat we het beter kunnen.”</em></p>
+
+<p>We’re not done. Season 2 is at the door. If season 1 proved we could do it, season 2 promises to prove we can do it better.</p>
+
+<p>The theme: <em>“Mens, software en systemen in een steeds slimmer wordende wereld.”</em> Humans, software, and systems in an increasingly smarter world. Broader than season 1. More guests, sharper conversations, topics that go further than Java alone. AI as a colleague. Accessibility. Security. The human side of the job.</p>
+
+<p>Starting May 2026.</p>
+
+<p>And we have three specials planned: proper long-form episodes with guests who’ve been on our list for a while. Mensen met een verhaal dat verder gaat dan één aflevering aankan.</p>
+
+<p><strong>Tom Cools</strong> on Developer Relations &amp; community impact.
+<strong>Kevin Dubois</strong> on cloud native, AI and the future of Java.
+<strong>Nick Boucart</strong>, topic still to be determined. Which honestly I think is the most exciting one.</p>
+
+<p><em>Aflevering 1 is al een banger.</em> We have a photo to prove it.</p>
+
+<h2 id="aan-maarten-en-viktor">Aan Maarten en Viktor</h2>
+
+<p>The last content page of the magazine, before the blank Notities pages where you’re supposed to write your own thoughts, is a letter. I wrote it to Maarten and Viktor directly. I’m going to quote most of it here because it says what this whole thing is about better than anything else I’ve written:</p>
+
+<p><em>“Deze magazine is voor jullie. Niet omdat het moest, maar omdat ik wou dat jullie weten hoeveel dit voor mij betekent. Mijn manier om dank u te zeggen voor een gek idee dat ergens toch heel serieus geworden is. Iets wat ik graag doe, heel graag zelfs. En waar ik nu met zekerheid kan zeggen: ik zou het met niemand anders willen doen.</em></p>
+
+<p><em>Ik hoop dat ik alles heb kunnen omvatten. Alles wat we gemaakt hebben, alles wat we geleerd hebben, alles wat we samen zijn. En ik hoop vooral dat jullie dit dichtslaan met een glimlach.”</em></p>
+
+<p>This magazine is for you. Not because it had to be, but because I wanted you to know how much this means to me. My way of saying thank you for a crazy idea that somehow became something very real. Something I love doing, genuinely love. And something I can now say with certainty: I wouldn’t want to do it with anyone else.</p>
+
+<p>I hope I managed to capture everything. Everything we made, everything we learned, everything we are together. And I mostly hope you close this with a smile.</p>
+
+<p>I wrote the welcome text last. It said:</p>
+
+<p><em>“Als je dit leest, houd je iets vast wat een jaar geleden nog een idee was. Een groepschat, een gedeelde nieuwsgierigheid en de vraag: zouden we eigenlijk een podcast moeten maken?”</em></p>
+
+<p>If you’re reading this, you’re holding something that a year ago was just an idea. A group chat. A shared curiosity. A question: should we actually make a podcast?</p>
+
+<p>We did it.</p>
+
+<p>That’s when I realized I wasn’t just making a magazine. I was making proof. Proof that we showed up. That we hit record, even when the script wasn’t polished and the sentences didn’t flow and there were enough “euh”s to fill an entire season. Proof that somewhere between the cut fragments and the laughter and the real conversations, about Java, about tools, about what it actually means to be a developer, JCast became something bigger than the sum of three microphones.</p>
+
+<p>People sometimes ask why I do these things. The merch. The podcast. Now a magazine. Three copies. For three people.</p>
+
+<p>I do it because I’m terrified of the things that matter most being invisible. The episodes will age. The Spotify numbers will stop moving. But this magazine sits on a desk. It’s physical. It happened.</p>
+
+<p><em>“Dit magazine is geen eindpunt. Het is een snapshot.”</em></p>
+
+<p>This magazine is not an ending. It’s a snapshot of who we are, what we made, and where we’re going.</p>
+
+<p>Season 2 is already happening. New episodes, new guests, new chaos. And at the end of it, I’ll probably make another magazine. Because apparently I need it.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Ik maakte een magazine voor drie mensen en dat was genoeg</title><link href="http://localhost:4000/nl/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="Ik maakte een magazine voor drie mensen en dat was genoeg" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/nl/2026/07/24/jcast-magazine</id><content type="html" xml:base="http://localhost:4000/nl/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
+  <p>“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants</p>
+</blockquote>
+
+<p>Niemand had gevraagd om een magazine.</p>
+
+<p>Er was geen briefing, geen deadline, geen klant. 
+Gewoon ik, een Canva-account en een gevoel dat ik maar niet kwijt raakte: seizoen 1 van JCast zat er bijna op, en ik wou niet dat het zomaar… verdween.</p>
+
+<p>Podcasts zijn raar op dat vlak. Ze leven in Spotify-playlists en YouTube-thumbnails, in de herinneringen van mensen die er misschien één keer naar luisterden op een maandagochtend onderweg naar het werk. Ze staan niet op een rek. Ze verzamelen geen stof. Ze zweven ergens in de cloud, en soms vraag je je af of ze ooit echt zijn geweest.</p>
+
+<p>Ik wou iets echts, iets fysieks.</p>
+
+<p>Dus maakte ik een magazine. Tweeëndertig pagina’s, A5-formaat, drie exemplaren. Eén voor Viktor. Eén voor Maarten. Eén voor mij. Besteld op 28 maart 2026. €76.14. Beste aankoop die ik ooit heb gedaan.</p>
+
+<h2 id="het-verhaal-waar-het-echt-begon">Het verhaal: waar het echt begon</h2>
+
+<p>Het begon bij het koffieapparaat.</p>
+
+<p>Niet in een vergaderzaal, niet in een Confluence-doc met een proper projectplan. Bij een <em>koffieapparaat</em>, zoals de meeste goede ideeën op het werk beginnen. Iemand stelde een vraag. De vraag werd een gesprek. Het gesprek werd: “zouden we eigenlijk een podcast moeten maken?”</p>
+
+<p>En Maarten, zonder ook maar één seconde te aarzelen, zei: <em>“Morgen starten we.”</em></p>
+
+<p>Morgen starten we.</p>
+
+<p>Dat was het moment. Geen brainstormsessie, geen planningsweek. Gewoon Maarten, die er in één adem voor besliste. Maarten is trouwens het type dat liever drie uur besteedt aan het echt begrijpen van een probleem dan dertig minuten aan het snel iets werkend krijgen. Dus als hij zegt dat we morgen starten, starten we morgen.</p>
+
+<p>Dit is de echte tijdlijn van hoe JCast ging van een opmerking bij het koffieapparaat naar iets wat mensen écht beluisterd hebben:</p>
+
+<p><strong>30 september 2024.</strong> De eerste echte brainstorm. Waar gaan we over praten? Wie zijn we? Wat is JCast eigenlijk? Het antwoord dat bleef hangen: <em>“Java als startpunt, alles daarrond als speelveld.”</em> Die tagline eindigde op de cover van het magazine.</p>
+
+<p><strong>4 november 2024.</strong> De eerste opnamepoging. Ik zeg “poging” omdat de audio, zacht uitgedrukt, niet ideaal was. Euhs overal. Microfoons die van tafel vielen. Het soort sessie waar je achteraf op terugkijkt en denkt: goed dat we dit niet gepubliceerd hebben. We hebben het niet gepubliceerd.</p>
+
+<p><strong>16 december 2024.</strong> Take twee. De echte take. De één die we konden gebruiken.</p>
+
+<p><strong>30 april 2025.</strong> S01E01 gaat live. <em>Wat is een professionele ontwikkelaar?</em> Uncle Bob, Clean Code, TDD. De grote vragen. Eerste aflevering, geen gasten, gewoon ons drieën die uitzoeken hoe je een podcastgesprek voert in plaats van een gewoon gesprek.</p>
+
+<p>In de eerste 30 dagen: 97 downloads. Tegen de tijd dat ik het magazine schreef: 159. En tegen de tijd dat ik printte: 925 in totaal, 796 plays, 158 uur luistertijd, +57 volgers. Een #1 First Episode-badge van Spotify. Een Global Listeners-badge.</p>
+
+<p>Voor een podcast over Java gemaakt door drie developers in Diegem, zonder marketingbudget en met een opnameopstelling die ze zelf bouwden: niet slecht, zeg maar.</p>
+
+<h2 id="de-jcrew-wie-we-eigenlijk-zijn">De JCrew: wie we eigenlijk zijn</h2>
+
+<p>Het magazine heeft een heel hoofdstuk hierover, dat ik schreef en daarna ongeveer zevenduizend keer bewerkte. Hoe beschrijf je mensen met wie je werkt en die je ook echt graag hebt, zonder dat het klinkt als een corporate bio of een speech op een huwelijksfeest?</p>
+
+<p>Dit is wat ik uiteindelijk schreef:</p>
+
+<p><strong>Oumaima</strong>, dat ben ik. Iemand die houdt van duidelijkheid, uitdaging en het “waarom” achter systemen én mensen. Voornamelijk backend, maar frontend ook als het moet. CoderDojo-vrijwilliger. Voormalig JTires-stagiair die ergens onderweg ook Pokémonkaarten is beginnen verzamelen. In mijn eigen profiel schreef ik: “Vijf jaar later: Wat een random cool ding om mee te maken.”</p>
+
+<p><strong>Viktor Van Steenweghen</strong> is wat het magazine “een brok chaos” noemt, maar altijd in om iets nieuws bij te leren. Hij verzorgt de montage, wat betekent dat hij degene is die met de ruwe opnames gaat zitten en van drie mensen die struikelen over hun woorden iets maakt waar je effectief naar wilt luisteren. Het ding dat hem dit seizoen het meest verraste? Claude Code. Hij speelt ook snooker offline, wat ik belangrijk context vind over wie Viktor is als persoon.</p>
+
+<p><strong>Maarten Casteels</strong> is degene die het probleem liever <em>echt</em> begrijpt dan snel iets werkend krijgt. Tech lead energy zonder de ego erbij. In het magazine schreef ik: “De beste gesprekken zijn niet altijd de meest voorbereide.” Dat geldt voor JCast in het algemeen, maar zeker voor Maarten. Sommige van onze beste afleveringen kwamen er toen het plan misliep en we gewoon begonnen te praten.</p>
+
+<p>Samen, zegt het magazine, werken we “niet ondanks de chaos, maar dankzij.” Dat voelde goed toen ik het schreef en het voelt nu nog steeds goed.</p>
+
+<h2 id="een-seizoen-vol-gesprekken-alle-12-afleveringen">Een seizoen vol gesprekken: alle 12 afleveringen</h2>
+
+<p>Twaalf afleveringen. Twaalf weken van opnemen, monteren, publiceren, promoten, en dan opnieuw beginnen. Hier is het volledige seizoen één, want ik heb er tijd in gestoken om het in het magazine te zetten en ik wil het hier ook kwijt.</p>
+
+<p><strong>S01E01 — Wat is een professionele ontwikkelaar?</strong>
+Het debuut. Geen gasten, alleen ons drieën. Uncle Bob, Clean Code, TDD, de eeuwige debatten over wat het eigenlijk betekent om professioneel te zijn in dit vak. Hoge inzet voor een eerste aflevering. We gingen er toch voor.</p>
+
+<p><strong>S01E02 — Clean Architecture</strong>
+Gast: Jeroen Bastijns. De theorie werd concreter. Hoe ziet architectuur er in de praktijk uit, niet alleen in boeken?</p>
+
+<p><strong>S01E03 — Life as a dev</strong>
+Geen gast. Gewoon wij, pratend over hoe het er écht aan toegaat: de dagelijkse realiteit, het context switchen, de dingen die niet in LinkedIn-posts terechtkomen.</p>
+
+<p><strong>S01E04 — Pixel Perfect? UX/UI met Risa</strong>
+Gast: Risa Somers. Eén van mijn favorieten, omdat we als developers echt te weinig praten over design en Risa ons anders deed nadenken.</p>
+
+<p><strong>S01E05 — (Audio)Books vs Podcasts</strong>
+Geen gast. Erg meta, gezien wat we aan het doen waren. We spraken over hoe we buiten het werk bijleren.</p>
+
+<p><strong>S01E06 — Java, Soft Skills &amp; Mensenkennis</strong>
+Gast: Björn De Craemer. Soft skills zijn niet soft. We hebben dat gesprek eindelijk goed gevoerd.</p>
+
+<p><strong>S01E07 — Meetings, stand-ups &amp; agile drama</strong>
+Geen gast. Catharsis. Iedereen die al eens te veel stand-ups heeft gehad, begrijpt dit.</p>
+
+<p><strong>S01E08 — Java, AI &amp; de menselijke kant</strong>
+Gast: Jan Van Wassenhove, Devoxx-spreker. AI in ons vakgebied en wat het betekent voor de mensen die het werk doen. Deze voelde belangrijk.</p>
+
+<p><strong>S01E09 — New year, new dev</strong>
+Januari-energie. Goede voornemens, slechte gewoontes, fris begin.</p>
+
+<p><strong>S01E10 — Meer dan planning</strong>
+Gast: Barbara Cleeren, Capacity Manager. Buiten de strikt technische zone en naar de menselijke kant van hoe teams echt functioneren.</p>
+
+<p><strong>S01E11 — Passie na de werkuren: Sigriet</strong>
+Gast: Sigriet Van Breusegem. Mijn vriendin Sigriet. Over wat developers doen als ze niet aan het developen zijn. Deze aflevering betekende veel voor me, om redenen die verder gaan dan de podcast.</p>
+
+<p><strong>S01E12 — Seizoensfinale</strong>
+Einde van het seizoen. Afronding. De aflevering waarbij we terugkeken op wat we gemaakt hadden, nog voor het magazine bestond om het in vast te houden.</p>
+
+<p>Acht gasten verspreid over twaalf afleveringen. Onderwerpen van clean code tot capacity planning tot wat mensen in hun vrije tijd doen. Een range waar ik trots op ben.</p>
+
+<h2 id="jcast-in-het-wild-het-fysieke-spul">JCast in het wild: het fysieke spul</h2>
+
+<p>Hier is het deel dat mensen die mij niet kennen misschien niet verwachten: ik hecht veel belang aan de fysieke versie van dingen.</p>
+
+<p>De podcast bestaat als audio. Dat is het product. Maar rond dat product is er een hele wereld die ik gebouwd heb in Canva, met absoluut nul ontwerpervaring, en daar ga ik me niet voor verontschuldigen.</p>
+
+<p><strong>De merch.</strong> JCast-stickers. Een JCast-T-shirt. Een banner die we effectief naar events mee hebben genomen. Allemaal afgevinkt op de bucketlist tegen het einde van seizoen één. Ik maakte alles in Canva, wat logisch voelt omdat Canva ook is hoe ik het magazine maakte, de aflevering-covers, en eigenlijk alles wat JCast ooit visueel heeft gehad. Je leert door te doen. Soms is wat je maakt goed. Soms niet. De stickers waren goed.</p>
+
+<p><strong>De website.</strong> jcast.dev. Deze verdient een eigen paragraaf. Maarten en ik bouwden hem zonder CMS, zonder plugins, zonder themes, niets kant-en-klaar. Hugo, pure CSS, gehost op AWS via Terraform. De logica was simpel: als je een podcast maakt over clean code, kun je moeilijk zelf een rommelige codebase hebben. Viktor deed de montage terwijl wij de site bouwden, en ergens later kwam de blog er ook bij. Niet meteen: eerst moesten er verhalen zijn om te vertellen. Dan schreven we erover.</p>
+
+<p>Super trots op het resultaat.</p>
+
+<p><strong>De Instagram.</strong> @jcast_crew. De sociale aanwezigheid. De plek waar we clips en updates zetten en probeerden consistent te posten, wat moeilijk is als je ook gewoon je werk moet doen.</p>
+
+<p>Dit alles: de merch, de site, de socials, de fysieke banners die we naar echte plekken droegen. Dat is wat ik in het hoofdstuk “JCast in het wild” stopte. Omdat JCast niet alleen bestond in een DAW en op Spotify. Het bestond in de wereld.</p>
+
+<h2 id="terugblikken-en-vooruitkijken-de-cijfers-en-wat-ze-betekenen">Terugblikken en vooruitkijken: de cijfers en wat ze betekenen</h2>
+
+<p>Cijfers van 28/03/2026. Zo ver stonden we op de dag dat ik de print bestelde.</p>
+
+<p><strong>12</strong> gepubliceerde afleveringen. <strong>925</strong> downloads. <strong>8</strong> gasten. <strong>796</strong> plays alltime. <strong>158</strong> uur luistertijd. <strong>+57</strong> volgers.</p>
+
+<p>Die cijfers zijn echt, en ze zijn niet niks. Maar ze zijn ook niet waarover het magazine eigenlijk gaat.</p>
+
+<p>Het magazine bevat deze paragraaf in het statsgedeelte, en ik denk dat het het eerlijkste is dat ik in het hele ding geschreven heb:</p>
+
+<p><em>“Een jaar geleden was JCast een idee bij het koffieapparaat. Vandaag is het een podcast met een website, een Instagram, een t-shirt, een banner en 12 afleveringen die er écht staan. Niet alles ging vlekkeloos. De eerste opname moest opnieuw. De audio was in het begin niet ideaal. Er waren euhs, blunders en microfoons die van tafel vielen. Maar dat is precies wat JCast is: echt, ongepolijst en eerlijk over het vak.”</em></p>
+
+<p>Ik wil dat niet gladstrijken. De onvolmaaktheid is het punt.</p>
+
+<h2 id="de-bucketlist">De bucketlist</h2>
+
+<p>Het magazine heeft ook een JCast-bucketlist. Ik hou van die pagina. Handgeschreven font, checkboxes, helemaal in de geest van “ooit. misschien. waarschijnlijk wel.”</p>
+
+<p>Al afgevinkt: JCast stickers ✓, JCast T-shirt ✓, Banner ✓, 500 downloads ✓.</p>
+
+<p>Nog te doen: nog meer merch, posters, een internationale gast hosten, naar een podcast event gaan, een podcast award krijgen, op tv komen voor de podcast, 1 miljoen downloads, het nog steeds superleuk vinden.</p>
+
+<p>Die laatste is mijn favoriet. <em>Het nog steeds superleuk vinden.</em> Dat is geen leuk extraatje. Dat is het hele punt. Als dat vakje ooit niet meer aangevinkt kan worden, doet de rest van de lijst er niet meer toe.</p>
+
+<h2 id="seizoen-2-wat-er-komt">Seizoen 2: wat er komt</h2>
+
+<p><em>“Maar we zijn nog niet klaar. Seizoen 2 staat voor de deur en als seizoen 1 bewees dat we het konden, dan belooft seizoen 2 te bewijzen dat we het beter kunnen.”</em></p>
+
+<p>Het thema: <em>“Mens, software en systemen in een steeds slimmer wordende wereld.”</em> Breder dan seizoen 1. Meer gasten, scherpere gesprekken, onderwerpen die verder gaan dan Java alleen. AI als collega. Accessibility. Security. De menselijke kant van het vak.</p>
+
+<p>Vanaf mei 2026.</p>
+
+<p>En we hebben drie specials gepland: afleveringen met gasten die al een tijdje op onze lijst stonden. Mensen met een verhaal dat verder gaat dan één aflevering aankan.</p>
+
+<p><strong>Tom Cools</strong> over Developer Relations &amp; community impact.
+<strong>Kevin Dubois</strong> over cloud native, AI en de toekomst van Java.
+<strong>Nick Boucart</strong>, onderwerp nog te bepalen. Wat eerlijk gezegd de spannendste is.</p>
+
+<p><em>Aflevering 1 is al een banger.</em> We hebben een foto als bewijs.</p>
+
+<h2 id="aan-maarten-en-viktor">Aan Maarten en Viktor</h2>
+
+<p>De laatste inhoudspagina van het magazine, voor de lege Notities-pagina’s waar je je eigen gedachten in kwijt kan, is een brief. Ik schreef hem rechtstreeks aan Maarten en Viktor. Ik ga er een groot deel van citeren, want het zegt beter wat dit allemaal betekent dan alles wat ik verder geschreven heb:</p>
+
+<p><em>“Deze magazine is voor jullie. Niet omdat het moest, maar omdat ik wou dat jullie weten hoeveel dit voor mij betekent. Mijn manier om dank u te zeggen voor een gek idee dat ergens toch heel serieus geworden is. Iets wat ik graag doe, heel graag zelfs. En waar ik nu met zekerheid kan zeggen: ik zou het met niemand anders willen doen.</em></p>
+
+<p><em>Ik hoop dat ik alles heb kunnen omvatten. Alles wat we gemaakt hebben, alles wat we geleerd hebben, alles wat we samen zijn. En ik hoop vooral dat jullie dit dichtslaan met een glimlach.”</em></p>
+
+<p>De welkomsttekst schreef ik als laatste. Die zei:</p>
+
+<p><em>“Als je dit leest, houd je iets vast wat een jaar geleden nog een idee was. Een groepschat, een gedeelde nieuwsgierigheid en de vraag: zouden we eigenlijk een podcast moeten maken?”</em></p>
+
+<p>We deden het.</p>
+
+<p>Toen besefte ik dat ik niet gewoon een magazine aan het maken was. Ik was bewijs aan het maken. Bewijs dat we er waren. Dat we op record drukten, ook al was het script niet afgewerkt en vlotten de zinnen niet en waren er genoeg “euh”s om een heel seizoen mee te vullen. Bewijs dat JCast ergens tussen de geknipte fragmenten en het gelach en de echte gesprekken, over Java, over tools, over wat het eigenlijk betekent om developer te zijn, iets groters werd dan de som van drie microfoons.</p>
+
+<p>Mensen vragen soms waarom ik dit soort dingen doe. De merch. De podcast. Nu een magazine. Drie exemplaren. Voor drie mensen.</p>
+
+<p>Ik doe het omdat ik bang ben dat de dingen die er het meest toe doen onzichtbaar worden. De afleveringen verouderen. De Spotify-cijfers stoppen met bewegen. Maar dit magazine ligt op een bureau. Het is fysiek. Het is gebeurd.</p>
+
+<p><em>“Dit magazine is geen eindpunt. Het is een snapshot.”</em></p>
+
+<p>Seizoen 2 is al bezig. Nieuwe afleveringen, nieuwe gasten, nieuwe chaos. En op het einde maak ik waarschijnlijk nog een magazine. Want blijkbaar heb ik het nodig.</p>
+
+<p>Ik ben trots op ons 🎙️</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Waarom ik JCast begon</title><link href="http://localhost:4000/nl/2026/02/28/jcast/" rel="alternate" type="text/html" title="Waarom ik JCast begon" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/28/jcast/"><![CDATA[<blockquote>
   <p>“I’m ready! I’m ready!” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -1570,662 +1935,4 @@ Along the way, it became a small community.</p>
 
 <p><em>Curious about the podcast behind these T-shirts?</em></p>
 
-<p>Feel free to visit <a href="https://jcast.dev">jcast.dev</a> and discover <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Migration to Java 25 and Spring Boot 4: honestly, it was chaos</title><link href="http://localhost:4000/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migration to Java 25 and Spring Boot 4: honestly, it was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
-  <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
-</blockquote>
-
-<p>Everyone always says that upgrading Spring is easy, right? Just run <strong>OpenRewrite</strong>, fix a few small things, and you’re done.</p>
-
-<p>Well… let me tell you about our migration from <strong>Java 17/21 to Java 25</strong> and from <strong>Spring Boot 3 to 4.0.1</strong>.</p>
-
-<p>For a single service it now takes at most an hour to fix everything. Not too bad. But I’ve already done this migration a few times for clients. And I keep running into the same problems, over and over again.</p>
-
-<p>So I thought: let me write this down. Maybe it helps someone else who has to go through this migration.</p>
-
-<h2 id="why-we-did-this-in-the-first-place">Why we did this in the first place</h2>
-
-<p>Our tech lead wanted to move to <strong>Java 25</strong>. His reason? He always wants the newest version of everything. And honestly, I was pretty excited to experience a migration like this.</p>
-
-<p>On top of that, we had to:</p>
-
-<ul>
-  <li>Upgrade to <strong>Spring Boot 4</strong> and <strong>Spring Framework 7</strong></li>
-  <li>Fully finish the <strong>Jakarta migration</strong></li>
-  <li>Clean up old code before adding new features</li>
-</ul>
-
-<p>All of our applications contain:</p>
-
-<ul>
-  <li>REST APIs</li>
-  <li>Custom HTTP clients</li>
-  <li>JWT security</li>
-  <li>File uploads</li>
-  <li>A lot of tests with MockMvc</li>
-  <li>Jackson for JSON everywhere</li>
-</ul>
-
-<h2 id="openrewrite-helpful-but-not-magic">OpenRewrite: helpful, but not magic</h2>
-
-<p>We started with <strong>OpenRewrite</strong> and the official Spring recipes (<a href="https://docs.openrewrite.org/recipes/java">source</a>).</p>
-
-<p>What Rewrite did well:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">javax.*</code> → <code class="language-plaintext highlighter-rouge">jakarta.*</code></li>
-  <li>Updating Spring imports</li>
-  <li>Fixing deprecated APIs</li>
-  <li>Adjusting config classes</li>
-  <li><strong>Simplifying try-catch syntax</strong></li>
-  <li><code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new MappingJackson2HttpMessageConverter())</code> → <code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new JacksonJsonHttpMessageConverter())</code></li>
-  <li><code class="language-plaintext highlighter-rouge">.format(...)</code> → <code class="language-plaintext highlighter-rouge">.formatted(...)</code></li>
-  <li><strong>Splitting YAML per profile</strong></li>
-</ul>
-
-<p><em>But… problems showed up pretty quickly.</em></p>
-
-<h2 id="openrewrite--jdkjre-mismatch">OpenRewrite + JDK/JRE mismatch</h2>
-
-<p>The first time I ran OpenRewrite on Java 25 it crashed with:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">LinkageError</span><span class="o">:</span> <span class="n">loader</span> <span class="n">constraint</span> <span class="nl">violation:</span> <span class="n">com</span><span class="o">.</span><span class="na">sun</span><span class="o">.</span><span class="na">tools</span><span class="o">.</span><span class="na">javac</span><span class="o">.</span><span class="na">parser</span><span class="o">.</span><span class="na">Tokens</span><span class="n">$Comment$CommentStyle</span>
-</code></pre></div></div>
-
-<p>Cause: <strong>JDK and JRE were not the same version</strong>.</p>
-
-<p><strong>Fix:</strong></p>
-
-<ul>
-  <li>Always check that JDK and JRE are the same version</li>
-  <li>For us: set both to <strong>Java 25</strong></li>
-</ul>
-
-<h2 id="everything-compiles--then-the-tests-explode">“Everything compiles!” … then the tests explode</h2>
-
-<p>After Rewrite and fixing all compilation errors, we started the tests. And then? Everything failed.</p>
-
-<p>Most problems were in:</p>
-
-<ul>
-  <li>MockMvc tests</li>
-  <li>JSON serialization</li>
-  <li>HTTP clients</li>
-  <li>Jackson config</li>
-</ul>
-
-<h2 id="jackson-the-pain-that-never-ends">Jackson: the pain that never ends</h2>
-
-<p>Spring Boot 4 moves Jackson from:</p>
-
-<p>Old location:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">com</span><span class="o">.</span><span class="na">fasterxml</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
-</code></pre></div></div>
-
-<p>New location:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tools</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
-</code></pre></div></div>
-
-<p>Problems we ran into:</p>
-
-<ul>
-  <li>Mixed imports in tests</li>
-  <li>Constants like <code class="language-plaintext highlighter-rouge">WRITE_DATES_AS_TIMESTAMPS</code> disappeared</li>
-  <li>ObjectMapper conflicts, especially in tests with multiple primary beans</li>
-</ul>
-
-<p>Before we had:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
-<span class="nd">@Primary</span>
-<span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">(</span><span class="nc">Jackson2ObjectMapperBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">dateFormat</span><span class="o">(...).</span><span class="na">build</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>In Boot 4:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Jackson2ObjectMapperBuilder</code> is <strong>deprecated</strong></li>
-  <li>Boot creates its own <strong>primary</strong> <code class="language-plaintext highlighter-rouge">jacksonJsonMapper</code></li>
-</ul>
-
-<p>Result:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NoUniqueBeanDefinitionException:
-more than one 'primary' bean found: [objectMapper, jacksonJsonMapper]
-</code></pre></div></div>
-
-<p><strong>New approach:</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
-<span class="kd">public</span> <span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kt">var</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleDateFormat</span><span class="o">(</span><span class="s">"dd-MM-yyyy"</span><span class="o">);</span>
-
-    <span class="k">return</span> <span class="nc">JsonMapper</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">defaultDateFormat</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">)</span>
-            <span class="o">.</span><span class="na">findAndAddModules</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><strong>Source:</strong> <a href="https://spring.io/blog/2025/10/07/introducing-jackson-3-support-in-spring">Introducing Jackson 3 support in Spring</a></p>
-
-<h2 id="resttemplate--http-changes">RestTemplate &amp; HTTP changes</h2>
-
-<h3 id="resttemplatebuilder-moved">RestTemplateBuilder moved</h3>
-
-<p>Old location:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
-</code></pre></div></div>
-
-<p>New location:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">restclient</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>In production code you’ll often migrate to <strong>RestClient</strong>, which Spring Boot 4 prefers.</p>
-</blockquote>
-
-<h3 id="response-api-changed">Response API changed</h3>
-
-<p>Old way:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCodeValue</span><span class="o">()</span>
-</code></pre></div></div>
-
-<p>New way:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">().</span><span class="na">value</span><span class="o">()</span>
-</code></pre></div></div>
-
-<h3 id="headers-replaced">Headers replaced</h3>
-
-<p>Old Apache way:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Header</span><span class="o">[]</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getAllHeaders</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p>New Spring way:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getHeaders</span><span class="o">();</span>
-</code></pre></div></div>
-
-<h3 id="timeouts-are-now-builders">Timeouts are now builders</h3>
-
-<p>The old setters no longer exist. New:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpComponentsClientHttpRequestFactory</span> <span class="n">requestFactory</span> <span class="o">=</span>
-    <span class="nc">ClientHttpRequestFactoryBuilder</span><span class="o">.</span><span class="na">httpComponents</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">withDefaultRequestConfigCustomizer</span><span class="o">(</span><span class="n">rc</span> <span class="o">-&gt;</span> <span class="n">rc</span>
-            <span class="o">.</span><span class="na">setConnectTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">setConnectionRequestTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">setResponseTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-        <span class="o">)</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p><strong>Custom HttpClients</strong> now have to be added via <code class="language-plaintext highlighter-rouge">.withHttpClientCustomizer(...)</code>.</p>
-
-<p><strong>Source:</strong> <a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">Spring Framework 7 HTTP Client</a></p>
-
-<h2 id="apache-httpclient-4--5">Apache HttpClient 4 → 5</h2>
-
-<p>Everything changed:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">org.apache.http.*</code> → <code class="language-plaintext highlighter-rouge">org.apache.hc.*</code></li>
-  <li>Timeouts, SSL, connection managers, request builders → complete rewrite</li>
-</ul>
-
-<p><strong>Source:</strong> <a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">Apache HttpClient 5 Migration</a></p>
-
-<h2 id="swagger--openapi-after-jakarta">Swagger &amp; OpenAPI after Jakarta</h2>
-
-<p>After the migration, OpenAPI annotations disappear. Add:</p>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>io.swagger.core.v3<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>swagger-annotations-jakarta<span class="nt">&lt;/artifactId&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></div>
-
-<p><strong>Source:</strong> <a href="https://github.com/swagger-api/swagger-core">Swagger</a></p>
-
-<h2 id="spring-security-7-websocket">Spring Security 7 WebSocket</h2>
-
-<p><code class="language-plaintext highlighter-rouge">AbstractSecurityWebSocketMessageBrokerConfigurer</code> is gone. For us, this approach works:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.messaging.Message</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationDecision</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationManager</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.config.annotation.web.messaging.EnableWebSocketSecurity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageAuthorizationContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageMatcherDelegatingAuthorizationManager</span><span class="o">;</span>
-
-<span class="nd">@Configuration</span>
-<span class="nd">@EnableWebSocketSecurity</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSocketSecurityConfig</span> <span class="o">{</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">messageAuthorizationManager</span><span class="o">(</span>
-            <span class="nc">MessageMatcherDelegatingAuthorizationManager</span><span class="o">.</span><span class="na">Builder</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">messages</span>
-                <span class="o">.</span><span class="na">nullDestMatcher</span><span class="o">().</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">simpSubscribeDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">simpDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">anyMessage</span><span class="o">().</span><span class="na">permitAll</span><span class="o">();</span>
-        <span class="k">return</span> <span class="n">messages</span><span class="o">.</span><span class="na">build</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">MessageAuthorizationContext</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">authorizationManager</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="o">(</span><span class="n">_</span><span class="o">,</span> <span class="n">_</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">AuthorizationDecision</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><strong>Source:</strong> <a href="https://newreleases.io/project/github/spring-projects/spring-security/release/7.0.0-M1">Spring Security 7 WebSocket</a>,
-<a href="https://github.com/spring-projects/spring-security/pull/17328">Github Thread</a></p>
-
-<h2 id="recurring-problems">Recurring problems</h2>
-
-<p>During the migration, most issues kept coming back, especially in tests:</p>
-
-<ul>
-  <li>Jackson namespace constantly breaks</li>
-  <li>ObjectMapper conflicts in tests</li>
-  <li>HTTP client configuration has to be fully rewritten</li>
-  <li>Response handling methods changed</li>
-  <li>RestTemplate and builders have new imports or are replaced by RestClient</li>
-  <li>Tests often fail even though compilation succeeds</li>
-</ul>
-
-<p>On top of that, the compiler, serialization layer, SSL configuration, and auto-configuration all get affected at the same time by the upgrade.</p>
-
-<h2 id="what-i-would-recommend">What I would recommend</h2>
-
-<ul>
-  <li>Plan extra time for tests</li>
-  <li>Expect Jackson problems and ObjectMapper conflicts</li>
-  <li>Be prepared to rewrite HTTP client code</li>
-  <li>Run your full test suite early and often</li>
-  <li>Use OpenRewrite</li>
-</ul>
-
-<p>Personally, I’m glad I got to do this migration myself. Despite the frustrations and all the documentation reading, it gave me a much deeper understanding of how Spring Boot and Spring Framework work and how much control they have over infrastructure and configuration.</p>
-
-<p>Want to learn more about Spring Boot 4 and Spring Framework 7? Check out this post: <a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">Spring Boot 4 &amp; Spring Framework 7</a>.</p>
-
-<h2 id="overview-of-all-sources">Overview of all sources</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Resource</th>
-      <th>Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>OpenRewrite recipes</td>
-      <td><a href="https://docs.openrewrite.org/recipes/java">https://docs.openrewrite.org/recipes/java</a></td>
-    </tr>
-    <tr>
-      <td>Spring Framework 7 HTTP Client</td>
-      <td><a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories</a></td>
-    </tr>
-    <tr>
-      <td>Apache HttpClient 5 Migration</td>
-      <td><a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html</a></td>
-    </tr>
-    <tr>
-      <td>Swagger (swagger-core)</td>
-      <td><a href="https://github.com/swagger-api/swagger-core">https://github.com/swagger-api/swagger-core</a></td>
-    </tr>
-    <tr>
-      <td>Spring Security 7 WebSocket (PR)</td>
-      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
-    </tr>
-    <tr>
-      <td>Spring Security 7 (discussion thread)</td>
-      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
-    </tr>
-    <tr>
-      <td>Spring Boot 4 &amp; Spring Framework 7 (overview)</td>
-      <td><a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">https://www.baeldung.com/spring-boot-4-spring-framework-7</a></td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring" /><category term="migration" /><category term="openrewrite" /><category term="softwaredevelopment" /><summary type="html"><![CDATA[“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos</title><link href="http://localhost:4000/nl/2026/01/22/migration-to-java-25/" rel="alternate" type="text/html" title="Migratie naar Java 25 en Spring Boot 4: eerlijk, het was chaos" /><published>2026-01-22T12:00:00+01:00</published><updated>2026-01-22T12:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/22/migration-to-java-25</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/22/migration-to-java-25/"><![CDATA[<blockquote>
-  <p>“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants</p>
-</blockquote>
-
-<p>Iedereen zegt altijd dat upgraden van Spring makkelijk is, toch? Gewoon <strong>OpenRewrite</strong> draaien, een paar kleine dingen fixen en klaar.</p>
-
-<p>Nou… laat me vertellen over onze migratie van <strong>Java 17/21 naar Java 25</strong> en <strong>Spring Boot 3 naar 4.0.1</strong>.</p>
-
-<p>Voor één service kost het nu maximaal één uur om alles te fixen. Niet zo erg. Maar ik heb deze migratie al een paar keer gedaan bij de klant. En ik blijf steeds dezelfde problemen tegenkomen, keer op keer.</p>
-
-<p>Dus ik dacht: laat ik dit opschrijven. Misschien helpt het iemand anders die deze migratie moet doen.</p>
-
-<h2 id="waarom-we-dit-überhaupt-deden">Waarom we dit überhaupt deden</h2>
-
-<p>Onze tech lead wilde naar <strong>Java 25</strong>. Zijn reden? Hij wil altijd de nieuwste versie van alles. En eerlijk, ik was wel enthousiast om eens een migratie mee te maken.</p>
-
-<p>Daarnaast moesten we:</p>
-
-<ul>
-  <li>Upgraden naar <strong>Spring Boot 4</strong> en <strong>Spring Framework 7</strong></li>
-  <li>De <strong>Jakarta-migratie</strong> volledig afronden</li>
-  <li>Oude code opruimen voordat we nieuwe features toevoegen</li>
-</ul>
-
-<p>Onze applicaties bevatten allemaal:</p>
-
-<ul>
-  <li>REST APIs</li>
-  <li>Custom HTTP clients</li>
-  <li>JWT security</li>
-  <li>File uploads</li>
-  <li>Heel veel tests met MockMvc</li>
-  <li>Jackson voor JSON overal</li>
-</ul>
-
-<h2 id="openrewrite-helpt-maar-is-geen-magie">OpenRewrite: helpt, maar is geen magie</h2>
-
-<p>We begonnen met <strong>OpenRewrite</strong> en de officiële Spring recipes (<a href="https://docs.openrewrite.org/recipes/java">bron</a>).</p>
-
-<p>Wat Rewrite goed deed:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">javax.*</code> → <code class="language-plaintext highlighter-rouge">jakarta.*</code></li>
-  <li>Spring imports updaten</li>
-  <li>Deprecated APIs fixen</li>
-  <li>Config classes aanpassen</li>
-  <li><strong>Try-catch syntax vereenvoudigen</strong></li>
-  <li><code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new MappingJackson2HttpMessageConverter())</code> → <code class="language-plaintext highlighter-rouge">.additionalMessageConverters(new JacksonJsonHttpMessageConverter())</code></li>
-  <li><code class="language-plaintext highlighter-rouge">.format(...)</code> → <code class="language-plaintext highlighter-rouge">.formatted(...)</code></li>
-  <li><strong>YAML splitsen per profiel</strong></li>
-</ul>
-
-<p><em>Maar… er kwamen ook snel problemen.</em></p>
-
-<h2 id="openrewrite--jdkjre-mismatch">OpenRewrite + JDK/JRE mismatch</h2>
-
-<p>Eerste keer dat ik OpenRewrite draaide op Java 25 crashte het met:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">LinkageError</span><span class="o">:</span> <span class="n">loader</span> <span class="n">constraint</span> <span class="nl">violation:</span> <span class="n">com</span><span class="o">.</span><span class="na">sun</span><span class="o">.</span><span class="na">tools</span><span class="o">.</span><span class="na">javac</span><span class="o">.</span><span class="na">parser</span><span class="o">.</span><span class="na">Tokens</span><span class="n">$Comment$CommentStyle</span>
-</code></pre></div></div>
-
-<p>Oorzaak: <strong>JDK en JRE waren niet dezelfde versie</strong>.</p>
-
-<p><strong>Fix:</strong></p>
-
-<ul>
-  <li>Check altijd dat JDK en JRE dezelfde versie hebben</li>
-  <li>Voor ons: beide op <strong>Java 25</strong> zetten</li>
-</ul>
-
-<h2 id="alles-compileert--dan-exploderen-de-tests">“Alles compileert!” … dan exploderen de tests</h2>
-
-<p>Na Rewrite en alle compileerfouten fixen, startten we de tests. En dan? Alles faalde.</p>
-
-<p>Problemen zaten vooral in:</p>
-
-<ul>
-  <li>MockMvc tests</li>
-  <li>JSON serialization</li>
-  <li>HTTP clients</li>
-  <li>Jackson config</li>
-</ul>
-
-<h2 id="jackson-de-pijn-die-nooit-stopt">Jackson: de pijn die nooit stopt</h2>
-
-<p>Spring Boot 4 verhuist Jackson van:</p>
-
-<p>Oude locatie:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">com</span><span class="o">.</span><span class="na">fasterxml</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
-</code></pre></div></div>
-
-<p>Nieuwe locatie:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">tools</span><span class="o">.</span><span class="na">jackson</span><span class="o">.*</span>
-</code></pre></div></div>
-
-<p>Problemen die we tegenkwamen:</p>
-
-<ul>
-  <li>Mixed imports in tests</li>
-  <li>Constants zoals <code class="language-plaintext highlighter-rouge">WRITE_DATES_AS_TIMESTAMPS</code> verdwenen</li>
-  <li>ObjectMapper conflicts, vooral in tests met meerdere primary beans</li>
-</ul>
-
-<p>Vroeger hadden we:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
-<span class="nd">@Primary</span>
-<span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">(</span><span class="nc">Jackson2ObjectMapperBuilder</span> <span class="n">builder</span><span class="o">)</span> <span class="o">{</span>
-    <span class="k">return</span> <span class="n">builder</span><span class="o">.</span><span class="na">dateFormat</span><span class="o">(...).</span><span class="na">build</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p>In Boot 4:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">Jackson2ObjectMapperBuilder</code> is <strong>deprecated</strong></li>
-  <li>Boot maakt zijn eigen <strong>primary</strong> <code class="language-plaintext highlighter-rouge">jacksonJsonMapper</code></li>
-</ul>
-
-<p>Resultaat:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NoUniqueBeanDefinitionException:
-more than one 'primary' bean found: [objectMapper, jacksonJsonMapper]
-</code></pre></div></div>
-
-<p><strong>Nieuwe aanpak:</strong></p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@Bean</span>
-<span class="kd">public</span> <span class="nc">ObjectMapper</span> <span class="nf">objectMapper</span><span class="o">()</span> <span class="o">{</span>
-    <span class="kt">var</span> <span class="n">dateFormat</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">SimpleDateFormat</span><span class="o">(</span><span class="s">"dd-MM-yyyy"</span><span class="o">);</span>
-
-    <span class="k">return</span> <span class="nc">JsonMapper</span><span class="o">.</span><span class="na">builder</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">defaultDateFormat</span><span class="o">(</span><span class="n">dateFormat</span><span class="o">)</span>
-            <span class="o">.</span><span class="na">findAndAddModules</span><span class="o">()</span>
-            <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><strong>Bron:</strong> <a href="https://spring.io/blog/2025/10/07/introducing-jackson-3-support-in-spring">Introducing Jackson 3 support in Spring</a></p>
-
-<h2 id="resttemplate--http-veranderingen">RestTemplate &amp; HTTP veranderingen</h2>
-
-<h3 id="resttemplatebuilder-verplaatst">RestTemplateBuilder verplaatst</h3>
-
-<p>Oude locatie:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">web</span><span class="o">.</span><span class="na">client</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
-</code></pre></div></div>
-
-<p>Nieuwe locatie:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">org</span><span class="o">.</span><span class="na">springframework</span><span class="o">.</span><span class="na">boot</span><span class="o">.</span><span class="na">restclient</span><span class="o">.</span><span class="na">RestTemplateBuilder</span>
-</code></pre></div></div>
-
-<blockquote>
-  <p>In productiecode migreer je vaak naar <strong>RestClient</strong>, Spring Boot 4 geeft hier voorkeur aan.</p>
-</blockquote>
-
-<h3 id="response-api-veranderd">Response API veranderd</h3>
-
-<p>Oude manier:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCodeValue</span><span class="o">()</span>
-</code></pre></div></div>
-
-<p>Nieuwe manier:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">response</span><span class="o">.</span><span class="na">getStatusCode</span><span class="o">().</span><span class="na">value</span><span class="o">()</span>
-</code></pre></div></div>
-
-<h3 id="headers-vervangen">Headers vervangen</h3>
-
-<p>Oude Apache manier:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">Header</span><span class="o">[]</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getAllHeaders</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p>Nieuwe Spring manier:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpHeaders</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="na">getHeaders</span><span class="o">();</span>
-</code></pre></div></div>
-
-<h3 id="timeouts-zijn-nu-builders">Timeouts zijn nu builders</h3>
-
-<p>Oude setters bestaan niet meer. Nieuw:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HttpComponentsClientHttpRequestFactory</span> <span class="n">requestFactory</span> <span class="o">=</span>
-    <span class="nc">ClientHttpRequestFactoryBuilder</span><span class="o">.</span><span class="na">httpComponents</span><span class="o">()</span>
-        <span class="o">.</span><span class="na">withDefaultRequestConfigCustomizer</span><span class="o">(</span><span class="n">rc</span> <span class="o">-&gt;</span> <span class="n">rc</span>
-            <span class="o">.</span><span class="na">setConnectTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">setConnectionRequestTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-            <span class="o">.</span><span class="na">setResponseTimeout</span><span class="o">(</span><span class="nc">Timeout</span><span class="o">.</span><span class="na">ofSeconds</span><span class="o">(</span><span class="mi">5</span><span class="o">))</span>
-        <span class="o">)</span>
-        <span class="o">.</span><span class="na">build</span><span class="o">();</span>
-</code></pre></div></div>
-
-<p><strong>Custom HttpClients</strong> moeten nu via <code class="language-plaintext highlighter-rouge">.withHttpClientCustomizer(...)</code> worden toegevoegd.
-<strong>Bron:</strong> <a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">Spring Framework 7 HTTP Client</a></p>
-
-<h2 id="apache-httpclient-4--5">Apache HttpClient 4 → 5</h2>
-
-<p>Alles is veranderd:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">org.apache.http.*</code> → <code class="language-plaintext highlighter-rouge">org.apache.hc.*</code></li>
-  <li>Timeouts, SSL, connection managers, request builders → volledige rewrite</li>
-</ul>
-
-<p><strong>Bron:</strong> <a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">Apache HttpClient 5 Migration</a></p>
-
-<h2 id="swagger--openapi-na-jakarta">Swagger &amp; OpenAPI na Jakarta</h2>
-
-<p>Na migratie verdwijnen OpenAPI annotaties. Voeg toe:</p>
-
-<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;dependency&gt;</span>
-    <span class="nt">&lt;groupId&gt;</span>io.swagger.core.v3<span class="nt">&lt;/groupId&gt;</span>
-    <span class="nt">&lt;artifactId&gt;</span>swagger-annotations-jakarta<span class="nt">&lt;/artifactId&gt;</span>
-<span class="nt">&lt;/dependency&gt;</span>
-</code></pre></div></div>
-<p><strong>Bron:</strong> <a href="https://github.com/swagger-api/swagger-core">Swagger</a></p>
-
-<h2 id="spring-security-7-websocket">Spring Security 7 WebSocket</h2>
-
-<p><code class="language-plaintext highlighter-rouge">AbstractSecurityWebSocketMessageBrokerConfigurer</code> is verwijderd. Voor ons werkt deze aanpak:</p>
-
-<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">org.springframework.context.annotation.Configuration</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.messaging.Message</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationDecision</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.authorization.AuthorizationManager</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.config.annotation.web.messaging.EnableWebSocketSecurity</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageAuthorizationContext</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">org.springframework.security.messaging.access.intercept.MessageMatcherDelegatingAuthorizationManager</span><span class="o">;</span>
-
-<span class="nd">@Configuration</span>
-<span class="nd">@EnableWebSocketSecurity</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WebSocketSecurityConfig</span> <span class="o">{</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">Message</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">messageAuthorizationManager</span><span class="o">(</span>
-            <span class="nc">MessageMatcherDelegatingAuthorizationManager</span><span class="o">.</span><span class="na">Builder</span> <span class="n">messages</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">messages</span>
-                <span class="o">.</span><span class="na">nullDestMatcher</span><span class="o">().</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">simpSubscribeDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">simpDestMatchers</span><span class="o">(</span><span class="s">"/**"</span><span class="o">).</span><span class="na">permitAll</span><span class="o">()</span>
-                <span class="o">.</span><span class="na">anyMessage</span><span class="o">().</span><span class="na">permitAll</span><span class="o">();</span>
-        <span class="k">return</span> <span class="n">messages</span><span class="o">.</span><span class="na">build</span><span class="o">();</span>
-    <span class="o">}</span>
-
-    <span class="nd">@Bean</span>
-    <span class="kd">public</span> <span class="nc">AuthorizationManager</span><span class="o">&lt;</span><span class="nc">MessageAuthorizationContext</span><span class="o">&lt;?&gt;&gt;</span> <span class="n">authorizationManager</span><span class="o">()</span> <span class="o">{</span>
-        <span class="k">return</span> <span class="o">(</span><span class="n">_</span><span class="o">,</span> <span class="n">_</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="k">new</span> <span class="nc">AuthorizationDecision</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre></div></div>
-
-<p><strong>Bron:</strong> <a href="https://newreleases.io/project/github/spring-projects/spring-security/release/7.0.0-M1">Spring Security 7 WebSocket</a>,
-<a href="https://github.com/spring-projects/spring-security/pull/17328">Github Thread</a></p>
-
-<h2 id="terugkerende-problemen">Terugkerende problemen</h2>
-
-<p>Tijdens de migratie kwamen de meeste problemen steeds terug, vooral in tests:</p>
-
-<ul>
-  <li>Jackson namespace breekt constant</li>
-  <li>ObjectMapper conflicts in tests</li>
-  <li>HTTP client configuratie moet volledig herschreven worden</li>
-  <li>Response handling methoden gewijzigd</li>
-  <li>RestTemplate en builders hebben nieuwe imports of zijn vervangen door RestClient</li>
-  <li>Tests falen vaak ondanks succesvolle compilatie</li>
-</ul>
-
-<p>Daarnaast blijkt dat compiler, serialisatielaag, SSL-configuratie en auto-configuration allemaal tegelijk worden beïnvloed door de upgrade.</p>
-
-<h2 id="wat-ik-zou-aanraden">Wat ik zou aanraden</h2>
-
-<ul>
-  <li>Plan extra tijd voor tests</li>
-  <li>Verwacht Jackson-problemen en ObjectMapper-conflicten</li>
-  <li>Bereid je voor op herschrijven van HTTP client code</li>
-  <li>Run je volledige test suite vroeg en vaak</li>
-  <li>Gebruik OpenRewrite</li>
-</ul>
-
-<p>Persoonlijk ben ik blij dat ik deze migratie zelf mocht doen. Ondanks de frustraties en het vele lezen van documentatie, gaf het me een veel dieper inzicht in hoe Spring Boot en Spring Framework werken en hoe ze de controle over infrastructuur en configuratie hebben.</p>
-
-<p>Wil je meer weten over Spring Boot 4 en Spring Framework 7? Check dan volgende post: <a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">Spring Boot 4 &amp; Spring Framework 7</a>.</p>
-
-<h2 id="overzicht-van-alle-bronnen">Overzicht van alle bronnen</h2>
-
-<table>
-  <thead>
-    <tr>
-      <th>Resource</th>
-      <th>Link</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>OpenRewrite recipes</td>
-      <td><a href="https://docs.openrewrite.org/recipes/java">https://docs.openrewrite.org/recipes/java</a></td>
-    </tr>
-    <tr>
-      <td>Spring Framework 7 HTTP Client</td>
-      <td><a href="https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories">https://docs.spring.io/spring-framework/reference/integration/rest-clients.html#rest-request-factories</a></td>
-    </tr>
-    <tr>
-      <td>Apache HttpClient 5 Migration</td>
-      <td><a href="https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html">https://hc.apache.org/httpcomponents-client-5.6.x/migration-guide/preparation.html</a></td>
-    </tr>
-    <tr>
-      <td>Swagger (swagger-core)</td>
-      <td><a href="https://github.com/swagger-api/swagger-core">https://github.com/swagger-api/swagger-core</a></td>
-    </tr>
-    <tr>
-      <td>Spring Security 7 WebSocket (PR)</td>
-      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
-    </tr>
-    <tr>
-      <td>Spring Security 7 (discussion thread)</td>
-      <td><a href="https://github.com/spring-projects/spring-security/pull/17328">https://github.com/spring-projects/spring-security/pull/17328</a></td>
-    </tr>
-    <tr>
-      <td>Spring Boot 4 &amp; Spring Framework 7 (overview)</td>
-      <td><a href="https://www.baeldung.com/spring-boot-4-spring-framework-7">https://www.baeldung.com/spring-boot-4-spring-framework-7</a></td>
-    </tr>
-  </tbody>
-</table>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="spring" /><category term="migration" /><category term="openrewrite" /><category term="softwaredevelopment" /><summary type="html"><![CDATA[“I’m ready… to break everything and figure it out later!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/migration-to-java-25.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>Feel free to visit <a href="https://jcast.dev">jcast.dev</a> and discover <a href="https://jcast.dev">JCast</a>.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="merch" /><category term="design" /><category term="figma" /><category term="canva" /><category term="podcast" /><summary type="html"><![CDATA[“I’m ready, I’m ready… to make something awesome!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/logo.png" /><media:content medium="image" url="http://localhost:4000/assets/img/logo.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
