@@ -34,6 +34,15 @@ layout: default
           {% elsif piece.description %}
             <p class="gallery-piece-description">{{ piece.description }}</p>
           {% endif %}
+          {% if piece.reference %}
+            <p class="gallery-piece-reference">
+              {% if piece.reference_url %}
+                <a href="{{ piece.reference_url }}" target="_blank" rel="noopener noreferrer">{{ piece.reference }}</a>
+              {% else %}
+                {{ piece.reference }}
+              {% endif %}
+            </p>
+          {% endif %}
         </div>
 
       </article>

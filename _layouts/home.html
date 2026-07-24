@@ -68,26 +68,21 @@ layout: default
 
 {% assign current_lang = page.lang | default: site.default_lang %}
 {% assign lang_posts = site.posts | where: "lang", current_lang %}
-{% assign _weekly_posts = lang_posts | where_exp: "post", "post.tags contains 'weekly'" %}
-{% if _weekly_posts.size > 0 %}
-{% assign latest_weekly = _weekly_posts.first %}
-<a href="{{ latest_weekly.url | relative_url }}" class="weekly-teaser-strip">
-    <span class="weekly-teaser-strip-label">{{ site.data.translations[current_lang].weekly.latest }}</span>
-    <span class="weekly-teaser-strip-title">{{ latest_weekly.title }}</span>
-    <span class="weekly-teaser-strip-date">{{ latest_weekly.date | date: "%b %d" }}</span>
+
+{% assign gallery_pieces = site.data.gallery %}
+{% assign gallery_url = "/gallery" %}
+{% if current_lang == 'nl' %}{% assign gallery_url = "/nl/gallery" %}{% endif %}
+{% if gallery_pieces.size > 0 %}
+<a href="{{ gallery_url | relative_url }}" class="home-teaser-strip">
+    <span class="home-teaser-strip-label">{{ site.data.translations[current_lang].home.gallery_teaser_label }}</span>
+    <span class="home-teaser-strip-title">{{ gallery_pieces.last.title }} — {{ gallery_pieces.last.medium }}</span>
+    <span class="home-teaser-strip-date">{{ site.data.translations[current_lang].home.gallery_teaser_cta }}</span>
 </a>
 {% endif %}
 
 <section class="featured-posts">
     {% assign current_lang = page.lang | default: site.default_lang %}
     {% assign lang_posts = site.posts | where: "lang", current_lang %}
-    {% assign filtered_posts = "" | split: "" %}
-    {% for post in lang_posts %}
-      {% unless post.tags contains "weekly" %}
-        {% assign filtered_posts = filtered_posts | push: post %}
-      {% endunless %}
-    {% endfor %}
-    {% assign lang_posts = filtered_posts %}
 
     <div class="magazine-layout">
         {% if lang_posts.size > 0 %}

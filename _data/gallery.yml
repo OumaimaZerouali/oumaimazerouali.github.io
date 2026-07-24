@@ -1,17 +1,25 @@
 # Fields: title, medium, year (optional), image, description (optional), description_nl (optional)
+# reference (optional): if a piece is a study of / inspired by someone else's work (e.g. a Pinterest
+#   find, another artist's design), add the source here, e.g. "Inspired by a design on Pinterest"
+#   or "Inspired by @artist_handle". Leave it out for fully original pieces.
+# reference_url (optional): link to the source, if there is one.
 # Images live in: assets/img/gallery/
 
-- title: "Random Dog"
+- title: "Steam of Dreams"
   medium: "Acrylic markers"
   image: "/assets/img/gallery/Random dog.png"
-  description: "A greyhound in a red turtleneck holding a cup of coffee. Very serious about it."
-  description_nl: "Een hond in een rode coltrui met een kopje koffie:"
+  description: "A greyhound in a red turtleneck, very serious about its coffee. A study after Andy Okay's original design."
+  description_nl: "Een hond in een rode coltrui, heel serieus bezig met zijn koffie. Een studie naar het originele ontwerp van Andy Okay."
+  reference: "Inspired by a design from Andy Okay"
+  reference_url: "https://andyokay.com/en-be/products/steam-of-dreams-canvas?currency=EUR"
 
-- title: "Idk"
+- title: "Whatever This Is"
   medium: "Acrylic markers"
   image: "/assets/img/gallery/Idk.png"
-  description: "An expressive figure in black and orange. I didn't know what I was making, it turned into this."
-  description_nl: "Een expressief figuur in zwart en oranje. Ik wist niet wat ik aan het maken was, het werd dit."
+  description: "An expressive figure in black and orange that came out of nowhere. No plan going in, I just let it take shape."
+  description_nl: "Een expressief figuur in zwart en oranje dat uit het niets ontstond. Geen plan vooraf, ik liet het gewoon vorm aannemen."
+  reference: "Reference found on Pinterest"
+  reference_url: "https://www.pinterest.com/negibson9623/"
 
 - title: "Friend in Art Style"
   medium: "Acrylic markers"
@@ -31,10 +39,10 @@
   description: "A quiet sketch of an ideal room, plants by the window, soft pillows, a teddy bear somewhere in the corner."
   description_nl: "Een rustige schets van een ideale kamer, planten bij het raam, zachte kussens, een teddybeer ergens in de hoek."
 
-- title: "My Head"
+- title: "Noise"
   medium: "Pencil and marker"
   image: "/assets/img/gallery/My head.png"
-  description: "A profile of my head filled with all the things fighting for attention inside it."
+  description: "A profile of my head, filled with everything fighting for attention inside it."
   description_nl: "Een profiel van mijn hoofd, gevuld met alles wat om aandacht vecht."
 
 - title: "Free Palestine"

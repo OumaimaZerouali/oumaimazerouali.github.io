@@ -4,7 +4,78 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add weekly development notes for week 6 in English and Dutch" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add weekly development notes for week 6 in English and Dutch">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/gallery.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/gallery.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/translations/en.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/en.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/translations/nl.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/translations/nl.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_includes/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/_includes/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/gallery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/guestbook.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/posts.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/posts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_layouts/weekly.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2025-05-09-jcast.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2025-05-09-jcast.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-03-01-weekly-dev-note-week-1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-03-08-weekly-dev-note-week-2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-03-15-weekly-dev-note-week-3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-03-22-weekly-dev-note-week-4.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-03-29-weekly-dev-note-week-5.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-04-05-weekly-dev-note-week-6.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-03-01-weekly-dev-note-week-1.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-03-08-weekly-dev-note-week-2.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-03-15-weekly-dev-note-week-3.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-03-22-weekly-dev-note-week-4.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-03-29-weekly-dev-note-week-5.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-04-05-weekly-dev-note-week-6.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/about/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/about/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/about.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/guestbook.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/guestbook.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/guestbook.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl/about.md" beforeDir="false" afterPath="$PROJECT_DIR$/nl/about.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl/guestbook.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl/index.md" beforeDir="false" afterPath="$PROJECT_DIR$/nl/index.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl/posts.md" beforeDir="false" afterPath="$PROJECT_DIR$/nl/posts.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nl/weekly.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/posts.md" beforeDir="false" afterPath="$PROJECT_DIR$/posts.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vercel.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/weekly.md" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,51 +146,53 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.restore.workspace.module&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;dev.nx.console.last_ai_configure_notification_timestamp&quot;: &quot;1764445192312&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/_posts/nl&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Angular CLI Server (frontend).executor&quot;: &quot;Run&quot;,
-    &quot;npm.deploy:github.executor&quot;: &quot;Run&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;npm.lint.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/oumaimazerouali/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.restore.workspace.module": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "Spring Boot.Application.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "dev.nx.console.last_ai_configure_notification_timestamp": "1764445192312",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "npm.Angular CLI Server (frontend).executor": "Run",
+    "npm.deploy:github.executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.lint.executor": "Run",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/Users/oumaimazerouali/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -244,8 +317,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
+        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
       </set>
     </attachedChunks>
   </component>
@@ -334,14 +407,8 @@
       <workItem from="1774347991114" duration="763000" />
       <workItem from="1774942450721" duration="585000" />
       <workItem from="1775409927105" duration="761000" />
-    </task>
-    <task id="LOCAL-00015" summary="refactor: Refactor styling of the site">
-      <option name="closed" value="true" />
-      <created>1745437960567</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1745437960567</updated>
+      <workItem from="1778268554426" duration="1122000" />
+      <workItem from="1784877626830" duration="1932000" />
     </task>
     <task id="LOCAL-00016" summary="feat: Added a browser like component">
       <option name="closed" value="true" />
@@ -727,7 +794,15 @@
       <option name="project" value="LOCAL" />
       <updated>1775410730659</updated>
     </task>
-    <option name="localTasksCounter" value="64" />
+    <task id="LOCAL-00064" summary="feat: Update nokogiri gem version to 1.19.3 for improved performance and security">
+      <option name="closed" value="true" />
+      <created>1778271679374</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1778271679375</updated>
+    </task>
+    <option name="localTasksCounter" value="65" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

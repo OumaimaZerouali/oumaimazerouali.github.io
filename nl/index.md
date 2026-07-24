@@ -1,8 +1,8 @@
 ---
 layout: home
 title: "Hoi, ik ben Oumaima"
-tagline: "Een software developer die doordachte reflecties deelt over softwareontwikkeling, het leven als developer, en alles daartussenin. Geschreven voor developers, door een developer."
-description: "Doordachte reflecties over softwareontwikkeling door Oumaima Zerouali."
+tagline: "Mijn eigen hoekje van het internet: software engineering, JCast, en de kunst die ik er zelf bij maak. Geschreven voor mezelf, open voor iedereen die mee wil lezen."
+description: "Software engineering, JCast en kunst door Oumaima Zerouali."
 lang: nl
 permalink: /nl/
 ---

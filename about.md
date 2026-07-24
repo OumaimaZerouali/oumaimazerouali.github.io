@@ -17,13 +17,13 @@ Hi, I'm Oumaima. A full-stack software developer with a strong focus on backend 
 
 My day-to-day work revolves around **Java**, **Spring Boot / Quarkus**, and **Angular**. I enjoy designing APIs, shaping domain models, and thinking carefully about how software evolves over time. Topics such as error handling, testing strategies, architectural trade-offs, and code quality are recurring themes in both my work and my writing.
 
-This blog is where I document what I learn, build, and reflect on as a developer.
+This site is my own — a place to document what I build, talk about on JCast, and make with my hands when I'm not writing code.
 
 Here you'll find:
 - Technical articles about Java, backend patterns, and frontend integration
-- Architectural reflections and practical engineering lessons
+- Stories and behind-the-scenes posts from **[JCast](/podcast)**, the podcast I co-host
+- Paintings and drawings in the [gallery](/gallery) — the side of me that isn't code
 - Personal experiences about teamwork, mentorship, and growing in the field
-- Occasional creative or humorous takes on software development
 
 </div>
 
@@ -63,7 +63,7 @@ Learning and knowledge sharing are at the heart of how I work. Whether it's coll
 
 For me, software development is a human adventure. It's about **connection, curiosity, and continuous growth**. Code is the tool, but **people make the difference**.
 
-If you're here to learn, reflect, or simply enjoy stories about code and collaboration: welcome. Have a look at the [posts](/posts) or the shorter [weekly notes](/weekly) if you're in the mood for reading. And if you're curious about the side of me that draws and paints, that lives in the [gallery](/gallery). Feel free to leave something in the [guestbook](/guestbook). I'm always happy to talk about software, architecture, and ideas.
+If you're here to learn, reflect, or simply enjoy stories about code and collaboration: welcome. Have a look at the [posts](/posts), catch up on **[JCast](/podcast)**, or browse the [gallery](/gallery) if you're curious about the side of me that draws and paints. I'm always happy to talk about software, architecture, and ideas.
 
 <div class="social-links">
   <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="Connect on LinkedIn">

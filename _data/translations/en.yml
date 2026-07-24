@@ -1,6 +1,6 @@
 site:
-  title: "Oumi's Blog"
-  description: "Reflections on systems, design decisions, and the realities of building things that last."
+  title: "Oumi"
+  description: "A personal site by a software developer: engineering writing, JCast, and hand-made art."
 
 nav:
   home: "Home"
@@ -12,12 +12,15 @@ sections:
   featured_posts: "Thoughtful Reflections"
   view_all_posts: "View all posts"
 
-weekly:
-  title: "My Weekly Dev Note"
-  subtitle: "Short, direct observations from a developer's week. Every week, something worth noting."
-  view_all: "View all weekly notes"
-  latest: "Latest Weekly Note"
-  empty: "No weekly notes yet — coming soon!"
+podcast:
+  title: "JCast"
+  subtitle: "A podcast about IT, technology, hobbies, and the everyday realities of working in software, hosted with two close (and slightly crazy) friends."
+  listen_label: "Listen to JCast"
+  empty: "New episodes and posts coming soon."
+
+home:
+  gallery_teaser_label: "From the Gallery"
+  gallery_teaser_cta: "See the full gallery"
 
 posts:
   title: "All Posts"
@@ -41,22 +44,6 @@ cookie_banner:
   accept: "Accept"
   decline: "Decline"
   settings: "Cookie Settings"
-
-guestbook:
-  title: "Guestbook"
-  intro: "You made it here. Say hi, leave a thought, share what brought you here or just let me know you were around. I read every message."
-  form_title: "Sign the guestbook"
-  field_name: "Name"
-  field_website: "Website"
-  field_message: "Message"
-  placeholder_name: "Your name"
-  placeholder_message: "Say something nice\u2026"
-  optional: "optional"
-  char_hint: "Max 300 characters"
-  submit: "Leave a message"
-  entries_title: "Messages"
-  loading: "Loading messages\u2026"
-  empty: "No messages yet, be the first to sign!"
 
 gallery:
   title: "Gallery"

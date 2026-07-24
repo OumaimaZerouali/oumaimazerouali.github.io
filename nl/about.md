@@ -17,13 +17,13 @@ Hallo, ik ben Oumaima. Een full-stack software developer met een sterke focus op
 
 In mijn dagelijkse werk werk ik vooral met **Java**, **Spring Boot / Quarkus** en **Angular**. Ik hou ervan om APIs te ontwerpen, domeinmodellen uit te werken en na te denken over hoe software evolueert op lange termijn. Thema's zoals foutafhandeling, testen, architecturale keuzes en codekwaliteit komen regelmatig terug in zowel mijn werk als mijn blogposts.
 
-Deze blog is mijn plek om bij te houden wat ik leer, bouw en ervaar als developer.
+Deze site is helemaal van mij — een plek om bij te houden wat ik bouw, waar we het over hebben op JCast, en wat ik met mijn handen maak als ik even geen code schrijf.
 
 Je vindt hier onder andere:
 - Technische artikels over Java, backend-patronen en frontend integratie
-- Reflecties over architectuur en praktische engineeringlessen
+- Verhalen en achter-de-schermen posts van **[JCast](/nl/podcast)**, de podcast die ik mee presenteer
+- Schilderijen en tekeningen in de [galerij](/nl/gallery) — de kant van mij die niets met code te maken heeft
 - Ervaringen rond teamwork, mentorship en samenwerken in teams
-- Af en toe een creatieve of humoristische kijk op softwareontwikkeling
 
 </div>
 
@@ -65,7 +65,7 @@ Leren en kennis delen vormen de kern van hoe ik werk. Of het nu gaat om collega�
 
 Voor mij is softwareontwikkeling een menselijk avontuur. Het gaat om **verbinding, nieuwsgierigheid en voortdurende groei**. Code is het gereedschap, maar **mensen maken het verschil**.
 
-Als je hier bent om te leren, te reflecteren of gewoon een verhaal over code en samenwerking te lezen: welkom. Kijk gerust eens naar de [posts](/nl/posts) of de kortere [weekly notes](/nl/weekly) als je zin hebt om te lezen. En als je ook nieuwsgierig bent naar de kant van mij die tekent en schildert, die vind je in de [galerij](/nl/gallery). Laat gerust iets achter in het [gastenboek](/nl/guestbook). Ik praat graag over software, architectuur en ideeën.
+Als je hier bent om te leren, te reflecteren of gewoon een verhaal over code en samenwerking te lezen: welkom. Kijk gerust eens naar de [posts](/nl/posts), luister mee met **[JCast](/nl/podcast)**, of blader door de [galerij](/nl/gallery) als je nieuwsgierig bent naar de kant van mij die tekent en schildert. Ik praat graag over software, architectuur en ideeën.
 
 <div class="social-links">
   <a href="https://www.linkedin.com/in/oumaima-zerouali-16b189223" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">

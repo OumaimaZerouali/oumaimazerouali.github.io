@@ -4,14 +4,12 @@
     {% if current_lang == 'nl' %}
       {% assign posts_url = "/nl/posts" %}
       {% assign about_url = "/nl/about" %}
-      {% assign weekly_url = "/nl/weekly" %}
-      {% assign guestbook_url = "/nl/guestbook" %}
+      {% assign podcast_url = "/nl/podcast" %}
       {% assign gallery_url = "/nl/gallery" %}
     {% else %}
       {% assign posts_url = "/posts" %}
       {% assign about_url = "/about" %}
-      {% assign weekly_url = "/weekly" %}
-      {% assign guestbook_url = "/guestbook" %}
+      {% assign podcast_url = "/podcast" %}
       {% assign gallery_url = "/gallery" %}
     {% endif %}
 
@@ -37,7 +35,7 @@
 
     <nav class="site-nav" role="navigation" aria-label="Main navigation">
       <a href="{{ posts_url | relative_url }}">Posts</a>
-      <a href="{{ weekly_url | relative_url }}">Weekly</a>
+      <a href="{{ podcast_url | relative_url }}">Podcast</a>
       <span class="nav-group-separator" aria-hidden="true"></span>
       <a href="{{ gallery_url | relative_url }}">Gallery</a>
       <a href="{{ about_url | relative_url }}">About</a>

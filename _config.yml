@@ -1,6 +1,6 @@
-title: Oumi's Blog
+title: Oumi
 description: >
-  Thoughtful reflections on software development, written by a developer for developers.
+  A personal site by a software developer: engineering writing, JCast, and hand-made art.
 baseurl: ""
 url: "https://oumaimazerouali.github.io"
 logo: "/assets/favicon/logo.svg"
@@ -43,7 +43,6 @@ linkedin_username: oumaima-zerouali-16b189223
 github_username: OumaimaZerouali
 instagram_username: _oumietje_
 
-guestbook_api_url: "https://oumaimazerouali-github-io.vercel.app"
 
 exclude:
    - .sass-cache/
@@ -57,6 +56,3 @@ exclude:
    - vendor/gems/
    - vendor/ruby/
    - README.md
-   - api/
-   - package.json
-   - vercel.json

@@ -1,6 +1,6 @@
 site:
-  title: "Oumi's Blog"
-  description: "Reflecties over systemen, ontwerpbeslissingen en de realiteit van het bouwen van duurzame dingen."
+  title: "Oumi"
+  description: "Een persoonlijke site van een software developer: engineering, JCast en met de hand gemaakte kunst."
 
 nav:
   home: "Home"
@@ -12,12 +12,15 @@ sections:
   featured_posts: "Doordachte Reflecties"
   view_all_posts: "Bekijk alle artikelen"
 
-weekly:
-  title: "My Weekly Dev Note"
-  subtitle: "Korte, directe observaties uit de week van een developer. Elke week iets om te onthouden."
-  view_all: "Alle weekly notes bekijken"
-  latest: "Laatste Weekly Note"
-  empty: "Nog geen weekly notes — binnenkort!"
+podcast:
+  title: "JCast"
+  subtitle: "Een podcast over IT, technologie, hobby's en het dagelijkse leven als software developer, samen met twee goede (en lichtjes gekke) vrienden."
+  listen_label: "Luister naar JCast"
+  empty: "Binnenkort nieuwe afleveringen en posts."
+
+home:
+  gallery_teaser_label: "Uit de Galerij"
+  gallery_teaser_cta: "Bekijk de volledige galerij"
 
 posts:
   title: "Alle Artikelen"
@@ -41,22 +44,6 @@ cookie_banner:
   accept: "Accepteren"
   decline: "Weigeren"
   settings: "Cookie-instellingen"
-
-guestbook:
-  title: "Gastenboek"
-  intro: "Je bent er! Zeg hallo, laat een gedachte achter, deel wat je hier bracht of laat gewoon weten dat je er was. Ik lees elk bericht."
-  form_title: "Schrijf in het gastenboek"
-  field_name: "Naam"
-  field_website: "Website"
-  field_message: "Bericht"
-  placeholder_name: "Jouw naam"
-  placeholder_message: "Zeg iets aardigs\u2026"
-  optional: "optioneel"
-  char_hint: "Maximaal 300 tekens"
-  submit: "Laat een bericht achter"
-  entries_title: "Berichten"
-  loading: "Berichten laden\u2026"
-  empty: "Nog geen berichten, wees de eerste!"
 
 gallery:
   title: "Galerij"
