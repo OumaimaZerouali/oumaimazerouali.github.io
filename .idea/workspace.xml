@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Update magazine profiles for improved clarity and consistency">
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new post on career growth and reflections on transitioning from junior to senior developer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_layouts/podcast.html" beforeDir="false" afterPath="$PROJECT_DIR$/_layouts/podcast.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-08-10-when-do-you-stop-being-a-junior.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/nl/2026-08-10-when-do-you-stop-being-a-junior.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/assets/css/main.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/_site/assets/css/main.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-07-30-mdc-logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2026-07-30-mdc-logging.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-07-30-mdc-logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/nl/2026-07-30-mdc-logging.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/css/main.scss" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/main.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/img/jcast-magazine.png" beforeDir="false" afterPath="$PROJECT_DIR$/assets/img/jcast-magazine.png" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,7 +168,7 @@
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/assets/img&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -318,8 +310,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-37e91769500f-intellij.indexing.shared.core-IU-261.25134.95" />
-        <option value="bundled-js-predefined-d6986cc7102b-31caf2ab9e3c-JavaScript-IU-261.25134.95" />
+        <option value="bundled-jdk-30f59d01ecdd-63390994e64e-intellij.indexing.shared.core-IU-262.8665.337" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.8665.337" />
       </set>
     </attachedChunks>
   </component>
@@ -414,15 +406,8 @@
       <workItem from="1784886257586" duration="222000" />
       <workItem from="1784890187778" duration="35000" />
       <workItem from="1784891372671" duration="1232000" />
-      <workItem from="1784902306355" duration="556000" />
-    </task>
-    <task id="LOCAL-00020" summary="fix: clean up">
-      <option name="closed" value="true" />
-      <created>1748073774309</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1748073774309</updated>
+      <workItem from="1784902306355" duration="1575000" />
+      <workItem from="1785135442598" duration="21000" />
     </task>
     <task id="LOCAL-00021" summary="fix: clean up">
       <option name="closed" value="true" />
@@ -808,7 +793,15 @@
       <option name="project" value="LOCAL" />
       <updated>1784890214793</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="feat: Add new post on career growth and reflections on transitioning from junior to senior developer">
+      <option name="closed" value="true" />
+      <created>1784903098470</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1784903098470</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -827,7 +820,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Add new post on software craftsmanship reflecting on personal growth and insights from training" />
     <MESSAGE value="feat: Add new post on building AI chatbots with Java, detailing project insights and implementation steps" />
     <MESSAGE value="feat: Add new post on JCast, sharing insights on podcasting journey and personal growth" />
     <MESSAGE value="feat: Add new post on building AI chatbots with Java, sharing insights and practical implementation details" />
@@ -852,7 +844,8 @@
     <MESSAGE value="feat: Add new articles and update existing content for improved site structure and readability" />
     <MESSAGE value="feat: Update magazine content and images for improved clarity and consistency" />
     <MESSAGE value="feat: Update magazine profiles for improved clarity and consistency" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Update magazine profiles for improved clarity and consistency" />
+    <MESSAGE value="feat: Add new post on career growth and reflections on transitioning from junior to senior developer" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new post on career growth and reflections on transitioning from junior to senior developer" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
