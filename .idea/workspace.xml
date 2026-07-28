@@ -4,20 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new post on MDC logging, detailing implementation and best practices">
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/fuji-at-dawn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/moonlit-ridge.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/night-window.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/assets/img/gallery/smoke-break.png" afterDir="false" />
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Update gallery with new artworks and modify feed for improved content accuracy">
+      <change afterPath="$PROJECT_DIR$/_posts/en/2026-07-28-secrets-of-work.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/_posts/nl/2026-07-28-secrets-of-work.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/werktips.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_data/gallery.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/gallery.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,61 +77,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.2688554009319144E-245" />
-      <entry key="S2" value="1.6007418963792784E-61" />
-      <entry key="S5" value="1.159398105425209E-24" />
-      <entry key="S10" value="2.695216616134019E-12" />
-      <entry key="S30" value="6.600522163079171E-4" />
-      <entry key="S60" value="0.09441351866038758" />
-      <entry key="M2" value="1.2620885365555228" />
-      <entry key="M5" value="9.614157933500174" />
-      <entry key="M10" value="24.529256937158266" />
-      <entry key="M15" value="34.86441869291463" />
-      <entry key="M30" value="51.05195091446251" />
-      <entry key="H1" value="63.19114101589377" />
-      <entry key="H2" value="71.10871781769227" />
-      <entry key="H4" value="75.75545292743182" />
-      <entry key="D1" value="80.07874706786471" />
-      <entry key="W1" value="80.86715365330079" />
+      <entry key="MS100" value="1.0514744385792234" />
+      <entry key="MS500" value="1.5524822423999558" />
+      <entry key="S2" value="1.8622089947706657" />
+      <entry key="S5" value="2.0313776931527325" />
+      <entry key="S10" value="2.959413617023072" />
+      <entry key="S30" value="6.920356014666916" />
+      <entry key="S60" value="9.501431783519141" />
+      <entry key="M2" value="11.961394158696113" />
+      <entry key="M5" value="17.38855049368155" />
+      <entry key="M10" value="28.9518411396381" />
+      <entry key="M15" value="39.341022736939" />
+      <entry key="M30" value="58.66459876961272" />
+      <entry key="H1" value="74.85719254305968" />
+      <entry key="H2" value="85.89467134740819" />
+      <entry key="H4" value="92.48651724727084" />
+      <entry key="D1" value="98.67537620123984" />
+      <entry key="W1" value="99.80887103632884" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="1.000000000000012" />
-      <entry key="MS500" value="1.0016446542062665" />
-      <entry key="S2" value="1.2013810727621876" />
-      <entry key="S5" value="1.5267538030166126" />
-      <entry key="S10" value="1.7263084528114223" />
-      <entry key="S30" value="2.003259681801642" />
-      <entry key="S60" value="2.387326924077109" />
-      <entry key="M2" value="2.9009541956132257" />
-      <entry key="M5" value="3.456133992578939" />
-      <entry key="M10" value="3.706666644597464" />
-      <entry key="M15" value="3.799333145081278" />
-      <entry key="M30" value="3.8970155581505117" />
-      <entry key="H1" value="3.9478264981046873" />
-      <entry key="H2" value="3.973740554610739" />
-      <entry key="H4" value="3.986826803197539" />
-      <entry key="D1" value="3.9977984034488645" />
-      <entry key="W1" value="3.9996853373709094" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="2.7329562041132947E-209" />
+      <entry key="S2" value="8.524574337650279E-53" />
+      <entry key="S5" value="2.091866825947075E-21" />
+      <entry key="S10" value="6.376488110532285E-11" />
+      <entry key="S30" value="6.340185094249079E-4" />
+      <entry key="S60" value="0.03786648855640521" />
+      <entry key="M2" value="0.35711653121258885" />
+      <entry key="M5" value="1.7567442363977066" />
+      <entry key="M10" value="3.1893697747679273" />
+      <entry key="M15" value="3.9217259863272815" />
+      <entry key="M30" value="4.841341027077884" />
+      <entry key="H1" value="5.387011606877771" />
+      <entry key="H2" value="5.684564207779287" />
+      <entry key="H4" value="5.839977090414062" />
+      <entry key="D1" value="5.973003281944521" />
+      <entry key="W1" value="5.9961352558972045" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.002438145603323595" />
-      <entry key="MS500" value="0.3008706485161218" />
-      <entry key="S2" value="0.9010803049126835" />
-      <entry key="S5" value="1.3681251547058086" />
-      <entry key="S10" value="1.636007159680147" />
-      <entry key="S30" value="1.9683314946463353" />
-      <entry key="S60" value="2.459285615884879" />
-      <entry key="M2" value="4.14787207196997" />
-      <entry key="M5" value="13.061638966595826" />
-      <entry key="M10" value="28.23068752554457" />
-      <entry key="M15" value="38.65996869761475" />
-      <entry key="M30" value="54.946888830512755" />
-      <entry key="H1" value="67.13787072913655" />
-      <entry key="H2" value="75.08189330806583" />
-      <entry key="H4" value="79.7419926666601" />
-      <entry key="D1" value="84.07649696054445" />
-      <entry key="W1" value="84.8668320436908" />
+      <entry key="MS100" value="0.9656242917911347" />
+      <entry key="MS500" value="1.5223686465480837" />
+      <entry key="S2" value="1.8526970606696203" />
+      <entry key="S5" value="2.0273141243583783" />
+      <entry key="S10" value="2.957078799827856" />
+      <entry key="S30" value="6.919792689343961" />
+      <entry key="S60" value="9.53795090637122" />
+      <entry key="M2" value="12.315321222765762" />
+      <entry key="M5" value="19.139843094631765" />
+      <entry key="M10" value="32.136169660946095" />
+      <entry key="M15" value="43.25852473753106" />
+      <entry key="M30" value="63.503241488588834" />
+      <entry key="H1" value="80.24266674329954" />
+      <entry key="H2" value="91.57841269196292" />
+      <entry key="H4" value="98.32606828584346" />
+      <entry key="D1" value="104.64830633969277" />
+      <entry key="W1" value="105.80499578941132" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -177,7 +174,7 @@
     "jdk.selected.JAVA_MODULE": "openjdk-21",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io",
+    "last_opened_file_path": "/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io/_posts/en",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
@@ -208,15 +205,15 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/img" />
       <recent name="$PROJECT_DIR$/_posts/en" />
+      <recent name="$PROJECT_DIR$/assets/img" />
       <recent name="$PROJECT_DIR$/_posts/nl" />
       <recent name="$PROJECT_DIR$/assets/css" />
       <recent name="$PROJECT_DIR$/src/assets/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/assets/img/gallery" />
       <recent name="$PROJECT_DIR$/assets/img" />
+      <recent name="$PROJECT_DIR$/assets/img/gallery" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$/.github/instructions" />
       <recent name="$PROJECT_DIR$" />
@@ -830,7 +827,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Add new post on JCast, sharing insights on podcasting journey and personal growth" />
     <MESSAGE value="feat: Add new post on building AI chatbots with Java, sharing insights and practical implementation details" />
     <MESSAGE value="feat: Add quotes from SpongeBob SquarePants to posts for enhanced engagement" />
     <MESSAGE value="feat: Update related posts and sitemap with new entries for JCast and AI chatbots" />
@@ -855,7 +851,8 @@
     <MESSAGE value="feat: Update magazine profiles for improved clarity and consistency" />
     <MESSAGE value="feat: Add new post on career growth and reflections on transitioning from junior to senior developer" />
     <MESSAGE value="feat: Add new post on MDC logging, detailing implementation and best practices" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new post on MDC logging, detailing implementation and best practices" />
+    <MESSAGE value="feat: Update gallery with new artworks and modify feed for improved content accuracy" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Update gallery with new artworks and modify feed for improved content accuracy" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
