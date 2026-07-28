@@ -4,11 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new post on career growth and reflections on transitioning from junior to senior developer">
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new post on MDC logging, detailing implementation and best practices">
+      <change afterPath="$PROJECT_DIR$/assets/img/gallery/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/gallery/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/gallery/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/gallery/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/gallery/fuji-at-dawn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/gallery/moonlit-ridge.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/gallery/night-window.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/gallery/smoke-break.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/2026-07-30-mdc-logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2026-07-30-mdc-logging.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-07-30-mdc-logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/nl/2026-07-30-mdc-logging.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_data/gallery.yml" beforeDir="false" afterPath="$PROJECT_DIR$/_data/gallery.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,61 +80,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.7318693948772164" />
-      <entry key="MS500" value="4.536803855232819" />
-      <entry key="S2" value="10.035488518796555" />
-      <entry key="S5" value="13.805482271970245" />
-      <entry key="S10" value="15.748913248428194" />
-      <entry key="S30" value="18.492565850155238" />
-      <entry key="S60" value="21.680590512935577" />
-      <entry key="M2" value="26.824185365603537" />
-      <entry key="M5" value="33.90492057868725" />
-      <entry key="M10" value="37.872785523000154" />
-      <entry key="M15" value="39.7487643595171" />
-      <entry key="M30" value="42.76296254660029" />
-      <entry key="H1" value="45.60565220577195" />
-      <entry key="H2" value="47.82993288329539" />
-      <entry key="H4" value="49.26867466394692" />
-      <entry key="D1" value="50.68816139869178" />
-      <entry key="W1" value="50.95483799515207" />
+      <entry key="MS100" value="0.0" />
+      <entry key="MS500" value="2.2688554009319144E-245" />
+      <entry key="S2" value="1.6007418963792784E-61" />
+      <entry key="S5" value="1.159398105425209E-24" />
+      <entry key="S10" value="2.695216616134019E-12" />
+      <entry key="S30" value="6.600522163079171E-4" />
+      <entry key="S60" value="0.09441351866038758" />
+      <entry key="M2" value="1.2620885365555228" />
+      <entry key="M5" value="9.614157933500174" />
+      <entry key="M10" value="24.529256937158266" />
+      <entry key="M15" value="34.86441869291463" />
+      <entry key="M30" value="51.05195091446251" />
+      <entry key="H1" value="63.19114101589377" />
+      <entry key="H2" value="71.10871781769227" />
+      <entry key="H4" value="75.75545292743182" />
+      <entry key="D1" value="80.07874706786471" />
+      <entry key="W1" value="80.86715365330079" />
     </decayedCancelled>
     <decayedSelected>
-      <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="0.0" />
-      <entry key="S2" value="0.0" />
-      <entry key="S5" value="0.0" />
-      <entry key="S10" value="0.0" />
-      <entry key="S30" value="0.0" />
-      <entry key="S60" value="0.0" />
-      <entry key="M2" value="0.0" />
-      <entry key="M5" value="0.0" />
-      <entry key="M10" value="0.0" />
-      <entry key="M15" value="0.0" />
-      <entry key="M30" value="0.0" />
-      <entry key="H1" value="0.0" />
-      <entry key="H2" value="0.0" />
-      <entry key="H4" value="0.0" />
-      <entry key="D1" value="0.0" />
-      <entry key="W1" value="0.0" />
+      <entry key="MS100" value="1.000000000000012" />
+      <entry key="MS500" value="1.0016446542062665" />
+      <entry key="S2" value="1.2013810727621876" />
+      <entry key="S5" value="1.5267538030166126" />
+      <entry key="S10" value="1.7263084528114223" />
+      <entry key="S30" value="2.003259681801642" />
+      <entry key="S60" value="2.387326924077109" />
+      <entry key="M2" value="2.9009541956132257" />
+      <entry key="M5" value="3.456133992578939" />
+      <entry key="M10" value="3.706666644597464" />
+      <entry key="M15" value="3.799333145081278" />
+      <entry key="M30" value="3.8970155581505117" />
+      <entry key="H1" value="3.9478264981046873" />
+      <entry key="H2" value="3.973740554610739" />
+      <entry key="H4" value="3.986826803197539" />
+      <entry key="D1" value="3.9977984034488645" />
+      <entry key="W1" value="3.9996853373709094" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="1.684505417601465" />
-      <entry key="MS500" value="4.508036267115369" />
-      <entry key="S2" value="10.016301638511791" />
-      <entry key="S5" value="13.794523982921664" />
-      <entry key="S10" value="15.74253294106405" />
-      <entry key="S30" value="18.489373736833933" />
-      <entry key="S60" value="21.678129711011874" />
-      <entry key="M2" value="26.822321772656853" />
-      <entry key="M5" value="33.90385046415296" />
-      <entry key="M10" value="37.8721640816276" />
-      <entry key="M15" value="39.74832510845944" />
-      <entry key="M30" value="42.762726103261016" />
-      <entry key="H1" value="45.605527606770295" />
-      <entry key="H2" value="47.82986838349262" />
-      <entry key="H4" value="49.26864174440729" />
-      <entry key="D1" value="50.68815580583717" />
-      <entry key="W1" value="50.954837193371375" />
+      <entry key="MS100" value="0.002438145603323595" />
+      <entry key="MS500" value="0.3008706485161218" />
+      <entry key="S2" value="0.9010803049126835" />
+      <entry key="S5" value="1.3681251547058086" />
+      <entry key="S10" value="1.636007159680147" />
+      <entry key="S30" value="1.9683314946463353" />
+      <entry key="S60" value="2.459285615884879" />
+      <entry key="M2" value="4.14787207196997" />
+      <entry key="M5" value="13.061638966595826" />
+      <entry key="M10" value="28.23068752554457" />
+      <entry key="M15" value="38.65996869761475" />
+      <entry key="M30" value="54.946888830512755" />
+      <entry key="H1" value="67.13787072913655" />
+      <entry key="H2" value="75.08189330806583" />
+      <entry key="H4" value="79.7419926666601" />
+      <entry key="D1" value="84.07649696054445" />
+      <entry key="W1" value="84.8668320436908" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -139,53 +148,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.MCP Project settings loaded&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.restore.workspace.module&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;SONARLINT_PRECOMMIT_ANALYSIS&quot;: &quot;true&quot;,
-    &quot;Spring Boot.Application.executor&quot;: &quot;Run&quot;,
-    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;copilot.chat.legacySessionMetadata.migrated&quot;: &quot;true&quot;,
-    &quot;dev.nx.console.last_ai_configure_notification_timestamp&quot;: &quot;1764445192312&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;openjdk-21&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.Angular CLI Server (frontend).executor&quot;: &quot;Run&quot;,
-    &quot;npm.deploy:github.executor&quot;: &quot;Run&quot;,
-    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
-    &quot;npm.lint.executor&quot;: &quot;Run&quot;,
-    &quot;npm.start.executor&quot;: &quot;Run&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/Users/oumaimazerouali/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.Main.executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.restore.workspace.module": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "Spring Boot.Application.executor": "Run",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "copilot.chat.legacySessionMetadata.migrated": "true",
+    "dev.nx.console.last_ai_configure_notification_timestamp": "1764445192312",
+    "git-widget-placeholder": "master",
+    "go.import.settings.migrated": "true",
+    "jdk.selected.JAVA_MODULE": "openjdk-21",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/oumaimazerouali/Desktop/other/projects/oumaimazerouali.github.io",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "node",
+    "nodejs_package_manager_path": "npm",
+    "npm.Angular CLI Server (frontend).executor": "Run",
+    "npm.deploy:github.executor": "Run",
+    "npm.dev.executor": "Run",
+    "npm.lint.executor": "Run",
+    "npm.start.executor": "Run",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/Users/oumaimazerouali/Applications/IntelliJ IDEA Ultimate.app/Contents/plugins/javascript-plugin/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="ReactDesignerToolWindowState">
     <option name="myId2Visible">
       <map>
@@ -311,7 +322,6 @@
     <attachedChunks>
       <set>
         <option value="bundled-jdk-30f59d01ecdd-63390994e64e-intellij.indexing.shared.core-IU-262.8665.337" />
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-IU-262.8665.337" />
       </set>
     </attachedChunks>
   </component>
@@ -820,7 +830,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Add new post on building AI chatbots with Java, detailing project insights and implementation steps" />
     <MESSAGE value="feat: Add new post on JCast, sharing insights on podcasting journey and personal growth" />
     <MESSAGE value="feat: Add new post on building AI chatbots with Java, sharing insights and practical implementation details" />
     <MESSAGE value="feat: Add quotes from SpongeBob SquarePants to posts for enhanced engagement" />
@@ -845,7 +854,8 @@
     <MESSAGE value="feat: Update magazine content and images for improved clarity and consistency" />
     <MESSAGE value="feat: Update magazine profiles for improved clarity and consistency" />
     <MESSAGE value="feat: Add new post on career growth and reflections on transitioning from junior to senior developer" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new post on career growth and reflections on transitioning from junior to senior developer" />
+    <MESSAGE value="feat: Add new post on MDC logging, detailing implementation and best practices" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new post on MDC logging, detailing implementation and best practices" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">
