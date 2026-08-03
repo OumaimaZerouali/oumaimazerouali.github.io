@@ -67,14 +67,14 @@ ThreadLocal<Map<String, String>>
 
 Dat is het.
 Een map van strings, opgeslagen op de huidige thread.
-De `MDC`-klasse heeft alleen statische methoden[^1] — `MDC.put(key, value)` om iets toe te voegen, `MDC.get(key)` om iets op te halen, `MDC.remove(key)` om één entry te verwijderen, en `MDC.clear()` om de hele map leeg te maken.
+De `MDC`-klasse heeft alleen statische methoden — `MDC.put(key, value)` om iets toe te voegen, `MDC.get(key)` om iets op te halen, `MDC.remove(key)` om één entry te verwijderen, en `MDC.clear()` om de hele map leeg te maken.
 
 Omdat het een `ThreadLocal` is, is alles wat je in de MDC stopt beperkt tot de huidige thread.
-Andere threads hebben elk hun eigen aparte map — `MDC.put()` en `MDC.get()` beïnvloeden alleen de MDC van de thread die ze aanroept.[^2]
+Andere threads hebben elk hun eigen aparte map — `MDC.put()` en `MDC.get()` beïnvloeden alleen de MDC van de thread die ze aanroept.
 In een webserver waarbij elk HTTP-request op zijn eigen thread draait, betekent dit dat elk request zijn eigen geïsoleerde context heeft, zonder risico dat threads elkaar beïnvloeden.
 
 Logback leest automatisch uit deze map wanneer het log messages formatteert.
-Je configureert welke velden in je log pattern komen via `%X{key}`[^3]:
+Je configureert welke velden in je log pattern komen via `%X{key}`:
 
 ```xml
 <pattern>%d{yyyy-MM-dd HH:mm:ss} [%X{userId}] [%X{requestId}] %-5level %logger - %msg%n</pattern>
@@ -120,7 +120,7 @@ try {
 }
 ```
 
-Het Logback manual zegt dit expliciet: een `put()` operatie hoort altijd gebalanceerd te worden door een corresponderende `remove()` en dat doen in een `finally` blok is de veiligste manier om te garanderen dat het altijd gebeurt, ongeacht het uitvoerpad.[^4]
+Het Logback manual zegt dit expliciet: een `put()` operatie hoort altijd gebalanceerd te worden door een corresponderende `remove()` en dat doen in een `finally` blok is de veiligste manier om te garanderen dat het altijd gebeurt, ongeacht het uitvoerpad.
 
 ## De simpele versie
 
@@ -221,7 +221,7 @@ Dit valt stil op.
 Je async logs hebben gewoon lege velden waar je waarden verwachtte, of erger, de waarden van de vorige context die die pooled thread had.
 Het is verwarrend en neemt een tijdje om te diagnosticeren als je niet weet waarnaar je zoekt.
 
-De aanbevolen aanpak[^5] is om een snapshot van de MDC te capturen voor je de taak indient en die te herstellen op de worker thread:
+De aanbevolen aanpak is om een snapshot van de MDC te capturen voor je de taak indient en die te herstellen op de worker thread:
 
 ```java
 public static Runnable wrap(Runnable runnable) {
@@ -288,7 +288,7 @@ public class RequestLoggingFilter extends OncePerRequestFilter {
 Op het moment dat de filter uitvoert, is de response nog niet gecommit, de chain is wat het request verwerkt en de status instelt.
 Dus je leest de status na de chain, niet ervoor.
 
-Logback levert zelf ook een ingebouwde filter hiervoor, `MDCInsertingServletFilter`[^6], die automatisch een standaard set request-velden vult. Goed om te weten dat hij bestaat, al geeft je eigen implementatie controle over precies welke velden er in komen.
+Logback levert zelf ook een ingebouwde filter hiervoor, `MDCInsertingServletFilter`, die automatisch een standaard set request-velden vult. Goed om te weten dat hij bestaat, al geeft je eigen implementatie controle over precies welke velden er in komen.
 
 ## Wat het er uitziet in Kibana
 
@@ -308,17 +308,12 @@ Na MDC: je stelt Kibana een concrete vraag en het antwoordt.
 
 ## Bronnen
 
-[^1]: SLF4J API — [MDC class documentatie](https://www.slf4j.org/api/org/slf4j/MDC.html). De MDC-klasse heeft alleen statische methoden en beheert contextuele informatie per thread.
-
-[^2]: Logback Manual, Hoofdstuk 8 — [Mapped Diagnostic Context](https://logback.qos.ch/manual/mdc.html). "MDC operations such as put() and get() affect only the MDC of the current thread, and the children of the current thread. The MDC in other threads remain unaffected."
-
-[^3]: Logback Manual, Hoofdstuk 6 — [Layouts](https://logback.qos.ch/manual/layouts.html). Het `%X{key}` conversiewoord is gedocumenteerd onder de PatternLayout-sectie.
-
-[^4]: Logback Manual, Hoofdstuk 8. "Normally, a put() operation should be balanced by the corresponding remove() operation. Otherwise, the MDC will contain stale values for certain keys. We would recommend that whenever possible, remove() operations be performed within finally blocks, ensuring their invocation regardless of the execution path of the code."
-
-[^5]: Logback Manual, Hoofdstuk 8, sectie "MDC And Managed Threads". "It is recommended that MDC.getCopyOfContextMap() is invoked on the original (master) thread before submitting a task to the executor. When the task runs, as its first action, it should invoke MDC.setContextMap() to associate the stored copy of the original MDC values with the new Executor managed thread."
-
-[^6]: Logback Manual, Hoofdstuk 8, sectie "MDCInsertingServletFilter" — [MDCInsertingServletFilter source](https://logback.qos.ch/xref/ch/qos/logback/classic/helpers/MDCInsertingServletFilter.html). Een ingebouwde Logback-filter die automatisch standaard HTTP request-velden in de MDC vult.
+- SLF4J API — [MDC class documentatie](https://www.slf4j.org/api/org/slf4j/MDC.html). De MDC-klasse heeft alleen statische methoden en beheert contextuele informatie per thread.
+- Logback Manual, Hoofdstuk 8 — [Mapped Diagnostic Context](https://logback.qos.ch/manual/mdc.html). "MDC operations such as put() and get() affect only the MDC of the current thread, and the children of the current thread. The MDC in other threads remain unaffected."
+- Logback Manual, Hoofdstuk 6 — [Layouts](https://logback.qos.ch/manual/layouts.html). Het `%X{key}` conversiewoord is gedocumenteerd onder de PatternLayout-sectie.
+- Logback Manual, Hoofdstuk 8. "Normally, a put() operation should be balanced by the corresponding remove() operation. Otherwise, the MDC will contain stale values for certain keys. We would recommend that whenever possible, remove() operations be performed within finally blocks, ensuring their invocation regardless of the execution path of the code."
+- Logback Manual, Hoofdstuk 8, sectie "MDC And Managed Threads". "It is recommended that MDC.getCopyOfContextMap() is invoked on the original (master) thread before submitting a task to the executor. When the task runs, as its first action, it should invoke MDC.setContextMap() to associate the stored copy of the original MDC values with the new Executor managed thread."
+- Logback Manual, Hoofdstuk 8, sectie "MDCInsertingServletFilter" — [MDCInsertingServletFilter source](https://logback.qos.ch/xref/ch/qos/logback/classic/helpers/MDCInsertingServletFilter.html). Een ingebouwde Logback-filter die automatisch standaard HTTP request-velden in de MDC vult.
 
 **Verder lezen:**
 - Neil Harrison, "Patterns for Logging Diagnostic Messages," in *Pattern Languages of Program Design 3*, red. R. Martin, D. Riehle, en F. Buschmann (Addison-Wesley, 1997). De originele paper waarop het concept van MDC gebaseerd is.

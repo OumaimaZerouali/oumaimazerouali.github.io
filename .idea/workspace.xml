@@ -3,11 +3,43 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="BackgroundAgentGlobalSettings">
+    <option name="selectedModelId" value="auto" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new post &quot;Things About Work Nobody Tells You&quot; and update related content in sitemap and index">
+    <list default="true" id="a4594015-7675-4967-89cb-7f1b912dc68c" name="Changes" comment="feat: Add new post &quot;Nobody Tells You When You're No Longer a Junior Developer&quot; and update related content in sitemap and index">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/pages.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/img/mdc-logging.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/en/2026-08-10-when-do-you-stop-being-a-junior.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2026-08-10-when-do-you-stop-being-a-junior.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-08-10-when-do-you-stop-being-a-junior.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/nl/2026-08-10-when-do-you-stop-being-a-junior.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/en/2026-07-30-mdc-logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/en/2026-07-30-mdc-logging.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_posts/nl/2026-07-30-mdc-logging.md" beforeDir="false" afterPath="$PROJECT_DIR$/_posts/nl/2026-07-30-mdc-logging.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/01/14/journey-as-a-junior/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/06/i-love-my-job/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/09/springboot-vs-quarkus/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/02/12/spongebob-and-software/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/01/ramadan-and-work/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/03/10/what-if-we-wrote-code-like-poetry/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/02/java-and-kubernetes/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/04/my-first-kubecon/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/05/i-dont-know-everything/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/04/08/openapi-angular/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/08/jcast/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/18/what-if-your-code-had-a-personality/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/05/19/saying-no-to-say-yes-to-yourself/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/06/24/saying-goodbye/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/01/error-404-motiviation-not-found/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/08/05/exceptions-should-be-exceptional/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/404.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/404.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/about/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/feed.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/feed.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/2025/10/05/testcontainers/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/about/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/about/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/nl/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/nl/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/posts/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/_site/posts/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/_site/sitemap.xml" beforeDir="false" afterPath="$PROJECT_DIR$/_site/sitemap.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,61 +102,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0514744385792234" />
-      <entry key="MS500" value="1.5524822423999558" />
-      <entry key="S2" value="1.8622089947706657" />
-      <entry key="S5" value="2.0313776931527325" />
-      <entry key="S10" value="2.959413617023072" />
-      <entry key="S30" value="6.920356014666916" />
-      <entry key="S60" value="9.501431783519141" />
-      <entry key="M2" value="11.961394158696113" />
-      <entry key="M5" value="17.38855049368155" />
-      <entry key="M10" value="28.9518411396381" />
-      <entry key="M15" value="39.341022736939" />
-      <entry key="M30" value="58.66459876961272" />
-      <entry key="H1" value="74.85719254305968" />
-      <entry key="H2" value="85.89467134740819" />
-      <entry key="H4" value="92.48651724727084" />
-      <entry key="D1" value="98.67537620123984" />
-      <entry key="W1" value="99.80887103632884" />
+      <entry key="MS100" value="1.9090387999202738" />
+      <entry key="MS500" value="2.50793763873836" />
+      <entry key="S2" value="2.848704954288907" />
+      <entry key="S5" value="3.0254725093357635" />
+      <entry key="S10" value="3.955109001371959" />
+      <entry key="S30" value="7.916999051455103" />
+      <entry key="S60" value="10.499127001374053" />
+      <entry key="M2" value="12.959943320530359" />
+      <entry key="M5" value="18.387706816417044" />
+      <entry key="M10" value="29.951138772110877" />
+      <entry key="M15" value="40.34038646264128" />
+      <entry key="M30" value="59.66412436751648" />
+      <entry key="H1" value="75.85688986920185" />
+      <entry key="H2" value="86.89449769610668" />
+      <entry key="H4" value="93.48642375828045" />
+      <entry key="D1" value="99.67535957707764" />
+      <entry key="W1" value="100.80886863416784" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.7329562041132947E-209" />
-      <entry key="S2" value="8.524574337650279E-53" />
-      <entry key="S5" value="2.091866825947075E-21" />
-      <entry key="S10" value="6.376488110532285E-11" />
-      <entry key="S30" value="6.340185094249079E-4" />
-      <entry key="S60" value="0.03786648855640521" />
-      <entry key="M2" value="0.35711653121258885" />
-      <entry key="M5" value="1.7567442363977066" />
-      <entry key="M10" value="3.1893697747679273" />
-      <entry key="M15" value="3.9217259863272815" />
-      <entry key="M30" value="4.841341027077884" />
-      <entry key="H1" value="5.387011606877771" />
-      <entry key="H2" value="5.684564207779287" />
-      <entry key="H4" value="5.839977090414062" />
-      <entry key="D1" value="5.973003281944521" />
-      <entry key="W1" value="5.9961352558972045" />
+      <entry key="MS500" value="2.654540846042253E-209" />
+      <entry key="S2" value="8.462757325022453E-53" />
+      <entry key="S5" value="2.0857858011482523E-21" />
+      <entry key="S10" value="6.367213188513327E-11" />
+      <entry key="S30" value="6.33710956344223E-4" />
+      <entry key="S60" value="0.03785730320321735" />
+      <entry key="M2" value="0.3570732153343366" />
+      <entry key="M5" value="1.7566590007035445" />
+      <entry key="M10" value="3.1892924011131294" />
+      <entry key="M15" value="3.92166255906296" />
+      <entry key="M30" value="4.841301876680881" />
+      <entry key="H1" value="5.386989825302349" />
+      <entry key="H2" value="5.684552715425248" />
+      <entry key="H4" value="5.839971187136716" />
+      <entry key="D1" value="5.973002275653193" />
+      <entry key="W1" value="5.996135111584559" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9656242917911347" />
-      <entry key="MS500" value="1.5223686465480837" />
-      <entry key="S2" value="1.8526970606696203" />
-      <entry key="S5" value="2.0273141243583783" />
-      <entry key="S10" value="2.957078799827856" />
-      <entry key="S30" value="6.919792689343961" />
-      <entry key="S60" value="9.53795090637122" />
-      <entry key="M2" value="12.315321222765762" />
-      <entry key="M5" value="19.139843094631765" />
-      <entry key="M10" value="32.136169660946095" />
-      <entry key="M15" value="43.25852473753106" />
-      <entry key="M30" value="63.503241488588834" />
-      <entry key="H1" value="80.24266674329954" />
-      <entry key="H2" value="91.57841269196292" />
-      <entry key="H4" value="98.32606828584346" />
-      <entry key="D1" value="104.64830633969277" />
-      <entry key="W1" value="105.80499578941132" />
+      <entry key="MS100" value="1.699355383016591" />
+      <entry key="MS500" value="2.4499955729113583" />
+      <entry key="S2" value="2.8320103726031074" />
+      <entry key="S5" value="3.0185137686016414" />
+      <entry key="S10" value="3.951323030091431" />
+      <entry key="S30" value="7.915950914058562" />
+      <entry key="S60" value="10.535394693618427" />
+      <entry key="M2" value="13.313706162183111" />
+      <entry key="M5" value="20.13886592705613" />
+      <entry key="M10" value="33.13536578220712" />
+      <entry key="M15" value="44.2578089309814" />
+      <entry key="M30" value="64.50271987123155" />
+      <entry key="H1" value="81.24233825073217" />
+      <entry key="H2" value="92.57822552829371" />
+      <entry key="H4" value="99.32596788316727" />
+      <entry key="D1" value="105.6482885407783" />
+      <entry key="W1" value="106.80499321887032" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -133,6 +165,21 @@
   <component name="ProjectId" id="2eExlf5z6MUb5WSklgma6ixHkBZ" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectSessionTemplates">
+    <option name="panelTemplate">
+      <template>
+        <option name="modeId" value="Agent" />
+        <option name="model">
+          <model>
+            <option name="modelType" value="builtin_id" />
+            <option name="modelValue" value="auto" />
+          </model>
+        </option>
+        <option name="targetType" value="BACKGROUND" />
+        <option name="worktreeMode" value="WORKSPACE" />
+      </template>
+    </option>
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -876,7 +923,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="feat: Add quotes from SpongeBob SquarePants to posts for enhanced engagement" />
     <MESSAGE value="feat: Update related posts and sitemap with new entries for JCast and AI chatbots" />
     <MESSAGE value="feat: Add weekly dev note layout and navigation links for enhanced content organization" />
     <MESSAGE value="feat: Update layout and styles for about and weekly pages to improve spacing and responsiveness" />
@@ -901,7 +947,8 @@
     <MESSAGE value="feat: Add new post on MDC logging, detailing implementation and best practices" />
     <MESSAGE value="feat: Update gallery with new artworks and modify feed for improved content accuracy" />
     <MESSAGE value="feat: Add new post &quot;Things About Work Nobody Tells You&quot; and update related content in sitemap and index" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new post &quot;Things About Work Nobody Tells You&quot; and update related content in sitemap and index" />
+    <MESSAGE value="feat: Add new post &quot;Nobody Tells You When You're No Longer a Junior Developer&quot; and update related content in sitemap and index" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Add new post &quot;Nobody Tells You When You're No Longer a Junior Developer&quot; and update related content in sitemap and index" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="VgoProject">

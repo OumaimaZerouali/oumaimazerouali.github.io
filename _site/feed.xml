@@ -1,5 +1,613 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-07-28T14:28:26+02:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Oumi</title><subtitle>A personal site by a software developer: engineering writing, JCast, and hand-made art.
-</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="nl"><title type="html">Dingen over het werk, die niemand je vertelt</title><link href="http://localhost:4000/nl/2026/07/28/secrets-of-work/" rel="alternate" type="text/html" title="Dingen over het werk, die niemand je vertelt" /><published>2026-07-28T11:00:00+02:00</published><updated>2026-07-28T11:00:00+02:00</updated><id>http://localhost:4000/nl/2026/07/28/secrets-of-work</id><content type="html" xml:base="http://localhost:4000/nl/2026/07/28/secrets-of-work/"><![CDATA[<p>Dit is geen post over productiviteitssystemen. 
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.4">Jekyll</generator><link href="https://oumaimazerouali.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://oumaimazerouali.github.io/" rel="alternate" type="text/html" /><updated>2026-08-03T10:04:19+02:00</updated><id>https://oumaimazerouali.github.io/feed.xml</id><title type="html">Oumi</title><subtitle>A personal site by a software developer: engineering writing, JCast, and hand-made art.
+</subtitle><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><entry xml:lang="en"><title type="html">MDC Logging: I Had No Idea What I Was Doing (And That’s the Point)</title><link href="https://oumaimazerouali.github.io/2026/07/30/mdc-logging/" rel="alternate" type="text/html" title="MDC Logging: I Had No Idea What I Was Doing (And That’s the Point)" /><published>2026-07-30T11:00:00+02:00</published><updated>2026-07-30T11:00:00+02:00</updated><id>https://oumaimazerouali.github.io/2026/07/30/mdc-logging</id><content type="html" xml:base="https://oumaimazerouali.github.io/2026/07/30/mdc-logging/"><![CDATA[<p>Someone from the team asked me to add MDC logging to the project.
+“Sure,” I said.
+I had absolutely no idea what MDC logging was.</p>
+
+<p>This is a story about that. Not about how I figured it out in ten minutes and everything was fine.
+But about the specific experience of being handed a term you’ve never heard before, implementing it across multiple projects, and watching it quietly turn into something you actually understand.
+Including the parts where it didn’t work the way you expected.</p>
+
+<p>The other thing I want to do is explain MDC the way I wish someone had explained it to me. 
+Most resources I found either assume you already know what it is, or end with “it’s a powerful tool!” without really telling you what that means in practice. 
+The one resource that actually helped me was the <a href="https://logback.qos.ch/manual/mdc.html">Logback manual, chapter 8</a>. 
+Everything else was surface level. So let me try to do better.</p>
+
+<h2 id="the-actual-problem-mdc-solves">The actual problem MDC solves</h2>
+
+<p>Imagine you have a web application handling requests.
+Multiple users are making requests at the same time.
+Your server handles each request on its own thread, and your code logs things as it processes.</p>
+
+<p>The problem is that all of those log lines end up in the same log file, completely mixed together:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INFO  Processing request
+INFO  Processing request
+INFO  Validation passed
+INFO  Processing request
+ERROR Something went wrong
+INFO  Validation passed
+INFO  Flow completed
+</code></pre></div></div>
+
+<p>Which request failed?
+Which one completed?
+<em>You have no idea.</em></p>
+
+<p>You can look at timestamps and try to guess, but in a busy system with requests completing in milliseconds, this is effectively hopeless.</p>
+
+<p>The naive fix is to add identifying information to every single log call manually:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Processing request for user {}"</span><span class="o">,</span> <span class="n">userId</span><span class="o">);</span>
+<span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Validation passed for user {}"</span><span class="o">,</span> <span class="n">userId</span><span class="o">);</span>
+<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Something went wrong for user {}"</span><span class="o">,</span> <span class="n">userId</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>This works, but it’s tedious, it’s easy to forget, and it means your <code class="language-plaintext highlighter-rouge">userId</code> has to be passed down through every method just so it can show up in log lines.
+That gets messy fast.
+MDC is the clean solution to this problem.</p>
+
+<h2 id="what-mdc-actually-is">What MDC actually is</h2>
+
+<p>MDC stands for Mapped Diagnostic Context. It’s part of SLF4J, and under the hood it is exactly this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ThreadLocal&lt;Map&lt;String, String&gt;&gt;
+</code></pre></div></div>
+
+<p>That’s it.
+A map of strings, stored on the current thread.
+The <code class="language-plaintext highlighter-rouge">MDC</code> class has only static methods: <code class="language-plaintext highlighter-rouge">MDC.put(key, value)</code> to add something, <code class="language-plaintext highlighter-rouge">MDC.get(key)</code> to retrieve it, <code class="language-plaintext highlighter-rouge">MDC.remove(key)</code> to remove one entry, and <code class="language-plaintext highlighter-rouge">MDC.clear()</code> to wipe the whole map.</p>
+
+<p>Because it’s backed by a <code class="language-plaintext highlighter-rouge">ThreadLocal</code>, whatever you put in the MDC is scoped to the current thread only.
+Other threads each have their own separate map: <code class="language-plaintext highlighter-rouge">MDC.put()</code> and <code class="language-plaintext highlighter-rouge">MDC.get()</code> affect only the MDC of the thread that calls them.
+In a web server where each HTTP request runs on its own thread, this means each request gets its own isolated context with no risk of threads interfering with each other.</p>
+
+<p>Logback reads from this map automatically when it formats log messages.
+You configure which fields to include in your log pattern using <code class="language-plaintext highlighter-rouge">%X{key}</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd HH:mm:ss} [%X{userId}] [%X{requestId}] %-5level %logger - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+</code></pre></div></div>
+
+<p>Every log line that thread produces will now include <code class="language-plaintext highlighter-rouge">userId</code> and <code class="language-plaintext highlighter-rouge">requestId</code> from the MDC, without you ever passing them as parameters to your log calls.
+Set them once, get them everywhere.</p>
+
+<p>With that in place, your logs look like this:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INFO  [userId=u-4821] [requestId=req-99x] Processing request
+INFO  [userId=u-4821] [requestId=req-99x] Validation passed
+ERROR [userId=u-4821] [requestId=req-99x] Something went wrong
+INFO  [userId=u-1337] [requestId=req-01a] Processing request
+INFO  [userId=u-1337] [requestId=req-01a] Flow completed
+</code></pre></div></div>
+
+<p>Now you can filter on <code class="language-plaintext highlighter-rouge">requestId : req-99x</code> and see exactly what happened for that one request, in order, across every method and service layer that touched it.</p>
+
+<p>One more thing worth knowing: MDC map lookup is cheap.
+You’re reading from a map stored on the current thread: no I/O, no network call, no database lookup.
+The overhead is negligible. Don’t let performance concerns talk you out of using it.</p>
+
+<h2 id="the-cleanup-rule">The cleanup rule</h2>
+
+<p>There is one rule you cannot forget: <strong>always clear the MDC when you’re done.</strong></p>
+
+<p>This is where the <code class="language-plaintext highlighter-rouge">ThreadLocal</code> nature of MDC becomes a footgun.
+Web servers use thread pools, which means threads are reused.
+When a request finishes on a thread, that thread goes back into the pool.
+The next request to pick it up will inherit whatever was left in the MDC from the previous one: wrong userId, wrong requestId, wrong everything.</p>
+
+<p>Always clear in a <code class="language-plaintext highlighter-rouge">finally</code> block so it runs even when exceptions are thrown:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"userId"</span><span class="o">,</span> <span class="n">userId</span><span class="o">);</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"requestId"</span><span class="o">,</span> <span class="n">requestId</span><span class="o">);</span>
+    <span class="c1">// ... your logic</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The Logback manual makes this point directly: a <code class="language-plaintext highlighter-rouge">put()</code> operation should always be balanced by a corresponding <code class="language-plaintext highlighter-rouge">remove()</code> and doing that in a <code class="language-plaintext highlighter-rouge">finally</code> block is the safest way to ensure it happens regardless of the execution path.</p>
+
+<h2 id="the-simple-version">The simple version</h2>
+
+<p>The first time I implemented MDC, I kept it straightforward.
+Set some fields at the start of a flow, update them as things progress, clear everything in a <code class="language-plaintext highlighter-rouge">finally</code> block at the end.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"version"</span><span class="o">,</span> <span class="s">"3.0"</span><span class="o">);</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"response"</span><span class="o">,</span> <span class="s">"102"</span><span class="o">);</span> <span class="c1">// in progress</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Starting flow"</span><span class="o">);</span>
+
+    <span class="kt">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">doTheActualWork</span><span class="o">();</span>
+
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"response"</span><span class="o">,</span> <span class="s">"201"</span><span class="o">);</span> <span class="c1">// success</span>
+    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Flow completed"</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"response"</span><span class="o">,</span> <span class="s">"500"</span><span class="o">);</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"error"</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+    <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Flow failed"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="o">;</span>
+
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>The <code class="language-plaintext highlighter-rouge">response</code> field updating as you go: 102 while processing, 201 on success, 500 on error. This means you can see in Kibana not just that something failed but at what point in the flow it failed.
+That felt surprisingly powerful for something so simple to add.</p>
+
+<h2 id="it-gets-more-interesting">It gets more interesting</h2>
+
+<p>The second project was more complex.
+More services, more async processing, more cases where the simple inline approach stopped being enough.
+So things got more architectural.</p>
+
+<p>Instead of scattering <code class="language-plaintext highlighter-rouge">MDC.put()</code> calls throughout the code, I started encapsulating them in dedicated context classes: a class responsible for setting, updating, and clearing a specific set of MDC fields, with a clear <code class="language-plaintext highlighter-rouge">start()</code> / <code class="language-plaintext highlighter-rouge">finish()</code> lifecycle.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">ProcessingMdcContext</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">STATUS_KEY</span>   <span class="o">=</span> <span class="s">"process.status"</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">DURATION_KEY</span> <span class="o">=</span> <span class="s">"process.durationMs"</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">ERROR_KEY</span>    <span class="o">=</span> <span class="s">"process.errorReason"</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">ThreadLocal</span><span class="o">&lt;</span><span class="nc">Long</span><span class="o">&gt;</span> <span class="no">START_NANOS</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ThreadLocal</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="no">START_NANOS</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">());</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="no">STATUS_KEY</span><span class="o">,</span> <span class="s">"PROCESSING"</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">DURATION_KEY</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">ERROR_KEY</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">finish</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">success</span><span class="o">,</span> <span class="nc">Throwable</span> <span class="n">cause</span><span class="o">)</span> <span class="o">{</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="no">STATUS_KEY</span><span class="o">,</span> <span class="n">success</span> <span class="o">?</span> <span class="s">"SUCCESS"</span> <span class="o">:</span> <span class="s">"FAILED"</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="no">DURATION_KEY</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">computeDurationMs</span><span class="o">()));</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">success</span><span class="o">)</span> <span class="o">{</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="no">ERROR_KEY</span><span class="o">,</span> <span class="n">classifyError</span><span class="o">(</span><span class="n">cause</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">clear</span><span class="o">()</span> <span class="o">{</span>
+        <span class="no">START_NANOS</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">STATUS_KEY</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">DURATION_KEY</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">ERROR_KEY</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">computeDurationMs</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Long</span> <span class="n">start</span> <span class="o">=</span> <span class="no">START_NANOS</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">start</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="nc">TimeUnit</span><span class="o">.</span><span class="na">NANOSECONDS</span><span class="o">.</span><span class="na">toMillis</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>This is nicer for a few reasons.
+The field names are constants, so you can’t typo them. The <code class="language-plaintext highlighter-rouge">start()</code> / <code class="language-plaintext highlighter-rouge">finish()</code> pattern makes the lifecycle explicit and harder to mess up.
+And tracking duration via a separate <code class="language-plaintext highlighter-rouge">ThreadLocal&lt;Long&gt;</code> means you get <code class="language-plaintext highlighter-rouge">process.durationMs</code> in every log line automatically, which in Kibana lets you build dashboards showing how long operations take, where the slow ones cluster, which error types cost the most time.</p>
+
+<p>Notice that <code class="language-plaintext highlighter-rouge">ProcessingMdcContext</code> is itself using a <code class="language-plaintext highlighter-rouge">ThreadLocal</code> for the start time, mirroring exactly how MDC works internally.
+Once you understand that MDC is just <code class="language-plaintext highlighter-rouge">ThreadLocal&lt;Map&lt;String,String&gt;&gt;</code>, reaching for <code class="language-plaintext highlighter-rouge">ThreadLocal</code> yourself for related tracking feels natural.</p>
+
+<h2 id="the-thread-pool-problem">The thread pool problem</h2>
+
+<p>Here is the catch that Google doesn’t warn you about until you’ve already hit it.</p>
+
+<p>MDC is thread-local.
+That’s the whole point of it.
+But it also means: if you kick off async work on a thread pool, that new thread starts with an empty MDC.
+Your context does not propagate automatically.
+The fields you carefully set up on the original thread are invisible on any thread that work gets handed off to.</p>
+
+<p>This shows up silently.
+Your async logs just have blank fields where you expected values, or worse, the values from whatever context that pooled thread previously held.
+It’s confusing and takes a while to diagnose if you don’t know what to look for.</p>
+
+<p>The recommended approach is to capture a snapshot of the MDC before submitting the task and restore it on the worker thread:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="nc">Runnable</span> <span class="nf">wrap</span><span class="o">(</span><span class="nc">Runnable</span> <span class="n">runnable</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">capturedContext</span> <span class="o">=</span> <span class="no">MDC</span><span class="o">.</span><span class="na">getCopyOfContextMap</span><span class="o">();</span>
+    <span class="k">return</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">previous</span> <span class="o">=</span> <span class="no">MDC</span><span class="o">.</span><span class="na">getCopyOfContextMap</span><span class="o">();</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">capturedContext</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="no">MDC</span><span class="o">.</span><span class="na">setContextMap</span><span class="o">(</span><span class="n">capturedContext</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="n">runnable</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">previous</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="no">MDC</span><span class="o">.</span><span class="na">setContextMap</span><span class="o">(</span><span class="n">previous</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">MDC.getCopyOfContextMap()</code> gives you a snapshot of the current thread’s MDC map at the moment you call it.
+The returned <code class="language-plaintext highlighter-rouge">Runnable</code> then sets that snapshot as the context on whatever thread eventually executes the task, and restores whatever was there before when it’s done.</p>
+
+<p>You call it like this before submitting to an executor:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">executor</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="nc">ProcessingMdcContext</span><span class="o">.</span><span class="na">wrap</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">doAsyncWork</span><span class="o">()));</span>
+</code></pre></div></div>
+
+<p>The context travels with the task.
+Your async log lines have the same MDC fields as the thread that submitted the work.</p>
+
+<h2 id="http-context-via-a-filter">HTTP context via a filter</h2>
+
+<p>For the HTTP layer, the cleanest approach is a <code class="language-plaintext highlighter-rouge">OncePerRequestFilter</code>.
+This is a Spring class that guarantees your filter logic runs exactly once per request, even in complex filter chains.
+You use it to populate MDC fields at the start of every request: method, path, client IP, so they flow through every log line the request produces, regardless of which service class or method generates them.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RequestLoggingFilter</span> <span class="kd">extends</span> <span class="nc">OncePerRequestFilter</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doFilterInternal</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span>
+                                    <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span>
+                                    <span class="nc">FilterChain</span> <span class="n">chain</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"request.method"</span><span class="o">,</span> <span class="n">request</span><span class="o">.</span><span class="na">getMethod</span><span class="o">());</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"request.path"</span><span class="o">,</span>   <span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">());</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"request.clientIp"</span><span class="o">,</span> <span class="n">request</span><span class="o">.</span><span class="na">getRemoteAddr</span><span class="o">());</span>
+            <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"response.status"</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()));</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">response.status</code> goes in the <code class="language-plaintext highlighter-rouge">finally</code> block, not before <code class="language-plaintext highlighter-rouge">chain.doFilter()</code>.
+At the point the filter runs, the response hasn’t been committed yet, the chain is what actually processes the request and sets the status.
+So you read the status after the chain executes, not before.</p>
+
+<p>Logback actually ships a built-in filter for this called <code class="language-plaintext highlighter-rouge">MDCInsertingServletFilter</code> that automatically populates a standard set of request fields. Worth knowing it exists, though building your own gives you control over exactly which fields go in.</p>
+
+<h2 id="what-it-looks-like-in-kibana">What it looks like in Kibana</h2>
+
+<p>This is where it all pays off.
+Logback (via logstash-logback-encoder or equivalent) can serialize your MDC fields as structured JSON fields, which Elasticsearch indexes individually.
+That means in Kibana you can query on them directly.</p>
+
+<p>Once your MDC fields are indexed, you can filter on <code class="language-plaintext highlighter-rouge">structured.version : 3.0</code> and see everything that happened in that flow across all services.
+You can filter on <code class="language-plaintext highlighter-rouge">structured.process.status : FAILED</code> and sort by <code class="language-plaintext highlighter-rouge">structured.process.durationMs</code> to find which failures took the longest.
+You can build a dashboard that shows your error distribution by <code class="language-plaintext highlighter-rouge">structured.process.errorReason</code> over time.
+You can trace a single async operation across threads because you wrapped the runnable and the context traveled with it.</p>
+
+<p>Before MDC: a wall of log lines, timestamps, and manual detective work.
+After MDC: you ask Kibana a specific question and it answers.</p>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<ul>
+  <li>SLF4J API — <a href="https://www.slf4j.org/api/org/slf4j/MDC.html">MDC class documentation</a>. The MDC class exposes only static methods and manages contextual information on a per-thread basis.</li>
+  <li>Logback Manual, Chapter 8 — <a href="https://logback.qos.ch/manual/mdc.html">Mapped Diagnostic Context</a>. “MDC operations such as put() and get() affect only the MDC of the current thread, and the children of the current thread. The MDC in other threads remain unaffected.”</li>
+  <li>Logback Manual, Chapter 6 — <a href="https://logback.qos.ch/manual/layouts.html">Layouts</a>. The <code class="language-plaintext highlighter-rouge">%X{key}</code> conversion word is documented under the PatternLayout section.</li>
+  <li>Logback Manual, Chapter 8. “Normally, a put() operation should be balanced by the corresponding remove() operation. Otherwise, the MDC will contain stale values for certain keys. We would recommend that whenever possible, remove() operations be performed within finally blocks, ensuring their invocation regardless of the execution path of the code.”</li>
+  <li>Logback Manual, Chapter 8, section “MDC And Managed Threads”. “It is recommended that MDC.getCopyOfContextMap() is invoked on the original (master) thread before submitting a task to the executor. When the task runs, as its first action, it should invoke MDC.setContextMap() to associate the stored copy of the original MDC values with the new Executor managed thread.”</li>
+  <li>Logback Manual, Chapter 8, section “MDCInsertingServletFilter” — <a href="https://logback.qos.ch/xref/ch/qos/logback/classic/helpers/MDCInsertingServletFilter.html">MDCInsertingServletFilter source</a>. A built-in Logback filter that automatically populates standard HTTP request fields into the MDC.</li>
+</ul>
+
+<p><strong>Further reading:</strong></p>
+<ul>
+  <li>Neil Harrison, “Patterns for Logging Diagnostic Messages,” in <em>Pattern Languages of Program Design 3</em>, ed. R. Martin, D. Riehle, and F. Buschmann (Addison-Wesley, 1997). The original paper that described the technique MDC is built on.</li>
+  <li><a href="https://github.com/logfellow/logstash-logback-encoder">logstash-logback-encoder</a> — for shipping structured MDC fields to Elasticsearch/Kibana.</li>
+  <li>Spring Framework — <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/filter/OncePerRequestFilter.html">OncePerRequestFilter</a> API docs.</li>
+</ul>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="logging" /><category term="kibana" /><category term="dev-life" /><category term="learning" /><summary type="html"><![CDATA[Someone from the team asked me to add MDC logging to the project. “Sure,” I said. I had absolutely no idea what MDC logging was.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/mdc-logging.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/mdc-logging.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">MDC Logging: ik had geen idee wat ik deed (en dat was het punt)</title><link href="https://oumaimazerouali.github.io/nl/2026/07/30/mdc-logging/" rel="alternate" type="text/html" title="MDC Logging: ik had geen idee wat ik deed (en dat was het punt)" /><published>2026-07-30T11:00:00+02:00</published><updated>2026-07-30T11:00:00+02:00</updated><id>https://oumaimazerouali.github.io/nl/2026/07/30/mdc-logging</id><content type="html" xml:base="https://oumaimazerouali.github.io/nl/2026/07/30/mdc-logging/"><![CDATA[<p>Iemand van het team vroeg me om MDC logging toe te voegen aan het project.
+“Geen probleem,” zei ik.
+Ik had absoluut geen idee wat MDC logging was.</p>
+
+<p>Dit is het verhaal daarvan. 
+Niet hoe ik het in tien minuten uitgevogeld had en alles prima was. 
+Maar over de specifieke ervaring van een term meekrijgen die je nog nooit gehoord hebt, die implementeren over meerdere projecten, en zien hoe het stilletjes iets wordt dat je écht begrijpt. 
+Inclusief de momenten waarop het niet werkte zoals verwacht.</p>
+
+<p>Het andere wat ik wil doen is MDC uitleggen op de manier die ik zelf had willen lezen. 
+De meeste resources die ik vond gaan er óf van uit dat je al weet wat het is, óf eindigen met “het is een krachtige tool!” zonder echt te vertellen wat dat in de praktijk betekent. 
+De enige die me echt hielp was het <a href="https://logback.qos.ch/manual/mdc.html">Logback manual, hoofdstuk 8</a>. 
+De rest bleef oppervlakkig. Dus ik ga mijn best doen om het beter te doen.</p>
+
+<h2 id="het-echte-probleem-dat-mdc-oplost">Het echte probleem dat MDC oplost</h2>
+
+<p>Stel je voor: een webapplicatie die requests verwerkt.
+Meerdere gebruikers tegelijk.
+Je server verwerkt elk request op zijn eigen thread, en je code logt dingen terwijl het bezig is.</p>
+
+<p>Het probleem is dat al die logregels terechtkomen in hetzelfde logbestand, volledig door elkaar:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INFO  Processing request
+INFO  Processing request
+INFO  Validation passed
+INFO  Processing request
+ERROR Something went wrong
+INFO  Validation passed
+INFO  Flow completed
+</code></pre></div></div>
+
+<p>Welk request is mislukt?
+Welk heeft het gehaald?
+<em>Geen idee.</em></p>
+
+<p>Je kunt kijken naar timestamps en proberen te raden, maar in een druk systeem waar requests in milliseconden afgehandeld worden, is dat effectief onmogelijk.</p>
+
+<p>De naïeve fix is om op elke log call manueel identificerende informatie toe te voegen:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Processing request for user {}"</span><span class="o">,</span> <span class="n">userId</span><span class="o">);</span>
+<span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Validation passed for user {}"</span><span class="o">,</span> <span class="n">userId</span><span class="o">);</span>
+<span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Something went wrong for user {}"</span><span class="o">,</span> <span class="n">userId</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Dit werkt, maar het is vervelend, makkelijk te vergeten, en het betekent dat je <code class="language-plaintext highlighter-rouge">userId</code> door elke methode moet doorgeven alleen maar zodat het in logregels kan verschijnen.
+Dat wordt snel een rommel.
+MDC is de nette oplossing voor dit probleem.</p>
+
+<h2 id="wat-mdc-eigenlijk-is">Wat MDC eigenlijk is</h2>
+
+<p>MDC staat voor Mapped Diagnostic Context. Het is onderdeel van SLF4J, en intern is het precies dit:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ThreadLocal&lt;Map&lt;String, String&gt;&gt;
+</code></pre></div></div>
+
+<p>Dat is het.
+Een map van strings, opgeslagen op de huidige thread.
+De <code class="language-plaintext highlighter-rouge">MDC</code>-klasse heeft alleen statische methoden — <code class="language-plaintext highlighter-rouge">MDC.put(key, value)</code> om iets toe te voegen, <code class="language-plaintext highlighter-rouge">MDC.get(key)</code> om iets op te halen, <code class="language-plaintext highlighter-rouge">MDC.remove(key)</code> om één entry te verwijderen, en <code class="language-plaintext highlighter-rouge">MDC.clear()</code> om de hele map leeg te maken.</p>
+
+<p>Omdat het een <code class="language-plaintext highlighter-rouge">ThreadLocal</code> is, is alles wat je in de MDC stopt beperkt tot de huidige thread.
+Andere threads hebben elk hun eigen aparte map — <code class="language-plaintext highlighter-rouge">MDC.put()</code> en <code class="language-plaintext highlighter-rouge">MDC.get()</code> beïnvloeden alleen de MDC van de thread die ze aanroept.
+In een webserver waarbij elk HTTP-request op zijn eigen thread draait, betekent dit dat elk request zijn eigen geïsoleerde context heeft, zonder risico dat threads elkaar beïnvloeden.</p>
+
+<p>Logback leest automatisch uit deze map wanneer het log messages formatteert.
+Je configureert welke velden in je log pattern komen via <code class="language-plaintext highlighter-rouge">%X{key}</code>:</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;pattern&gt;</span>%d{yyyy-MM-dd HH:mm:ss} [%X{userId}] [%X{requestId}] %-5level %logger - %msg%n<span class="nt">&lt;/pattern&gt;</span>
+</code></pre></div></div>
+
+<p>Elke logregel die die thread produceert bevat nu automatisch <code class="language-plaintext highlighter-rouge">userId</code> en <code class="language-plaintext highlighter-rouge">requestId</code> uit de MDC, zonder dat je ze ooit als parameters aan je log calls meegeeft.
+Één keer zetten, overal aanwezig.</p>
+
+<p>Met dat op zijn plek zien je logs er zo uit:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INFO  [userId=u-4821] [requestId=req-99x] Processing request
+INFO  [userId=u-4821] [requestId=req-99x] Validation passed
+ERROR [userId=u-4821] [requestId=req-99x] Something went wrong
+INFO  [userId=u-1337] [requestId=req-01a] Processing request
+INFO  [userId=u-1337] [requestId=req-01a] Flow completed
+</code></pre></div></div>
+
+<p>Nu kun je in Kibana filteren op <code class="language-plaintext highlighter-rouge">requestId : req-99x</code> en precies zien wat er is gebeurd voor dat ene request, in volgorde, over elke methode en servicelaag die het aanraakte.</p>
+
+<p>Nog iets wat de moeite waard is om te weten: een MDC map lookup is goedkoop.
+Je leest uit een map die op de huidige thread staat: geen I/O, geen netwerkaanroep, geen database lookup.
+De overhead is verwaarloosbaar. Laat performancezorgen je er niet van weerhouden het te gebruiken.</p>
+
+<h2 id="de-cleanup-regel">De cleanup-regel</h2>
+
+<p>Er is één regel die je niet mag vergeten: <strong>clear de MDC altijd als je klaar bent.</strong></p>
+
+<p>Dit is waar de <code class="language-plaintext highlighter-rouge">ThreadLocal</code>-aard van MDC een valkuil wordt.
+Webservers gebruiken thread pools, wat betekent dat threads hergebruikt worden.
+Als een request afgerond is op een thread, gaat die thread terug in de pool.
+Het volgende request dat hem oppikt, erft wat er in de MDC achterblijft van het vorige: verkeerde userId, verkeerde requestId, verkeerd alles.</p>
+
+<p>Clear altijd in een <code class="language-plaintext highlighter-rouge">finally</code> blok, zodat het ook bij exceptions wordt uitgevoerd:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"userId"</span><span class="o">,</span> <span class="n">userId</span><span class="o">);</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"requestId"</span><span class="o">,</span> <span class="n">requestId</span><span class="o">);</span>
+    <span class="c1">// ... je logica</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Het Logback manual zegt dit expliciet: een <code class="language-plaintext highlighter-rouge">put()</code> operatie hoort altijd gebalanceerd te worden door een corresponderende <code class="language-plaintext highlighter-rouge">remove()</code> en dat doen in een <code class="language-plaintext highlighter-rouge">finally</code> blok is de veiligste manier om te garanderen dat het altijd gebeurt, ongeacht het uitvoerpad.</p>
+
+<h2 id="de-simpele-versie">De simpele versie</h2>
+
+<p>De eerste keer dat ik MDC implementeerde, hield ik het rechttoe rechtaan.
+Velden zetten aan het begin van een flow, updaten terwijl dingen vorderen, alles clearen in een <code class="language-plaintext highlighter-rouge">finally</code> blok op het einde.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"version"</span><span class="o">,</span> <span class="s">"3.0"</span><span class="o">);</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"response"</span><span class="o">,</span> <span class="s">"102"</span><span class="o">);</span> <span class="c1">// in verwerking</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Flow gestart"</span><span class="o">);</span>
+
+    <span class="kt">var</span> <span class="n">result</span> <span class="o">=</span> <span class="n">doHetEchteWerk</span><span class="o">();</span>
+
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"response"</span><span class="o">,</span> <span class="s">"201"</span><span class="o">);</span> <span class="c1">// success</span>
+    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">"Flow afgerond"</span><span class="o">);</span>
+
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"response"</span><span class="o">,</span> <span class="s">"500"</span><span class="o">);</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"error"</span><span class="o">,</span> <span class="n">e</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getSimpleName</span><span class="o">());</span>
+    <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Flow mislukt"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+    <span class="k">throw</span> <span class="n">e</span><span class="o">;</span>
+
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+    <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Het <code class="language-plaintext highlighter-rouge">response</code>-veld dat meegaat terwijl je verder gaat: 102 tijdens verwerking, 201 bij success, 500 bij error, betekent dat je in Kibana niet alleen ziet dát iets misliep, maar op welk punt in de flow het gebeurde. Dat voelde verrassend krachtig voor iets zo eenvoudigs om toe te voegen.</p>
+
+<h2 id="het-wordt-interessanter">Het wordt interessanter</h2>
+
+<p>Het tweede project was complexer.
+Meer services, meer asynchrone verwerking, meer gevallen waarbij de simpele inline aanpak niet meer genoeg was.
+Dus werd het architecturaler.</p>
+
+<p>In plaats van <code class="language-plaintext highlighter-rouge">MDC.put()</code> calls door de code te strooien, begon ik ze te encapsuleren in dedicated context classes: een klasse verantwoordelijk voor het zetten, updaten en clearen van een specifieke set MDC-velden, met een duidelijke <code class="language-plaintext highlighter-rouge">start()</code> / <code class="language-plaintext highlighter-rouge">finish()</code> lifecycle.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">final</span> <span class="kd">class</span> <span class="nc">ProcessingMdcContext</span> <span class="o">{</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">STATUS_KEY</span>   <span class="o">=</span> <span class="s">"process.status"</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">DURATION_KEY</span> <span class="o">=</span> <span class="s">"process.durationMs"</span><span class="o">;</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">String</span> <span class="no">ERROR_KEY</span>    <span class="o">=</span> <span class="s">"process.errorReason"</span><span class="o">;</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="nc">ThreadLocal</span><span class="o">&lt;</span><span class="nc">Long</span><span class="o">&gt;</span> <span class="no">START_NANOS</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ThreadLocal</span><span class="o">&lt;&gt;();</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">start</span><span class="o">()</span> <span class="o">{</span>
+        <span class="no">START_NANOS</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">());</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="no">STATUS_KEY</span><span class="o">,</span> <span class="s">"PROCESSING"</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">DURATION_KEY</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">ERROR_KEY</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">finish</span><span class="o">(</span><span class="kt">boolean</span> <span class="n">success</span><span class="o">,</span> <span class="nc">Throwable</span> <span class="n">cause</span><span class="o">)</span> <span class="o">{</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="no">STATUS_KEY</span><span class="o">,</span> <span class="n">success</span> <span class="o">?</span> <span class="s">"SUCCESS"</span> <span class="o">:</span> <span class="s">"FAILED"</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="no">DURATION_KEY</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">computeDurationMs</span><span class="o">()));</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">success</span><span class="o">)</span> <span class="o">{</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="no">ERROR_KEY</span><span class="o">,</span> <span class="n">classifyError</span><span class="o">(</span><span class="n">cause</span><span class="o">));</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">clear</span><span class="o">()</span> <span class="o">{</span>
+        <span class="no">START_NANOS</span><span class="o">.</span><span class="na">remove</span><span class="o">();</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">STATUS_KEY</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">DURATION_KEY</span><span class="o">);</span>
+        <span class="no">MDC</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="no">ERROR_KEY</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">long</span> <span class="nf">computeDurationMs</span><span class="o">()</span> <span class="o">{</span>
+        <span class="nc">Long</span> <span class="n">start</span> <span class="o">=</span> <span class="no">START_NANOS</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">start</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">?</span> <span class="mi">0</span> <span class="o">:</span> <span class="nc">TimeUnit</span><span class="o">.</span><span class="na">NANOSECONDS</span><span class="o">.</span><span class="na">toMillis</span><span class="o">(</span><span class="nc">System</span><span class="o">.</span><span class="na">nanoTime</span><span class="o">()</span> <span class="o">-</span> <span class="n">start</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Dit is netter om een paar redenen.
+De veldnamen zijn constanten, dus je kunt ze niet fout typen. Het <code class="language-plaintext highlighter-rouge">start()</code> / <code class="language-plaintext highlighter-rouge">finish()</code> patroon maakt de lifecycle expliciet en moeilijker om te verknallen.
+En duration bijhouden via <code class="language-plaintext highlighter-rouge">ThreadLocal&lt;Long&gt;</code> betekent dat je <code class="language-plaintext highlighter-rouge">process.durationMs</code> automatisch in elke logregel krijgt, wat in Kibana dashboards laat bouwen die tonen hoe lang operaties duren, waar de trage ones clusteren, welke error types de meeste tijd kosten.</p>
+
+<p>Merk op dat <code class="language-plaintext highlighter-rouge">ProcessingMdcContext</code> zelf een <code class="language-plaintext highlighter-rouge">ThreadLocal</code> gebruikt voor de starttijd, precies zoals MDC intern werkt.
+Eens je begrijpt dat MDC gewoon <code class="language-plaintext highlighter-rouge">ThreadLocal&lt;Map&lt;String,String&gt;&gt;</code> is, voelt het vanzelfsprekend om <code class="language-plaintext highlighter-rouge">ThreadLocal</code> zelf te gebruiken voor gerelateerde tracking.</p>
+
+<h2 id="het-thread-pool-probleem">Het thread pool probleem</h2>
+
+<p>Hier is de valkuil die Google je pas waarschuwt nadat je hem al gevonden hebt.</p>
+
+<p>MDC is thread-local.
+Dat is het hele punt.
+Maar het betekent ook: als je async werk start op een thread pool, begint die nieuwe thread met een lege MDC.
+Je context propageert niet automatisch.
+De velden die je zorgvuldig hebt ingesteld op de originele thread zijn onzichtbaar op elke thread waar het werk aan doorgegeven wordt.</p>
+
+<p>Dit valt stil op.
+Je async logs hebben gewoon lege velden waar je waarden verwachtte, of erger, de waarden van de vorige context die die pooled thread had.
+Het is verwarrend en neemt een tijdje om te diagnosticeren als je niet weet waarnaar je zoekt.</p>
+
+<p>De aanbevolen aanpak is om een snapshot van de MDC te capturen voor je de taak indient en die te herstellen op de worker thread:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">static</span> <span class="nc">Runnable</span> <span class="nf">wrap</span><span class="o">(</span><span class="nc">Runnable</span> <span class="n">runnable</span><span class="o">)</span> <span class="o">{</span>
+    <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">capturedContext</span> <span class="o">=</span> <span class="no">MDC</span><span class="o">.</span><span class="na">getCopyOfContextMap</span><span class="o">();</span>
+    <span class="k">return</span> <span class="o">()</span> <span class="o">-&gt;</span> <span class="o">{</span>
+        <span class="nc">Map</span><span class="o">&lt;</span><span class="nc">String</span><span class="o">,</span> <span class="nc">String</span><span class="o">&gt;</span> <span class="n">previous</span> <span class="o">=</span> <span class="no">MDC</span><span class="o">.</span><span class="na">getCopyOfContextMap</span><span class="o">();</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">capturedContext</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="no">MDC</span><span class="o">.</span><span class="na">setContextMap</span><span class="o">(</span><span class="n">capturedContext</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="n">runnable</span><span class="o">.</span><span class="na">run</span><span class="o">();</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">previous</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+            <span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+                <span class="no">MDC</span><span class="o">.</span><span class="na">setContextMap</span><span class="o">(</span><span class="n">previous</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">};</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">MDC.getCopyOfContextMap()</code> geeft je een snapshot van de MDC map van de huidige thread op het moment dat je hem aanroept.
+De teruggegeven <code class="language-plaintext highlighter-rouge">Runnable</code> stelt dan die snapshot in als context op welke thread de taak ook uiteindelijk uitvoert, en herstelt wat er daarvoor stond wanneer die klaar is.</p>
+
+<p>Je roept het zo aan voor je naar een executor indient:</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">executor</span><span class="o">.</span><span class="na">submit</span><span class="o">(</span><span class="nc">ProcessingMdcContext</span><span class="o">.</span><span class="na">wrap</span><span class="o">(()</span> <span class="o">-&gt;</span> <span class="n">doAsyncWork</span><span class="o">()));</span>
+</code></pre></div></div>
+
+<p>De context reist mee met de taak.
+Je async logregels hebben dezelfde MDC-velden als de thread die het werk heeft ingediend.</p>
+
+<h2 id="http-context-via-een-filter">HTTP context via een filter</h2>
+
+<p>Voor de HTTP-laag is de netstste aanpak een <code class="language-plaintext highlighter-rouge">OncePerRequestFilter</code>.
+Dit is een Spring-klasse die garandeert dat je filterlogica precies één keer per request wordt uitgevoerd, zelfs in complexe filterchaïnes.
+Je gebruikt het om MDC-velden te vullen aan het begin van elk request: method, path, client IP, zodat ze meevloeien door elke logregel die het request produceert, ongeacht welke serviceklasse of methode ze genereert.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">RequestLoggingFilter</span> <span class="kd">extends</span> <span class="nc">OncePerRequestFilter</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doFilterInternal</span><span class="o">(</span><span class="nc">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span>
+                                    <span class="nc">HttpServletResponse</span> <span class="n">response</span><span class="o">,</span>
+                                    <span class="nc">FilterChain</span> <span class="n">chain</span><span class="o">)</span> <span class="kd">throws</span> <span class="nc">ServletException</span><span class="o">,</span> <span class="nc">IOException</span> <span class="o">{</span>
+        <span class="k">try</span> <span class="o">{</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"request.method"</span><span class="o">,</span> <span class="n">request</span><span class="o">.</span><span class="na">getMethod</span><span class="o">());</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"request.path"</span><span class="o">,</span>   <span class="n">request</span><span class="o">.</span><span class="na">getRequestURI</span><span class="o">());</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"request.clientIp"</span><span class="o">,</span> <span class="n">request</span><span class="o">.</span><span class="na">getRemoteAddr</span><span class="o">());</span>
+            <span class="n">chain</span><span class="o">.</span><span class="na">doFilter</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+        <span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"response.status"</span><span class="o">,</span> <span class="nc">String</span><span class="o">.</span><span class="na">valueOf</span><span class="o">(</span><span class="n">response</span><span class="o">.</span><span class="na">getStatus</span><span class="o">()));</span>
+            <span class="no">MDC</span><span class="o">.</span><span class="na">clear</span><span class="o">();</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">response.status</code> gaat in het <code class="language-plaintext highlighter-rouge">finally</code> blok, niet vóór <code class="language-plaintext highlighter-rouge">chain.doFilter()</code>.
+Op het moment dat de filter uitvoert, is de response nog niet gecommit, de chain is wat het request verwerkt en de status instelt.
+Dus je leest de status na de chain, niet ervoor.</p>
+
+<p>Logback levert zelf ook een ingebouwde filter hiervoor, <code class="language-plaintext highlighter-rouge">MDCInsertingServletFilter</code>, die automatisch een standaard set request-velden vult. Goed om te weten dat hij bestaat, al geeft je eigen implementatie controle over precies welke velden er in komen.</p>
+
+<h2 id="wat-het-er-uitziet-in-kibana">Wat het er uitziet in Kibana</h2>
+
+<p>Hier betaalt het zich terug.
+Logback (via logstash-logback-encoder of equivalent) kan je MDC-velden serialiseren als gestructureerde JSON-velden, die Elasticsearch individueel indexeert.
+Dat betekent dat je er in Kibana direct op kunt zoeken.</p>
+
+<p>Eenmaal je MDC-velden geïndexeerd zijn, kun je filteren op <code class="language-plaintext highlighter-rouge">structured.version : 3.0</code> en alles zien wat er in die flow is gebeurd over alle services.
+Je kunt filteren op <code class="language-plaintext highlighter-rouge">structured.process.status : FAILED</code> en sorteren op <code class="language-plaintext highlighter-rouge">structured.process.durationMs</code> om te vinden welke failures het langst duurden.
+Je kunt een dashboard bouwen dat je foutdistributie per <code class="language-plaintext highlighter-rouge">structured.process.errorReason</code> over de tijd toont.
+Je kunt een enkele async operatie tracen over threads, omdat je de runnable gewrapt hebt en de context meereisd is.</p>
+
+<p>Voor MDC: een muur van logregels, timestamps, en manueel detectivewerk.
+Na MDC: je stelt Kibana een concrete vraag en het antwoordt.</p>
+
+<hr />
+
+<h2 id="bronnen">Bronnen</h2>
+
+<ul>
+  <li>SLF4J API — <a href="https://www.slf4j.org/api/org/slf4j/MDC.html">MDC class documentatie</a>. De MDC-klasse heeft alleen statische methoden en beheert contextuele informatie per thread.</li>
+  <li>Logback Manual, Hoofdstuk 8 — <a href="https://logback.qos.ch/manual/mdc.html">Mapped Diagnostic Context</a>. “MDC operations such as put() and get() affect only the MDC of the current thread, and the children of the current thread. The MDC in other threads remain unaffected.”</li>
+  <li>Logback Manual, Hoofdstuk 6 — <a href="https://logback.qos.ch/manual/layouts.html">Layouts</a>. Het <code class="language-plaintext highlighter-rouge">%X{key}</code> conversiewoord is gedocumenteerd onder de PatternLayout-sectie.</li>
+  <li>Logback Manual, Hoofdstuk 8. “Normally, a put() operation should be balanced by the corresponding remove() operation. Otherwise, the MDC will contain stale values for certain keys. We would recommend that whenever possible, remove() operations be performed within finally blocks, ensuring their invocation regardless of the execution path of the code.”</li>
+  <li>Logback Manual, Hoofdstuk 8, sectie “MDC And Managed Threads”. “It is recommended that MDC.getCopyOfContextMap() is invoked on the original (master) thread before submitting a task to the executor. When the task runs, as its first action, it should invoke MDC.setContextMap() to associate the stored copy of the original MDC values with the new Executor managed thread.”</li>
+  <li>Logback Manual, Hoofdstuk 8, sectie “MDCInsertingServletFilter” — <a href="https://logback.qos.ch/xref/ch/qos/logback/classic/helpers/MDCInsertingServletFilter.html">MDCInsertingServletFilter source</a>. Een ingebouwde Logback-filter die automatisch standaard HTTP request-velden in de MDC vult.</li>
+</ul>
+
+<p><strong>Verder lezen:</strong></p>
+<ul>
+  <li>Neil Harrison, “Patterns for Logging Diagnostic Messages,” in <em>Pattern Languages of Program Design 3</em>, red. R. Martin, D. Riehle, en F. Buschmann (Addison-Wesley, 1997). De originele paper waarop het concept van MDC gebaseerd is.</li>
+  <li><a href="https://github.com/logfellow/logstash-logback-encoder">logstash-logback-encoder</a> — voor het doorsturen van gestructureerde MDC-velden naar Elasticsearch/Kibana.</li>
+  <li>Spring Framework — <a href="https://docs.spring.io/spring-framework/docs/current/javadoc-api/org/springframework/web/filter/OncePerRequestFilter.html">OncePerRequestFilter</a> API docs.</li>
+</ul>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="logging" /><category term="kibana" /><category term="dev-life" /><category term="learning" /><summary type="html"><![CDATA[Iemand van het team vroeg me om MDC logging toe te voegen aan het project. “Geen probleem,” zei ik. Ik had absoluut geen idee wat MDC logging was.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/mdc-logging.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/mdc-logging.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Dingen over het werk, die niemand je vertelt</title><link href="https://oumaimazerouali.github.io/nl/2026/07/28/secrets-of-work/" rel="alternate" type="text/html" title="Dingen over het werk, die niemand je vertelt" /><published>2026-07-28T11:00:00+02:00</published><updated>2026-07-28T11:00:00+02:00</updated><id>https://oumaimazerouali.github.io/nl/2026/07/28/secrets-of-work</id><content type="html" xml:base="https://oumaimazerouali.github.io/nl/2026/07/28/secrets-of-work/"><![CDATA[<p>Dit is geen post over productiviteitssystemen. 
 Geen ochtendroutine om vijf uur, geen inbox zero, geen tips over hoe je beter kunt vergaderen.</p>
 
 <p>Dit is over de andere dingen. 
@@ -136,7 +744,7 @@ Ja zeggen als je eigenlijk nee wil zeggen, maar vermoedt dat het goed gaat zijn.
 Onthouden wat iemand je heeft verteld. 
 Luisteren zonder te oordelen.</p>
 
-<p>De rest volgt vanzelf.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="work" /><category term="life" /><category term="consultant" /><category term="tips" /><summary type="html"><![CDATA[Dit is geen post over productiviteitssystemen. Geen ochtendroutine om vijf uur, geen inbox zero, geen tips over hoe je beter kunt vergaderen.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/werktips.png" /><media:content medium="image" url="http://localhost:4000/assets/img/werktips.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Things About Work Nobody Tells You</title><link href="http://localhost:4000/2026/07/28/secrets-of-work/" rel="alternate" type="text/html" title="Things About Work Nobody Tells You" /><published>2026-07-28T11:00:00+02:00</published><updated>2026-07-28T11:00:00+02:00</updated><id>http://localhost:4000/2026/07/28/secrets-of-work</id><content type="html" xml:base="http://localhost:4000/2026/07/28/secrets-of-work/"><![CDATA[<p>This is not a post about productivity systems. 
+<p>De rest volgt vanzelf.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="work" /><category term="life" /><category term="consultant" /><category term="tips" /><summary type="html"><![CDATA[Dit is geen post over productiviteitssystemen. Geen ochtendroutine om vijf uur, geen inbox zero, geen tips over hoe je beter kunt vergaderen.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/werktips.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/werktips.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Things About Work Nobody Tells You</title><link href="https://oumaimazerouali.github.io/2026/07/28/secrets-of-work/" rel="alternate" type="text/html" title="Things About Work Nobody Tells You" /><published>2026-07-28T11:00:00+02:00</published><updated>2026-07-28T11:00:00+02:00</updated><id>https://oumaimazerouali.github.io/2026/07/28/secrets-of-work</id><content type="html" xml:base="https://oumaimazerouali.github.io/2026/07/28/secrets-of-work/"><![CDATA[<p>This is not a post about productivity systems. 
 No five AM morning routines, no inbox zero, no tips on running better meetings.</p>
 
 <p>This is about the other things. 
@@ -227,106 +835,184 @@ The unwritten rules of work that nobody tells you because they assume you’ll f
 
 <p>Not networking as a strategy. Not building relationships as career planning. Just being genuinely interested in the person next to you. Saying yes when you’d rather say no but suspect it’ll be worth it. Remembering what someone told you. Listening without judging.</p>
 
-<p>The rest follows on its own.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="work" /><category term="life" /><category term="consultant" /><category term="tips" /><summary type="html"><![CDATA[This is not a post about productivity systems. No five AM morning routines, no inbox zero, no tips on running better meetings.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/werktips.png" /><media:content medium="image" url="http://localhost:4000/assets/img/werktips.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Wanneer ben ik gestopt met junior te zijn? Ik weet het nog steeds niet</title><link href="http://localhost:4000/nl/2026/07/24/when-do-you-stop-being-a-junior/" rel="alternate" type="text/html" title="Wanneer ben ik gestopt met junior te zijn? Ik weet het nog steeds niet" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/nl/2026/07/24/when-do-you-stop-being-a-junior</id><content type="html" xml:base="http://localhost:4000/nl/2026/07/24/when-do-you-stop-being-a-junior/"><![CDATA[<p>In september doe ik dit al drie jaar. Drie jaar code reviews, stand-ups, pull requests, productiebugs die je ‘s nachts wakker houden en gesprekken die beginnen met: <em>“Dus, ik keek naar je code…”</em>
-Drie jaar dingen leren waarvan ik niet wist dat ik ze nodig zou hebben. 
-In teams die ik nog niet kende, met tools die ik nog nooit had aangeraakt.</p>
+<p>The rest follows on its own.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="work" /><category term="life" /><category term="consultant" /><category term="tips" /><summary type="html"><![CDATA[This is not a post about productivity systems. No five AM morning routines, no inbox zero, no tips on running better meetings.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/werktips.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/werktips.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Ik maakte een magazine voor drie mensen en dat was genoeg</title><link href="https://oumaimazerouali.github.io/nl/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="Ik maakte een magazine voor drie mensen en dat was genoeg" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>https://oumaimazerouali.github.io/nl/2026/07/24/jcast-magazine</id><content type="html" xml:base="https://oumaimazerouali.github.io/nl/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
+  <p>“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants</p>
+</blockquote>
 
-<p>En ik heb nog steeds geen duidelijk antwoord op wanneer ik gestopt ben met junior te zijn.</p>
+<p>Niemand had gevraagd om een magazine.</p>
 
-<h2 id="de-vraag-waar-niemand-me-voor-gewaarschuwd-heeft">De vraag waar niemand me voor gewaarschuwd heeft</h2>
+<p>Er was geen briefing, geen deadline, geen klant. 
+Gewoon ik, een Canva-account en een gevoel dat ik maar niet kwijt raakte: seizoen 1 van JCast zat er bijna op, en ik wou niet dat het zomaar… verdween.</p>
 
-<p>Als je aan je eerste job begint, voelt het label <em>junior</em> tijdelijk. 
-Iets wat je draagt tot je genoeg weet. Daarna trek je het uit en krijg je een nieuw label: medior. Senior. Of wat daarna ook komt.</p>
+<p>Podcasts zijn raar op dat vlak. Ze leven in Spotify-playlists en YouTube-thumbnails, in de herinneringen van mensen die er misschien één keer naar luisterden op een maandagochtend onderweg naar het werk. Ze staan niet op een rek. Ze verzamelen geen stof. Ze zweven ergens in de cloud, en soms vraag je je af of ze ooit echt zijn geweest.</p>
 
-<p>Wat niemand je vertelt, is dat je die verschuiving nooit echt voelt gebeuren.
-Je wordt niet op een ochtend wakker en denkt: <em>ah ja, vandaag ben ik geen junior developer meer.</em>
-Je brein stuurt je geen notificatie. Er verschijnt geen achievement. Geen badge unlock.</p>
+<p>Ik wou iets echts, iets fysieks.</p>
 
-<p>Je gaat gewoon verder.
-En op een dag stelt iemand je een vraag en antwoord je zonder eerst Stack Overflow te openen.
-Niemand wijst dat moment aan. Je merkt het pas wanneer het al voorbij is.</p>
+<p>Dus maakte ik een magazine. Tweeëndertig pagina’s, A5-formaat, drie exemplaren. Eén voor Viktor. Eén voor Maarten. Eén voor mij. Besteld op 28 maart 2026. €76.14. Beste aankoop die ik ooit heb gedaan.</p>
 
-<h2 id="vier-projecten-dezelfde-angst">Vier projecten, dezelfde angst</h2>
+<h2 id="het-verhaal-waar-het-echt-begon">Het verhaal: waar het echt begon</h2>
 
-<p>Ik ben consultant. Dat betekent dat ik niet in één team blijf.
-Ik wissel. Nieuwe klant, nieuw team, nieuwe codebase, nieuwe tools, een nieuwe eigenzinnige Confluence-setup… noem maar op.
-Ik ben ondertussen aan mijn vierde project bezig.</p>
+<p>Het begon bij het koffieapparaat.</p>
 
-<p>En er is iets dat ik graag wil zeggen.
-Elke keer opnieuw was ik bang voor ik begon.
-Dat soort bang waarbij je denkt: *dit team gebruikt tools die ik nog nooit heb gezien. 
-Deze stack ziet er helemaal anders uit dan de vorige. Deze mensen hebben jaren context die ik niet heb. Wat als ik niet kan volgen?</p>
+<p>Niet in een vergaderzaal, niet in een Confluence-doc met een proper projectplan. Bij een <em>koffieapparaat</em>, zoals de meeste goede ideeën op het werk beginnen. Iemand stelde een vraag. De vraag werd een gesprek. Het gesprek werd: “zouden we eigenlijk een podcast moeten maken?”</p>
 
-<p>Vier projecten.
-Vier keer exact dezelfde angst.
-Maar ook vier keer hetzelfde resultaat.
-Het was oké.</p>
+<p>En Maarten, zonder ook maar één seconde te aarzelen, zei: <em>“Morgen starten we.”</em></p>
 
-<p>Niet “oké” in de zin van: <em>ik had alles door in de eerste week.</em>
-Wel “oké” omdat ik de juiste vragen stelde. Omdat ik de documentatie las. Omdat ik dingen eerst veilig stukmaakte voordat ik ze ergens belangrijk stukmaakte.
-En ergens rond week drie of vier stopte ik met mezelf af te vragen of ik kon volgen.
-Ik was gewoon bezig.</p>
+<p>Morgen starten we.</p>
 
-<p>Dat is misschien wel het patroon dat ik nooit had zien aankomen.
-Niet dat de angst verdwijnt.
-Maar dat je ondertussen weet hoe snel je kunt leren.</p>
+<p>Dat was het moment. Geen brainstormsessie, geen planningsweek. Gewoon Maarten, die er in één adem voor besliste. Maarten is trouwens het type dat liever drie uur besteedt aan het echt begrijpen van een probleem dan dertig minuten aan het snel iets werkend krijgen. Dus als hij zegt dat we morgen starten, starten we morgen.</p>
 
-<h2 id="wat-ik-eigenlijk-geleerd-heb-in-drie-jaar">Wat ik eigenlijk geleerd heb in drie jaar</h2>
+<p>Dit is de echte tijdlijn van hoe JCast ging van een opmerking bij het koffieapparaat naar iets wat mensen écht beluisterd hebben:</p>
 
-<p>Niet zozeer een lijst technologieën.
-Ook niet een stapel certificaten.</p>
+<p><strong>30 september 2024.</strong> De eerste echte brainstorm. Waar gaan we over praten? Wie zijn we? Wat is JCast eigenlijk? Het antwoord dat bleef hangen: <em>“Java als startpunt, alles daarrond als speelveld.”</em> Die tagline eindigde op de cover van het magazine.</p>
 
-<p>Vooral dit.
-Hoe je van nul begint en sneller nuttig wordt dan je zelf verwacht.
-Hoe je in een onbekende codebase toch de draad vindt die alles logisch maakt.
-Hoe je een vraag stelt op een manier die een echt antwoord oplevert, in plaats van alleen maar: <em>“Check de docs.”</em>
-Hoe je voelt wanneer je nog twintig minuten zelf moet zoeken, en wanneer het slimmer is om hulp te vragen.</p>
+<p><strong>4 november 2024.</strong> De eerste opnamepoging. Ik zeg “poging” omdat de audio, zacht uitgedrukt, niet ideaal was. Euhs overal. Microfoons die van tafel vielen. Het soort sessie waar je achteraf op terugkijkt en denkt: goed dat we dit niet gepubliceerd hebben. We hebben het niet gepubliceerd.</p>
 
-<p>En hoe groot het verschil is tussen:
-<em>“Ik weet dit nog niet.”</em>
-en
-<em>“Ik ga dit nooit alleen uitzoeken.”</em></p>
+<p><strong>16 december 2024.</strong> Take twee. De echte take. De één die we konden gebruiken.</p>
 
-<p>Die tweede categorie blijkt veel kleiner te zijn dan ik vroeger dacht.</p>
+<p><strong>30 april 2025.</strong> S01E01 gaat live. <em>Wat is een professionele ontwikkelaar?</em> Uncle Bob, Clean Code, TDD. De grote vragen. Eerste aflevering, geen gasten, gewoon ons drieën die uitzoeken hoe je een podcastgesprek voert in plaats van een gewoon gesprek.</p>
 
-<h2 id="het-labelprobleem">Het labelprobleem</h2>
+<p>In de eerste 30 dagen: 97 downloads. Tegen de tijd dat ik het magazine schreef: 159. En tegen de tijd dat ik printte: 925 in totaal, 796 plays, 158 uur luistertijd, +57 volgers. Een #1 First Episode-badge van Spotify. Een Global Listeners-badge.</p>
 
-<p>Wat me stoort aan het hele junior/medior/senior-verhaal, is dat het voelt alsof het een ladder is die je één keer beklimt.
-Alsof er ergens een versie van jezelf bestaat die nergens meer onzeker over is. Die nooit meer van nul moet beginnen.</p>
+<p>Voor een podcast over Java gemaakt door drie developers in Diegem, zonder marketingbudget en met een opnameopstelling die ze zelf bouwden: niet slecht, zeg maar.</p>
 
-<p>Ik denk niet dat die versie bestaat.
-Wat volgens mij wél verandert, is je relatie met die onzekerheid.</p>
+<h2 id="de-jcrew-wie-we-eigenlijk-zijn">De JCrew: wie we eigenlijk zijn</h2>
 
-<p>Een junior ziet een nieuwe tool en denkt:
-<em>“Ik hoop dat ze niet merken dat ik dit nog nooit gebruikt heb.”</em>
-Iemand met meer ervaring kijkt naar dezelfde tool en denkt:
-<em>“Oké. Hoe lang gaat het duren voor ik hier comfortabel mee ben?”</em></p>
+<p>Het magazine heeft een heel hoofdstuk hierover, dat ik schreef en daarna ongeveer zevenduizend keer bewerkte. Hoe beschrijf je mensen met wie je werkt en die je ook echt graag hebt, zonder dat het klinkt als een corporate bio of een speech op een huwelijksfeest?</p>
 
-<p>De tool is dezelfde.
-De vraag is anders.
-Je leert niet vertrouwen op wat je al weet.
-Je leert vertrouwen op het feit dat je al vaker iets volledig nieuws hebt geleerd.
-Ik heb dat ondertussen vier keer gedaan.</p>
+<p>Dit is wat ik uiteindelijk schreef:</p>
 
-<p>Het bewijs begint zich langzaam op te stapelen.</p>
+<p><strong>Oumaima</strong>, dat ben ik. Iemand die houdt van duidelijkheid, uitdaging en het “waarom” achter systemen én mensen. Voornamelijk backend, maar frontend ook als het moet. CoderDojo-vrijwilliger. JTires-lead die ergens onderweg ook Pokémonkaarten is beginnen verzamelen. In mijn eigen profiel schreef ik: “Vijf jaar later: Wat een random cool ding om mee te maken.”</p>
 
-<h2 id="september">September</h2>
+<p><strong>Viktor Van Steenweghen</strong> is wat het magazine “een brok chaos” noemt, maar altijd in om iets nieuws bij te leren. Hij verzorgt de montage, wat betekent dat hij degene is die met de ruwe opnames gaat zitten en van drie mensen die struikelen over hun woorden iets maakt waar je effectief naar wilt luisteren. Het ding dat hem dit seizoen het meest verraste? Claude Code. Hij speelt ook snooker offline, wat ik belangrijk context vind over wie Viktor is als persoon.</p>
 
-<p>In september doe ik dit drie jaar.
-Ik weet nog altijd niet welk label daarbij hoort.
-En eerlijk gezegd denk ik niet dat het me nog zoveel uitmaakt als vroeger.</p>
+<p><strong>Maarten Casteels</strong> is degene die het probleem liever <em>echt</em> begrijpt dan snel iets werkend krijgt. Tech lead energy zonder de ego erbij. In het magazine schreef ik: “De beste gesprekken zijn niet altijd de meest voorbereide.” Dat geldt voor JCast in het algemeen, maar zeker voor Maarten. Sommige van onze beste afleveringen kwamen er toen het plan misliep en we gewoon begonnen te praten.</p>
 
-<p>Wat ik wél weet, is dat ik enorm veel geleerd heb.
-Meer dan ik had verwacht.
-En meer dan ik mezelf soms krediet voor geef.</p>
+<p>Samen, zegt het magazine, werken we “niet ondanks de chaos, maar dankzij.” Dat voelde goed toen ik het schreef en het voelt nu nog steeds goed.</p>
 
-<p>En elke keer dat ik met die vertrouwde knoop in mijn maag een nieuw team binnenstapte, wist er ergens diep vanbinnen al iets, dat het goed zou komen.
-Zelfs als ik dat op dat moment het zelf nog niet geloofde.
-Misschien is dat uiteindelijk wat <em>ervaring</em> is.</p>
+<h2 id="een-seizoen-vol-gesprekken-alle-12-afleveringen">Een seizoen vol gesprekken: alle 12 afleveringen</h2>
 
-<p>Niet dat de onzekerheid verdwijnt.
-Maar dat het ophoudt met het luidste geluid in de kamer te zijn.
-Vraag het me over drie jaar nog eens.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="career" /><category term="growth" /><category term="reflection" /><category term="dev-life" /><summary type="html"><![CDATA[In september doe ik dit al drie jaar. Drie jaar code reviews, stand-ups, pull requests, productiebugs die je ‘s nachts wakker houden en gesprekken die beginnen met: “Dus, ik keek naar je code…” Drie jaar dingen leren waarvan ik niet wist dat ik ze nodig zou hebben. In teams die ik nog niet kende, met tools die ik nog nooit had aangeraakt.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/not-a-junior.png" /><media:content medium="image" url="http://localhost:4000/assets/img/not-a-junior.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">I made a magazine for three people and that was enough</title><link href="http://localhost:4000/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="I made a magazine for three people and that was enough" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/2026/07/24/jcast-magazine</id><content type="html" xml:base="http://localhost:4000/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
+<p>Twaalf afleveringen. Twaalf weken van opnemen, monteren, publiceren, promoten, en dan opnieuw beginnen. Hier is het volledige seizoen één, want ik heb er tijd in gestoken om het in het magazine te zetten en ik wil het hier ook kwijt.</p>
+
+<p><strong>S01E01 — Wat is een professionele ontwikkelaar?</strong>
+Het debuut. Geen gasten, alleen ons drieën. Uncle Bob, Clean Code, TDD, de eeuwige debatten over wat het eigenlijk betekent om professioneel te zijn in dit vak. Hoge inzet voor een eerste aflevering. We gingen er toch voor.</p>
+
+<p><strong>S01E02 — Clean Architecture</strong>
+Gast: Jeroen Bastijns. De theorie werd concreter. Hoe ziet architectuur er in de praktijk uit, niet alleen in boeken?</p>
+
+<p><strong>S01E03 — Life as a dev</strong>
+Geen gast. Gewoon wij, pratend over hoe het er écht aan toegaat: de dagelijkse realiteit, het context switchen, de dingen die niet in LinkedIn-posts terechtkomen.</p>
+
+<p><strong>S01E04 — Pixel Perfect? UX/UI met Risa</strong>
+Gast: Risa Somers. Eén van mijn favorieten, omdat we als developers echt te weinig praten over design en Risa ons anders deed nadenken.</p>
+
+<p><strong>S01E05 — (Audio)Books vs Podcasts</strong>
+Geen gast. Erg meta, gezien wat we aan het doen waren. We spraken over hoe we buiten het werk bijleren.</p>
+
+<p><strong>S01E06 — Java, Soft Skills &amp; Mensenkennis</strong>
+Gast: Björn De Craemer. Soft skills zijn niet soft. We hebben dat gesprek eindelijk goed gevoerd.</p>
+
+<p><strong>S01E07 — Meetings, stand-ups &amp; agile drama</strong>
+Geen gast. Catharsis. Iedereen die al eens te veel stand-ups heeft gehad, begrijpt dit.</p>
+
+<p><strong>S01E08 — Java, AI &amp; de menselijke kant</strong>
+Gast: Jan Van Wassenhove, Devoxx-spreker. AI in ons vakgebied en wat het betekent voor de mensen die het werk doen. Deze voelde belangrijk.</p>
+
+<p><strong>S01E09 — New year, new dev</strong>
+Januari-energie. Goede voornemens, slechte gewoontes, fris begin.</p>
+
+<p><strong>S01E10 — Meer dan planning</strong>
+Gast: Barbara Cleeren, Capacity Manager. Buiten de strikt technische zone en naar de menselijke kant van hoe teams echt functioneren.</p>
+
+<p><strong>S01E11 — Passie na de werkuren: Sigriet</strong>
+Gast: Sigriet Van Breusegem. Mijn vriendin Sigriet. Over wat developers doen als ze niet aan het developen zijn. Deze aflevering betekende veel voor me, om redenen die verder gaan dan de podcast.</p>
+
+<p><strong>S01E12 — Seizoensfinale</strong>
+Einde van het seizoen. Afronding. De aflevering waarbij we terugkeken op wat we gemaakt hadden, nog voor het magazine bestond om het in vast te houden.</p>
+
+<p>Acht gasten verspreid over twaalf afleveringen. Onderwerpen van clean code tot capacity planning tot wat mensen in hun vrije tijd doen. Een range waar ik trots op ben.</p>
+
+<h2 id="jcast-in-het-wild-het-fysieke-spul">JCast in het wild: het fysieke spul</h2>
+
+<p>Hier is het deel dat mensen die mij niet kennen misschien niet verwachten: ik hecht veel belang aan de fysieke versie van dingen.</p>
+
+<p>De podcast bestaat als audio. Dat is het product. Maar rond dat product is er een hele wereld die ik gebouwd heb in Canva, met absoluut nul ontwerpervaring, en daar ga ik me niet voor verontschuldigen.</p>
+
+<p><strong>De merch.</strong> JCast-stickers. Een JCast-T-shirt. Een banner die we effectief naar events mee hebben genomen. Allemaal afgevinkt op de bucketlist tegen het einde van seizoen één. Ik maakte alles in Canva, wat logisch voelt omdat Canva ook is hoe ik het magazine maakte, de aflevering-covers, en eigenlijk alles wat JCast ooit visueel heeft gehad. Je leert door te doen. Soms is wat je maakt goed. Soms niet. De stickers waren goed.</p>
+
+<p><strong>De website.</strong> jcast.dev. Deze verdient een eigen paragraaf. Maarten en ik bouwden hem zonder CMS, zonder plugins, zonder themes, niets kant-en-klaar. Hugo, pure CSS, gehost op AWS via Terraform. De logica was simpel: als je een podcast maakt over clean code, kun je moeilijk zelf een rommelige codebase hebben. Viktor deed de montage terwijl wij de site bouwden, en ergens later kwam de blog er ook bij. Niet meteen: eerst moesten er verhalen zijn om te vertellen. Dan schreven we erover.</p>
+
+<p>Super trots op het resultaat.</p>
+
+<p><strong>De Instagram.</strong> @jcast_crew. De sociale aanwezigheid. De plek waar we clips en updates zetten en probeerden consistent te posten, wat moeilijk is als je ook gewoon je werk moet doen.</p>
+
+<p>Dit alles: de merch, de site, de socials, de fysieke banners die we naar echte plekken droegen. Dat is wat ik in het hoofdstuk “JCast in het wild” stopte. Omdat JCast niet alleen bestond in een DAW en op Spotify. Het bestond in de wereld.</p>
+
+<h2 id="terugblikken-en-vooruitkijken-de-cijfers-en-wat-ze-betekenen">Terugblikken en vooruitkijken: de cijfers en wat ze betekenen</h2>
+
+<p>Cijfers van 28/03/2026. Zo ver stonden we op de dag dat ik de print bestelde.</p>
+
+<p><strong>12</strong> gepubliceerde afleveringen. <strong>925</strong> downloads. <strong>8</strong> gasten. <strong>796</strong> plays alltime. <strong>158</strong> uur luistertijd. <strong>+57</strong> volgers.</p>
+
+<p>Die cijfers zijn echt, en ze zijn niet niks. Maar ze zijn ook niet waarover het magazine eigenlijk gaat.</p>
+
+<p>Het magazine bevat deze paragraaf in het statsgedeelte, en ik denk dat het het eerlijkste is dat ik in het hele ding geschreven heb:</p>
+
+<p><em>“Een jaar geleden was JCast een idee bij het koffieapparaat. Vandaag is het een podcast met een website, een Instagram, een t-shirt, een banner en 12 afleveringen die er écht staan. Niet alles ging vlekkeloos. De eerste opname moest opnieuw. De audio was in het begin niet ideaal. Er waren euhs, blunders en microfoons die van tafel vielen. Maar dat is precies wat JCast is: echt, ongepolijst en eerlijk over het vak.”</em></p>
+
+<p>Ik wil dat niet gladstrijken. De onvolmaaktheid is het punt.</p>
+
+<h2 id="de-bucketlist">De bucketlist</h2>
+
+<p>Het magazine heeft ook een JCast-bucketlist. Ik hou van die pagina. Handgeschreven font, checkboxes, helemaal in de geest van “ooit. misschien. waarschijnlijk wel.”</p>
+
+<p>Al afgevinkt: JCast stickers ✓, JCast T-shirt ✓, Banner ✓, 500 downloads ✓.</p>
+
+<p>Nog te doen: nog meer merch, posters, een internationale gast hosten, naar een podcast event gaan, een podcast award krijgen, op tv komen voor de podcast, 1 miljoen downloads, het nog steeds superleuk vinden.</p>
+
+<p>Die laatste is mijn favoriet. <em>Het nog steeds superleuk vinden.</em> Dat is geen leuk extraatje. Dat is het hele punt. Als dat vakje ooit niet meer aangevinkt kan worden, doet de rest van de lijst er niet meer toe.</p>
+
+<h2 id="seizoen-2-wat-er-komt">Seizoen 2: wat er komt</h2>
+
+<p><em>“Maar we zijn nog niet klaar. Seizoen 2 staat voor de deur en als seizoen 1 bewees dat we het konden, dan belooft seizoen 2 te bewijzen dat we het beter kunnen.”</em></p>
+
+<p>Het thema: <em>“Mens, software en systemen in een steeds slimmer wordende wereld.”</em> Breder dan seizoen 1. Meer gasten, scherpere gesprekken, onderwerpen die verder gaan dan Java alleen. AI als collega. Accessibility. Security. De menselijke kant van het vak.</p>
+
+<p>Vanaf mei 2026.</p>
+
+<p>En we hebben drie specials gepland: afleveringen met gasten die al een tijdje op onze lijst stonden. Mensen met een verhaal dat verder gaat dan één aflevering aankan.</p>
+
+<p><strong>Tom Cools</strong> over Developer Relations &amp; community impact.
+<strong>Kevin Dubois</strong> over cloud native, AI en de toekomst van Java.
+<strong>Nick Boucart</strong>, onderwerp nog te bepalen. Wat eerlijk gezegd de spannendste is.</p>
+
+<p><em>Aflevering 1 is al een banger.</em> We hebben een foto als bewijs.</p>
+
+<h2 id="aan-maarten-en-viktor">Aan Maarten en Viktor</h2>
+
+<p>De laatste inhoudspagina van het magazine, voor de lege Notities-pagina’s waar je je eigen gedachten in kwijt kan, is een brief. Ik schreef hem rechtstreeks aan Maarten en Viktor. Ik ga er een groot deel van citeren, want het zegt beter wat dit allemaal betekent dan alles wat ik verder geschreven heb:</p>
+
+<p><em>“Deze magazine is voor jullie. Niet omdat het moest, maar omdat ik wou dat jullie weten hoeveel dit voor mij betekent. Mijn manier om dank u te zeggen voor een gek idee dat ergens toch heel serieus geworden is. Iets wat ik graag doe, heel graag zelfs. En waar ik nu met zekerheid kan zeggen: ik zou het met niemand anders willen doen.</em></p>
+
+<p><em>Ik hoop dat ik alles heb kunnen omvatten. Alles wat we gemaakt hebben, alles wat we geleerd hebben, alles wat we samen zijn. En ik hoop vooral dat jullie dit dichtslaan met een glimlach.”</em></p>
+
+<p>De welkomsttekst schreef ik als laatste. Die zei:</p>
+
+<p><em>“Als je dit leest, houd je iets vast wat een jaar geleden nog een idee was. Een groepschat, een gedeelde nieuwsgierigheid en de vraag: zouden we eigenlijk een podcast moeten maken?”</em></p>
+
+<p>We deden het.</p>
+
+<p>Toen besefte ik dat ik niet gewoon een magazine aan het maken was. Ik was bewijs aan het maken. Bewijs dat we er waren. Dat we op record drukten, ook al was het script niet afgewerkt en vlotten de zinnen niet en waren er genoeg “euh”s om een heel seizoen mee te vullen. Bewijs dat JCast ergens tussen de geknipte fragmenten en het gelach en de echte gesprekken, over Java, over tools, over wat het eigenlijk betekent om developer te zijn, iets groters werd dan de som van drie microfoons.</p>
+
+<p>Mensen vragen soms waarom ik dit soort dingen doe. De merch. De podcast. Nu een magazine. Drie exemplaren. Voor drie mensen.</p>
+
+<p>Ik doe het omdat ik bang ben dat de dingen die er het meest toe doen onzichtbaar worden. De afleveringen verouderen. De Spotify-cijfers stoppen met bewegen. Maar dit magazine ligt op een bureau. Het is fysiek. Het is gebeurd.</p>
+
+<p><em>“Dit magazine is geen eindpunt. Het is een snapshot.”</em></p>
+
+<p>Seizoen 2 is al bezig. Nieuwe afleveringen, nieuwe gasten, nieuwe chaos. En op het einde maak ik waarschijnlijk nog een magazine. Want blijkbaar heb ik het nodig.</p>
+
+<p>Ik ben trots op ons 🎙️</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/jcast-magazine.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/jcast-magazine.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">I made a magazine for three people and that was enough</title><link href="https://oumaimazerouali.github.io/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="I made a magazine for three people and that was enough" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>https://oumaimazerouali.github.io/2026/07/24/jcast-magazine</id><content type="html" xml:base="https://oumaimazerouali.github.io/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
   <p>“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -514,184 +1200,7 @@ End of season. Wrap-up. The episode where we reflected on what we’d made befor
 
 <p>This magazine is not an ending. It’s a snapshot of who we are, what we made, and where we’re going.</p>
 
-<p>Season 2 is already happening. New episodes, new guests, new chaos. And at the end of it, I’ll probably make another magazine. Because apparently I need it.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-magazine.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-magazine.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Ik maakte een magazine voor drie mensen en dat was genoeg</title><link href="http://localhost:4000/nl/2026/07/24/jcast-magazine/" rel="alternate" type="text/html" title="Ik maakte een magazine voor drie mensen en dat was genoeg" /><published>2026-07-24T11:00:00+02:00</published><updated>2026-07-24T11:00:00+02:00</updated><id>http://localhost:4000/nl/2026/07/24/jcast-magazine</id><content type="html" xml:base="http://localhost:4000/nl/2026/07/24/jcast-magazine/"><![CDATA[<blockquote>
-  <p>“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants</p>
-</blockquote>
-
-<p>Niemand had gevraagd om een magazine.</p>
-
-<p>Er was geen briefing, geen deadline, geen klant. 
-Gewoon ik, een Canva-account en een gevoel dat ik maar niet kwijt raakte: seizoen 1 van JCast zat er bijna op, en ik wou niet dat het zomaar… verdween.</p>
-
-<p>Podcasts zijn raar op dat vlak. Ze leven in Spotify-playlists en YouTube-thumbnails, in de herinneringen van mensen die er misschien één keer naar luisterden op een maandagochtend onderweg naar het werk. Ze staan niet op een rek. Ze verzamelen geen stof. Ze zweven ergens in de cloud, en soms vraag je je af of ze ooit echt zijn geweest.</p>
-
-<p>Ik wou iets echts, iets fysieks.</p>
-
-<p>Dus maakte ik een magazine. Tweeëndertig pagina’s, A5-formaat, drie exemplaren. Eén voor Viktor. Eén voor Maarten. Eén voor mij. Besteld op 28 maart 2026. €76.14. Beste aankoop die ik ooit heb gedaan.</p>
-
-<h2 id="het-verhaal-waar-het-echt-begon">Het verhaal: waar het echt begon</h2>
-
-<p>Het begon bij het koffieapparaat.</p>
-
-<p>Niet in een vergaderzaal, niet in een Confluence-doc met een proper projectplan. Bij een <em>koffieapparaat</em>, zoals de meeste goede ideeën op het werk beginnen. Iemand stelde een vraag. De vraag werd een gesprek. Het gesprek werd: “zouden we eigenlijk een podcast moeten maken?”</p>
-
-<p>En Maarten, zonder ook maar één seconde te aarzelen, zei: <em>“Morgen starten we.”</em></p>
-
-<p>Morgen starten we.</p>
-
-<p>Dat was het moment. Geen brainstormsessie, geen planningsweek. Gewoon Maarten, die er in één adem voor besliste. Maarten is trouwens het type dat liever drie uur besteedt aan het echt begrijpen van een probleem dan dertig minuten aan het snel iets werkend krijgen. Dus als hij zegt dat we morgen starten, starten we morgen.</p>
-
-<p>Dit is de echte tijdlijn van hoe JCast ging van een opmerking bij het koffieapparaat naar iets wat mensen écht beluisterd hebben:</p>
-
-<p><strong>30 september 2024.</strong> De eerste echte brainstorm. Waar gaan we over praten? Wie zijn we? Wat is JCast eigenlijk? Het antwoord dat bleef hangen: <em>“Java als startpunt, alles daarrond als speelveld.”</em> Die tagline eindigde op de cover van het magazine.</p>
-
-<p><strong>4 november 2024.</strong> De eerste opnamepoging. Ik zeg “poging” omdat de audio, zacht uitgedrukt, niet ideaal was. Euhs overal. Microfoons die van tafel vielen. Het soort sessie waar je achteraf op terugkijkt en denkt: goed dat we dit niet gepubliceerd hebben. We hebben het niet gepubliceerd.</p>
-
-<p><strong>16 december 2024.</strong> Take twee. De echte take. De één die we konden gebruiken.</p>
-
-<p><strong>30 april 2025.</strong> S01E01 gaat live. <em>Wat is een professionele ontwikkelaar?</em> Uncle Bob, Clean Code, TDD. De grote vragen. Eerste aflevering, geen gasten, gewoon ons drieën die uitzoeken hoe je een podcastgesprek voert in plaats van een gewoon gesprek.</p>
-
-<p>In de eerste 30 dagen: 97 downloads. Tegen de tijd dat ik het magazine schreef: 159. En tegen de tijd dat ik printte: 925 in totaal, 796 plays, 158 uur luistertijd, +57 volgers. Een #1 First Episode-badge van Spotify. Een Global Listeners-badge.</p>
-
-<p>Voor een podcast over Java gemaakt door drie developers in Diegem, zonder marketingbudget en met een opnameopstelling die ze zelf bouwden: niet slecht, zeg maar.</p>
-
-<h2 id="de-jcrew-wie-we-eigenlijk-zijn">De JCrew: wie we eigenlijk zijn</h2>
-
-<p>Het magazine heeft een heel hoofdstuk hierover, dat ik schreef en daarna ongeveer zevenduizend keer bewerkte. Hoe beschrijf je mensen met wie je werkt en die je ook echt graag hebt, zonder dat het klinkt als een corporate bio of een speech op een huwelijksfeest?</p>
-
-<p>Dit is wat ik uiteindelijk schreef:</p>
-
-<p><strong>Oumaima</strong>, dat ben ik. Iemand die houdt van duidelijkheid, uitdaging en het “waarom” achter systemen én mensen. Voornamelijk backend, maar frontend ook als het moet. CoderDojo-vrijwilliger. JTires-lead die ergens onderweg ook Pokémonkaarten is beginnen verzamelen. In mijn eigen profiel schreef ik: “Vijf jaar later: Wat een random cool ding om mee te maken.”</p>
-
-<p><strong>Viktor Van Steenweghen</strong> is wat het magazine “een brok chaos” noemt, maar altijd in om iets nieuws bij te leren. Hij verzorgt de montage, wat betekent dat hij degene is die met de ruwe opnames gaat zitten en van drie mensen die struikelen over hun woorden iets maakt waar je effectief naar wilt luisteren. Het ding dat hem dit seizoen het meest verraste? Claude Code. Hij speelt ook snooker offline, wat ik belangrijk context vind over wie Viktor is als persoon.</p>
-
-<p><strong>Maarten Casteels</strong> is degene die het probleem liever <em>echt</em> begrijpt dan snel iets werkend krijgt. Tech lead energy zonder de ego erbij. In het magazine schreef ik: “De beste gesprekken zijn niet altijd de meest voorbereide.” Dat geldt voor JCast in het algemeen, maar zeker voor Maarten. Sommige van onze beste afleveringen kwamen er toen het plan misliep en we gewoon begonnen te praten.</p>
-
-<p>Samen, zegt het magazine, werken we “niet ondanks de chaos, maar dankzij.” Dat voelde goed toen ik het schreef en het voelt nu nog steeds goed.</p>
-
-<h2 id="een-seizoen-vol-gesprekken-alle-12-afleveringen">Een seizoen vol gesprekken: alle 12 afleveringen</h2>
-
-<p>Twaalf afleveringen. Twaalf weken van opnemen, monteren, publiceren, promoten, en dan opnieuw beginnen. Hier is het volledige seizoen één, want ik heb er tijd in gestoken om het in het magazine te zetten en ik wil het hier ook kwijt.</p>
-
-<p><strong>S01E01 — Wat is een professionele ontwikkelaar?</strong>
-Het debuut. Geen gasten, alleen ons drieën. Uncle Bob, Clean Code, TDD, de eeuwige debatten over wat het eigenlijk betekent om professioneel te zijn in dit vak. Hoge inzet voor een eerste aflevering. We gingen er toch voor.</p>
-
-<p><strong>S01E02 — Clean Architecture</strong>
-Gast: Jeroen Bastijns. De theorie werd concreter. Hoe ziet architectuur er in de praktijk uit, niet alleen in boeken?</p>
-
-<p><strong>S01E03 — Life as a dev</strong>
-Geen gast. Gewoon wij, pratend over hoe het er écht aan toegaat: de dagelijkse realiteit, het context switchen, de dingen die niet in LinkedIn-posts terechtkomen.</p>
-
-<p><strong>S01E04 — Pixel Perfect? UX/UI met Risa</strong>
-Gast: Risa Somers. Eén van mijn favorieten, omdat we als developers echt te weinig praten over design en Risa ons anders deed nadenken.</p>
-
-<p><strong>S01E05 — (Audio)Books vs Podcasts</strong>
-Geen gast. Erg meta, gezien wat we aan het doen waren. We spraken over hoe we buiten het werk bijleren.</p>
-
-<p><strong>S01E06 — Java, Soft Skills &amp; Mensenkennis</strong>
-Gast: Björn De Craemer. Soft skills zijn niet soft. We hebben dat gesprek eindelijk goed gevoerd.</p>
-
-<p><strong>S01E07 — Meetings, stand-ups &amp; agile drama</strong>
-Geen gast. Catharsis. Iedereen die al eens te veel stand-ups heeft gehad, begrijpt dit.</p>
-
-<p><strong>S01E08 — Java, AI &amp; de menselijke kant</strong>
-Gast: Jan Van Wassenhove, Devoxx-spreker. AI in ons vakgebied en wat het betekent voor de mensen die het werk doen. Deze voelde belangrijk.</p>
-
-<p><strong>S01E09 — New year, new dev</strong>
-Januari-energie. Goede voornemens, slechte gewoontes, fris begin.</p>
-
-<p><strong>S01E10 — Meer dan planning</strong>
-Gast: Barbara Cleeren, Capacity Manager. Buiten de strikt technische zone en naar de menselijke kant van hoe teams echt functioneren.</p>
-
-<p><strong>S01E11 — Passie na de werkuren: Sigriet</strong>
-Gast: Sigriet Van Breusegem. Mijn vriendin Sigriet. Over wat developers doen als ze niet aan het developen zijn. Deze aflevering betekende veel voor me, om redenen die verder gaan dan de podcast.</p>
-
-<p><strong>S01E12 — Seizoensfinale</strong>
-Einde van het seizoen. Afronding. De aflevering waarbij we terugkeken op wat we gemaakt hadden, nog voor het magazine bestond om het in vast te houden.</p>
-
-<p>Acht gasten verspreid over twaalf afleveringen. Onderwerpen van clean code tot capacity planning tot wat mensen in hun vrije tijd doen. Een range waar ik trots op ben.</p>
-
-<h2 id="jcast-in-het-wild-het-fysieke-spul">JCast in het wild: het fysieke spul</h2>
-
-<p>Hier is het deel dat mensen die mij niet kennen misschien niet verwachten: ik hecht veel belang aan de fysieke versie van dingen.</p>
-
-<p>De podcast bestaat als audio. Dat is het product. Maar rond dat product is er een hele wereld die ik gebouwd heb in Canva, met absoluut nul ontwerpervaring, en daar ga ik me niet voor verontschuldigen.</p>
-
-<p><strong>De merch.</strong> JCast-stickers. Een JCast-T-shirt. Een banner die we effectief naar events mee hebben genomen. Allemaal afgevinkt op de bucketlist tegen het einde van seizoen één. Ik maakte alles in Canva, wat logisch voelt omdat Canva ook is hoe ik het magazine maakte, de aflevering-covers, en eigenlijk alles wat JCast ooit visueel heeft gehad. Je leert door te doen. Soms is wat je maakt goed. Soms niet. De stickers waren goed.</p>
-
-<p><strong>De website.</strong> jcast.dev. Deze verdient een eigen paragraaf. Maarten en ik bouwden hem zonder CMS, zonder plugins, zonder themes, niets kant-en-klaar. Hugo, pure CSS, gehost op AWS via Terraform. De logica was simpel: als je een podcast maakt over clean code, kun je moeilijk zelf een rommelige codebase hebben. Viktor deed de montage terwijl wij de site bouwden, en ergens later kwam de blog er ook bij. Niet meteen: eerst moesten er verhalen zijn om te vertellen. Dan schreven we erover.</p>
-
-<p>Super trots op het resultaat.</p>
-
-<p><strong>De Instagram.</strong> @jcast_crew. De sociale aanwezigheid. De plek waar we clips en updates zetten en probeerden consistent te posten, wat moeilijk is als je ook gewoon je werk moet doen.</p>
-
-<p>Dit alles: de merch, de site, de socials, de fysieke banners die we naar echte plekken droegen. Dat is wat ik in het hoofdstuk “JCast in het wild” stopte. Omdat JCast niet alleen bestond in een DAW en op Spotify. Het bestond in de wereld.</p>
-
-<h2 id="terugblikken-en-vooruitkijken-de-cijfers-en-wat-ze-betekenen">Terugblikken en vooruitkijken: de cijfers en wat ze betekenen</h2>
-
-<p>Cijfers van 28/03/2026. Zo ver stonden we op de dag dat ik de print bestelde.</p>
-
-<p><strong>12</strong> gepubliceerde afleveringen. <strong>925</strong> downloads. <strong>8</strong> gasten. <strong>796</strong> plays alltime. <strong>158</strong> uur luistertijd. <strong>+57</strong> volgers.</p>
-
-<p>Die cijfers zijn echt, en ze zijn niet niks. Maar ze zijn ook niet waarover het magazine eigenlijk gaat.</p>
-
-<p>Het magazine bevat deze paragraaf in het statsgedeelte, en ik denk dat het het eerlijkste is dat ik in het hele ding geschreven heb:</p>
-
-<p><em>“Een jaar geleden was JCast een idee bij het koffieapparaat. Vandaag is het een podcast met een website, een Instagram, een t-shirt, een banner en 12 afleveringen die er écht staan. Niet alles ging vlekkeloos. De eerste opname moest opnieuw. De audio was in het begin niet ideaal. Er waren euhs, blunders en microfoons die van tafel vielen. Maar dat is precies wat JCast is: echt, ongepolijst en eerlijk over het vak.”</em></p>
-
-<p>Ik wil dat niet gladstrijken. De onvolmaaktheid is het punt.</p>
-
-<h2 id="de-bucketlist">De bucketlist</h2>
-
-<p>Het magazine heeft ook een JCast-bucketlist. Ik hou van die pagina. Handgeschreven font, checkboxes, helemaal in de geest van “ooit. misschien. waarschijnlijk wel.”</p>
-
-<p>Al afgevinkt: JCast stickers ✓, JCast T-shirt ✓, Banner ✓, 500 downloads ✓.</p>
-
-<p>Nog te doen: nog meer merch, posters, een internationale gast hosten, naar een podcast event gaan, een podcast award krijgen, op tv komen voor de podcast, 1 miljoen downloads, het nog steeds superleuk vinden.</p>
-
-<p>Die laatste is mijn favoriet. <em>Het nog steeds superleuk vinden.</em> Dat is geen leuk extraatje. Dat is het hele punt. Als dat vakje ooit niet meer aangevinkt kan worden, doet de rest van de lijst er niet meer toe.</p>
-
-<h2 id="seizoen-2-wat-er-komt">Seizoen 2: wat er komt</h2>
-
-<p><em>“Maar we zijn nog niet klaar. Seizoen 2 staat voor de deur en als seizoen 1 bewees dat we het konden, dan belooft seizoen 2 te bewijzen dat we het beter kunnen.”</em></p>
-
-<p>Het thema: <em>“Mens, software en systemen in een steeds slimmer wordende wereld.”</em> Breder dan seizoen 1. Meer gasten, scherpere gesprekken, onderwerpen die verder gaan dan Java alleen. AI als collega. Accessibility. Security. De menselijke kant van het vak.</p>
-
-<p>Vanaf mei 2026.</p>
-
-<p>En we hebben drie specials gepland: afleveringen met gasten die al een tijdje op onze lijst stonden. Mensen met een verhaal dat verder gaat dan één aflevering aankan.</p>
-
-<p><strong>Tom Cools</strong> over Developer Relations &amp; community impact.
-<strong>Kevin Dubois</strong> over cloud native, AI en de toekomst van Java.
-<strong>Nick Boucart</strong>, onderwerp nog te bepalen. Wat eerlijk gezegd de spannendste is.</p>
-
-<p><em>Aflevering 1 is al een banger.</em> We hebben een foto als bewijs.</p>
-
-<h2 id="aan-maarten-en-viktor">Aan Maarten en Viktor</h2>
-
-<p>De laatste inhoudspagina van het magazine, voor de lege Notities-pagina’s waar je je eigen gedachten in kwijt kan, is een brief. Ik schreef hem rechtstreeks aan Maarten en Viktor. Ik ga er een groot deel van citeren, want het zegt beter wat dit allemaal betekent dan alles wat ik verder geschreven heb:</p>
-
-<p><em>“Deze magazine is voor jullie. Niet omdat het moest, maar omdat ik wou dat jullie weten hoeveel dit voor mij betekent. Mijn manier om dank u te zeggen voor een gek idee dat ergens toch heel serieus geworden is. Iets wat ik graag doe, heel graag zelfs. En waar ik nu met zekerheid kan zeggen: ik zou het met niemand anders willen doen.</em></p>
-
-<p><em>Ik hoop dat ik alles heb kunnen omvatten. Alles wat we gemaakt hebben, alles wat we geleerd hebben, alles wat we samen zijn. En ik hoop vooral dat jullie dit dichtslaan met een glimlach.”</em></p>
-
-<p>De welkomsttekst schreef ik als laatste. Die zei:</p>
-
-<p><em>“Als je dit leest, houd je iets vast wat een jaar geleden nog een idee was. Een groepschat, een gedeelde nieuwsgierigheid en de vraag: zouden we eigenlijk een podcast moeten maken?”</em></p>
-
-<p>We deden het.</p>
-
-<p>Toen besefte ik dat ik niet gewoon een magazine aan het maken was. Ik was bewijs aan het maken. Bewijs dat we er waren. Dat we op record drukten, ook al was het script niet afgewerkt en vlotten de zinnen niet en waren er genoeg “euh”s om een heel seizoen mee te vullen. Bewijs dat JCast ergens tussen de geknipte fragmenten en het gelach en de echte gesprekken, over Java, over tools, over wat het eigenlijk betekent om developer te zijn, iets groters werd dan de som van drie microfoons.</p>
-
-<p>Mensen vragen soms waarom ik dit soort dingen doe. De merch. De podcast. Nu een magazine. Drie exemplaren. Voor drie mensen.</p>
-
-<p>Ik doe het omdat ik bang ben dat de dingen die er het meest toe doen onzichtbaar worden. De afleveringen verouderen. De Spotify-cijfers stoppen met bewegen. Maar dit magazine ligt op een bureau. Het is fysiek. Het is gebeurd.</p>
-
-<p><em>“Dit magazine is geen eindpunt. Het is een snapshot.”</em></p>
-
-<p>Seizoen 2 is al bezig. Nieuwe afleveringen, nieuwe gasten, nieuwe chaos. En op het einde maak ik waarschijnlijk nog een magazine. Want blijkbaar heb ik het nodig.</p>
-
-<p>Ik ben trots op ons 🎙️</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-magazine.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-magazine.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Waarom ik JCast begon</title><link href="http://localhost:4000/nl/2026/02/28/jcast/" rel="alternate" type="text/html" title="Waarom ik JCast begon" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/28/jcast/"><![CDATA[<blockquote>
+<p>Season 2 is already happening. New episodes, new guests, new chaos. And at the end of it, I’ll probably make another magazine. Because apparently I need it.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="personal" /><category term="community" /><category term="creativity" /><summary type="html"><![CDATA[“I don’t need it. I don’t need it. I definitely don’t need it. I NEED IT.” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/jcast-magazine.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/jcast-magazine.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Waarom ik JCast begon</title><link href="https://oumaimazerouali.github.io/nl/2026/02/28/jcast/" rel="alternate" type="text/html" title="Waarom ik JCast begon" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>https://oumaimazerouali.github.io/nl/2026/02/28/jcast</id><content type="html" xml:base="https://oumaimazerouali.github.io/nl/2026/02/28/jcast/"><![CDATA[<blockquote>
   <p>“I’m ready! I’m ready!” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -789,7 +1298,7 @@ Fantastische mensen, net zo committed als ik, en samen hebben we iets gebouwd wa
 <p>En we zijn nog lang niet klaar. Seizoen 2, here we come! ️</p>
 
 <hr />
-<p><em>Luister naar JCast op <a href="https://jcast.dev">jcast.dev</a> of waar je ook podcasts luistert.</em></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="java" /><category term="software craftsmanship" /><category term="creativiteit" /><category term="persoonlijke groei" /><summary type="html"><![CDATA[“I’m ready! I’m ready!” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Why I Started JCast</title><link href="http://localhost:4000/2026/02/28/jcast/" rel="alternate" type="text/html" title="Why I Started JCast" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>http://localhost:4000/2026/02/28/jcast</id><content type="html" xml:base="http://localhost:4000/2026/02/28/jcast/"><![CDATA[<blockquote>
+<p><em>Luister naar JCast op <a href="https://jcast.dev">jcast.dev</a> of waar je ook podcasts luistert.</em></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="java" /><category term="software craftsmanship" /><category term="creativiteit" /><category term="persoonlijke groei" /><summary type="html"><![CDATA[“I’m ready! I’m ready!” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/jcast-cover.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">Why I Started JCast</title><link href="https://oumaimazerouali.github.io/2026/02/28/jcast/" rel="alternate" type="text/html" title="Why I Started JCast" /><published>2026-02-28T10:00:00+01:00</published><updated>2026-02-28T10:00:00+01:00</updated><id>https://oumaimazerouali.github.io/2026/02/28/jcast</id><content type="html" xml:base="https://oumaimazerouali.github.io/2026/02/28/jcast/"><![CDATA[<blockquote>
   <p>“I’m ready! I’m ready!” — SpongeBob SquarePants</p>
 </blockquote>
 
@@ -879,7 +1388,7 @@ Fantastic people, just as committed as I am, and together we built something I�
 
 <hr />
 
-<p><em>Listen to JCast at <a href="https://jcast.dev">jcast.dev</a> or wherever you get your podcasts.</em></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="java" /><category term="software craftsmanship" /><category term="creativity" /><category term="personal growth" /><summary type="html"><![CDATA[“I’m ready! I’m ready!” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/jcast-cover.png" /><media:content medium="image" url="http://localhost:4000/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Het is echt zo makkelijk: AI-chatbots bouwen met Java</title><link href="http://localhost:4000/nl/2026/02/25/its-really-that-easy/" rel="alternate" type="text/html" title="Het is echt zo makkelijk: AI-chatbots bouwen met Java" /><published>2026-02-25T14:00:00+01:00</published><updated>2026-02-25T14:00:00+01:00</updated><id>http://localhost:4000/nl/2026/02/25/its-really-that-easy</id><content type="html" xml:base="http://localhost:4000/nl/2026/02/25/its-really-that-easy/"><![CDATA[<blockquote>
+<p><em>Listen to JCast at <a href="https://jcast.dev">jcast.dev</a> or wherever you get your podcasts.</em></p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="jcast" /><category term="podcast" /><category term="java" /><category term="software craftsmanship" /><category term="creativity" /><category term="personal growth" /><summary type="html"><![CDATA[“I’m ready! I’m ready!” — SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/jcast-cover.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/jcast-cover.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">Het is echt zo makkelijk: AI-chatbots bouwen met Java</title><link href="https://oumaimazerouali.github.io/nl/2026/02/25/its-really-that-easy/" rel="alternate" type="text/html" title="Het is echt zo makkelijk: AI-chatbots bouwen met Java" /><published>2026-02-25T14:00:00+01:00</published><updated>2026-02-25T14:00:00+01:00</updated><id>https://oumaimazerouali.github.io/nl/2026/02/25/its-really-that-easy</id><content type="html" xml:base="https://oumaimazerouali.github.io/nl/2026/02/25/its-really-that-easy/"><![CDATA[<blockquote>
   <p>“I’m ready to try something new!” – SpongeBob SquarePants</p>
 </blockquote>
 
@@ -1199,7 +1708,7 @@ Je architectuurpatronen gelden nog steeds.</p>
 
 <p>Dus ja.</p>
 
-<p>Het is echt zo makkelijk.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="ai" /><category term="chatbot" /><category term="spring-ai" /><summary type="html"><![CDATA[“I’m ready to try something new!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/its-really-that-easy.png" /><media:content medium="image" url="http://localhost:4000/assets/img/its-really-that-easy.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">It’s really that easy: Building AI Chatbots with Java</title><link href="http://localhost:4000/2026/02/25/its-really-that-easy/" rel="alternate" type="text/html" title="It’s really that easy: Building AI Chatbots with Java" /><published>2026-02-25T14:00:00+01:00</published><updated>2026-02-25T14:00:00+01:00</updated><id>http://localhost:4000/2026/02/25/its-really-that-easy</id><content type="html" xml:base="http://localhost:4000/2026/02/25/its-really-that-easy/"><![CDATA[<blockquote>
+<p>Het is echt zo makkelijk.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="ai" /><category term="chatbot" /><category term="spring-ai" /><summary type="html"><![CDATA[“I’m ready to try something new!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/its-really-that-easy.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/its-really-that-easy.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="en"><title type="html">It’s really that easy: Building AI Chatbots with Java</title><link href="https://oumaimazerouali.github.io/2026/02/25/its-really-that-easy/" rel="alternate" type="text/html" title="It’s really that easy: Building AI Chatbots with Java" /><published>2026-02-25T14:00:00+01:00</published><updated>2026-02-25T14:00:00+01:00</updated><id>https://oumaimazerouali.github.io/2026/02/25/its-really-that-easy</id><content type="html" xml:base="https://oumaimazerouali.github.io/2026/02/25/its-really-that-easy/"><![CDATA[<blockquote>
   <p>“I’m ready to try something new!” – SpongeBob SquarePants</p>
 </blockquote>
 
@@ -1520,203 +2029,4 @@ Your architecture patterns still apply.</p>
 
 <p>So yes.</p>
 
-<p>It really is that easy.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="ai" /><category term="chatbot" /><category term="spring-ai" /><summary type="html"><![CDATA[“I’m ready to try something new!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/its-really-that-easy.png" /><media:content medium="image" url="http://localhost:4000/assets/img/its-really-that-easy.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry xml:lang="nl"><title type="html">De training die ik niet begreep (tot ik het wel deed)</title><link href="http://localhost:4000/nl/2026/01/26/craftsmanship/" rel="alternate" type="text/html" title="De training die ik niet begreep (tot ik het wel deed)" /><published>2026-01-26T14:00:00+01:00</published><updated>2026-01-26T14:00:00+01:00</updated><id>http://localhost:4000/nl/2026/01/26/craftsmanship</id><content type="html" xml:base="http://localhost:4000/nl/2026/01/26/craftsmanship/"><![CDATA[<p>Drie jaar geleden, in mijn allereerste weken als developer, zat ik in een lokaal te luisteren naar Maarten en Bjorn die spraken over software craftsmanship.</p>
-
-<p>Clean Code. SOLID. TDD. Feedback loops. Katas. Ethiek. Professionaliteit.</p>
-
-<p>Het klonk indrukwekkend.<br />
-Het klonk ook als… ruis.</p>
-
-<p>Ik kwam net van school. Ik had amper tests geschreven. Ik was al trots als mijn code gewoon compileerde. En daar zat iemand uit te leggen dat softwareontwikkeling een <em>ethisch beroep</em> is en dat naming één van de moeilijkste problemen in computerwetenschap is.</p>
-
-<p>Ik weet nog dat ik die training verliet met de gedachte:</p>
-
-<blockquote>
-  <p>“Dit is interessant… maar ik heb eerlijk gezegd geen idee wat hier net gebeurd is.”</p>
-</blockquote>
-
-<p>Veel ging volledig over mijn hoofd.</p>
-
-<p>En als ik helemaal eerlijk ben: een deel van die training ging niet alleen over mijn hoofd heen, het overweldigde me compleet.</p>
-
-<p>We deden strikte mob programming.</p>
-
-<p>Voor het eerst in mijn leven moest ik programmeren voor een groep ervaren developers, met alle aandacht op mij gericht. Mijn handen trilden, mijn hoofd blokkeerde, en ik was niet langer bezig met design of clean code.</p>
-
-<p>Ik dacht:</p>
-
-<p><em>Wat als ze zien dat ik niet goed genoeg ben?</em><br />
-<em>Wat als ze me ontslaan?</em><br />
-<em>Wat als ik een fout maak en iedereen me beoordeelt?</em></p>
-
-<p>Op dat moment was ik geen craftsmanship aan het leren.</p>
-
-<p>Ik probeerde gewoon niet in paniek te raken.</p>
-
-<p>Ik was zo gefocust op mezelf niet belachelijk te maken dat ik de echte lessen niet kon opnemen. De concepten vlogen voorbij terwijl ik mijn eigen angst probeerde te managen. Achteraf besef ik hoe herkenbaar dit is voor junior developers. Die angst om “ontmaskerd” te worden kan leren volledig blokkeren.</p>
-
-<h2 id="drie-jaar-later">Drie jaar later</h2>
-
-<p>Vorige week volgde ik (bijna) dezelfde training opnieuw. Dezelfde trainer. Dezelfde thema’s. Op sommige plaatsen zelfs dezelfde slides.</p>
-
-<p>Maar deze keer gebeurde er iets totaal anders.</p>
-
-<p>In plaats van verwarring dacht ik voortdurend:</p>
-
-<blockquote>
-  <p>“Ah… dus dát bedoelden ze toen.”</p>
-</blockquote>
-
-<p>En opnieuw:</p>
-
-<blockquote>
-  <p>“Wacht, dit verklaart de helft van de problemen waar ik in mijn projecten tegenaan liep.”</p>
-</blockquote>
-
-<p>De training was nauwelijks veranderd. Ik wel.</p>
-
-<p>Mob of pair programming schrikt me niet meer af, integendeel, ik zie het nu als gewoon een extra samenwerkingstool. Ik durf mijn ideeën te delen, zelfs als ze fout kunnen zijn. En ik ben niet meer bang om fout te zijn, omdat ik geleerd heb dat we allemaal constant aan het leren zijn, zelfs de senior developers waar ik drie jaar geleden zo tegenop keek.</p>
-
-<p>Die angst van mijn eerste training? Weg.</p>
-
-<p>Wat ervoor in de plaats kwam, was nieuwsgierigheid. In plaats van bezig te zijn met oordeel, was ik oprecht geïnteresseerd in de problemen die we oplosten. Ik stelde vragen. Ik daagde ideeën uit. Ik droeg bij. Voor mij was het verschil dag en nacht.</p>
-
-<h2 id="concrete-lessen-uit-de-craftsmanship-training">Concrete lessen uit de Craftsmanship training</h2>
-
-<p>Maartens training herinnerde me eraan hoeveel er te oefenen valt, zelfs in eenvoudige oefeningen. Deze katas zijn geen gewone codepuzzels, het zijn veilige omgevingen om principes uit te proberen die je niet voor het eerst in productiecode wilt testen.</p>
-
-<h3 id="de-bowling-kata-wanneer-verwarring-leidt-tot-leren">De Bowling Kata: Wanneer verwarring leidt tot leren</h3>
-
-<p>Neem bijvoorbeeld de Bowling Kata. Ik had moeite met het implementeren van een spare. Het klonk verwarrend. Wat <em>is</em> een spare eigenlijk? Hoe werkt de puntentelling precies?</p>
-
-<p>Maar ik schreef wel mijn eerste test… dan mijn tweede. Ik zocht de regels op, probeerde een online bowlingsimulator, experimenteerde met verschillende aanpakken.</p>
-
-<p>Wat ik leerde: zelfs wanneer we iets niet volledig begrijpen, is het cruciaal om eerst na te denken voor we implementeren. Om het probleemdomein echt te begrijpen voordat we naar een oplossing springen.</p>
-
-<p>In het echte leven haasten we ons vaak om te implementeren zonder het probleem volledig te doorgronden. Er komt een ticket binnen, we lezen snel de requirements, en we beginnen te coderen. Deze kata herinnerde me eraan waarom dat gevaarlijk is. De tijd die je investeert in het begrijpen van het probleem bespaart uiteindelijk veel meer tijd dan hij kost.</p>
-
-<h3 id="andere-belangrijke-inzichten">Andere belangrijke inzichten</h3>
-
-<ul>
-  <li>
-    <p><strong>Grenzen testen:</strong> We besteedden veel aandacht aan edge cases. Het is niet genoeg om enkel het happy path te testen. Wat gebeurt er bij nul? Wat gebeurt er bij de maximale waarde? Wat gebeurt er bij onverwachte input? Denk altijd aan de grenzen, niet alleen aan het midden.</p>
-  </li>
-  <li>
-    <p><strong>SOLID-opfrissing:</strong> Ik dacht dat ik SOLID kende. Maar deze principes concreet toegepast zien worden in echte code tijdens de katas, deed ze opnieuw landen. Het is één ding om te weten dat de “S” staat voor Single Responsibility. Het is iets anders om een klasse te zien die het principe schendt en de pijn te voelen wanneer je ze probeert te testen.</p>
-  </li>
-  <li>
-    <p><strong>Pull Requests vs. Boy Scout Rule:</strong> Deze discussie was bijzonder interessant. Maarten zegt dat PR’s/MR’s altijd één ding moeten doen: één feature, één bugfix, één duidelijke wijziging. Maar de Boy Scout Rule zegt: laat de code properder achter dan je ze vond. Wat doe je dan wanneer je tijdens een feature-implementatie code tegenkomt die dringend refactoring nodig heeft? Doe je dat in dezelfde PR, of maak je een aparte?</p>
-  </li>
-</ul>
-
-<p>Er is geen perfect antwoord. Context is alles. Soms is de refactoring essentieel voor je wijziging. Soms is het een afleiding. Maar de discussie op zich is waardevol: ze dwingt je na te denken over trade-offs, over de belasting van code reviews, over git-historiek, over hoe veranderingen gecommuniceerd worden binnen je team.</p>
-
-<h2 id="waarom-het-de-eerste-keer-niet-werkte">Waarom het de eerste keer niet werkte</h2>
-
-<p>Als junior developer heb je simpelweg nog niet de mentale kapstokken.</p>
-
-<p>Je hebt nog niet:</p>
-
-<ul>
-  <li>Een 10 jaar oude codebase gerefactord waar elke wijziging voelt als een bom ontmantelen.</li>
-  <li>Gevochten met flaky tests die lokaal slagen maar falen in CI en uren van je tijd verspillen.</li>
-  <li>Gevreesd om één lijn code aan te passen omdat je diep vanbinnen weet dat <em>alles kan breken</em>.</li>
-  <li>Gezien hoe één slechte designbeslissing, misschien zelfs door jezelf genomen, een volledig systeem langzaam vergiftigt over maanden of jaren.</li>
-</ul>
-
-<p>Dus wanneer iemand zegt:</p>
-
-<ul>
-  <li>“Test gedrag, niet implementatie.”</li>
-  <li>“Goede naming is belangrijker dan slimme code.”</li>
-  <li>“Exceptions maken deel uit van je domein.”</li>
-  <li>“Craftsmanship draait om verantwoordelijkheid.”</li>
-</ul>
-
-<p>…dan heeft je brein nergens om die ideeën aan vast te hangen.</p>
-
-<p>Ze blijven abstract. De woorden klinken wijs, misschien zelfs inspirerend, maar ze blijven niet hangen. Je knikt, je neemt misschien wat notities, maar er is geen echte begrip. Hoe zou dat ook kunnen? Je hebt de pijn nog niet gevoeld die deze principes proberen te voorkomen.</p>
-
-<p>Op dat moment geef je vooral om:</p>
-
-<ul>
-  <li>Het werkend krijgen gewoon die groene checkmark halen</li>
-  <li>Je ticket afronden zodat je verder kan</li>
-  <li>De build niet breken en een bericht krijgen van het team</li>
-  <li>Bewijzen dat je iets kan opleveren, wat dan ook</li>
-</ul>
-
-<p>En dat is perfect normaal. Je moet leren stappen voor je kan lopen. Je moet fouten maken voor je eruit kan leren.</p>
-
-<h2 id="waarom-het-nu-plots-wel-logisch-was">Waarom het nu plots wel logisch was</h2>
-
-<p>Drie jaar later heb ik littekens.</p>
-
-<p>Ik heb gezien:</p>
-
-<ul>
-  <li>Tests die het verkeerde testten zoveel gemockt dat de test slaagde terwijl de feature kapot was.</li>
-  <li>Code waar niemand aan durfde te komen omdat de originele developer weg was en er geen tests of documentatie waren, enkel cryptische variabelen en mysterieuze businesslogica.</li>
-  <li>Klassen met vijf verantwoordelijkheden die onmogelijk geïsoleerd te testen waren en pijnlijk om aan te passen.</li>
-  <li>Methodes die comments nodig hadden omdat de namen betekenisloos waren: <code class="language-plaintext highlighter-rouge">processData()</code>, <code class="language-plaintext highlighter-rouge">handleStuff()</code>, <code class="language-plaintext highlighter-rouge">doTheThing()</code> zonder enige indicatie van wat ze echt deden.</li>
-  <li>“Snelle fixes” die tijdelijk moesten zijn maar jaren in productie bleven omdat niemand de refactoring wou aanpakken.</li>
-</ul>
-
-<p>Dus wanneer Maarten nu spreekt over:</p>
-
-<ul>
-  <li><strong>Feedback loops:</strong> Snel bevestiging krijgen dat je code werkt via tests, kleine iteraties, snelle deployments.</li>
-  <li><strong>Grenzen rond infrastructuur:</strong> Je businesslogica scheiden van databases, API’s en frameworks zodat je kan testen zonder de hele wereld op te starten.</li>
-  <li><strong>Single Responsibility:</strong> Elke klasse, elke methode doet één ding goed zodat je bij verandering precies weet waar je moet zijn.</li>
-  <li><strong>Craftsmanship als mindset, niet als checklist:</strong> Dit gaat niet over blind regels volgen. Het gaat over zorg dragen. Trots zijn op je werk. Dingen beter achterlaten dan je ze vond.</li>
-</ul>
-
-<p>…dan hoor ik geen theorie meer.</p>
-
-<p>Ik hoor verklaringen voor mijn eigen fouten uit het verleden. Oplossingen voor problemen waar ik persoonlijk mee geworsteld heb. Oorlogsverhalen die resoneren omdat ik gelijkaardige veldslagen heb meegemaakt.</p>
-
-<p>Dat moment waarop een concept plots aansluit bij je eigen ervaring is magisch.</p>
-
-<p>Dan begint echt leren. Niet wanneer je een definitie kan opdreunen, maar wanneer je <em>voelt</em> waarom het ertoe doet.</p>
-
-<h2 id="waarom-ik-dankbaar-ben-dat-ik-deze-training-twee-keer-kreeg">Waarom ik dankbaar ben dat ik deze training twee keer kreeg</h2>
-
-<p>Achteraf ben ik eigenlijk heel dankbaar dat ik deze training twee keer heb gevolgd.</p>
-
-<p>Ook al begreep ik de eerste keer niet veel, de ideeën bleven ergens op de achtergrond aanwezig. Als zaadjes in de grond, wachtend op de juiste omstandigheden om te groeien.</p>
-
-<p>Ze beïnvloedden:</p>
-
-<ul>
-  <li>Hoe ik naar code kijk ik zie code smells sneller</li>
-  <li>Hoe ik testen zie niet als een last, maar als een designtool</li>
-  <li>Hoe serieus ik mijn verantwoordelijkheid als engineer neem de code die ik vandaag schrijf is morgen iemands legacy</li>
-</ul>
-
-<p>Deze tweede keer leerde de training me niet alleen nieuwe dingen.</p>
-
-<p>Ze hielp me mijn eerste jaren als developer herinterpreteren. Plots vielen al die frustrerende ervaringen op hun plaats. Het waren geen willekeurige problemen, maar voorspelbare gevolgen van het negeren van bepaalde principes.</p>
-
-<p>De rommelige codebase? Gebrek aan Single Responsibility en duidelijke grenzen.</p>
-
-<p>De flaky tests? Implementatie testen in plaats van gedrag.</p>
-
-<p>De angst om code aan te passen? Geen safety net van tests en slechte naming waardoor intentie onduidelijk was.</p>
-
-<p>Alles viel samen. En dat is waarschijnlijk de echte waarde van craftsmanship-educatie: niet regels geven om blind te volgen, maar langzaam je manier van denken vormen. Een mentaal model opbouwen dat je helpt betere beslissingen te nemen, zelfs in nieuwe situaties die je nog nooit eerder bent tegengekomen.</p>
-
-<h2 id="wat-nu">Wat nu</h2>
-
-<p>Dit was nog maar deel 1 van de training. Deel 2 komt eraan, en eerlijk? Ik kijk ernaar uit.</p>
-
-<p>Als deel 1 al zoveel inzichten en “aha!”-momenten gaf waarbij ervaringen uit het verleden plots logisch werden, ben ik benieuwd wat deel 2 zal brengen. Welke patronen zal ik nog herkennen? Welke fouten zal ik beter begrijpen?</p>
-
-<p>Het mooie aan deze reis is dat er altijd meer te leren valt. Altijd een nieuwe laag om te ontdekken. Altijd een manier om te verbeteren.</p>
-
-<p>Drie jaar geleden verliet ik die trainingsruimte verward en overweldigd.</p>
-
-<p>Vandaag verlaat ik ze energiek en klaar om dieper te graven.</p>
-
-<h2 id="dankjewel">Dankjewel</h2>
-
-<p>Dankjewel, Maarten, voor de training en om me aan te moedigen ze opnieuw te volgen. Je had gelijk: timing is alles, en soms is de beste les gewoon dezelfde les op het juiste moment.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="craftsmanship" /><category term="training" /><category term="leren" /><category term="developer" /><category term="groei" /><summary type="html"><![CDATA[Drie jaar geleden, in mijn allereerste weken als developer, zat ik in een lokaal te luisteren naar Maarten en Bjorn die spraken over software craftsmanship.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="http://localhost:4000/assets/img/software_craftsmanship.jpg" /><media:content medium="image" url="http://localhost:4000/assets/img/software_craftsmanship.jpg" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
+<p>It really is that easy.</p>]]></content><author><name>Oumaima Zerouali</name><email>oumaima.zerouali@gmail.com</email></author><category term="java" /><category term="ai" /><category term="chatbot" /><category term="spring-ai" /><summary type="html"><![CDATA[“I’m ready to try something new!” – SpongeBob SquarePants]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://oumaimazerouali.github.io/assets/img/its-really-that-easy.png" /><media:content medium="image" url="https://oumaimazerouali.github.io/assets/img/its-really-that-easy.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
