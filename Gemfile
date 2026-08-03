@@ -1,21 +1,16 @@
 source "https://rubygems.org"
-gem "jekyll", "~> 4.3.4"
+gem "jekyll", "~> 4.4"
 gem "minima", "~> 2.5"
 gem "jekyll-sitemap", "~> 1.4.0"
-gem 'jekyll-toc'
 gem "logger"
 gem "csv"
 gem "ostruct"
 gem "base64"
-gem "nokogiri", ">= 1.19.3"
+gem "nokogiri", ">= 1.19.4"
 gem "rexml", ">= 3.4.2"
 
 group :jekyll_plugins do
   gem "jekyll-feed", "~> 0.12"
-end
-
-group :jekyll_plugins do
-  gem 'jekyll-mermaid'
 end
 
 platforms :mingw, :x64_mingw, :mswin, :jruby do

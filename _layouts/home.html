@@ -146,7 +146,7 @@ layout: default
                                 {% if post.image %}
                                 <img src="{{ post.image | relative_url }}" alt="{{ post.image_alt | default: post.title | append: ' - Featured image' }}" loading="lazy" decoding="async">
                                 {% else %}
-                                <img src="https://picsum.photos/seed/{{ post.title | slugify }}/200/200" alt="Placeholder image for {{ post.title }}" loading="lazy" decoding="async">
+                                <img src="{{ '/assets/img/logo.png' | relative_url }}" alt="{{ site.title }}" loading="lazy" decoding="async">
                                 {% endif %}
                             </a>
                         </div>
