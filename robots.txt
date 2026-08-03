@@ -1,4 +1,4 @@
 User-agent: *
-Disallow: /assets/
-Disallow: /admin/
+Disallow:
+
 Sitemap: https://oumaimazerouali.github.io/sitemap.xml

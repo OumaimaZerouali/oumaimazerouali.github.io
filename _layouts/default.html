@@ -9,6 +9,28 @@
 
     <link rel="canonical" href="{{ page.url | absolute_url }}" />
 
+    {% if page.lang %}
+    {% assign other_lang = "nl" %}
+    {% if page.lang == "nl" %}{% assign other_lang = "en" %}{% endif %}
+
+    {% if page.layout == "post" %}
+    {% assign alt_post = site.posts | where: "slug", page.slug | where: "lang", other_lang | first %}
+    {% if alt_post %}
+    <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url | absolute_url }}" />
+    <link rel="alternate" hreflang="{{ other_lang }}" href="{{ alt_post.url | absolute_url }}" />
+    {% endif %}
+    {% else %}
+    {% if page.lang == "nl" %}
+      {% assign alt_url = page.url | remove_first: "/nl" %}
+      {% if alt_url == "" %}{% assign alt_url = "/" %}{% endif %}
+    {% else %}
+      {% assign alt_url = "/nl" | append: page.url %}
+    {% endif %}
+    <link rel="alternate" hreflang="{{ page.lang }}" href="{{ page.url | absolute_url }}" />
+    <link rel="alternate" hreflang="{{ other_lang }}" href="{{ alt_url | absolute_url }}" />
+    {% endif %}
+    {% endif %}
+
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
     <meta property="og:description" content="{{ page.description | default: site.description | truncate: 160 }}" />
     <meta property="og:type" content="{% if page.layout == 'post' %}article{% else %}website{% endif %}" />
