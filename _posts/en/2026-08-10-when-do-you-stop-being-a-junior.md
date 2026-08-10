@@ -36,7 +36,7 @@ I'm currently on my fourth project.
 And there's something I want to admit.
 Every single time, I was nervous before I started.
 
-The kind of nervous where you think:
+Where you think:
 *"This team uses tools I've never seen before. Their stack looks completely different from the last one. Everyone here has years of context that I don't have. What if I can't keep up?"*
 
 Four projects.
