@@ -2,10 +2,10 @@
 layout: post
 title: "Nobody Tells You When You're No Longer a Junior Developer"
 date: 2026-08-10 10:00:00 +0100
-image: "/assets/img/not-a-junior.png"
+image: "/assets/img/junior.png"
 tags: [career, growth, reflection, dev-life]
 lang: en
---------
+---
 
 This September, I'll have been doing this for three years.
 And I still don't know exactly when I stopped being a junior developer.

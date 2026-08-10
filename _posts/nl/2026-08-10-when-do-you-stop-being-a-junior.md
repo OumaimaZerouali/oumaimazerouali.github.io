@@ -2,7 +2,7 @@
 layout: post
 title: "Niemand vertelt je wanneer je geen junior meer bent"
 date: 2026-08-10 10:00:00 +0100
-image: "/assets/img/not-a-junior.png"
+image: "/assets/img/junior.png"
 tags: [career, growth, reflection, dev-life]
 lang: nl
 ---
